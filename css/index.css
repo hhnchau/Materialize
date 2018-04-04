@@ -1,0 +1,46 @@
+.pinned {
+  /* Make menu not overlapped and 100% when pinned */
+  width: 100%;
+  z-index: 1
+}
+#sidenav-overlay{
+  /* fix mobile menu open overlapped issue */
+  z-index: 1; 
+  left: 300px;
+}
+
+blockquote {
+  /* over quote color */
+  border-left: 5px solid #ff5722  !important; 
+}
+
+@media only screen and (max-width: 993px) {
+  #banner{
+    height: auto !important;
+  }
+  .carousel .carousel-slider{
+    height: auto !important;
+  }
+  .carousel-item{
+    height: auto !important;
+  }
+  .carousel-image{
+    height: auto !important;
+  }
+}
+
+/* @media only screen and (max-width: 600px) {
+  #menu{
+    /* wrapper div of navbar, fix the pushpin pixel skip bug */
+    height: 54px;
+  }
+}
+
+@media only screen and (min-width: 601px) {
+  #menu{
+    /* wrapper div of navbar, fix the pushpin pixel skip bug */
+    height: 64px;
+  }
+} */
+
+
