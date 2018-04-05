@@ -1,0 +1,9 @@
+--Right click main folder
+--npm init
+-npm install express ejs bode-parser pg
+	-->express
+	-->ejs: ui
+	-->body-parser: input
+	-->pg: database
+	-->multer: upload
+--node index.js
