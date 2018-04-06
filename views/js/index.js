@@ -29,6 +29,7 @@ function initSlider() {
     //     animateOut: 'fadeOut'
     // });
     $('.carousel.carousel-slider').carousel({ fullWidth: true });
+    startAutoplay(3000);
 }
 
 function initFixedMenu() {
@@ -46,15 +47,15 @@ function initHotelClickListener() {
     $('.modal').modal();
 }
 
-var autoplay_id;
+
 function startAutoplay($carousel) {
     autoplay_id = setInterval(function () {
-        $carousel.carousel('next');
+        $('.carousel').carousel('next');
     }, 3000); // every x seconds
     //console.log("starting autoplay");
 }
 
-function stopAutoplay() {
+function stopAutoplay(autoplay_id) {
     if (autoplay_id) {
         clearInterval(autoplay_id);
         //console.log("stoping autoplay");
