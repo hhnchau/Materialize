@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var path = require('path');
+var file = require('./file');
 
 app.listen(3000, function () {
   console.log("Connect successfull!");
@@ -14,15 +14,19 @@ app.get("/index", function (req, res) {
 });
 
 
-app.get('/image', function (req, res) {
-  res.sendFile(path.resolve("../views/images/hotel/aloc.jpg"));
+// app.get('/image', function (req, res) {
+//   res.sendFile(path.resolve("../views/images/hotel/aloc.jpg"));
+// });
+
+
+// app.get('/css', function (req, res) {
+//   res.sendFile(path.resolve("../views/css/materialize.css"));
+// });
+
+app.get('/getResource:id', function(req , res){
+  file.sendResource(req, res);
 });
 
-
-app.get('/css', function (req, res) {
-  res.sendFile(path.resolve("../views/css/materialize.css"));
-});
-
-app.get('/article:id', function(req , res){
-  console.log('article' + req.params.id); 
+app.get('/getImage:id', function(req , res){
+  file.sendImage(req, res);
 });
