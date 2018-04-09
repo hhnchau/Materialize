@@ -10,9 +10,20 @@ app.set("view engine", "ejs");
 app.set("views", "../views/html");
 
 app.get("/index", function (req, res) {
-  res.render("index", { url: "http://localhost:3000/" });
+  res.render("index");
 });
 
+app.get("/login", function (req, res) {
+  res.render("login");
+});
+
+app.get("/admin-dashboard", function (req, res) {
+  res.render("admin-dashboard");
+});
+
+app.get("/user-dashboard", function (req, res) {
+  res.render("user-dashboard");
+});
 
 // app.get('/image', function (req, res) {
 //   res.sendFile(path.resolve("../views/images/hotel/aloc.jpg"));

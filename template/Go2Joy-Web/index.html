@@ -1,0 +1,1334 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-55111077-7', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="tPVLbob7FsPQEquqjybZhBrM5GsbD37EkIy76rzjQlY" />
+    <title>Go2Joy - Ứng dụng đặt phòng khách sạn theo giờ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Go2Joy là ứng dụng điện thoại giúp người dùng đặt phòng khách sạn nghỉ theo giờ, qua đêm, ngắn ngày một cách nhanh chóng, thuận tiện, riêng tư. Không cần phải mất nhiều thời gian tìm kiếm nữa, với Go2Joy, chỉ cần vài cú chạm trong vài giây, bạn đã có thể chọn cho mình một địa điểm trải nghiệm dịch vụ ưng ý. Hãy để công nghệ hiện đại phục vụ cho cuộc sống của bạn dễ dàng và thoải mái hơn!"
+    />
+    <meta name="keywords" content="" />
+    <meta name="author" content="Go2Joy" />
+
+
+    <!-- Facebook and Twitter integration -->
+    <meta property="og:title" content="Go2Joy - Ứng dụng đặt phòng khách sạn theo giờ" />
+    <meta property="og:image" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:site_name" content="Go2Joy" />
+    <meta property="og:description" content="" />
+    <meta name="twitter:title" content="Go2Joy là ứng dụng điện thoại giúp người dùng đặt phòng khách sạn nghỉ theo giờ, qua đêm, ngắn ngày một cách nhanh chóng, thuận tiện, riêng tư. Không cần phải mất nhiều thời gian tìm kiếm nữa, với Go2Joy, chỉ cần vài cú chạm trong vài giây, bạn đã có thể chọn cho mình một địa điểm trải nghiệm dịch vụ ưng ý. Hãy để công nghệ hiện đại phục vụ cho cuộc sống của bạn dễ dàng và thoải mái hơn!"
+    />
+    <meta name="twitter:image" content="" />
+    <meta name="twitter:url" content="" />
+    <meta name="twitter:card" content="" />
+
+    <!-- HrefLang -->
+    <link rel="alternate" href="http://go2joy.vn/" hreflang="x-default" />
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="shortcut icon" href="favicon.png">
+    <!-- Font -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700&amp;subset=latin-ext,vietnamese" rel="stylesheet"> -->
+
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- Icomoon Icon Fonts-->
+    <link rel="stylesheet" href="css/icomoon.css">
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <!-- Superfish -->
+    <link rel="stylesheet" href="css/superfish.css">
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/style.css?v=1.2">
+
+
+
+    <!-- Modernizr JS -->
+    <script src="js/modernizr-2.6.2.min.js"></script>
+    <!-- FOR IE9 below -->
+    <!--[if lt IE 9]>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1904233049807479');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1904233049807479&ev=PageView&noscript=1"
+        />
+    </noscript>
+    <!-- End Facebook Pixel Code -->
+</head>
+
+<body>
+    <script>
+        fbq('track', 'CompleteRegistration');
+    </script>
+    <!-- <ul class="applist-abs">
+        <li>
+            <a href="https://play.google.com/store/apps/details?id=com.appromobile.hotel&hl=en">
+                <img src="images/GooglePlay-white.png" />
+            </a>
+        </li>
+        <li>
+            <a href="https://itunes.apple.com/us/app/go2joy/id1185445287?ls=1&mt=8">
+                <img src="images/appstore-white.png" />
+            </a>
+        </li>
+    </ul> -->
+
+    <div id="fh5co-wrapper">
+        <div id="fh5co-page">
+            <header>
+                <div class="top-header">
+                    <div class="owl-carousel owl-theme">
+                        <img class="owl-lazy banner" name="banner-cupid" data-src="images/banner-cupid.jpg" alt="">
+
+                        <img class="owl-lazy banner" name="banner-cine" data-src="images/banner-cine.jpg" alt="">
+                        <img class="owl-lazy banner" name="banner-stamp" data-src="images/banner-stamp.jpg" alt="">
+                        <img class="owl-lazy banner" name="banner-flash-sale" data-src="images/banner-flash-sale.png" alt="">
+                        <img class="owl-lazy banner" name="banner-coupon" data-src="images/banner-coupon.jpg" alt="">
+                        <!-- <img class="owl-lazy banner" name="banner-go2joy" data-src="images/banner-3.jpg" alt=""> -->
+                    </div>
+                    <!--
+					<div class="slogan">
+                        Go2Joy<br />Ứng Dụng Đặt Phòng Theo Giờ
+                    </div>
+					-->
+                    <!-- <div class="app-block">
+                        <ul class="list-inline text-center applist">
+                            <li>
+                                <a href="https://play.google.com/store/apps/details?id=com.appromobile.hotel&hl=en">
+                                    <img src="images/GooglePlay-white.png" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://itunes.apple.com/us/app/go2joy/id1185445287?ls=1&mt=8">
+                                    <img src="images/appstore-white.png" />
+                                </a>
+                            </li>
+                        </ul>
+                    </div> -->
+                </div>
+                <div class="nav-header">
+                    <div class="container">
+                        <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark">
+                            <i></i>
+                        </a>
+                        <nav id="fh5co-menu-wrap" role="navigation">
+                            <ul class="sf-menu" id="fh5co-primary-menu">
+                                <li class="active">
+                                    <a href="index.html">
+                                        <img src="images/small-logo.png" /> Trang chủ</a>
+                                </li>
+                                <li>
+                                    <a href="#about" style="text-transform:initial;">GIỚI THIỆU Go2Joy</a>
+                                </li>
+                                <li>
+                                    <a href="#hotel">Khách sạn</a>
+                                </li>
+                                <li>
+                                    <a href="#support">Hỗ trợ</a>
+                                </li>
+                                <li>
+                                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScCtwnRHg0BcfpQ_I2fKWAMY5CDwFytHWhx1oI8YlOA99wu2Q/viewform" target="_blank">Liên hệ</a>
+                                </li>
+                                <li>
+                                    <a href="https://play.google.com/store/apps/details?id=com.appromobile.hotel&hl=en" target="_blank">
+                                        <img class="store-button" src="images/GooglePlay-white.png" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://itunes.apple.com/us/app/go2joy/id1185445287?ls=1&mt=8" target="_blank">
+                                        <img class="store-button" src="images/appstore-white.png" />
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </header>
+
+            <div id="about">
+                <div id="fh5co-services-section" class="fh5co-section-gray">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="heading-section ">
+                                    <h3>GIỚI THIỆU Go2Joy</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row vertical-align">
+                            <div class="col-md-4 col-sm-12 animate-box text-center">
+                                <img src="images/teaser-ad.png" class="aboutimg" />
+                            </div>
+                            <div class="col-md-8 col-sm-12 animate-box">
+                                <p> Go2Joy là ứng dụng điện thoại giúp người dùng đặt phòng khách sạn nghỉ theo giờ, qua đêm,
+                                    ngắn ngày một cách nhanh chóng, thuận tiện, riêng tư. Không cần phải mất nhiều thời gian
+                                    tìm kiếm nữa, với Go2Joy, chỉ cần vài cú chạm trong vài giây, bạn đã có thể chọn cho
+                                    mình một địa điểm trải nghiệm dịch vụ ưng ý. Hãy để công nghệ hiện đại phục vụ cho cuộc
+                                    sống của bạn dễ dàng và thoải mái hơn!</p>
+                                <p class="fbshare">
+                                    <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&width=450&layout=standard&action=like&size=large&show_faces=true&share=true&height=80&appId=1560905190879719"
+                                        width="650" height="80" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
+                                        allowtransparency="true"></iframe>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- END What we do -->
+            <div id="hotel">
+                <div id="fh5co-content-section">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 text-center heading-section animate-box">
+                                <h3>KHÁCH SẠN</h3>
+                                <!--<p>Hotels across Vietnam</p>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item" name="gia-hoa-hotel">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/gia-hoa-hotel.jpg" />
+                                    </span>
+                                    <h4>Gia Hoa Hotel</h4>
+                                    <p>04 Hậu Giang, Phường 04, Quận Tân Bình, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item" name="thu-ha-hotel">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/thu-ha-hotel.jpg" />
+                                    </span>
+                                    <h4>Thu Hà Hotel</h4>
+                                    <p>38 Hậu Giang, Phường 04, Quận Tân Bình, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item" name="tan-binh-hotel">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/tanbinh-hotel.jpg" />
+                                    </span>
+                                    <h4>Tân Bình Hotel</h4>
+                                    <p>36B Cống Lỡ, Phường 15, Quận Tân Bình, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item" name="sach-van-kiep-hotel">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/sach-van-kiep-hotel.png" />
+                                    </span>
+                                    <h4>Sạch Hotel Vạn Kiếp</h4>
+                                    <p>37/29 Vạn Kiếp, Phường 03, Quận Bình Thạnh, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item" name="SECC-Hotel">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/secc-hotel.jpg" />
+                                    </span>
+                                    <h4>SECC Hotel</h4>
+                                    <p>33 Phan Khiêm Ích, Phường Tân Phong, Quận 07, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item" name="HOTEL-A-IN-RIVERSIDE">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/a-in-hotel.jpg" />
+                                    </span>
+                                    <h4>A-IN Hotel</h4>
+                                    <p>28/10 Bùi Viện, Phường Phạm Ngũ Lão, Quận 01, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item" name="HOTEL-A-IN">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/a-in-riverside-hotel.jpg" />
+                                    </span>
+                                    <h4>A-IN RIVERSIDE</h4>
+                                    <p>188-189 Bến Vân Đồn, Phường 05, Quận 04, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item" name="bao-tien-hotel">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/bao-tien-hotel.jpg" />
+                                    </span>
+                                    <h4>Bảo Tiên</h4>
+                                    <p>số 01 đường số 07, KDC Trung Sơn, Bình Hưng, Bình Chánh, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item" name="lavender-hotel">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/lavender-hotel.jpg" />
+                                    </span>
+                                    <h4>Lavender Hotel</h4>
+                                    <p>74 Đường 8A KDC Trung Sơn, Bình Hưng, Bình Chánh, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item" name="cupid-trungson-hotel">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/cupid-trungson-hotel.jpg" />
+                                    </span>
+                                    <h4>Cupid Hotel Trung Sơn</h4>
+                                    <p>59 Đường số 7, KDC Trung Sơn, Bình Hưng, Bình Chánh, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item" name="everest-hotel">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/everest-hotel.jpg" />
+                                    </span>
+                                    <h4>Everest Hotel</h4>
+                                    <p>số 03 Đường số 05, KDC Trung Sơn, Bình Hưng, Bình Chánh, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/sach-hotel.jpg" />
+                                    </span>
+                                    <h4>Sạch Hotel</h4>
+                                    <p>324-326 Phan Xích Long, Phường 07, Quận Phú Nhuận, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/adamas-apartment-hotel.jpg" />
+                                    </span>
+                                    <h4>Adamas Appartment</h4>
+                                    <p>126D Phan Đăng Lưu, Phường 3, Quận Phú Nhuận, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/adamas-luxury.jpg" />
+                                    </span>
+                                    <h4>Adamas Luxury</h4>
+                                    <p>73 Phan Đình Phùng, Phường 17, Quận Phú Nhuận, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/busan-hotel.jpg" />
+                                    </span>
+                                    <h4>Busan</h4>
+                                    <p>142-144 Đường số 07, KDC Trung Sơn, Xã Bình Hưng, Huyện Bình Chánh, Hồ Chí Minh, Việt
+                                        Nam
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/mykhanh-hotel.png" />
+                                    </span>
+                                    <h4>Mỹ Khánh</h4>
+                                    <p>R4-59 Đường Hưng Gia 4, Phường Tân Phong, Quận 07, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/maivila-svh-hotel.jpg" />
+                                    </span>
+                                    <h4>Mai Villa Sư Vạn Hạnh</h4>
+                                    <p>581 Sư Vạn Hạnh, Phường 13, Quận 10, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/maivila-pmh-hotel.jpg" />
+                                    </span>
+                                    <h4>Mai Villa Phú Mỹ Hưng</h4>
+                                    <p>59-61 Lê Văn Thiêm, Phường Tân Phong, Quận 07, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/maivila-svh-hotel.jpg" />
+                                    </span>
+                                    <h4>Mai Villa Airport</h4>
+                                    <p>54/34 Bạch Đằng, Phường 02, Tân Bình, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/thien-thao-hotel.jpg" />
+                                    </span>
+                                    <h4>Thiên Thảo Hotel</h4>
+                                    <p>89 Cao Thắng, Phường 03, Quận 03, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/cupid-hotel.jpg" />
+                                    </span>
+                                    <h4>Cupid Hotel</h4>
+                                    <p>2Bis Nam Quốc Cang, Phường Phạm Ngũ Lão, Quận 01, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/thala-hotel.jpg" />
+                                    </span>
+                                    <h4>Thala Hotel</h4>
+                                    <p>44 Đường Hưng Gia 2, Phường Phú Mỹ, Quận 07, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/lilly-hotel.jpg" />
+                                    </span>
+                                    <h4>Lilly Hotel</h4>
+                                    <p>32 Bàu Cát 01, Phường 14, Quận Tân Bình, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/nhinhi-hotel.jpg" />
+                                    </span>
+                                    <h4>Nhi Nhi Hotel</h4>
+                                    <p>57-59 Đường số 06, Xã Bình Hưng, Huyện Bình Chánh, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/68-hotel.jpg" />
+                                    </span>
+                                    <h4>68 Hotel</h4>
+                                    <p>77-79 Đường số 9, Ấp 04, Huyện Bình Chánh, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/ailen-garden-hotel.png" />
+                                    </span>
+                                    <h4>Ailen Garden Hotel</h4>
+                                    <p>283/3 Phạm Ngũ Lão, Phường Phạm Ngũ Lão, Quận 01, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/madam-cuc-hotel.jpg" />
+                                    </span>
+                                    <h4>Madam Cúc Hotel</h4>
+                                    <p>127 Cống Quỳnh, Phường Nguyễn Cư Trinh, Quận 01, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/hoang-dung-hotel.jpg" />
+                                    </span>
+                                    <h4>Hoàng Dũng Hotel</h4>
+                                    <p>86 Nguyễn Trãi, Phường Phạm Ngũ Lão, Quận 01, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/hon-en-hotel.jpg" />
+                                    </span>
+                                    <h4>Hòn Én Hotel</h4>
+                                    <p>138b Lê Lợi, Phường 04, Quận Gò Vấp, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/nhat-hoang-hotel.jpg" />
+                                    </span>
+                                    <h4>Khách sạn Nhật Hoàng</h4>
+                                    <p>180 Nguyễn Tất Thành, Phường 13, Quận 04, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/royal-hotel.jpg" />
+                                    </span>
+                                    <h4>Royal Hotel</h4>
+                                    <p>980 Âu Cơ, Phường 14, Quận Tân Bình, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/abc-hotel.png" />
+                                    </span>
+                                    <h4>ABC Hotel</h4>
+                                    <p>36 đường số 47, Phường Bình Trưng Tây, Quận 02, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/felix-hotel.jpg" />
+                                    </span>
+                                    <h4>Felix Hotel</h4>
+                                    <p>908 Tạ Quang Bửu, Phường 05, Quận 08, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/victory-hotel.jpg" />
+                                    </span>
+                                    <h4>Victory Hotel</h4>
+                                    <p>03-05 đường số 06, Xã Bình Hưng, Bình Chánh, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/venice.jpg" />
+                                    </span>
+                                    <h4>Khách sạn Venice</h4>
+                                    <p>38 đường số 3, KDC Bình Hưng, Bình Chánh, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/hoanthai.jpg" />
+                                    </span>
+                                    <h4>Hoàn Thái Hotel</h4>
+                                    <p>82 Tôn Thất Tùng, Phường Bến Thành, Quận 01, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/tanha.jpg" />
+                                    </span>
+                                    <h4>Tân Hà Hotel</h4>
+                                    <p>37-39 Diệp Minh Châu, Phường Tân Sơn Nhì, Quận Tân Phú, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/thinhgiaphat.jpg" />
+                                    </span>
+                                    <h4>Thịnh Gia Phát Hotel</h4>
+                                    <p>155 Hoàng Hoa Thám. Phường 13, Quận Tân Bình, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/anphuc.jpg" />
+                                    </span>
+                                    <h4>Ân Phúc Hotel</h4>
+                                    <p>189-191 Đường 26, phường 10, Quận 6, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/bonitahv.jpg" />
+                                    </span>
+                                    <h4>Bonita Hùng Vương</h4>
+                                    <p>88B Đường Hùng Vương, phường 9, Quận 5, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/bonitatht.jpg" />
+                                    </span>
+                                    <h4>Bonita Tô Hiến Thành</h4>
+                                    <p>185 -185A Tô Hiến Thành, Phường 13, Quận 10, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/bonitagrand.jpg" />
+                                    </span>
+                                    <h4>Bonita Grand</h4>
+                                    <p>570 - 572 Trần Hưng Đạo, Phường 2, Quận 5, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/cauvong.jpg" />
+                                    </span>
+                                    <h4>Khách sạn Cầu Vòng</h4>
+                                    <p>41 - 43 Nguyễn Duy Dương, Phường 08, Quận 5, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/kimanh.jpg" />
+                                    </span>
+                                    <h4>Kim Anh Hotel</h4>
+                                    <p>Đường số 7, KDC Trung Sơn, Âp 4B, Xã Bình Hưng, Huyện Bình Chánh, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/trungnam.jpg" />
+                                    </span>
+                                    <h4>Trung Nam Hotel</h4>
+                                    <p>61 Đường Dương Bá Trạc, Phường 1, Quận 8, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/viendong.jpg" />
+                                    </span>
+                                    <h4>Viễn Đông Hotel</h4>
+                                    <p>Hưng Phước 3 Phú Mỹ Hưng, Phường Tân Phong, Quận 7, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/binbin1.jpg" />
+                                    </span>
+                                    <h4>BIN BIN 1</h4>
+                                    <p>Số 2, Đường số 1, KDC ven sông, Phường Tân Phong, Quận 7, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/binbin2.jpg" />
+                                    </span>
+                                    <h4>BIN BIN 2</h4>
+                                    <p>L19, Đường số 14, Khu dân cư Him Lam, Phường Tân Hưng, Quận 7, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/binbin3.jpg" />
+                                    </span>
+                                    <h4>BIN BIN 3</h4>
+                                    <p>Số 58, Đường số 2, Khu phố Hưng Gia 5, Phường Tân Phong, Quận 7, Thành phố Hồ Chí Minh,
+                                        Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/binbin4.jpg" />
+                                    </span>
+                                    <h4>BIN BIN 4</h4>
+                                    <p>Số 20, Đường số 11, Khu dân cư Him Lam, Tân Hưng, Quận 7, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/sakura.jpg" />
+                                    </span>
+                                    <h4>Khách sạn SAKURA</h4>
+                                    <p>Số 16, Đường số 6B, Khu dân cư Trung Sơn, Bình Hưng, Bình Chánh, Hồ Chí Minh, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/daibinhminh.jpg" />
+                                    </span>
+                                    <h4>ĐẠI BÌNH MINH</h4>
+                                    <p>49 Đường Nguyễn Thị Thập, P.Tân Phú, Q.7, TP.HCM</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/haiduong.jpg" />
+                                    </span>
+                                    <h4>HẢI ĐƯỜNG</h4>
+                                    <p>263 Đường Nguyễn Văn Tăng, P.Long Thạnh Mỹ, Q.9, TP.HCM</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/minhchau.jpg" />
+                                    </span>
+                                    <h4>MINH CHÂU</h4>
+                                    <p>119-119C Đường Hòa Hưng, P.12, Q.10, TP.HCM</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/cuongthanh1.jpg" />
+                                    </span>
+                                    <h4>CƯỜNG THANH</h4>
+                                    <p>42/2 Đường Trần Thiện Chánh, P.12, Q.10, TP.HCM</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/cuongthanh2.jpg" />
+                                    </span>
+                                    <h4>CƯỜNG THANH 2</h4>
+                                    <p>107 Lô B13-14 Đường Trần Thiện Chánh, P.12, Q.10, TP.HCM</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/minhchau1.jpg" />
+                                    </span>
+                                    <h4>MINH CHÂU 1</h4>
+                                    <p>8/5 Núi Thành, P.13, Q.Tân Bình, TP.HCM</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/minhchau2.jpg" />
+                                    </span>
+                                    <h4>MINH CHÂU 2</h4>
+                                    <p>14 Ấp Bắc, P.13, Q.Tân Bình, TP.HCM</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/antuong.jpg" />
+                                    </span>
+                                    <h4>ẤN TƯỢNG</h4>
+                                    <p>34 Đường Bầu Cát, P.14, Q.Tân Binh, TP.HCM</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/aloc.jpg" />
+                                    </span>
+                                    <h4>Á LỘC 3</h4>
+                                    <p>31-31A Đường Tân Hải, Phường 13, Quận Tân Bình, TP.HCM</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/quynhhuong.jpg" />
+                                    </span>
+                                    <h4>QUỲNH HƯƠNG</h4>
+                                    <p>206B Đường Phan Đăng Lưu, P.3, Q.Phú Nhuận, TP.HCM</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/haiphong.jpg" />
+                                    </span>
+                                    <h4>HẢI PHONG</h4>
+                                    <p>20-22 Đường Nguyễn Trọng Tuyển, P.15, Q.Phú Nhuận, TP.HCM</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/binhdung.jpg" />
+                                    </span>
+                                    <h4>BÌNH DUNG HOTEL</h4>
+                                    <p>33-35 C4 Đường Hoa Cúc, P.7, Q.Phú Nhuận, TP.HCM</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/namanh.jpg" />
+                                    </span>
+                                    <h4>NAM ANH</h4>
+                                    <p>270 Đường Phan Xích Long, P.2, Q.Phú Nhuận, TP.HCM</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/myloc.jpg" />
+                                    </span>
+                                    <h4>MỸ LỘC</h4>
+                                    <p>64-66 Đường số 9A KDC Trung Sơn, Xã Bình Hưng, Huyện Bình Chánh, TP.HCM</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/winhotel.jpg" />
+                                    </span>
+                                    <h4>WIN</h4>
+                                    <p>43 Đường 10 khu dân cư Trung Sơn, ấp 4B, P.Bình Hưng, Huyện Bình Chánh, TP.HCM</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/paradise.jpg" />
+                                    </span>
+                                    <h4>PARADISE HOTEL</h4>
+                                    <p>64 Đường số 6, Xã Bình Hưng, Huyện Bình Chánh, TP.HCM</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/sunrise.jpg" />
+                                    </span>
+                                    <h4>SUNRISE HOTEL</h4>
+                                    <p>63 Đường số 7, Xã Bình Hưng, Huyện Bình Chánh, TP.HCM</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/minhngoc.jpg" />
+                                    </span>
+                                    <h4>MINH NGỌC</h4>
+                                    <p>36 Đường số 6C Ấp 4b Đường số 7, Xã Bình Hưng, Huyện Bình Chánh, TP.HCM</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-6 col-xs-12 animate-box">
+                                <div class="hotel-item">
+                                    <span class="img">
+                                        <img class="img-lazy" data-src="images/hotel/hungphat.jpg" />
+                                    </span>
+                                    <h4>HÙNG PHÁT HOTEL</h4>
+                                    <p>38 Đường số 6 - Khu dân cư Trung Sơn, Xã Bình Hưng, Huyện Bình Chánh, TP.HCM</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- fh5co-content-section -->
+            <!-- fh5co-support-section -->
+            <div id="support">
+                <div id="fh5co-services-section" class="fh5co-section-gray">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 text-center heading-section animate-box">
+                                <h3>HỖ TRỢ</h3>
+                            </div>
+                        </div>
+                        <div class="row mgt40">
+                            <div class="col-md-6 col-sm-12 animate-box">
+                                <h3>Những tình huống thường gặp với người dùng</h3>
+                                <div class="qaitem">
+                                    <p data-toggle="collapse" data-target="#ch1" class="orange-text">Làm sao để tải và cài đặt Go2Joy, sử dụng có mất phí không?</p>
+                                    <div id="ch1" class="collapse">
+                                        <p> Vô cùng dễ dàng và hoàn toàn miễn phí! </p>
+                                        <p>
+                                            Go2Joy có thể sử dụng với thiết bị Android hoặc iOS. Nhấp biểu tượng Google Play/ App Store tại Trang chủ hoặc tìm kiếm từ
+                                            khóa “Go2Joy” trong Google Play/ App Store.
+                                        </p>
+
+                                        <p>
+                                            Miễn phí cài đặt! Miễn phí đặt phòng! Miễn phí thanh toán! Chỉ cần trả đúng số tiền phòng bạn đặt mà thôi!
+                                        </p>
+                                        <p>
+                                            <a href="javascript:void(0)" data-toggle="collapse" data-target="#ch1" class="orange-text">Thu gọn
+                                                <span class="glyphicon glyphicon-circle-arrow-up"></span>
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12 animate-box">
+                                <h3>Những tình huống thường gặp với khách sạn</h3>
+
+                                <div class="qaitem">
+                                    <p data-toggle="collapse" data-target="#ch2" class="orange-text">Làm sao để hợp tác với Go2Joy?</p>
+                                    <div id="ch2" class="collapse">
+                                        <p>
+                                            Rất nhanh chóng!
+                                        </p>
+                                        <p>
+                                            Hãy bấm “Liên hệ” và gửi thông tin cho Go2Joy hoặc gọi ngay số Hotline 0931.836.836!
+                                        </p>
+                                        <p>
+                                            <a href="javascript:void(0)" data-toggle="collapse" data-target="#ch2" class="orange-text">Thu gọn
+                                                <span class="glyphicon glyphicon-circle-arrow-up"></span>
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row" id="hotro-wrap" aria-expanded="false" style="height:0px;overflow:hidden;">
+                            <div class="col-md-6 col-sm-12 animate-box">
+                                <div class="qaitem">
+                                    <p data-toggle="collapse" data-target="#ch1" class="orange-text">Làm sao để tải và cài đặt Go2Joy, sử dụng có mất phí không?</p>
+                                    <div id="ch1" class="collapse">
+                                        <p> Vô cùng dễ dàng và hoàn toàn miễn phí! </p>
+                                        <p>
+                                            Go2Joy có thể sử dụng với thiết bị Android hoặc iOS. Nhấp biểu tượng Google Play/ App Store tại Trang chủ hoặc tìm kiếm từ
+                                            khóa “Go2Joy” trong Google Play/ App Store.
+                                        </p>
+
+                                        <p>
+                                            Miễn phí cài đặt! Miễn phí đặt phòng! Miễn phí thanh toán! Chỉ cần trả đúng số tiền phòng bạn đặt mà thôi!
+                                        </p>
+                                        <p>
+                                            <a href="javascript:void(0)" data-toggle="collapse" data-target="#ch1" class="orange-text">Thu gọn
+                                                <span class="glyphicon glyphicon-circle-arrow-up"></span>
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="qaitem">
+                                    <p data-toggle="collapse" data-target="#ch2" class="orange-text"> Tôi có thể đặt phòng như thế nào?</p>
+                                    <div id="ch2" class="collapse">
+                                        <p> Sử dụng tính năng “Bản đồ” của Go2Joy để đặt phòng dễ dàng hơn! </p>
+                                        <p>
+                                            Go2Joy hiển thị các khách sạn còn phòng trống gần vị trí của bạn hoặc theo khu vực mà bạn lựa chọn, đánh dấu các khách sạn
+                                            có khuyến mãi hoặc được yêu thích ngay trên bản đồ.
+                                        </p>
+                                        <p>
+                                            <a href="javascript:void(0)" data-toggle="collapse" data-target="#ch2" class="orange-text">Thu gọn
+                                                <span class="glyphicon glyphicon-circle-arrow-up"></span>
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="qaitem">
+                                    <p data-toggle="collapse" data-target="#ch3" class="orange-text">Tôi có phải thanh toán tiền phòng trước hay không?</p>
+                                    <div id="ch3" class="collapse">
+                                        <p>
+                                            Rất linh hoạt, tùy bạn chọn!
+                                        </p>
+                                        <p>
+                                            Để đảm bảo phòng được giữ và sẵn sàng cho bạn, bạn có thể thanh toán trước ngay trên ứng dụng Go2Joy bằng thẻ thanh toán
+                                            quốc tế (Visa, MasterCard…) hoặc thẻ ATM nội địa đã đăng ký thanh toán trực tuyến.
+                                        </p>
+                                        <p>
+                                            Bạn cũng có thể lựa chọn thanh toán khi đến trực tiếp tại khách sạn. Tuy nhiên, trường hợp này, đặt phòng của bạn có thể
+                                            sẽ thay đổi theo khả năng đáp ứng của khách sạn tại thời điểm đó.
+                                        </p>
+                                        <p>
+                                            <a href="javascript:void(0)" data-toggle="collapse" data-target="#ch3" class="orange-text">Thu gọn
+                                                <span class="glyphicon glyphicon-circle-arrow-up"></span>
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12 animate-box">
+                                <div class="qaitem">
+                                    <p data-toggle="collapse" data-target="#ch1b" class="orange-text">Làm sao để hợp tác với Go2Joy?</p>
+                                    <div id="ch1b" class="collapse">
+                                        <p>
+                                            Rất nhanh chóng!
+                                        </p>
+                                        <p>
+                                            Hãy bấm “Liên hệ” và gửi thông tin cho Go2Joy hoặc gọi ngay số Hotline 0931.836.836!
+                                        </p>
+                                        <p>
+                                            <a href="javascript:void(0)" data-toggle="collapse" data-target="#ch1b" class="orange-text">Thu gọn
+                                                <span class="glyphicon glyphicon-circle-arrow-up"></span>
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="qaitem">
+                                    <p data-toggle="collapse" data-target="#ch2b" class="orange-text">Khách sạn được lợi gì khi hợp tác với Go2Joy?</p>
+                                    <div id="ch2b" class="collapse">
+                                        <p> Quan trọng nhất là nhiều khách hàng biết đến và lựa chọn khách sạn của bạn hơn!</p>
+                                        <p>
+                                            Go2Joy quảng bá khách sạn của bạn trên website, fanpage facebook vá các diễn đàn. Đặc biệt khách hàng sẽ nhận được nhiều
+                                            ưu đãi giảm giá từ Go2Joy khi lựa chọn đặt phòng khách sạn của bạn qua ứng dụng.
+                                        </p>
+                                        <p>
+                                            <a href="javascript:void(0)" data-toggle="collapse" data-target="#ch2b" class="orange-text">Thu gọn
+                                                <span class="glyphicon glyphicon-circle-arrow-up"></span>
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="qaitem">
+                                    <p data-toggle="collapse" data-target="#ch3b" class="orange-text">Khách sạn có trả phí gì để hợp tác với G2Joy hay không?</p>
+                                    <div id="ch3b" class="collapse">
+                                        <p>Miễn phí đăng tải thông tin trên ứng dụng! Miễn phí duy trì! Miễn phí quảng cáo trên
+                                            các kênh truyền thông của Go2Joy!</p>
+                                        <p>Chỉ những đặt phòng thành công, khách sạn thu được tiền mới phải trả 1 khoản phí
+                                            nhỏ cho Go2Joy.</p>
+                                        <p>
+                                            <a href="javascript:void(0)" data-toggle="collapse" data-target="#ch3b" class="orange-text">Thu gọn
+                                                <span class="glyphicon glyphicon-circle-arrow-up"></span>
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <p class="text-center">
+                                    <a href="javascript:void(0)" id="btn-xemthem" data-toggle="collapse" data-target="#hotro-wrap" class="btn btn-default2 animate-box"
+                                        data-on="Enabled" data-off="Disabled">Xem thêm</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- fh5co-blog-section -->
+            <footer>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center heading-section animate-box">
+                            <h3>LIÊN HỆ</h3>
+                        </div>
+                        <div class="col-lg-12  ">
+                            <div class="xs-display">
+                                <div class="text-center">
+                                    <span class="lhht" style="float:none; margin:10px auto">
+                                        <a href="https://docs.google.com/forms/d/e/1FAIpQLScCtwnRHg0BcfpQ_I2fKWAMY5CDwFytHWhx1oI8YlOA99wu2Q/viewform">Liên hệ hợp tác</a>
+                                    </span>
+                                </div>
+                                <div class="text-center">
+                                    <img class="img-lazy" data-src="images/logo-footer.png" />
+                                </div>
+                            </div>
+                            <table style="width:100%;">
+                                <tr>
+                                    <td style="width: 42%; vertical-align: top; text-align:right">
+                                        <div>
+                                            <span class="lhht">
+                                                <a href="https://docs.google.com/forms/d/e/1FAIpQLScCtwnRHg0BcfpQ_I2fKWAMY5CDwFytHWhx1oI8YlOA99wu2Q/viewform">Liên hệ hợp tác</a>
+                                            </span>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div>
+                                            <p class="hotline">
+                                                Hotline: 0931 836 836
+                                            </p>
+                                        </div>
+
+                                    </td>
+                                    <td style="width:16%; text-align:center; vertical-align:top">
+                                        <img class="img-lazy" data-src="images/logo-footer.png" />
+                                    </td>
+                                    <td style="width:42%;vertical-align:top;">
+                                        <div class="about">
+                                            <h4>Go2Joy - Ứng Dụng Đặt Phòng Theo Giờ</h4>
+                                            <p>
+                                                Công ty Cổ phần APPRO MOBILE
+                                            </p>
+                                            <p>
+                                                Trụ sở: 41 Lê Trung Nghĩa, P. 12, Q. Tân Bình, TP. Hồ Chí Minh
+                                            </p>
+                                            <p>
+                                                Hỗ trợ khách hàng :
+                                                <a href="mailto:support@go2joy.vn">support@go2joy.vn
+                                            </p>
+                                            <p>
+                                                <a href="http://online.gov.vn/HomePage/AppDisplay.aspx?DocId=128">
+                                                    <img id="congthuong_image" class="img-lazy" data-src="images/bocongthuong.png" width="160px" height="65px" />
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="copyright text-center">
+                    © 2016 . All Rights Reserved.
+                </div>
+                <div class="copyright text-center">
+
+                </div>
+            </footer>
+
+
+        </div>
+        <!-- END fh5co-page -->
+
+    </div>
+    <!-- END fh5co-wrapper -->
+    <!-- jQuery -->
+
+
+    <script src="js/jquery.min.js"></script>
+    <!-- jQuery Easing -->
+    <script src="js/jquery.easing.1.3.js"></script>
+    <!-- Bootstrap -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Waypoints -->
+    <script src="js/jquery.waypoints.min.js"></script>
+    <!-- Stellar -->
+    <script src="js/jquery.stellar.min.js"></script>
+    <!-- Superfish -->
+    <script src="js/hoverIntent.js"></script>
+    <script src="js/superfish.js"></script>
+    <!-- Magnific Popup -->
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/magnific-popup-options.js"></script>
+    <!-- Owl Carousel -->
+    <script src="js/owl.carousel.min.js"></script>
+    <!-- Lazy Load -->
+    <script src="js/jquery.unveil.js"></script>
+    <!-- Main JS -->
+    <script src="js/main.js"></script>
+    <script>
+        $(".img-lazy").unveil();
+        var h = $(window).height();
+        var w = $(window).width();
+
+        $(".sf-menu li a").click(function () {
+            var div = $(this).attr("href");
+            $('html, body').animate({
+                scrollTop: $(div).offset().top - 80
+            }, 1500);
+        });
+
+        $('#fh5co-page').on('click', '#offcanvas-menu ul li a', function () {
+            var div = $(this).attr("href");
+            $('html, body').animate({
+                scrollTop: $(div).offset().top
+            }, 1500);
+        });
+
+
+        $(document).ready(function () {
+            if (w > 980) {
+                $('header .top-header').height(h);
+                var menuHeight = $('.nav-header').height();
+                var dotHeight = $('.owl-dots').height();
+                console.log(menuHeight);
+                $('.owl-image').height(h);
+                $('.owl-lazy').height(h);
+
+            }
+
+            var mouseIsDragging = false;
+            var mouseStartingPos = [];
+            var touchIsDragging = false;
+            var touchStartingPos = [];
+            $(".banner")
+                .mousedown(function (evt) {
+                    mouseIsDragging = false;
+                    mouseStartingPos = [evt.pageX, evt.pageY];
+                })
+                .mousemove(function (evt) {
+                    if (!(Math.abs(evt.pageX - mouseStartingPos[0]) < 5 && (Math.abs(evt.pageY - mouseStartingPos[1]) < 5))) {
+                        mouseIsDragging = true;
+                    }
+                })
+                .mouseup(function () {
+                    if (mouseIsDragging) {
+
+                    } else {
+                        // alert($(this).attr('name'));
+                        if ("ga" in window) {
+                            tracker = ga.getAll()[0];
+                            if (tracker)
+                                tracker.send('event', 'Banner', 'Click', $(this).attr('name'));
+                        }
+                    }
+                    mouseIsDragging = false;
+                    mouseStartingPos = [];
+                })
+            $(".banner").on(
+                {
+                    'touchstart': function (evt) {
+                        touchIsDragging = false;
+                        touchStartingPos = [evt.pageX, evt.pageY];
+                    }
+                },
+                {
+                    'touchmove': function (evt) {
+                        if (!(Math.abs(evt.pageX - touchStartingPos[0]) < 5 && (Math.abs(evt.pageY - touchStartingPos[1]) < 5))) {
+                            touchIsDragging = true;
+                        }
+                    }
+                }, {
+                    'touchend': function () {
+                        if (touchIsDragging) {
+
+                        } else {
+                            //alert($(this).attr('name'));
+                            if ("ga" in window) {
+                                tracker = ga.getAll()[0];
+                                if (tracker)
+                                    tracker.send('event', 'Banner', 'Click', $(this).attr('name'));
+                            }
+                        }
+                        touchIsDragging = false;
+                        touchStartingPos = [];
+                    }
+                }
+            );
+            window.onscroll = function () { myFunction() };
+            var x = $(".nav-header").offset().top;
+            function myFunction() {
+                if (document.body.scrollTop > x || document.documentElement.scrollTop > x) {
+                    $(".nav-header").addClass("fixMenu");
+                    $(".applist-abs").fadeIn(800);
+                } else {
+                    $(".nav-header").removeClass("fixMenu");
+                    $(".applist-abs").fadeOut(800);
+                }
+            }
+
+        });
+
+    </script>
+    <script>
+        $('#btn-xemthem').click(function () {
+            if ($(this).text() == "Thu gọn") {
+                $(this).text('Xem thêm');
+            } else {
+                $(this).text('Thu gọn');
+            }
+        });
+
+    </script>
+</body>
+
+</html>
