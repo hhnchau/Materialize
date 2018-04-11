@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var file = require('./file');
+var query = require('./query');
 
 app.listen(3000, function () {
   console.log("Connect successfull!");
@@ -22,7 +23,7 @@ app.get("/admin-dashboard", function (req, res) {
 });
 
 app.get("/user-dashboard", function (req, res) {
-  res.render("user-dashboard");
+  query.insert();
 });
 
 // app.get('/image', function (req, res) {

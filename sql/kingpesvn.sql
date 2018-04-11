@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 09, 2018 at 02:17 AM
+-- Generation Time: Apr 11, 2018 at 02:56 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -27,9 +27,9 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `category` (
-  `id` int(3) NOT NULL,
-  `product.id` int(11) NOT NULL,
-  `name` varchar(20) NOT NULL,
+  `categoryId` int(3) NOT NULL,
+  `productId` int(11) NOT NULL,
+  `categoryName` varchar(20) NOT NULL,
   `description` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -37,9 +37,23 @@ CREATE TABLE `category` (
 -- Dumping data for table `category`
 --
 
-INSERT INTO `category` (`id`, `product.id`, `name`, `description`) VALUES
-(1, 1, 'XH', 'Xe Hoi'),
+INSERT INTO `category` (`categoryId`, `productId`, `categoryName`, `description`) VALUES
 (2, 2, 'XX', 'Xe Xuc Cat');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `delivery`
+--
+
+CREATE TABLE `delivery` (
+  `deliveryId` int(11) NOT NULL,
+  `receiverName` varchar(200) NOT NULL,
+  `receiverAddress` varchar(255) NOT NULL,
+  `receiverPhone` varchar(15) NOT NULL,
+  `latitude` double NOT NULL,
+  `longitude` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -48,10 +62,26 @@ INSERT INTO `category` (`id`, `product.id`, `name`, `description`) VALUES
 --
 
 CREATE TABLE `media` (
-  `id` int(11) NOT NULL,
-  `product.id` int(11) NOT NULL,
+  `mediaId` int(11) NOT NULL,
+  `productId` int(11) NOT NULL,
   `image` int(11) NOT NULL,
   `youtube` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pending`
+--
+
+CREATE TABLE `pending` (
+  `pendingId` int(11) NOT NULL,
+  `userId` int(11) NOT NULL,
+  `productId` int(11) NOT NULL,
+  `deliveryId` int(11) NOT NULL,
+  `method` int(1) NOT NULL,
+  `totalFee` int(9) NOT NULL,
+  `status` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -61,8 +91,8 @@ CREATE TABLE `media` (
 --
 
 CREATE TABLE `price` (
-  `id` int(11) NOT NULL,
-  `product.id` int(11) NOT NULL,
+  `priceId` int(11) NOT NULL,
+  `productId` int(11) NOT NULL,
   `original` int(6) NOT NULL,
   `buy` int(6) NOT NULL,
   `discount` int(6) NOT NULL
@@ -75,20 +105,20 @@ CREATE TABLE `price` (
 --
 
 CREATE TABLE `product` (
-  `id` int(11) NOT NULL,
-  `sn` varchar(15) NOT NULL,
-  `name` varchar(30) NOT NULL,
-  `short_description` varchar(200) NOT NULL,
-  `full_decsription` text NOT NULL
+  `productId` int(11) NOT NULL,
+  `productSn` varchar(15) NOT NULL,
+  `productName` varchar(30) NOT NULL,
+  `amount` int(3) NOT NULL,
+  `shortDescription` varchar(200) NOT NULL,
+  `fullDecsription` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`id`, `sn`, `name`, `short_description`, `full_decsription`) VALUES
-(1, 'A123', 'Xe Hoi', 'Xe Hoi Dieu khien Tu Xa', 'Xe co 4 phin, Dieu khien tu xa, chay 100km/h'),
-(2, 'A1234', 'Xe Xuc', 'Xe Xuc Cat The He Moi', 'Xe Xuc cat Xe loai moi co 4 phin, Dieu khien tu xa, chay 100km/h');
+INSERT INTO `product` (`productId`, `productSn`, `productName`, `amount`, `shortDescription`, `fullDecsription`) VALUES
+(2, 'A1234', 'Xe Xuc', 0, 'Xe Xuc Cat The He Moi', 'Xe Xuc cat Xe loai moi co 4 phin, Dieu khien tu xa, chay 100km/h');
 
 -- --------------------------------------------------------
 
@@ -97,8 +127,8 @@ INSERT INTO `product` (`id`, `sn`, `name`, `short_description`, `full_decsriptio
 --
 
 CREATE TABLE `promotion` (
-  `id` int(11) NOT NULL,
-  `name` varchar(20) NOT NULL,
+  `promotionId` int(11) NOT NULL,
+  `promptionName` varchar(20) NOT NULL,
   `description` varchar(200) NOT NULL,
   `end` timestamp NULL DEFAULT NULL,
   `start` timestamp NULL DEFAULT NULL
@@ -111,12 +141,23 @@ CREATE TABLE `promotion` (
 --
 
 CREATE TABLE `raiting` (
-  `id` int(11) NOT NULL,
-  `product.id` int(11) NOT NULL,
+  `raitingId` int(11) NOT NULL,
+  `productId` int(11) NOT NULL,
   `title` varchar(200) NOT NULL,
   `content` text NOT NULL,
-  `user.id` int(11) NOT NULL,
+  `userId` int(11) NOT NULL,
   `rate` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `settings`
+--
+
+CREATE TABLE `settings` (
+  `version` varchar(15) NOT NULL,
+  `upgrade` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -126,8 +167,12 @@ CREATE TABLE `raiting` (
 --
 
 CREATE TABLE `transaction` (
-  `id` int(11) NOT NULL,
-  `user.id` int(11) NOT NULL
+  `transactionId` int(11) NOT NULL,
+  `userId` int(11) NOT NULL,
+  `productId` int(11) NOT NULL,
+  `promotionId` int(11) NOT NULL,
+  `fee` int(9) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -137,10 +182,13 @@ CREATE TABLE `transaction` (
 --
 
 CREATE TABLE `user` (
-  `id` int(11) NOT NULL,
+  `userId` int(11) NOT NULL,
   `nickname` varchar(20) NOT NULL,
   `address` varchar(200) NOT NULL,
   `phone` varchar(15) NOT NULL,
+  `password` varchar(150) NOT NULL,
+  `section` varchar(150) NOT NULL,
+  `token` varchar(150) NOT NULL,
   `sex` varchar(2) NOT NULL,
   `email` varchar(100) NOT NULL,
   `create` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -151,8 +199,8 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `nickname`, `address`, `phone`, `sex`, `email`, `create`, `update`) VALUES
-(1, 'HuynHChau', 'Ho Chi Minh', '091232345', '1', 'asd@gmail.com', '2018-04-08 17:03:21', '0000-00-00 00:00:00');
+INSERT INTO `user` (`userId`, `nickname`, `address`, `phone`, `password`, `section`, `token`, `sex`, `email`, `create`, `update`) VALUES
+(1, 'HuynHChau', 'Ho Chi Minh', '091232345', '', '', '', '1', 'asd@gmail.com', '2018-04-08 17:03:21', '0000-00-00 00:00:00');
 
 --
 -- Indexes for dumped tables
@@ -162,50 +210,74 @@ INSERT INTO `user` (`id`, `nickname`, `address`, `phone`, `sex`, `email`, `creat
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `product.id` (`product.id`);
+  ADD PRIMARY KEY (`categoryId`),
+  ADD KEY `product.id` (`productId`);
+
+--
+-- Indexes for table `delivery`
+--
+ALTER TABLE `delivery`
+  ADD PRIMARY KEY (`deliveryId`);
 
 --
 -- Indexes for table `media`
 --
 ALTER TABLE `media`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`mediaId`),
+  ADD KEY `productId` (`productId`);
+
+--
+-- Indexes for table `pending`
+--
+ALTER TABLE `pending`
+  ADD PRIMARY KEY (`pendingId`),
+  ADD KEY `userId` (`userId`),
+  ADD KEY `productId` (`productId`),
+  ADD KEY `deliveryId` (`deliveryId`);
 
 --
 -- Indexes for table `price`
 --
 ALTER TABLE `price`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`priceId`),
+  ADD KEY `productId` (`productId`);
 
 --
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`productId`),
+  ADD UNIQUE KEY `productSn` (`productSn`);
 
 --
 -- Indexes for table `promotion`
 --
 ALTER TABLE `promotion`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`promotionId`);
 
 --
 -- Indexes for table `raiting`
 --
 ALTER TABLE `raiting`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`raitingId`),
+  ADD KEY `productId` (`productId`),
+  ADD KEY `productId_2` (`productId`),
+  ADD KEY `userId` (`userId`);
 
 --
 -- Indexes for table `transaction`
 --
 ALTER TABLE `transaction`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`transactionId`),
+  ADD KEY `userId` (`userId`),
+  ADD KEY `productId` (`productId`),
+  ADD KEY `promotionId` (`promotionId`);
 
 --
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`userId`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -215,42 +287,52 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `categoryId` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `delivery`
+--
+ALTER TABLE `delivery`
+  MODIFY `deliveryId` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `media`
 --
 ALTER TABLE `media`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `mediaId` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `pending`
+--
+ALTER TABLE `pending`
+  MODIFY `pendingId` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `price`
 --
 ALTER TABLE `price`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `priceId` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `productId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `promotion`
 --
 ALTER TABLE `promotion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `promotionId` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `raiting`
 --
 ALTER TABLE `raiting`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `raitingId` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `transactionId` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- Constraints for dumped tables
 --
@@ -259,7 +341,42 @@ ALTER TABLE `user`
 -- Constraints for table `category`
 --
 ALTER TABLE `category`
-  ADD CONSTRAINT `category_ibfk_1` FOREIGN KEY (`product.id`) REFERENCES `product` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `category_ibfk_1` FOREIGN KEY (`productId`) REFERENCES `product` (`productId`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `media`
+--
+ALTER TABLE `media`
+  ADD CONSTRAINT `media_ibfk_1` FOREIGN KEY (`productId`) REFERENCES `product` (`productId`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `pending`
+--
+ALTER TABLE `pending`
+  ADD CONSTRAINT `pending_ibfk_1` FOREIGN KEY (`deliveryId`) REFERENCES `delivery` (`deliveryId`),
+  ADD CONSTRAINT `pending_ibfk_3` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`) ON DELETE CASCADE,
+  ADD CONSTRAINT `pending_ibfk_4` FOREIGN KEY (`productId`) REFERENCES `product` (`productId`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `price`
+--
+ALTER TABLE `price`
+  ADD CONSTRAINT `price_ibfk_1` FOREIGN KEY (`productId`) REFERENCES `product` (`productId`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `raiting`
+--
+ALTER TABLE `raiting`
+  ADD CONSTRAINT `raiting_ibfk_1` FOREIGN KEY (`productId`) REFERENCES `product` (`productId`) ON DELETE CASCADE,
+  ADD CONSTRAINT `raiting_ibfk_2` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `transaction`
+--
+ALTER TABLE `transaction`
+  ADD CONSTRAINT `transaction_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`) ON DELETE CASCADE,
+  ADD CONSTRAINT `transaction_ibfk_2` FOREIGN KEY (`productId`) REFERENCES `product` (`productId`),
+  ADD CONSTRAINT `transaction_ibfk_3` FOREIGN KEY (`promotionId`) REFERENCES `promotion` (`promotionId`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
