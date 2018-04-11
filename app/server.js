@@ -26,6 +26,26 @@ app.get("/admin-dashboard", function (req, res) {
   res.render("admin-dashboard");
 });
 
+app.get("/new-product", function (req, res) {
+  res.render("new-product");
+});
+
+app.get("/update-product", function (req, res) {
+  res.render("update-product");
+});
+
+app.get("/promotion", function (req, res) {
+  res.render("promotion");
+});
+
+app.get("/revenue", function (req, res) {
+  res.render("revenue");
+});
+
+app.get("/statistic", function (req, res) {
+  res.render("statistic");
+});
+
 app.get('/getResource:id', function (req, res) {
   file.sendResource(req, res);
 });
