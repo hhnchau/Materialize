@@ -13,12 +13,12 @@ o[key] = []; // empty Array, which you can push() values into
 
 
 var data = {
-    sampleTime: '1450632410296',
-    data: '76.36731:3.4651554:0.5665419'
+  sampleTime: '1450632410296',
+  data: '76.36731:3.4651554:0.5665419'
 };
 var data2 = {
-    sampleTime: '1450632410296',
-    data: '78.15431:0.5247617:-0.20050584'
+  sampleTime: '1450632410296',
+  data: '78.15431:0.5247617:-0.20050584'
 };
 o[key].push(data);
 o[key].push(data2);
@@ -30,52 +30,112 @@ var express = require("express");
 var app = express();
 app.listen(8080);
 
-var bodyParser = require('body-parser')
-var jsonParser = bodyParser.json();
-var urlParser = bodyParser.urlencoded({extended:false})
+var querystring = require('querystring');
+var bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 
 var person = {
-  ho : "Chau",
-  ten : "Huynh"
+  ho: "Chau",
+  ten: "Huynh",
+  tuoi: "18",
+  diachi: "hcm",
+  add: "TP"
 }
 
-app.get("/demoGet", function(req, res){
-var head = req.headers['auth'];
-var head1 = req.headers['auth1'];
-var head2 = req.headers['auth2'];
-var head3 = req.method;
-console.log(head);
-console.log(head1);
-console.log(head3);
+app.get("/demoGet", function (req, res) {
+  var head = req.headers['secret'];
+  var head1 = req.headers['secret1'];
+  var head2 = req.headers['secret2'];
+  var head3 = req.method;
+  console.log(head);
+  console.log(head1);
+  console.log(head2);
+  console.log(head3);
 
-console.log(req.url);
-
-var names = req.params.name;
-console.log(names);
-
-  res.json(person);
-
-       res.end();
-})
-
-app.put("/demoPut", function(req, res){
-  res.json(person);
-});
-
-app.post("/demoPost",urlParser, function(req, res){
-var head4 = req.headers['auth'];
-var head5 = req.headers['auth5'];
-  console.log(head4);
-  console.log(head5);
   console.log(req.url);
 
+  var ho = req.query.ho;
+  console.log(ho);
 
-res.set('OK', "person");
-// 
-// res.setHeader("Content-Type", "application/json");
-  var txt = req.body.ten;
-  console.log(txt);
+  var ten = req.query.ten;
+  console.log(ten);
+
   res.json(person);
 
-})
+  res.end();
+});
+
+app.post("/demoPost", function (req, res) {
+  var head = req.headers['auth'];
+  var head1 = req.headers['secret1'];
+  var head2 = req.headers['secret2'];
+  var head3 = req.method;
+  console.log(head);
+  console.log(head1);
+  console.log(head2);
+  console.log(head3);
+
+  console.log(req.url);
+
+  var model = req.body;
+  var ho = req.body.ho;
+  var ten = req.body.ten;
+
+  console.log(model);
+  console.log(ho);
+  console.log(ten);
+
+  res.json(person);
+
+  res.end();
+});
+
+app.put("/demoPut", function (req, res) {
+  var head = req.headers['auth'];
+  var head1 = req.headers['secret1'];
+  var head2 = req.headers['secret2'];
+  var head3 = req.method;
+  console.log(head);
+  console.log(head1);
+  console.log(head2);
+  console.log(head3);
+
+  console.log(req.url);
+
+  var model = req.body;
+  var ho = req.body.ho;
+  var ten = req.body.ten;
+
+  console.log(model);
+  console.log(ho);
+  console.log(ten);
+
+  res.json(person);
+
+  res.end();
+});
+
+app.delete("/demoDelete", function (req, res) {
+  var head = req.headers['secret'];
+  var head1 = req.headers['secret1'];
+  var head2 = req.headers['secret2'];
+  var head3 = req.method;
+  console.log(head);
+  console.log(head1);
+  console.log(head2);
+  console.log(head3);
+
+  console.log(req.url);
+
+  var ho = req.query.ho;
+  console.log(ho);
+
+  var ten = req.query.ten;
+  console.log(ten);
+
+  res.json(person);
+
+  res.end();
+});
