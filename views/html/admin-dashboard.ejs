@@ -1,4 +1,4 @@
-<% var url = "http://localhost:3000/" %>
+<% var url = "http://192.168.1.111:3000/" %>
     <!DOCTYPE html>
     <html lang="en">
 
@@ -155,23 +155,23 @@
                                                     <!-- Item -->
                                                     <div class="row">
                                                         <div class="input-field col s12">
-                                                            <input id="sn" type="text">
-                                                            <label for="sn">Mã</label>
+                                                            <input id="ma-sp" type="text">
+                                                            <label for="ma-sp">Mã</label>
                                                         </div>
                                                     </div>
 
                                                     <!-- Item1 -->
                                                     <div class="row">
                                                         <div class="input-field col s12">
-                                                            <input id="name" type="text">
-                                                            <label for="first_name">Tên</label>
+                                                            <input id="ten-sp" type="text">
+                                                            <label for="ten-sp">Tên</label>
                                                         </div>
                                                     </div>
 
                                                     <!-- Item2 -->
                                                     <div class="row">
                                                         <div class="input-field col s12">
-                                                            <select>
+                                                            <select id = "cbox">
                                                                 <option value="" disabled selected>Vui lòng chọn</option>
                                                                 <option value="1">Xe</option>
                                                                 <option value="2">Robo</option>
@@ -184,24 +184,24 @@
                                                     <!-- Item3 -->
                                                     <div class="row">
                                                         <div class="input-field col s12">
-                                                            <input id="soluong" type="email">
-                                                            <label for="soluong">Số lượng</label>
+                                                            <input id="sl-sp" type="email">
+                                                            <label for="sl-sp">Số lượng</label>
                                                         </div>
                                                     </div>
 
                                                     <!-- Item3 -->
                                                     <div class="row">
                                                         <div class="input-field col s12">
-                                                            <input id="dongia" type="email">
-                                                            <label for="dongia">Đơn giá</label>
+                                                            <input id="gia-sp" type="email">
+                                                            <label for="gia-sp">Đơn giá</label>
                                                         </div>
                                                     </div>
 
                                                     <!-- Item4 -->
                                                     <div class="row">
                                                         <div class="input-field col s12">
-                                                            <input id="video" type="text">
-                                                            <label for="video">Video</label>
+                                                            <input id="video-sp" type="text">
+                                                            <label for="video-sp">Video</label>
                                                         </div>
                                                     </div>
 
@@ -218,27 +218,28 @@
                                                     <!-- Item4 -->
                                                     <div class="row">
                                                         <div class="input-field col s12">
-                                                            <input id="sdescription" type="text">
-                                                            <label for="sdescription">Mô tả ngắn gọn</label>
+                                                            <input id="sdes-sp" type="text">
+                                                            <label for="sdes-sp">Mô tả ngắn gọn</label>
                                                         </div>
                                                     </div>
 
                                                     <!-- Item5 -->
                                                     <div class="row">
                                                         <div class="input-field col s12">
-                                                            <textarea id="fdescription" class="materialize-textarea"></textarea>
-                                                            <label for="fdescription">Mô tả đầy đủ</label>
-                                                        </div>
-
-                                                        <!-- Button -->
-                                                        <div class="row">
-                                                            <div class="input-field col s12">
-                                                                <button class="btn cyan waves-effect waves-light right" type="submit" name="action">Xong
-                                                                </button>
-                                                            </div>
+                                                            <textarea id="fdes-sp" class="materialize-textarea"></textarea>
+                                                            <label for="fdes-sp">Mô tả đầy đủ</label>
                                                         </div>
                                                     </div>
 
+                                                    <!-- Button -->
+                                                    <div class="row">
+                                                        <div class="col s12">
+                                                            <p class="text-center">
+                                                                <a href="javascript:void(0)" id="btn-xong" data-toggle="collapse" class="btn btn-default2 animate-box" data-on="Enabled"
+                                                                    data-off="Disabled">Xong</a>
+                                                            </p>
+                                                        </div>
+                                                    </div>
 
                                                 </form>
                                             </div>
@@ -304,7 +305,57 @@
             <!-- Script -->
             <script>
 
-                
+
+                $('#btn-xong').click(function () {
+                    if ($(this).text() == "Thu gọn") {
+                        $(this).text('Xem thêm');
+
+                        var ma_sp = $('#ma-sp').val();
+                        if (ma_sp =="") {
+                            alert("Khong duoc rong");
+                            return;
+                        }
+                        var ten_sp = $('#ten-sp').val();
+                        var sl_sp = $('#sl-sp').val();
+                        var dmuc_sp = $('#cbox option:selected').text();
+                        var gia_sp = $('#gia-sp').val();
+                        var video_sp = $('#video-sp').val();
+                        var sdes_sp = $('#sdes-sp').val();
+                        var fdes_sp = $('#fdes-sp').val();
+
+
+                        alert(dmuc_sp + "\n" + ma_sp + "\n" + ten_sp + "\n" + sl_sp + "\n" + gia_sp + "\n" + video_sp + "\n" + sdes_sp + "\n" + fdes_sp);
+
+
+                        var xhttp = new XMLHttpRequest();
+                        xhttp.onreadystatechange = function () {
+                            if (this.readyState == 4 && this.status == 200) {
+                                // Response
+                                alert(this.responseText);
+                            }
+                        };
+
+                        xhttp.open("GET", "demoGet?ho=chau&ten=huynh", true);
+                        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                        xhttp.setRequestHeader("secret", "blah blah");
+                        xhttp.setRequestHeader("secret1", "blah blah1");
+                        xhttp.setRequestHeader("secret2", "blah blah2");
+                        xhttp.send();
+
+                        // xhttp.open("POST", "demoPost", true);
+                        // xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                        // xhttp.setRequestHeader("auth", "blah blah");
+                        // xhttp.setRequestHeader("secret1", "blah blah1");
+                        // xhttp.setRequestHeader("secret2", "blah blah2");
+                        // xhttp.send("ten=Henry&ho=Ford");
+
+
+
+
+                    } else {
+                        $(this).text('Thu gọn');
+                    }
+                });
 
             </script>
 
