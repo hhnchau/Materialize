@@ -1,4 +1,4 @@
-<% var url = "http://192.168.1.111:3000/" %>
+<% var url = "http://192.168.1.110:3000/" %>
     <!DOCTYPE html>
     <html lang="en">
 
@@ -143,8 +143,12 @@
 
                             <!--Basic Form-->
                             <div id="basic-form" class="section">
+
                                 <div class="row">
-                                    <div class="col s12 m12 l6">
+                                    <div class="col s0 m0 l1">
+                                        <p></p>
+                                    </div>
+                                    <div class="col s12 m12 l10">
                                         <div class="card-panel">
                                             <h4 class="header2">
                                                 <span class="red-text text-darken-2">THÊM MỚI</span>
@@ -171,7 +175,7 @@
                                                     <!-- Item2 -->
                                                     <div class="row">
                                                         <div class="input-field col s12">
-                                                            <select id = "cbox">
+                                                            <select id="cbox">
                                                                 <option value="" disabled selected>Vui lòng chọn</option>
                                                                 <option value="1">Xe</option>
                                                                 <option value="2">Robo</option>
@@ -311,7 +315,7 @@
                         $(this).text('Xem thêm');
 
                         var ma_sp = $('#ma-sp').val();
-                        if (ma_sp =="") {
+                        if (ma_sp == "") {
                             alert("Khong duoc rong");
                             return;
                         }
