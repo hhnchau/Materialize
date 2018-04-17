@@ -1,4 +1,27 @@
 var db = require('./db');
+var log = require('./log');
+Models = require('./models');
+var models = new Models({});
+
+
+exports.findApiSettings = function (callback) {
+  try {
+    var sql = "SELECT * FROM settings";
+    db.execute(sql, function (data, err) {
+      if (err) {
+        log.error("findApiSettings", err);
+      } else {
+        models.ApiSettingsForm(data[0]);
+        log.write("findApiSettings", JSON.stringify(models.data));
+        callback(models.data);
+      }
+    });
+  } catch (ex) {
+    log.write("Execute Sql Query", "---------->Exception<---------- " + ex);
+  }
+}
+
+
 
 exports.insert = function () {
   try {

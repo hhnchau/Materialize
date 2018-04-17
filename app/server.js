@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var file = require('./file');
+var settings = require('./settings');
 var query = require('./query');
 var querystring = require('querystring');
 var bodyParser = require('body-parser');
@@ -14,6 +15,54 @@ app.listen(3000, function () {
 app.set("view engine", "ejs");
 app.set("views", "../views/html");
 
+/*
+* API
+*/
+
+app.get(settings.findApiSettings, function (req, res) {
+  var secret = req.headers[settings.secret_key];
+  if (secret === settings.secret_encrypt) {
+    //Secret Ok
+    query.findApiSettings(function (ApiSetingsForm) {
+      res.json(ApiSetingsForm);
+      res.end();
+    });
+  } else {
+    //Response 404
+    res.write(settings.secret_fail);
+    res.end();
+  }
+})
+
+
+app.get(settings.findAllProduct, function (req, res) {
+  var secret = req.headers[settings.secret_key];
+  if (secret === settings.secret_encrypt) {
+    var offset = req.query.offset;
+    var limit = req.query.limit;
+
+  } else {
+    //Response 404
+    res.write(settings.secret_fail);
+    res.end();
+  }
+})
+
+app.get(settings.findProduct, function (req, res) {
+  var secret = req.headers[settings.secret_key];
+  if (secret === settings.secret_encrypt) {
+
+  } else {
+    //Response 404
+    res.write(settings.secret_fail);
+    res.end();
+  }
+})
+
+
+/*
+* WEB
+*/
 app.get("/index", function (req, res) {
   res.render("index");
 });
