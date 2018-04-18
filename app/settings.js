@@ -8,7 +8,7 @@ exports.dbConfig = {
   
   exports.listenPort = 9000;
 
-  exports.url = "http://localhost:9000/";
+  exports.url = "http://localhost:3000/";
     
 
   /*
@@ -24,4 +24,10 @@ exports.dbConfig = {
 
   exports.findAllProduct = "/findAllProduct";
 
+  exports.filterAllProduct = "/filterAllProduct";
+
   exports.findProduct = "/findProduct";
+
+  exports.createNewOrders = "/createNewOrders";
+
+  exports.createNewUser = "/createNewUser";

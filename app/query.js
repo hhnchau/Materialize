@@ -21,6 +21,63 @@ exports.findApiSettings = function (callback) {
   }
 }
 
+exports.findAllProduct = function (offset, limit, callback) {
+  try {
+    var sql = "SELECT product.* FROM product LIMIT " + offset + ", " + limit;
+    db.execute(sql, function (data, err) {
+      if (err) {
+        log.error("findAllProduct", err);
+      } else {
+        models.ProductForm(data);
+        log.write("findAllProduct", JSON.stringify(models.data));
+        callback(models.data);
+      }
+    });
+  } catch (ex) {
+    log.write("Execute Sql Query", "---------->Exception<---------- " + ex);
+  }
+}
+
+exports.findProduct = function (productSn, callback) {
+  try {
+    var sql = "SELECT product.* FROM product WHERE productSn = '" + productSn + "'";
+    db.execute(sql, function (data, err) {
+      if (err) {
+        log.error("findProduct", err);
+      } else {
+        models.ProductForm(data[0]);
+        log.write("findProduct", JSON.stringify(models.data));
+        callback(models.data);
+      }
+    });
+  } catch (ex) {
+    log.write("Execute Sql Query", "---------->Exception<---------- " + ex);
+  }
+}
+
+exports.createNewOrders = function (params, callback) {
+  try {
+    console.log(params);
+    var sql = "SELECT product.* FROM product WHERE productSn = '" + 'productSn' + "'";
+    db.execute(sql, function (data, err) {
+      if (err) {
+        log.error("createNewOrders", err);
+      } else {
+
+        var result = {
+          status: 1,
+          desc: "Huynh"
+        }
+        
+        models.ResultForm(result);
+        log.write("createNewOrders", JSON.stringify(models.data));
+        callback(models.data);
+      }
+    });
+  } catch (ex) {
+    log.write("Execute Sql Query", "---------->Exception<---------- " + ex);
+  }
+}
 
 
 exports.insert = function () {

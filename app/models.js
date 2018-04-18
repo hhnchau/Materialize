@@ -21,4 +21,23 @@ Models.prototype.ApiSettingsForm = function (ApiSettingsForm) {
 }
 var ApiSettingsForm = {}
 
+var UserForm = {}
+
+/*
+* PRODUCT_FORM
+*/
+Models.prototype.ProductForm = function (ProductForm) {
+    this.data.ProductForm = ProductForm;
+}
+var ProductForm = {}
+
+
+/*
+* RESULT_FORM
+*/
+Models.prototype.ResultForm = function (ResultForm) {
+    this.data.ResultForm = ResultForm;
+}
+var ResultForm = {}
+
 module.exports = Models;

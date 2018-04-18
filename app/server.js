@@ -38,8 +38,14 @@ app.get(settings.findApiSettings, function (req, res) {
 app.get(settings.findAllProduct, function (req, res) {
   var secret = req.headers[settings.secret_key];
   if (secret === settings.secret_encrypt) {
+
     var offset = req.query.offset;
     var limit = req.query.limit;
+
+    query.findAllProduct(offset, limit, function (ProductForm) {
+      res.json(ProductForm);
+      res.end();
+    });
 
   } else {
     //Response 404
@@ -51,6 +57,31 @@ app.get(settings.findAllProduct, function (req, res) {
 app.get(settings.findProduct, function (req, res) {
   var secret = req.headers[settings.secret_key];
   if (secret === settings.secret_encrypt) {
+
+    var productSn = req.query.productSn;
+
+    query.findProduct(productSn, function (ProductForm) {
+      res.json(ProductForm);
+      res.end();
+    });
+
+  } else {
+    //Response 404
+    res.write(settings.secret_fail);
+    res.end();
+  }
+})
+
+app.post(settings.createNewOrders, function (req, res) {
+  var secret = req.headers[settings.secret_key];
+  if (secret === settings.secret_encrypt) {
+
+    var params = req.body;
+  
+    query.createNewOrders(params, function (ResultForm) {
+      res.json(ResultForm);
+      res.end();
+    });
 
   } else {
     //Response 404
@@ -64,7 +95,7 @@ app.get(settings.findProduct, function (req, res) {
 * WEB
 */
 app.get("/index", function (req, res) {
-  res.render("index");
+  res.render("index", {host: settings.url});
 });
 
 app.get("/login", function (req, res) {

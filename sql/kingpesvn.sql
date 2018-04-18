@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2018 at 02:56 AM
+-- Generation Time: Apr 18, 2018 at 08:02 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -65,7 +65,7 @@ CREATE TABLE `media` (
   `mediaId` int(11) NOT NULL,
   `productId` int(11) NOT NULL,
   `image` int(11) NOT NULL,
-  `youtube` int(11) NOT NULL
+  `youtube` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -95,7 +95,7 @@ CREATE TABLE `price` (
   `productId` int(11) NOT NULL,
   `original` int(6) NOT NULL,
   `buy` int(6) NOT NULL,
-  `discount` int(6) NOT NULL
+  `promotionId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -118,7 +118,11 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`productId`, `productSn`, `productName`, `amount`, `shortDescription`, `fullDecsription`) VALUES
-(2, 'A1234', 'Xe Xuc', 0, 'Xe Xuc Cat The He Moi', 'Xe Xuc cat Xe loai moi co 4 phin, Dieu khien tu xa, chay 100km/h');
+(2, 'A1234', 'Xe Xuc', 0, 'Xe Xuc Cat The He Moi', 'Xe Xuc cat Xe loai moi co 4 phin, Dieu khien tu xa, chay 100km/h'),
+(3, 'A12345', 'Xe Hoi', 10, 'Xehoi', 'Dochoi xe hoi'),
+(4, 'A2233', 'Xe Tang', 7, 'Xe Tang Dien Tu', 'Xe tang cho tre em'),
+(5, 'B123', 'Xe Xich Lo', 1, 'Xe Xixh Lo', 'Xe xixh lo cho tre em'),
+(6, 'C243', 'Xe Dap', 6, 'XeDap', 'Xe Dap Do Choi');
 
 -- --------------------------------------------------------
 
@@ -130,6 +134,7 @@ CREATE TABLE `promotion` (
   `promotionId` int(11) NOT NULL,
   `promptionName` varchar(20) NOT NULL,
   `description` varchar(200) NOT NULL,
+  `value` int(7) NOT NULL,
   `end` timestamp NULL DEFAULT NULL,
   `start` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -146,7 +151,8 @@ CREATE TABLE `raiting` (
   `title` varchar(200) NOT NULL,
   `content` text NOT NULL,
   `userId` int(11) NOT NULL,
-  `rate` int(1) NOT NULL
+  `rate` int(1) NOT NULL,
+  `likes` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -159,6 +165,13 @@ CREATE TABLE `settings` (
   `version` varchar(15) NOT NULL,
   `upgrade` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `settings`
+--
+
+INSERT INTO `settings` (`version`, `upgrade`) VALUES
+('0.0.1', 'He thong dang bao tri');
 
 -- --------------------------------------------------------
 
@@ -183,6 +196,7 @@ CREATE TABLE `transaction` (
 
 CREATE TABLE `user` (
   `userId` int(11) NOT NULL,
+  `deviceId` varchar(25) NOT NULL,
   `nickname` varchar(20) NOT NULL,
   `address` varchar(200) NOT NULL,
   `phone` varchar(15) NOT NULL,
@@ -199,8 +213,9 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`userId`, `nickname`, `address`, `phone`, `password`, `section`, `token`, `sex`, `email`, `create`, `update`) VALUES
-(1, 'HuynHChau', 'Ho Chi Minh', '091232345', '', '', '', '1', 'asd@gmail.com', '2018-04-08 17:03:21', '0000-00-00 00:00:00');
+INSERT INTO `user` (`userId`, `deviceId`, `nickname`, `address`, `phone`, `password`, `section`, `token`, `sex`, `email`, `create`, `update`) VALUES
+(1, 'a1a2', 'HuynHChau', 'Ho Chi Minh', '091232345', '', '', '', '1', 'asd@gmail.com', '2018-04-08 17:03:21', '0000-00-00 00:00:00'),
+(3, 'a1a3', 'Bao', 'HochiMinh', '0123455', '', '', '', '', '', '2018-04-18 13:24:30', '0000-00-00 00:00:00');
 
 --
 -- Indexes for dumped tables
@@ -240,7 +255,8 @@ ALTER TABLE `pending`
 --
 ALTER TABLE `price`
   ADD PRIMARY KEY (`priceId`),
-  ADD KEY `productId` (`productId`);
+  ADD KEY `productId` (`productId`),
+  ADD KEY `promotionId` (`promotionId`);
 
 --
 -- Indexes for table `product`
@@ -277,7 +293,8 @@ ALTER TABLE `transaction`
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`userId`);
+  ADD PRIMARY KEY (`userId`),
+  ADD UNIQUE KEY `deviceId` (`deviceId`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -312,7 +329,7 @@ ALTER TABLE `price`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `productId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `productId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `promotion`
 --
@@ -332,7 +349,7 @@ ALTER TABLE `transaction`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Constraints for dumped tables
 --
@@ -361,7 +378,8 @@ ALTER TABLE `pending`
 -- Constraints for table `price`
 --
 ALTER TABLE `price`
-  ADD CONSTRAINT `price_ibfk_1` FOREIGN KEY (`productId`) REFERENCES `product` (`productId`) ON DELETE CASCADE;
+  ADD CONSTRAINT `price_ibfk_1` FOREIGN KEY (`productId`) REFERENCES `product` (`productId`) ON DELETE CASCADE,
+  ADD CONSTRAINT `price_ibfk_2` FOREIGN KEY (`promotionId`) REFERENCES `promotion` (`promotionId`);
 
 --
 -- Constraints for table `raiting`
