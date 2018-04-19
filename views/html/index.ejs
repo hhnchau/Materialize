@@ -25,33 +25,14 @@
   <!-- Head End -->
 
   <body>
+
     <!-- Header -->
     <header>
-
-
-
-
       <!-- Banner -->
       <!-- Banner -->
       <!-- Banner -->
       <div id="banner1">
         <div class="carousel carousel-slider center" data-indicators="true">
-          <!-- <div class="carousel-fixed-item center">
-          <a class="btn waves-effect white grey-text darken-text-2">button</a>
-        </div> -->
-          <!-- 
-            <div class="carousel-item" href="#one!">
-                <a href="#one!"><img src="https://lorempixel.com/800/400/food/1"></a>
-            </div>
-            <div class="carousel-item" href="#two!">
-                <a  href="#two!"><img src="https://lorempixel.com/800/400/food/2"></a>
-            </div>
-            <div class="carousel-item" href="#three!">
-                <a href="#three!"><img src="https://lorempixel.com/800/400/food/3"></a>
-            </div>
-            <div class="carousel-item " href="#four!">
-                <a href="#four!"><img src="https://lorempixel.com/800/400/food/4"></a>
-            </div> -->
           <a class="carousel-item" href="#one!">
             <img class="carousel-image" src="<%=url%>getImage:product|namanh.jpg">
           </a>
@@ -72,8 +53,6 @@
       <!-- Banner End -->
       <!-- Banner End -->
       <!-- Banner End -->
-
-
 
 
       <!-- MENU -->
@@ -130,12 +109,12 @@
               </li>
               <li>
                 <a href="https://play.google.com/store/apps/details?id=com.appromobile.hotel&hl=en" target="_blank">
-                  <img class="store-button" src="<%=url%>getImage:icon|GooglePlay-white.png" />
+                  <img class="store-button" src="<%=url%>getImage:icon|googleplay.png" />
                 </a>
               </li>
               <li>
                 <a href="https://itunes.apple.com/us/app/go2joy/id1185445287?ls=1&mt=8" target="_blank">
-                  <img class="store-button" src="<%=url%>getImage:icon|appstore-white.png" />
+                  <img class="store-button" src="<%=url%>getImage:icon|appstore.png"/>
                 </a>
               </li>
             </ul>
@@ -211,6 +190,7 @@
             <img src="<%=url%>getImage:product|antuong.jpg">
           </div>
         </div>
+
         <div class="section white">
           <div class="row container">
             <h2 class="header deep-orange-text">
@@ -222,17 +202,19 @@
               riêng tư. Không cần phải mất nhiều thời gian tìm kiếm nữa, với Go2Joy, chỉ cần vài cú chạm trong vài giây,
               bạn đã có thể chọn cho mình một địa điểm trải nghiệm dịch vụ ưng ý. Hãy để công nghệ hiện đại phục vụ cho cuộc
               sống của bạn dễ dàng và thoải mái hơn!</p>
-            <p class="fbshare">
+            <!-- <p class="fbshare">
               <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&width=450&layout=standard&action=like&size=large&show_faces=true&share=true&height=80&appId=1560905190879719"
                 width="650" height="80" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
-            </p>
+            </p> -->
           </div>
         </div>
+
         <!-- <div class="parallax-container">
         <div class="parallax">
           <img src="<%=url%>getImage:product|antuong.jpg">
         </div>
       </div> -->
+
       </div>
 
       <!-- PRODUCT -->
@@ -250,23 +232,37 @@
           <div class="row section">
 
             <!-- START one hotel item -->
-            <div id="result"></div>
+            <!-- <div id="result"></div> -->
 
-            <!-- <div class="col s12 m6 l4">
+            <div class="col s12 m6 l4">
               <a class="modal-trigger" href="#modal1">
                 <div class="card hoverable z-depth-2">
                   <div class="card-image">
                     <img id="product_image" src="<%=url%>getImage:product|aloc.jpg">
                   </div>
                   <div class="card-content">
-                    <h5 id = "product_name" class="deep-orange-text text-darken-1">Nam Anh Hotel</h5>
-                    <p id = "product_desc" class=" grey-text text-darken-4">331/8 Đường Phan Huy Ích, P.14, Q.Gò Vấp, TP.HCM</p>
+                    <h5 id="product_name" class="deep-orange-text text-darken-1">Nam Anh Hotel</h5>
+                    <p id="product_desc" class=" grey-text text-darken-4">331/8 Đường Phan Huy Ích, P.14, Q.Gò Vấp, TP.HCM</p>
                   </div>
                 </div>
               </a>
-            </div> -->
+            </div>
 
-            <script>
+            <div class="col s12 m6 l4">
+              <a class="modal-trigger" href="#modal1">
+                <div class="card hoverable z-depth-2">
+                  <div class="card-image">
+                    <img id="product_image" src="<%=url%>getImage:product|aloc.jpg">
+                  </div>
+                  <div class="card-content">
+                    <h5 id="product_name" class="deep-orange-text text-darken-1">Nam Anh Hotel</h5>
+                    <p id="product_desc" class=" grey-text text-darken-4">331/8 Đường Phan Huy Ích, P.14, Q.Gò Vấp, TP.HCM</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- <script>
               var xhttp = new XMLHttpRequest();
               xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
@@ -299,7 +295,7 @@
               xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
               xhttp.setRequestHeader("secret", "12345");
               xhttp.send();
-            </script>
+            </script> -->
 
 
           </div>

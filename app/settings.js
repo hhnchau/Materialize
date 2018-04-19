@@ -6,9 +6,9 @@ exports.dbConfig = {
     port: '3306'
   };
   
-  exports.listenPort = 9000;
+  exports.listenPort = 3000;
 
-  exports.url = "http://localhost:3000/";
+  exports.url = "http://192.168.1.114:3000/";
     
 
   /*
