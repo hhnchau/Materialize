@@ -98,6 +98,10 @@ app.get("/index", function (req, res) {
   res.render("index", {host: settings.url});
 });
 
+app.get("/details", function (req, res) {
+  res.render("details", {host: settings.url});
+});
+
 app.get("/login", function (req, res) {
   res.render("login");
 });
