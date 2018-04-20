@@ -29,7 +29,7 @@ blockquote {
   }
 }
 
-/* @media only screen and (max-width: 600px) {
+@media only screen and (max-width: 600px) {
   #menu{
     /* wrapper div of navbar, fix the pushpin pixel skip bug */
     height: 54px;
@@ -41,6 +41,8 @@ blockquote {
     /* wrapper div of navbar, fix the pushpin pixel skip bug */
     height: 64px;
   }
-} */
+} 
 
-
+.side-nav{
+background-color: rgba(0, 0, 0, 0.87) !important
+}
