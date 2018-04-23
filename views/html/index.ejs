@@ -5,7 +5,16 @@
   <!-- Head -->
 
   <head>
+
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="description" content="kingpes, do choi, do choi gia re, do choi tre em, do choi cho be, do choi lego, do choi youtube">
+    <meta name="keywords" content="kingpes, do choi, do choi gia re, do choi tre em, do choi cho be, do choi lego, do choi youtube">
+
+
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
@@ -17,10 +26,9 @@
     <link type="text/css" rel="stylesheet" href="<%=url%>getResource:css|animate.css" media="screen,projection" />
     <!--Import index.css-->
     <link type="text/css" rel="stylesheet" href="<%=url%>getResource:css|index.css" media="screen,projection" />
-    <!--Mobile optimize -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Kingpesvn</title>
+
+    <title>Đồ Chơi Kingpes</title>
+
   </head>
   <!-- Head End -->
 
@@ -37,20 +45,20 @@
       <div id="banner1">
         <div class="carousel carousel-slider center" data-indicators="true">
 
-          <a class="carousel-item" href="#one!">
-            <img class="lazyload" src="<%=url%>" data-src="<%=url%>getImage:product|namanh.jpg">
+          <a class="carousel-item">
+            <img src="<%=url%>getImage:product|namanh.jpg">
           </a>
-          <a class="carousel-item" href="#two!">
-            <img class="lazyload" src="<%=url%>" data-src="<%=url%>getImage:product|aloc.jpg">
+          <a class="carousel-item">
+            <img src="<%=url%>getImage:product|aloc.jpg">
           </a>
-          <a class="carousel-item" href="#three!">
-            <img class="lazyload" src="<%=url%>" data-src="<%=url%>getImage:product|myloc.jpg">
+          <a class="carousel-item">
+            <img src="<%=url%>getImage:product|myloc.jpg">
           </a>
-          <a class="carousel-item" href="#four!">
-            <img class="lazyload" src="<%=url%>" data-src="<%=url%>getImage:product|ken.jpg">
+          <a class="carousel-item">
+            <img src="<%=url%>getImage:product|ken.jpg">
           </a>
-          <a class="carousel-item" href="#four!">
-            <img class="lazyload" src="<%=url%>" data-src="<%=url%>getImage:product|antuong.jpg">
+          <a class="carousel-item">
+            <img src="<%=url%>getImage:product|antuong.jpg">
           </a>
         </div>
       </div>
@@ -91,60 +99,34 @@
             <!-- WEB -->
             <!-- WEB -->
 
-            <style>
-              ::placeholder {
-                color: white;
-                opacity: 1;
-                /* Firefox */
-              }
-
-              :-ms-input-placeholder {
-                /* Internet Explorer 10-11 */
-                color: white;
-              }
-
-              ::-ms-input-placeholder {
-                /* Microsoft Edge */
-                color: white;
-              }
-            </style>
-
             <div class="row">
               <div class="col s6">
                 <ul class="left hide-on-med-and-down">
                   <li>
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLScCtwnRHg0BcfpQ_I2fKWAMY5CDwFytHWhx1oI8YlOA99wu2Q/viewform" target="_blank">
-                      Trang Chu
+                      Trang Chủ
                     </a>
                   </li>
                   <li>
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLScCtwnRHg0BcfpQ_I2fKWAMY5CDwFytHWhx1oI8YlOA99wu2Q/viewform" target="_blank">
-                      Be Trai
+                      Đồ Chơi Bé Trai
                     </a>
                   </li>
                   <li>
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLScCtwnRHg0BcfpQ_I2fKWAMY5CDwFytHWhx1oI8YlOA99wu2Q/viewform" target="_blank">
-                      Be Gai
+                      Đồ Chơi Bé Gái
                     </a>
                   </li>
                   <li>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScCtwnRHg0BcfpQ_I2fKWAMY5CDwFytHWhx1oI8YlOA99wu2Q/viewform" target="_blank">
-                      Liên hệ
+                    <a class="modal-trigger" href="#modal-search">
+                      Tìm Kiếm
                     </a>
                   </li>
                   <li>
-                    <div class="center row">
-                      <div class="col s12 ">
-                        <div class="row" id="topbarsearch">
-                          <div class="input-field col s6 s12 red-text">
-                            <!-- <i class="red-text material-icons prefix">search</i> -->
-                            <input type="text" placeholder="Tìm Kiếm" id="autocomplete-input" class="autocomplete red-text">
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    <a class="modal-trigger" href="#modal-contact">
+                      Liên Hệ
+                    </a>
                   </li>
-
                 </ul>
               </div>
               <div class="col s6">
@@ -178,41 +160,32 @@
         <!-- MOBILE -->
         <!-- MOBILE -->
         <!-- MOBILE -->
-        <ul class="side-nav" id="mobile-demo">
+        <ul class="side-nav  light-green lighten-5" id="mobile-demo">
           <li>
             <a href="https://docs.google.com/forms/d/e/1FAIpQLScCtwnRHg0BcfpQ_I2fKWAMY5CDwFytHWhx1oI8YlOA99wu2Q/viewform" target="_blank">
-              Trang Chu
+              Trang Chủ
             </a>
           </li>
           <li>
             <a href="https://docs.google.com/forms/d/e/1FAIpQLScCtwnRHg0BcfpQ_I2fKWAMY5CDwFytHWhx1oI8YlOA99wu2Q/viewform" target="_blank">
-              Be Trai
+              Đồ Chơi Bé Trai
             </a>
           </li>
           <li>
             <a href="https://docs.google.com/forms/d/e/1FAIpQLScCtwnRHg0BcfpQ_I2fKWAMY5CDwFytHWhx1oI8YlOA99wu2Q/viewform" target="_blank">
-              Be Gai
+              Đồ Chơi Bé Gái
             </a>
           </li>
           <li>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLScCtwnRHg0BcfpQ_I2fKWAMY5CDwFytHWhx1oI8YlOA99wu2Q/viewform" target="_blank">
-              Liên hệ
+            <a class="modal-trigger" href="#modal-search">
+              Tìm Kiếm
             </a>
           </li>
-
           <li>
-            <div class="center row">
-              <div class="col s12 ">
-                <div class="row" id="topbarsearch">
-                  <div class="input-field col s6 s12 red-text">
-                    <!-- <i class="red-text material-icons prefix">search</i> -->
-                    <input type="text" placeholder="Tìm Kiếm" id="autocomplete-input" class="autocomplete red-text">
-                  </div>
-                </div>
-              </div>
-            </div>
+            <a class="modal-trigger" href="#modal-contact">
+              Liên Hệ
+            </a>
           </li>
-
           <li>
             <a href="https://play.google.com/store/apps/details?id=com.appromobile.hotel&hl=en" target="_blank">
               <img class="store-button" align="center" style="width:50%" src="<%=url%>getImage:icon|googleplay-white.png" />
@@ -245,134 +218,78 @@
       <div id="about">
         <div class="parallax-container">
           <div class="parallax">
-            <img class="lazyload" src="<%=url%>getImage:product|hungphat.jpg">
+            <img class="lazyload" src="<%=url%>getImage:product|hungphat.jpg" data-src="<%=url%>getImage:product|hungphat.jpg">
           </div>
         </div>
+
         <div class="section white">
           <div class="row container">
-            <h2 class="header deep-orange-text">
+            <!-- <h2 class="header deep-orange-text">
               <blockquote>
                 Kingpes
               </blockquote>
-            </h2>
-            <p class="grey-text text-darken-3 lighten-3 flow-text">Go2Joy là ứng dụng trên điện thoại di động giúp người dùng đặt phòng theo giờ một cách nhanh chóng, thuận tiện,
-              riêng tư. Không cần phải mất nhiều thời gian tìm kiếm nữa, với Go2Joy, chỉ cần vài cú chạm trong vài giây,
-              bạn đã có thể chọn cho mình một địa điểm trải nghiệm dịch vụ ưng ý. Hãy để công nghệ hiện đại phục vụ cho cuộc
-              sống của bạn dễ dàng và thoải mái hơn!</p>
-            <!-- <p class="fbshare">
-              <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&width=450&layout=standard&action=like&size=large&show_faces=true&share=true&height=80&appId=1560905190879719"
-                width="650" height="80" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
-            </p> -->
+            </h2> -->
+
+            <div class="product-price card blue-grey darken-1">
+              <div class="card-content white-text">
+                <span class="card-title header deep-orange-text">Kingpes</span>
+                <p>Cửa hàng đồ chơi Kingpes chuyên cung cấp đồ chơi cho trẻ em.</p>
+              </div>
+            </div>
           </div>
         </div>
-        <!-- <div class="parallax-container">
-        <div class="parallax">
-          <img src="<%=url%>getImage:product|antuong.jpg">
+
+
+        <!-- PRODUCT -->
+        <!-- PRODUCT -->
+        <!-- PRODUCT -->
+        <!-- PRODUCT -->
+        <!-- PRODUCT -->
+        <div id="hotel" class="section">
+          <div class="container section">
+            <h4 class="header deep-orange-text row">
+              <blockquote id = "category"></blockquote>
+            </h4>
+            <div class="row section">
+
+              <!-- START one hotel item -->
+              <div id="result"></div>
+
+            </div>
+
+            <!-- Pagination -->
+            <!-- Pagination -->
+            <!-- Pagination -->
+            <ul class="pagination" align="center">
+              <li class="disabled">
+                <a href="#!">
+                  <i class="material-icons">chevron_left</i>
+                </a>
+              </li>
+              <li class="active">
+                <a href="#!">1</a>
+              </li>
+              <li class="waves-effect">
+                <a href="#!">2</a>
+              </li>
+              <li class="waves-effect">
+                <a href="#!">3</a>
+              </li>
+              <li class="waves-effect">
+                <a href="#!">4</a>
+              </li>
+              <li class="waves-effect">
+                <a href="#!">5</a>
+              </li>
+              <li class="waves-effect">
+                <a href="#!">
+                  <i class="material-icons">chevron_right</i>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div> -->
       </div>
-
-      <!-- PRODUCT -->
-      <!-- PRODUCT -->
-      <!-- PRODUCT -->
-      <!-- PRODUCT -->
-      <!-- PRODUCT -->
-      <div id="hotel" class="section">
-        <div class="container section">
-          <h2 class="header deep-orange-text row">
-            <blockquote>
-              Khach San
-            </blockquote>
-          </h2>
-          <div class="row section">
-
-            <!-- START one hotel item -->
-            <div id="result"></div>
-
-            <!-- <div class="col s12 m6 l4">
-              <a class="modal-trigger" href="#modal1">
-                <div class="card hoverable z-depth-2">
-                  <div class="card-image">
-                    <img class="lazyload" data-src="<%=url%>getImage:product|phuonghoang.jpg">
-                  </div>
-                  <div class="card-content">
-                    <h5 class="deep-orange-text text-darken-1">Nam Anh Hotel</h5>
-                    <p class=" grey-text text-darken-4">331/8 Đường Phan Huy Ích, P.14, Q.Gò Vấp, TP.HCM</p>
-                  </div>
-                </div>
-              </a>
-            </div> -->
-
-            <script>
-              var xhttp = new XMLHttpRequest();
-              xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                  // Response
-                  var output;
-                  var json = JSON.parse(this.responseText);
-                  $.each(json, function (i, item) {
-                    item.forEach(function (entry) {
-
-                      output = '<div class="col s12 m6 l4">';
-                      output += '<a class="modal-trigger" href="#modal1">';
-                      output += '<div class="card hoverable z-depth-2">';
-                      output += '<div class="card-image">';
-                      output += '<img class="lazyload" src ="<%=url%>getImage:product|sunrise.jpg" data-src="<%=url%>getImage:product|sunrise.jpg">';
-                      output += '</div>';
-                      output += '<div class="card-content">';
-                      output += '<h5 class="deep-orange-text text-darken-1">' + entry.productName + '</h5>';
-                      output += '<p class=" grey-text text-darken-4">' + entry.shortDescription + '</p>';
-                      output += '</div>';
-                      output += '</div>';
-                      output += '</a>';
-                      output += '</div>';
-                      $('#result').append(output);
-
-                    });
-                  })
-                }
-              };
-              xhttp.open("GET", "findAllProduct?offset=0&limit=10", true);
-              xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-              xhttp.setRequestHeader("secret", "12345");
-              xhttp.send();
-            </script>
-
-
-
-
-          </div>
-
-          <!-- Pagination -->
-          <!-- Pagination -->
-          <!-- Pagination -->
-          <ul class="pagination" align="center">
-            <li class="disabled">
-              <a href="#!">
-                <i class="material-icons">chevron_left</i>
-              </a>
-            </li>
-            <li class="active">
-              <a href="#!">1</a>
-            </li>
-            <li class="waves-effect">
-              <a href="#!">2</a>
-            </li>
-            <li class="waves-effect">
-              <a href="#!">3</a>
-            </li>
-            <li class="waves-effect">
-              <a href="#!">4</a>
-            </li>
-            <li class="waves-effect">
-              <a href="#!">5</a>
-            </li>
-            <li class="waves-effect">
-              <a href="#!">
-                <i class="material-icons">chevron_right</i>
-              </a>
-            </li>
-          </ul>
     </main>
     <!-- Main End -->
 
@@ -384,7 +301,7 @@
     <!-- Footer -->
     <!-- Footer -->
     <!-- Footer -->
-    <footer class="page-footer">
+    <footer class="page-footer deep-orange lighten-1">
       <div class="container">
         <div class="row">
 
@@ -392,9 +309,11 @@
           <!-- ADDRRESS -->
           <!-- ADDRRESS -->
           <div class="col l6 s12">
-            <h5 class="white-text">Cua hang do choi Kingpes</h5>
-            <p class="grey-text text-lighten-4">D/C: 65 Luu Chi Hieu - Tay Thanh - Tan Phu - Ho Chi Minh</p>
-            <p class="grey-text text-lighten-4">Hotline: 0937590127</p>
+            <h5 class="white-text">Cửa Hàng Đồ Chơi Kingpes</h5>
+            <p class="grey-text text-lighten-4">D/C: 65B Lưu Chí Hiếu - P.Tây Thạnh - Q.Tân Phú - HCM</p>
+            <p class="grey-text text-lighten-4">Hotline: 0902.500.478</p>
+            <p class="grey-text text-lighten-4">Email: kingpesvn@gmail.com</p>
+            <p class="grey-text text-lighten-4">Website: kingpes.com</p>
           </div>
           <!-- ADDRRESS -->
           <!-- ADDRRESS -->
@@ -404,16 +323,13 @@
             <h5 class="white-text">Links</h5>
             <ul>
               <li>
-                <a class="grey-text text-lighten-3" href="#!">Link 1</a>
+                <a class="grey-text text-lighten-3" href="#!">Google+</a>
               </li>
               <li>
-                <a class="grey-text text-lighten-3" href="#!">Link 2</a>
+                <a class="grey-text text-lighten-3" href="#!">Facebok</a>
               </li>
               <li>
-                <a class="grey-text text-lighten-3" href="#!">Link 3</a>
-              </li>
-              <li>
-                <a class="grey-text text-lighten-3" href="#!">Link 4</a>
+                <a class="grey-text text-lighten-3" href="#!">Youtube</a>
               </li>
             </ul>
           </div>
@@ -425,13 +341,65 @@
         <div class="container">
           Copyright © 2018 Kingpes
           <a class="grey-text text-lighten-4 right" href="#!">Design and Developed by Kingpes</a>
-          <a class="material-icons">add</a>
         </div>
       </div>
     </footer>
     <!-- Footer End -->
 
 
+    <!-- Modal -->
+    <!-- Modal Trigger -->
+    <!-- Modal Trigger -->
+    <!-- Modal Trigger -->
+    <div id="modal-contact" class="modal">
+      <div class="modal-content">
+        <!-- =========== -->
+        <div class="row">
+          <div class="col s12 m12">
+            <div class="card-panel teal">
+              <span class="white-text" align = "center">
+                <h5 class="white-text">Cửa Hàng Đồ Chơi Kingpes</h5>
+                <p class="grey-text text-lighten-4">Đ/C: 65B Lưu Chí Hiếu - P.Tây Thạnh - Q.Tân Phú - HCM</p>
+                <p class="grey-text text-lighten-4">Hotline: 0902.500.478</p>
+                <p class="grey-text text-lighten-4">Email: kingpesvn@gmail.com</p>
+                <p class="grey-text text-lighten-4">Website: kingpes.com</p>
+              </span>
+            </div>
+          </div>
+        </div>
+        <!-- =========== -->
+      </div>
+      <!-- <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn">Tìm</a>
+      </div> -->
+    </div>
+    <!-- Modal Trigger -->
+    <!-- Modal Trigger -->
+    <!-- Modal Trigger -->
+    <!-- Modal Trigger -->
+    <!-- Modal Trigger -->
+    <!-- Modal Trigger -->
+    <div id="modal-search" class="modal">
+      <div class="modal-content">
+        <nav class = " teal">
+          <div class="nav-wrapper">
+            <form>
+              <div class="input-field">
+                <input id="search" type="search" placeholder="Nhập từ khóa để tìm" required>
+              
+                <i class="material-icons">close</i>
+              </div>
+            </form>
+          </div>
+        </nav>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn">Tìm</a>
+      </div>
+    </div>
+    <!-- Modal Trigger -->
+    <!-- Modal Trigger -->
+    <!-- Modal Trigger -->
 
     <!-- Import query -->
     <script type="text/javascript" src="<%=url%>getResource:js|jquery-3.2.1.min.js"></script>
@@ -445,6 +413,44 @@
     <script>
       //$(".lazyload").unveil();
       lazyload();
+
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          // Response
+          var output;
+          var json = JSON.parse(this.responseText);
+          $.each(json, function (i, item) {
+            item.forEach(function (entry) {
+              output = '<div class="col s12 m6 l4">';
+              output += '<a class="modal-trigger" href="#modal1">';
+              output += '<div class="card hoverable z-depth-2">';
+              output += '<div class="card-image">';
+              output += '<img class="lazyload" src ="<%=url%>getImage:product|' + entry.image1 +'" data-src="<%=url%>getImage:product|' + entry.image1 + ">";
+              output += '</div>';
+              output += '<div class="card-content">';
+              output += '<h5 class="deep-orange-text text-darken-1">' + entry.productName + '</h5>';
+              output += '<p class=" grey-text text-darken-4">' + entry.sell + '000 VND</p>';
+              output += '<p class=" grey-text text-darken-4">' + entry.likeTotal + '</p>';
+              output += '<p class=" grey-text text-darken-4">' + entry.rateTotal + '</p>';
+              output += '<p class=" grey-text text-darken-4">' + entry.commentTotal + '</p>';
+              output += '</div>';
+              output += '</div>';
+              output += '</a>';
+              output += '</div>';
+              $('#result').append(output);
+
+              
+              $('#category').append("Tất cả sản phẩm");
+            });
+          })
+        }
+      };
+      xhttp.open("GET", "findAllProduct?offset=0&limit=10", true);
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhttp.setRequestHeader("secret", "12345");
+      xhttp.send();
+
     </script>
 
   </body>

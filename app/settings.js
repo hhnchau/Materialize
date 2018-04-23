@@ -8,7 +8,7 @@ exports.dbConfig = {
   
   exports.listenPort = 3000;
 
-  exports.url = "http://192.168.1.107:3000/";
+  exports.url = "http://192.168.0.105:3000/";
     
 
   /*

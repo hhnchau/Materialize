@@ -43,6 +43,29 @@ blockquote {
   }
 } 
 
-.side-nav{
-background-color: rgba(0, 0, 0, 0.87) !important
+
+::placeholder {
+  color: white;
+  opacity: 1;
+  /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: white;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: white;
+}
+
+.buy-now{
+  width: 100%;
+}
+
+
+.product-price {
+  margin-bottom: -5px;
+  margin-top: 7px;
 }
