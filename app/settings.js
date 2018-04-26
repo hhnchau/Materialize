@@ -24,12 +24,24 @@ exports.dbConfig = {
 
   exports.findAllProduct = "/findAllProduct";
 
-  exports.filterAllProduct = "/filterAllProduct";
-
-  exports.searchAllProduct = "/searchAllProduct";
-
   exports.findProduct = "/findProduct";
 
   exports.createNewOrders = "/createNewOrders";
 
   exports.createNewUser = "/createNewUser";
+
+  exports.getInfoUser = "/getInfoUser";
+
+  exports.createNewLikes = "/createNewLikes";
+
+  exports.getInfoLikes = "/getInfoLikes";
+
+  exports.createNewComment = "/createNewComment";
+
+  exports.getInfoComment = "/getInfoComment";
+
+  exports.createNewRaiting = "/createNewRaiting";
+
+  exports.getInfoRaiting = "/getInfoRaiting";
+
+  exports.updateOpenApp = "/updateOpenApp";

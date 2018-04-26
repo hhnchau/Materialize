@@ -46,19 +46,19 @@
         <div class="carousel carousel-slider center" data-indicators="true">
 
           <a class="carousel-item">
-            <img src="<%=url%>getImage:product|namanh.jpg">
+            <img class="carousel-image" src="<%=url%>getImage:product|truck-1.jpg">
           </a>
           <a class="carousel-item">
-            <img src="<%=url%>getImage:product|aloc.jpg">
+            <img class="carousel-image" src="<%=url%>getImage:product|rage-1.jpg">
           </a>
           <a class="carousel-item">
-            <img src="<%=url%>getImage:product|myloc.jpg">
+            <img class="carousel-image" src="<%=url%>getImage:product|xebon-1.jpg">
           </a>
           <a class="carousel-item">
-            <img src="<%=url%>getImage:product|ken.jpg">
+            <img class="carousel-image" src="<%=url%>getImage:product|baby-1.jpg">
           </a>
           <a class="carousel-item">
-            <img src="<%=url%>getImage:product|antuong.jpg">
+            <img class="carousel-image" src="<%=url%>getImage:product|sieunhan-1.jpg">
           </a>
         </div>
       </div>
@@ -215,10 +215,10 @@
     <!-- Main -->
     <!-- Main -->
     <main>
-      <div id="about">
+      <div>
         <div class="parallax-container">
           <div class="parallax">
-            <img class="lazyload" src="<%=url%>getImage:product|hungphat.jpg" data-src="<%=url%>getImage:product|hungphat.jpg">
+            <img src="<%=url%>getImage:icon|banner.jpg">
           </div>
         </div>
 
@@ -245,49 +245,74 @@
         <!-- PRODUCT -->
         <!-- PRODUCT -->
         <!-- PRODUCT -->
-        <div id="hotel" class="section">
+        <div id="product" class="section">
           <div class="container section">
+
+            <!-- Title -->
             <h4 class="header deep-orange-text row">
-              <blockquote id = "category"></blockquote>
+              <blockquote id="category"></blockquote>
             </h4>
+
+            <!-- Container -->
             <div class="row section">
 
               <!-- START one hotel item -->
               <div id="result"></div>
 
-            </div>
+              <!-- <div class="col s12 m6 l4">
+                <a class="modal-trigger" href="<%=url%>details">
+                  <div class="card hoverable z-depth-2">
+                    <div class="card-image">
+                      <img src="<%=url%>getImage:product|truck-1.jpg">
+                    </div>
+                    <div class="card-content">
+                      <div class="row">
+                        <div class="col s1"></div>
+                        <div class="col s6">
+                          <p class="deep-orange-text text-darken-1" style="font-size:180%;">500.000 vnd</p>
+                        </div>
+                        <div class="price-discount col s4">
+                          <p class="lineThrough" id="price-original">500.000vnd</p>
+                        </div>
+                        <div class="col s1"></div>
+                      </div>
 
-            <!-- Pagination -->
-            <!-- Pagination -->
-            <!-- Pagination -->
-            <ul class="pagination" align="center">
-              <li class="disabled">
-                <a href="#!">
-                  <i class="material-icons">chevron_left</i>
+                      <div class="row">
+                        <div class="col s1"></div>
+                        <div class="col s10">
+                          <p id="product-name" style="font-size:140%;">Nam Anh Hotel</p>
+                        </div>
+                        <div class="col s1"></div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col s1"></div>
+                        <div class="col s6">
+                          <i class="material-icons yellow-text text-darken-2 left">star</i>
+                          <i class="material-icons yellow-text text-darken-2 left">star</i>
+                          <i class="material-icons yellow-text text-darken-2 left">star</i>
+                          <i class="material-icons yellow-text text-darken-2 left">star</i>
+                          <i class="material-icons yellow-text text-darken-2 left">star</i>
+                          (5/9)
+                        </div>
+                        <div class="col s4">
+                          <i class="material-icons red-text text-darken-2 left">favorite</i>
+                          (939)
+                        </div>
+                        <div class="col s1"></div>
+                      </div>
+
+                      <div class="label-home-discount">
+                        <span id="label-discount" align="right">-30%</span>
+                      </div>
+                    </div>
+                  </div>
                 </a>
-              </li>
-              <li class="active">
-                <a href="#!">1</a>
-              </li>
-              <li class="waves-effect">
-                <a href="#!">2</a>
-              </li>
-              <li class="waves-effect">
-                <a href="#!">3</a>
-              </li>
-              <li class="waves-effect">
-                <a href="#!">4</a>
-              </li>
-              <li class="waves-effect">
-                <a href="#!">5</a>
-              </li>
-              <li class="waves-effect">
-                <a href="#!">
-                  <i class="material-icons">chevron_right</i>
-                </a>
-              </li>
-            </ul>
+              </div> -->
+
+            </div>
           </div>
+
         </div>
       </div>
     </main>
@@ -357,7 +382,7 @@
         <div class="row">
           <div class="col s12 m12">
             <div class="card-panel teal">
-              <span class="white-text" align = "center">
+              <span class="white-text" align="center">
                 <h5 class="white-text">Cửa Hàng Đồ Chơi Kingpes</h5>
                 <p class="grey-text text-lighten-4">Đ/C: 65B Lưu Chí Hiếu - P.Tây Thạnh - Q.Tân Phú - HCM</p>
                 <p class="grey-text text-lighten-4">Hotline: 0902.500.478</p>
@@ -381,12 +406,12 @@
     <!-- Modal Trigger -->
     <div id="modal-search" class="modal">
       <div class="modal-content">
-        <nav class = " teal">
+        <nav class=" teal">
           <div class="nav-wrapper">
             <form>
               <div class="input-field">
                 <input id="search" type="search" placeholder="Nhập từ khóa để tìm" required>
-              
+
                 <i class="material-icons">close</i>
               </div>
             </form>
@@ -394,7 +419,7 @@
         </nav>
       </div>
       <div class="modal-footer">
-        <a href="#!" class="modal-action modal-close waves-effect waves-green btn">Tìm</a>
+        <a href="<%=url%>details/sn:7" class="modal-action modal-close waves-effect waves-green btn">Tìm</a>
       </div>
     </div>
     <!-- Modal Trigger -->
@@ -409,47 +434,117 @@
     <!-- <script type="text/javascript" src="<%=url%>getResource:js|jquery.unveil.js"></script> -->
     <script type="text/javascript" src="<%=url%>getResource:js|jquery.load-more.js"></script>
 
-
-    <script>
+    <script type="text/javascript">
       //$(".lazyload").unveil();
       lazyload();
 
-      var xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-          // Response
-          var output;
-          var json = JSON.parse(this.responseText);
-          $.each(json, function (i, item) {
-            item.forEach(function (entry) {
-              output = '<div class="col s12 m6 l4">';
-              output += '<a class="modal-trigger" href="#modal1">';
-              output += '<div class="card hoverable z-depth-2">';
-              output += '<div class="card-image">';
-              output += '<img class="lazyload" src ="<%=url%>getImage:product|' + entry.image1 +'" data-src="<%=url%>getImage:product|' + entry.image1 + ">";
-              output += '</div>';
-              output += '<div class="card-content">';
-              output += '<h5 class="deep-orange-text text-darken-1">' + entry.productName + '</h5>';
-              output += '<p class=" grey-text text-darken-4">' + entry.sell + '000 VND</p>';
-              output += '<p class=" grey-text text-darken-4">' + entry.likeTotal + '</p>';
-              output += '<p class=" grey-text text-darken-4">' + entry.rateTotal + '</p>';
-              output += '<p class=" grey-text text-darken-4">' + entry.commentTotal + '</p>';
-              output += '</div>';
-              output += '</div>';
-              output += '</a>';
-              output += '</div>';
-              $('#result').append(output);
 
-              
-              $('#category').append("Tất cả sản phẩm");
-            });
-          })
+
+
+      $('#category').append("Tất cả sản phẩm");
+
+    </script>
+
+    <!-- Scroll Loadmore -->
+    <script type="text/javascript">
+
+      //Load Default
+      var isFinish = false;
+      var size = 0;
+      var _offset = 0;
+      var _limit = 1;
+      loadData(_offset, _limit);
+
+      $(window).scroll(function () {
+        if ($(window).scrollTop() >= $(document).height() - ($(window).height() * 4)) {
+          if (!isFinish) {
+            loadData(_offset, _limit);
+          }
         }
-      };
-      xhttp.open("GET", "findAllProduct?offset=0&limit=10", true);
-      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-      xhttp.setRequestHeader("secret", "12345");
-      xhttp.send();
+      });
+
+
+      function loadData(offset, limit) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            // Response
+            var s = "";
+            var output;
+            var json = JSON.parse(this.responseText);
+
+            $.each(json, function (i, item) {
+              item.forEach(function (entry) {
+                output = '<div class="col s12 m6 l4">';
+                output += '<a class="modal-trigger" href="<%=url%>details/sn:' + entry.productId + '">';
+                output += '<div class="card hoverable z-depth-2">';
+
+                output += '<div class="card-image">';
+                output += '<img class="lazyload" src ="<%=url%>getImage:product|' + entry.image1 + '.jpg" data-src="<%=url%>getImage:product|' + entry.image1 + ".jpg>";
+                output += '</div>';
+
+                output += '<div class="card-content">';
+                output += '<div class="row">';
+                output += '<div class="col s1"></div>';
+                output += '<div class="col s6">';
+                output += '<p class="deep-orange-text text-darken-1" style="font-size:180%;">' + entry.sell + '</p>';
+                output += '</div>';
+                output += '<div class="price-discount col s4">';
+                output += '<p class="lineThrough" id="price-original">' + entry.sell + '</p>';
+                output += '</div>';
+                output += '<div class="col s1"></div>';
+                output += '</div>';
+                output += '<div class="row">';
+                output += '<div class="col s1"></div>';
+                output += '<div class="col s10">';
+                output += '<p id="product-name" style="font-size:140%;">' + entry.productName + '</p>';
+                output += '</div>';
+                output += '<div class="col s1"></div>';
+                output += '</div>';
+
+                output += '<div class="row">';
+                output += '<div class="col s1"></div>';
+                output += '<div class="col s6">';
+                output += '<i class="material-icons yellow-text text-darken-2 left">star</i>';
+                output += '<i class="material-icons yellow-text text-darken-2 left">star</i>';
+                output += '<i class="material-icons yellow-text text-darken-2 left">star</i>';
+                output += '<i class="material-icons yellow-text text-darken-2 left">star</i>';
+                output += '<i class="material-icons yellow-text text-darken-2 left">star</i>';
+                output += entry.likeTotal;
+                output += '</div>';
+                output += '<div class="col s4">';
+                output += '<i class="material-icons red-text text-darken-2 left">favorite</i>';
+                output += entry.rateTotal;
+                output += '</div>';
+                output += '<div class="col s1"></div>';
+                output += '</div>';
+                output += '<div class="label-home-discount">';
+                output += '<span id="label-discount" align="right">' + entry.value + '%</span>';
+                output += '</div>';
+                output += '</div>';
+                output += '</div>';
+                output += '</a>';
+                output += '</div>';
+                $('#result').append(output);
+                size++;
+                _offset++;
+              });
+            })
+            //Check end load
+            if (size == _limit) {
+              size = 0;
+            } else {
+              isFinish = true;
+            }
+          }
+        };
+        xhttp.open("GET", "findAllProduct?offset=" + offset + "&limit=" + limit, true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.setRequestHeader("secret", "12345");
+        xhttp.send();
+      }
+
+    </script>
 
     </script>
 

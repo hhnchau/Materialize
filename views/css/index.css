@@ -14,51 +14,26 @@ blockquote {
   border-left: 5px solid #ff5722  !important; 
 }
 
-@media only screen and (max-width: 993px) {
-  #banner{
-    height: auto !important;
-  }
-  .carousel .carousel-slider{
-    height: auto !important;
-  }
-  .carousel-item{
-    height: auto !important;
-  }
-  .carousel-image{
-    height: auto !important;
-  }
-}
-
+/* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-  #menu{
-    /* wrapper div of navbar, fix the pushpin pixel skip bug */
-    height: 54px;
-  }
+  .label-home-discount {margin-top: 150px;}
 }
 
-@media only screen and (min-width: 601px) {
-  #menu{
-    /* wrapper div of navbar, fix the pushpin pixel skip bug */
-    height: 64px;
-  }
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .label-home-discount {margin-top: 150px;}
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .label-home-discount {margin-top: 150px;}
 } 
 
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .label-home-discount {margin-top: 150px;}
 
-::placeholder {
-  color: white;
-  opacity: 1;
-  /* Firefox */
-}
-
-:-ms-input-placeholder {
-  /* Internet Explorer 10-11 */
-  color: white;
-}
-
-::-ms-input-placeholder {
-  /* Microsoft Edge */
-  color: white;
-}
+} 
 
 .buy-now{
   width: 100%;
@@ -68,4 +43,80 @@ blockquote {
 .product-price {
   margin-bottom: -5px;
   margin-top: 7px;
+}
+
+.total-fee{
+  margin-bottom: -5px;
+  margin-top: -20px;
+}
+
+.prev,
+.next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        margin-top: -22px;
+        color: blue;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+      }
+
+        /* Position the "next button" to the right */
+
+.next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+      }
+
+        /* On hover, add a black background color with a little bit see-through */
+
+.prev:hover,
+.next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+
+.card .card-content {
+  padding: 1px;
+  border-radius: 0 0 2px 2px;
+}
+
+p.lineThrough {
+  text-decoration: line-through;
+}
+
+.price-discount{
+  margin-top:10px;
+}
+
+.label-home-discount{
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 3px;
+  margin-top: -35px;
+  color: white;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  background-color: orange; /* Orange */
+}
+
+.label-details-discount{
+  background-color: orange; /* Orange */
+}
+
+i.left{
+  margin-right:0px;
+}
+
+.row{
+  margin-bottom: 5px;
+}
+
+.material-icons{
+  font-size:20px;
 }

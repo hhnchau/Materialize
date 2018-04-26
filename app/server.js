@@ -98,8 +98,12 @@ app.get("/index", function (req, res) {
   res.render("index", {host: settings.url});
 });
 
-app.get("/details", function (req, res) {
-  res.render("details", {host: settings.url});
+app.get("/details/sn:id", function (req, res) {
+  res.render("details", {host: settings.url, id: req.params.id});
+});
+
+app.get("/search/keyword:key", function (req, res) {
+  res.render("details", {host: settings.url, keyword: req.params.key});
 });
 
 app.get("/login", function (req, res) {

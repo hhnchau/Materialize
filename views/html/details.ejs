@@ -1,4 +1,5 @@
 <% var url = host %>
+<% var productId = id %>
   <!DOCTYPE html>
   <html lang="en">
 
@@ -29,9 +30,10 @@
   </head>
   <!-- Head End -->
 
-  <body>
+  <body onload="loadData()">
     <!-- Header -->
     <header>
+        
 
       <!-- MENU -->
       <!-- MENU -->
@@ -179,7 +181,7 @@
     <!-- Main -->
     <!-- Main -->
     <main>
-
+      <div style="margin-top:2%;"></div>
       <!-- PRODUCT DETAILS -->
       <!-- PRODUCT DETAILS -->
       <!-- PRODUCT DETAILS -->
@@ -187,46 +189,36 @@
         <div id="product-details" class="section">
           <!-- Image + Price -->
           <div class="container section">
-            <h2 class="header deep-orange-text row">
-              <blockquote>
-                Dien thoai OOPO
-              </blockquote>
-            </h2>
             <div class="row section">
               <div class="col s12 m6 l8">
                 <div class="card hoverable z-depth-2">
                   <!-- ============ -->
                   <div class="carousel carousel-slider" center>
                     <a class="carousel-item">
-                      <img class="lazyload" src="<%=url%>getImage:product|namanh.jpg" data-src="<%=url%>getImage:product|namanh.jpg">
+                      <img class="lazyload carousel-image" src="<%=url%>getImage:product|dg095.jpg" data-src="<%=url%>getImage:product|dg095.jpg">
                     </a>
                     <a class="carousel-item">
-                      <img class="lazyload" src="<%=url%>getImage:product|namanh.jpg" data-src="<%=url%>getImage:product|aloc.jpg">
+                      <img class="lazyload carousel-image" src="<%=url%>getImage:product|dg095.jpg" data-src="<%=url%>getImage:product|dg095.jpg">
                     </a>
                     <a class="carousel-item">
-                      <img class="lazyload" src="<%=url%>getImage:product|namanh.jpg" data-src="<%=url%>getImage:product|myloc.jpg">
+                      <img class="lazyload carousel-image" src="<%=url%>getImage:product|dg095.jpg" data-src="<%=url%>getImage:product|dg095.jpg">
                     </a>
                     <a class="carousel-item">
-                      <img class="lazyload" src="<%=url%>getImage:product|namanh.jpg" data-src="<%=url%>getImage:product|ken.jpg">
+                      <img class="lazyload carousel-image" src="<%=url%>getImage:product|dg095.jpg" data-src="<%=url%>getImage:product|dg095.jpg">
                     </a>
                     <a class="carousel-item">
-                      <img class="lazyload" src="<%=url%>getImage:product|namanh.jpg" data-src="<%=url%>getImage:product|antuong.jpg">
+                      <img class="lazyload carousel-image" src="<%=url%>getImage:product|dg095.jpg" data-src="<%=url%>getImage:product|dg095.jpg">
                     </a>
                     <a class="carousel-item">
                       <div class="video-container">
                         <iframe width="853" height="480" src="//www.youtube.com/embed/Q8TXgCzxEnw?rel=0" frameborder="0" autoplay allowfullscreen></iframe>
                       </div>
+                    </a>
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
                   </div>
                   <!-- ============ -->
                 </div>
-                <div class="card hoverable z-depth-2">
-                  <div class="carousel-fixed-item center">
-                    <a class="btn waves-effect grey" onclick="prev()">
-                      <<</a>
-                        <a class="btn waves-effect grey" onclick="next()">>></a>
-                  </div>
-                </div>
-                </a>
               </div>
               <div class="col s12 m6 l4">
 
@@ -236,13 +228,20 @@
                     <div class="product-price card blue-grey darken-1">
                       <div class="card-content white-text" align="center">
                         <span class="card-title">
-                          <h3>215.000 VND</h3>
+                          <div class="row">
+                            <div class="col s9" align="left">
+                              <p class="lineThrough" id="price-original"></p>
+                            </div>
+                            <div class="col s3" align="right">
+                              <span class="label-details-discount" id="label-discount"></span>
+                            </div>
+                          </div>
+                          <h2 class="total-fee" id="total-fee" align="center"></h2>
                         </span>
                       </div>
                     </div>
                   </div>
                 </div>
-
 
                 <!-- Short Description -->
                 <div class="row">
@@ -260,7 +259,7 @@
                 <!-- Buy Now -->
                 <div class="row">
                   <div class="col s12 m12 l12">
-                    <div class="product-price card red darken-1">
+                    <div class="product-price card deep-orange lighten-1">
                       <div class="card-content white-text" align="center">
                         <span class="card-title">
                           <h4>Mua Ngay!</h4>
@@ -273,40 +272,97 @@
             </div>
           </div>
 
-
           <div class="container">
+
+            <!-- Title -->
+            <div>
+              <h3 class="header deep-orange-text row">
+                <blockquote id="product-name"></blockquote>
+              </h3>
+            </div>
+
             <!-- Description -->
-            <div class="row">
+            <!-- <div class="row">
               <div class="col s12">
-                <div class="product-price card blue-grey darken-1">
-                  <div class="card-content white-text">
+                <div class="product-price card">
+                  <div class="card-content">
                     <span class="card-title">Card Title</span>
                     <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I
                       require little markup to use effectively.</p>
                   </div>
                 </div>
               </div>
+            </div> -->
+
+            <!-- Tab -->
+            <div class="card">
+              <div class="card-content">
+                <p></p>
+              </div>
+              <div class="card-tabs">
+                <ul class="tabs tabs-fixed-width">
+                  <li class="tab">
+                    <a class="active" href="#test4">Thông tin</a>
+                  </li>
+                  <li class="tab">
+                    <a href="#active" href="#test5">Đánh giá</a>
+                  </li>
+                  <li class="tab">
+                    <a href="#test6">Câu hỏi</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="card-content grey lighten-4">
+                <div id="test4">Test 1</div>
+                <div id="test5">Test 2</div>
+                <div id="test6">Test 3</div>
+              </div>
             </div>
 
             <!-- Raiting -->
             <div class="row">
               <div class="col s12">
-                <div class="product-price card blue-grey darken-1">
-                  <div class="card-content white-text">
+                <div class="product-price card">
+                  <div class="card-content">
                     <span class="card-title">Card Title</span>
 
                     <!-- Expand -->
-                    <div>
+
+                    <ul class="collapsible">
+                      <li>
+                        <div class="collapsible-header">
+                          <i class="material-icons">filter_drama</i>First</div>
+                        <div class="collapsible-body">
+                          <span>Lorem ipsum dolor sit amet.</span>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="collapsible-header">
+                          <i class="material-icons">place</i>Second</div>
+                        <div class="collapsible-body">
+                          <span>Lorem ipsum dolor sit amet.</span>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="collapsible-header">
+                          <i class="material-icons">whatshot</i>Third</div>
+                        <div class="collapsible-body">
+                          <span>Lorem ipsum dolor sit amet.</span>
+                        </div>
+                      </li>
+                    </ul>
+
+                    <!-- <div>
                       <h5 class="left-align">This should be right aligned</h5>
                     </div>
 
                     <!-- Dropdown Trigger -->
-                    <a class='dropdown-button btn' href='javascript:void(0);' data-activates='demoDropdown' dropdown data-hover="true">
+                    <!-- <a class='dropdown-button btn' href='javascript:void(0);' data-activates='demoDropdown' dropdown data-hover="true">
                       This is a dropdown
-                    </a>
+                    </a> -->
 
                     <!-- Dropdown Structure -->
-                    <ul id='demoDropdown' class='dropdown-content'>
+                    <!-- <ul id='demoDropdown' class='dropdown-content'>
                       <li>
                         <a href="javascript:void(0);">Link 1</a>
                       </li>
@@ -322,11 +378,11 @@
                       <li>
                         <a href="javascript:void(0);">Link 5</a>
                       </li>
-                    </ul>
+                    </ul> -->
 
 
 
-                    <div class="nav-wrapper">
+                    <!-- <div class="nav-wrapper">
                       <form>
                         <div class="input-field">
                           <input id="search" type="search" required>
@@ -336,11 +392,7 @@
                           <i class="material-icons">close</i>
                         </div>
                       </form>
-                    </div>
-
-
-
-
+                    </div> -->
 
 
                   </div>
@@ -365,11 +417,9 @@
       <div class="row section">
         <div id="product" class="section">
           <div class="container section">
-            <h2 class="header deep-orange-text row">
-              <blockquote>
-                San Pham cung Loai
-              </blockquote>
-            </h2>
+            <h3 class="header deep-orange-text row">
+              <blockquote id="same-product"></blockquote>
+            </h3>
             <div class="row section">
               <div id="result"></div>
             </div>
@@ -439,23 +489,25 @@
     <!-- Modal Trigger -->
     <div id="modal-contact" class="modal">
       <div class="modal-content">
-        <nav>
-          <div class="nav-wrapper">
-            <form>
-              <div class="input-field">
-                <input id="search" type="search" required>
-                <label class="label-icon" for="search">
-                  <i class="material-icons">search</i>
-                </label>
-                <i class="material-icons">close</i>
-              </div>
-            </form>
+        <!-- =========== -->
+        <div class="row">
+          <div class="col s12 m12">
+            <div class="card-panel teal">
+              <span class="white-text" align="center">
+                <h5 class="white-text">Cửa Hàng Đồ Chơi Kingpes</h5>
+                <p class="grey-text text-lighten-4">Đ/C: 65B Lưu Chí Hiếu - P.Tây Thạnh - Q.Tân Phú - HCM</p>
+                <p class="grey-text text-lighten-4">Hotline: 0902.500.478</p>
+                <p class="grey-text text-lighten-4">Email: kingpesvn@gmail.com</p>
+                <p class="grey-text text-lighten-4">Website: kingpes.com</p>
+              </span>
+            </div>
           </div>
-        </nav>
+        </div>
+        <!-- =========== -->
       </div>
-      <div class="modal-footer">
-        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Tìm</a>
-      </div>
+      <!-- <div class="modal-footer">
+          <a href="#!" class="modal-action modal-close waves-effect waves-green btn">Tìm</a>
+        </div> -->
     </div>
     <!-- Modal Trigger -->
     <!-- Modal Trigger -->
@@ -465,14 +517,12 @@
     <!-- Modal Trigger -->
     <div id="modal-search" class="modal">
       <div class="modal-content">
-        <nav>
+        <nav class=" teal">
           <div class="nav-wrapper">
             <form>
               <div class="input-field">
-                <input id="search" type="search" required>
-                <label class="label-icon" for="search">
-                  <i class="material-icons">search</i>
-                </label>
+                <input id="search" type="search" placeholder="Nhập từ khóa để tìm" required>
+
                 <i class="material-icons">close</i>
               </div>
             </form>
@@ -480,7 +530,7 @@
         </nav>
       </div>
       <div class="modal-footer">
-        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Tìm</a>
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn">Tìm</a>
       </div>
     </div>
     <!-- Modal Trigger -->
@@ -501,16 +551,16 @@
       lazyload();
 
       $('.carousel.carousel-slider').carousel({
-        dist: 0, fullWidth: true, indicators: false
+        dist: 0, fullWidth: false, indicators: false
       });
 
 
-      function prev() {
-        $('.carousel').carousel('prev');
-      }
-
-      function next() {
-        $('.carousel').carousel('next');
+      function plusSlides(n) {
+        if (n == 1) {
+          $('.carousel').carousel('prev');
+        } else {
+          $('.carousel').carousel('next');
+        }
       }
 
       var xhttp = new XMLHttpRequest();
@@ -526,11 +576,14 @@
               output += '<a class="modal-trigger" href="#modal1">';
               output += '<div class="card hoverable z-depth-2">';
               output += '<div class="card-image">';
-              output += '<img class="lazyload" src ="<%=url%>getImage:product|sunrise.jpg" data-src="<%=url%>getImage:product|sunrise.jpg">';
+              output += '<img class="lazyload" src ="<%=url%>getImage:product|' + entry.image1 + '" data-src="<%=url%>getImage:product|' + entry.image1 + ">";
               output += '</div>';
               output += '<div class="card-content">';
               output += '<h5 class="deep-orange-text text-darken-1">' + entry.productName + '</h5>';
-              output += '<p class=" grey-text text-darken-4">' + entry.shortDescription + '</p>';
+              output += '<p class=" grey-text text-darken-4">' + entry.sell + '000 VND</p>';
+              output += '<p class=" grey-text text-darken-4">' + entry.likeTotal + '</p>';
+              output += '<p class=" grey-text text-darken-4">' + entry.rateTotal + '</p>';
+              output += '<p class=" grey-text text-darken-4">' + entry.commentTotal + '</p>';
               output += '</div>';
               output += '</div>';
               output += '</a>';
@@ -546,6 +599,54 @@
       xhttp.setRequestHeader("secret", "12345");
       xhttp.send();
 
+      $('#price-original').append("250.000 vnd");
+      $('#label-discount').append("-30%");
+      $('#total-fee').append("205.000 vnd");
+      $('#same-product').append("Sản phẩm tương tự");
+
+
+      $('#product-name').append("Xe dieu khien tu xa the he moi nhat nhat ban san xuat 2018");
+
+      function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        var expires = "expires=" + d.toGMTString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+      }
+
+      function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
+      }
+
+      function checkCookie() {
+        var user = getCookie("username");
+        if (user != "") {
+          alert("Welcome again " + user);
+        } else {
+          user = prompt("Please enter your name:", "");
+          if (user != "" && user != null) {
+            setCookie("username", user, 30);
+          }
+        }
+      }
+
+    </script>
+
+    <!-- Get Details Product -->
+    <script type="text/javascript">
+      
     </script>
 
   </body>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2018 at 02:46 AM
+-- Generation Time: Apr 26, 2018 at 02:57 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -39,6 +39,18 @@ CREATE TABLE `category` (
 INSERT INTO `category` (`categoryId`, `categoryName`, `categoryDescription`) VALUES
 (7, 'Xe ', 'Xe Điều Khiển'),
 (8, 'bupbe', 'Búp Bê');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `certify`
+--
+
+CREATE TABLE `certify` (
+  `certifyId` int(11) NOT NULL,
+  `session` varchar(50) NOT NULL,
+  `notify` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -83,7 +95,130 @@ CREATE TABLE `delivery` (
 --
 
 INSERT INTO `delivery` (`receiverName`, `receiverAddress`, `receiverPhone`, `latitude`, `longitude`, `deliveryId`) VALUES
-('Huỳnh Ngọc Châu', 'Lưu Chí Hiếu', '0123456789', 1, 1, 1);
+('Huỳnh Ngọc Châu', 'Lưu Chí Hiếu', '0123456789', 1, 1, 1),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
+('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6);
 
 -- --------------------------------------------------------
 
@@ -105,10 +240,10 @@ CREATE TABLE `image` (
 --
 
 INSERT INTO `image` (`image1`, `image2`, `image3`, `image4`, `image5`, `imageId`) VALUES
-('dg095.jpg', 'dg095_1.jpg', 'dg095_2.jpg', NULL, NULL, 7),
-('dg047.jpg', 'dg047_1.jpg', 'dg047_2.jpg', 'dg047_3.jpg', 'dg047_4.jpg', 8),
-('xexuc.jpg', 'xexuc_1.jpg', 'xexuc_2.jpg', 'xexuc_3.jpg', NULL, 9),
-('2031c.jpg', NULL, NULL, NULL, NULL, 10);
+('truck-1', 'truck-2', 'truck-3', 'truck-4', NULL, 7),
+('airbus-1', 'airbus-2', 'airbus-3', 'dg047_3.jpg', '', 8),
+('xebon-1', 'xebon-2', 'xebon-3', 'xebon-4', NULL, 9),
+('bupbe-1', NULL, NULL, NULL, NULL, 10);
 
 -- --------------------------------------------------------
 
@@ -131,6 +266,45 @@ INSERT INTO `likes` (`likesId`, `userId`) VALUES
 (8, 1),
 (8, 2),
 (8, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `login`
+--
+
+CREATE TABLE `login` (
+  `loginId` int(11) NOT NULL,
+  `platform` int(1) NOT NULL,
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `country` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `open`
+--
+
+CREATE TABLE `open` (
+  `openId` int(11) NOT NULL,
+  `guestId` varchar(20) NOT NULL,
+  `platform` int(1) NOT NULL,
+  `notify` varchar(50) DEFAULT NULL,
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `point`
+--
+
+CREATE TABLE `point` (
+  `pointId` int(11) NOT NULL,
+  `value` int(3) NOT NULL,
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -188,20 +362,19 @@ INSERT INTO `product` (`productId`, `promotionId`, `productName`, `amount`, `dec
 CREATE TABLE `promotion` (
   `promotionId` int(11) NOT NULL,
   `promptionName` varchar(20) NOT NULL,
-  `promotionDescription` varchar(200) NOT NULL,
-  `value` int(7) DEFAULT NULL,
-  `percent` int(3) DEFAULT NULL,
+  `promotionDescription` varchar(200) DEFAULT NULL,
+  `value` int(7) NOT NULL,
   `end` timestamp NULL DEFAULT NULL,
-  `start` timestamp NULL DEFAULT NULL
+  `start` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `promotion`
 --
 
-INSERT INTO `promotion` (`promotionId`, `promptionName`, `promotionDescription`, `value`, `percent`, `end`, `start`) VALUES
-(1, 'Thương Hiệu', 'Promotion thuong hieu Kingpppes', 30, NULL, '2018-04-22 17:00:00', '2018-07-30 17:00:00'),
-(2, 'Discount', 'Giam Gia', NULL, 50, '2018-04-29 17:00:00', '2018-09-29 17:00:00');
+INSERT INTO `promotion` (`promotionId`, `promptionName`, `promotionDescription`, `value`, `end`, `start`) VALUES
+(1, 'Thương Hiệu', 'Promotion thuong hieu Kingpppes', 30, '2018-04-22 17:00:00', '2018-07-30 17:00:00'),
+(2, 'Discount', 'Giam Gia', 100, '2018-04-29 17:00:00', '2018-09-29 17:00:00');
 
 -- --------------------------------------------------------
 
@@ -247,25 +420,30 @@ INSERT INTO `settings` (`version`, `upgrade`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `transaction`
+-- Table structure for table `transactions`
 --
 
-CREATE TABLE `transaction` (
+CREATE TABLE `transactions` (
   `transactionId` int(11) NOT NULL,
   `userId` int(11) NOT NULL,
   `productId` int(11) NOT NULL,
   `promotionId` int(11) DEFAULT NULL,
+  `voucherId` int(11) DEFAULT NULL,
+  `point` int(3) DEFAULT NULL,
   `totalFee` int(9) NOT NULL,
-  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `status` int(1) NOT NULL
+  `status` int(1) NOT NULL,
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `transaction`
+-- Dumping data for table `transactions`
 --
 
-INSERT INTO `transaction` (`transactionId`, `userId`, `productId`, `promotionId`, `totalFee`, `date`, `status`) VALUES
-(1, 1, 9, NULL, 1000, '2018-04-22 10:35:40', 0);
+INSERT INTO `transactions` (`transactionId`, `userId`, `productId`, `promotionId`, `voucherId`, `point`, `totalFee`, `status`, `time`) VALUES
+(1, 1, 9, NULL, NULL, NULL, 1000, 1, '2018-04-23 15:45:44'),
+(4, 1, 7, 1, NULL, 10, 160, 0, '2018-04-24 13:52:10'),
+(5, 1, 7, 1, 1, 15, 195, 0, '2018-04-24 13:56:08'),
+(6, 3, 7, 1, 1, 15, 105, 0, '2018-04-24 13:59:15');
 
 -- --------------------------------------------------------
 
@@ -280,17 +458,40 @@ CREATE TABLE `user` (
   `phone` varchar(15) NOT NULL,
   `password` varchar(150) DEFAULT NULL,
   `sex` int(1) DEFAULT NULL,
-  `email` varchar(100) DEFAULT NULL
+  `email` varchar(100) DEFAULT NULL,
+  `timeCreate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`userId`, `nickname`, `address`, `phone`, `password`, `sex`, `email`) VALUES
-(1, 'huynhchau', NULL, '012345678', NULL, NULL, NULL),
-(2, 'quocbao', NULL, '6789', NULL, NULL, NULL),
-(3, 'xuanlan', NULL, '123789', NULL, NULL, NULL);
+INSERT INTO `user` (`userId`, `nickname`, `address`, `phone`, `password`, `sex`, `email`, `timeCreate`) VALUES
+(1, 'huynhchau', NULL, '012345678', NULL, NULL, NULL, '2018-04-23 15:24:13'),
+(2, 'quocbao', NULL, '6789', NULL, NULL, NULL, '2018-04-23 15:24:13'),
+(3, 'xuanlan', NULL, '123789', NULL, NULL, NULL, '2018-04-23 15:24:13');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `voucher`
+--
+
+CREATE TABLE `voucher` (
+  `voucherId` int(11) NOT NULL,
+  `voucherName` varchar(20) NOT NULL,
+  `voucherDescription` varchar(200) DEFAULT NULL,
+  `value` int(7) NOT NULL,
+  `start` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `end` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `voucher`
+--
+
+INSERT INTO `voucher` (`voucherId`, `voucherName`, `voucherDescription`, `value`, `start`, `end`) VALUES
+(1, 'KINGPES', NULL, 320, '2018-04-24 13:55:43', NULL);
 
 -- --------------------------------------------------------
 
@@ -326,6 +527,13 @@ ALTER TABLE `category`
   ADD KEY `categoryId` (`categoryId`);
 
 --
+-- Indexes for table `certify`
+--
+ALTER TABLE `certify`
+  ADD UNIQUE KEY `certifyId_2` (`certifyId`),
+  ADD KEY `certifyId` (`certifyId`);
+
+--
 -- Indexes for table `comment`
 --
 ALTER TABLE `comment`
@@ -350,6 +558,24 @@ ALTER TABLE `image`
 ALTER TABLE `likes`
   ADD KEY `likesId` (`likesId`),
   ADD KEY `userId` (`userId`);
+
+--
+-- Indexes for table `login`
+--
+ALTER TABLE `login`
+  ADD KEY `loginId` (`loginId`);
+
+--
+-- Indexes for table `open`
+--
+ALTER TABLE `open`
+  ADD PRIMARY KEY (`openId`);
+
+--
+-- Indexes for table `point`
+--
+ALTER TABLE `point`
+  ADD KEY `pointId` (`pointId`);
 
 --
 -- Indexes for table `price`
@@ -378,19 +604,27 @@ ALTER TABLE `rate`
   ADD KEY `userId` (`userId`);
 
 --
--- Indexes for table `transaction`
+-- Indexes for table `transactions`
 --
-ALTER TABLE `transaction`
+ALTER TABLE `transactions`
   ADD PRIMARY KEY (`transactionId`),
   ADD KEY `userId` (`userId`),
   ADD KEY `productId` (`productId`),
-  ADD KEY `promotionId` (`promotionId`);
+  ADD KEY `promotionId` (`promotionId`),
+  ADD KEY `voucherId` (`voucherId`);
 
 --
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`userId`);
+  ADD PRIMARY KEY (`userId`),
+  ADD UNIQUE KEY `phone` (`phone`);
+
+--
+-- Indexes for table `voucher`
+--
+ALTER TABLE `voucher`
+  ADD PRIMARY KEY (`voucherId`);
 
 --
 -- Indexes for table `youtube`
@@ -403,6 +637,11 @@ ALTER TABLE `youtube`
 --
 
 --
+-- AUTO_INCREMENT for table `open`
+--
+ALTER TABLE `open`
+  MODIFY `openId` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
@@ -413,15 +652,20 @@ ALTER TABLE `product`
 ALTER TABLE `promotion`
   MODIFY `promotionId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT for table `transaction`
+-- AUTO_INCREMENT for table `transactions`
 --
-ALTER TABLE `transaction`
-  MODIFY `transactionId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `transactions`
+  MODIFY `transactionId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `voucher`
+--
+ALTER TABLE `voucher`
+  MODIFY `voucherId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- Constraints for dumped tables
 --
@@ -431,6 +675,12 @@ ALTER TABLE `user`
 --
 ALTER TABLE `category`
   ADD CONSTRAINT `category_ibfk_1` FOREIGN KEY (`categoryId`) REFERENCES `product` (`productId`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `certify`
+--
+ALTER TABLE `certify`
+  ADD CONSTRAINT `certify_ibfk_1` FOREIGN KEY (`certifyId`) REFERENCES `user` (`userId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `comment`
@@ -443,7 +693,7 @@ ALTER TABLE `comment`
 -- Constraints for table `delivery`
 --
 ALTER TABLE `delivery`
-  ADD CONSTRAINT `delivery_ibfk_1` FOREIGN KEY (`deliveryId`) REFERENCES `transaction` (`transactionId`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `delivery_ibfk_1` FOREIGN KEY (`deliveryId`) REFERENCES `transactions` (`transactionId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `image`
@@ -457,6 +707,18 @@ ALTER TABLE `image`
 ALTER TABLE `likes`
   ADD CONSTRAINT `likes_ibfk_1` FOREIGN KEY (`likesId`) REFERENCES `product` (`productId`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `likes_ibfk_2` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `login`
+--
+ALTER TABLE `login`
+  ADD CONSTRAINT `login_ibfk_1` FOREIGN KEY (`loginId`) REFERENCES `user` (`userId`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `point`
+--
+ALTER TABLE `point`
+  ADD CONSTRAINT `point_ibfk_1` FOREIGN KEY (`pointId`) REFERENCES `user` (`userId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `price`
@@ -478,12 +740,13 @@ ALTER TABLE `rate`
   ADD CONSTRAINT `rate_ibfk_2` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `transaction`
+-- Constraints for table `transactions`
 --
-ALTER TABLE `transaction`
-  ADD CONSTRAINT `transaction_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `transaction_ibfk_2` FOREIGN KEY (`productId`) REFERENCES `product` (`productId`),
-  ADD CONSTRAINT `transaction_ibfk_3` FOREIGN KEY (`promotionId`) REFERENCES `promotion` (`promotionId`);
+ALTER TABLE `transactions`
+  ADD CONSTRAINT `transactions_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `transactions_ibfk_2` FOREIGN KEY (`productId`) REFERENCES `product` (`productId`),
+  ADD CONSTRAINT `transactions_ibfk_3` FOREIGN KEY (`promotionId`) REFERENCES `promotion` (`promotionId`),
+  ADD CONSTRAINT `transactions_ibfk_4` FOREIGN KEY (`voucherId`) REFERENCES `voucher` (`voucherId`);
 
 --
 -- Constraints for table `youtube`
