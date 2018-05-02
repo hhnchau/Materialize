@@ -1,288 +1,288 @@
 <% var url = host %>
-<% var productId = id %>
-  <!DOCTYPE html>
-  <html lang="en">
+  <% var productId = id %>
+    <!DOCTYPE html>
+    <html lang="en">
 
-  <!-- Head -->
+    <!-- Head -->
 
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="msapplication-tap-highlight" content="no">
-    <meta name="description" content="kingpes, do choi, do choi gia re, do choi tre em, do choi cho be, do choi lego, do choi youtube">
-    <meta name="keywords" content="kingpes, do choi, do choi gia re, do choi tre em, do choi cho be, do choi lego, do choi youtube">
+    <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="msapplication-tap-highlight" content="no">
+      <meta name="description" content="kingpes, do choi, do choi gia re, do choi tre em, do choi cho be, do choi lego, do choi youtube">
+      <meta name="keywords" content="kingpes, do choi, do choi gia re, do choi tre em, do choi cho be, do choi lego, do choi youtube">
 
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
-    <link rel="stylesheet" href="<%=url%>getResource:css|materialize.css">
-    <!--Import owl-carousel.css-->
-    <link rel="stylesheet" href="<%=url%>getResource:css|owl.carousel.min.css">
-    <link rel="stylesheet" href="<%=url%>getResource:css|owl.theme.default.min.css">
-    <!--Import animate.css-->
-    <link type="text/css" rel="stylesheet" href="<%=url%>getResource:css|animate.css" media="screen,projection" />
-    <!--Import index.css-->
-    <link type="text/css" rel="stylesheet" href="<%=url%>getResource:css|index.css" media="screen,projection" />
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link rel="stylesheet" href="<%=url%>getResource:css|materialize.css">
+      <!--Import owl-carousel.css-->
+      <link rel="stylesheet" href="<%=url%>getResource:css|owl.carousel.min.css">
+      <link rel="stylesheet" href="<%=url%>getResource:css|owl.theme.default.min.css">
+      <!--Import animate.css-->
+      <link type="text/css" rel="stylesheet" href="<%=url%>getResource:css|animate.css" media="screen,projection" />
+      <!--Import index.css-->
+      <link type="text/css" rel="stylesheet" href="<%=url%>getResource:css|index.css" media="screen,projection" />
 
-    <title>Đồ Chơi Kingpes</title>
-  </head>
-  <!-- Head End -->
+      <title>Đồ Chơi Kingpes</title>
+    </head>
+    <!-- Head End -->
 
-  <body onload="loadData()">
-    <!-- Header -->
-    <header>
-        
-
-      <!-- MENU -->
-      <!-- MENU -->
-      <!-- MENU -->
-      <!-- MENU -->
-      <!-- MENU -->
-      <!-- MENU -->
-      <div id="menu" class="">
-        <nav id="navbar" class="deep-orange lighten-1">
-          <div class="nav-wrapper">
-            <!-- ICON -->
-            <!-- ICON -->
-            <!-- ICON -->
-            <!-- ICON -->
-            <!-- ICON -->
-            <a href="#" data-activates="mobile-demo" class="button-collapse">
-              <i class="material-icons">menu</i>
-            </a>
-            <!-- ICON -->
-            <!-- ICON -->
-            <!-- ICON -->
-            <!-- ICON -->
-            <!-- ICON -->
+    <body onload="findProduct()">
+      <!-- Header -->
+      <header>
 
 
-            <!-- WEB -->
-            <!-- WEB -->
-            <!-- WEB -->
-            <!-- WEB -->
-            <!-- WEB -->
-
-            <div class="row">
-              <div class="col s6">
-                <ul class="left hide-on-med-and-down">
-                  <li>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScCtwnRHg0BcfpQ_I2fKWAMY5CDwFytHWhx1oI8YlOA99wu2Q/viewform" target="_blank">
-                      Trang Chủ
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScCtwnRHg0BcfpQ_I2fKWAMY5CDwFytHWhx1oI8YlOA99wu2Q/viewform" target="_blank">
-                      Đồ Chơi Bé Trai
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScCtwnRHg0BcfpQ_I2fKWAMY5CDwFytHWhx1oI8YlOA99wu2Q/viewform" target="_blank">
-                      Đồ Chơi Bé Gái
-                    </a>
-                  </li>
-                  <li>
-                    <a class="modal-trigger" href="#modal-search">
-                      Tìm Kiếm
-                    </a>
-                  </li>
-                  <li>
-                    <a class="modal-trigger" href="#modal-contact">
-                      Liên Hệ
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div class="col s6">
-                <ul class="right hide-on-med-and-down">
-                  <li>
-                    <a href="https://itunes.apple.com/us/app/go2joy/id1185445287?ls=1&mt=8" target="_blank">
-                      <img class="store-button" align="center" src="<%=url%>getImage:icon|appstore-white.png" />
-                    </a>
-                  </li>
-
-                  <li>
-                    <a href="https://itunes.apple.com/us/app/go2joy/id1185445287?ls=1&mt=8" target="_blank">
-                      <img class="store-button" align="center" src="<%=url%>getImage:icon|googleplay-white.png" />
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-          </div>
-        </nav>
-        <!-- WEB -->
-        <!-- WEB -->
-        <!-- WEB -->
-        <!-- WEB -->
-        <!-- WEB -->
-        <!-- WEB -->
-
-        <!-- MOBILE -->
-        <!-- MOBILE -->
-        <!-- MOBILE -->
-        <!-- MOBILE -->
-        <!-- MOBILE -->
-        <ul class="side-nav" id="mobile-demo">
-          <li>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLScCtwnRHg0BcfpQ_I2fKWAMY5CDwFytHWhx1oI8YlOA99wu2Q/viewform" target="_blank">
-              Trang Chủ
-            </a>
-          </li>
-          <li>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLScCtwnRHg0BcfpQ_I2fKWAMY5CDwFytHWhx1oI8YlOA99wu2Q/viewform" target="_blank">
-              Đồ Chơi Bé Trai
-            </a>
-          </li>
-          <li>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLScCtwnRHg0BcfpQ_I2fKWAMY5CDwFytHWhx1oI8YlOA99wu2Q/viewform" target="_blank">
-              Đồ Chơi Bé Gái
-            </a>
-          </li>
-          <li>
-            <a class="modal-trigger" href="#modal-search">
-              Tìm Kiếm
-            </a>
-          </li>
-          <li>
-            <a class="modal-trigger" href="#modal-contact">
-              Liên Hệ
-            </a>
-          </li>
-          <li>
-            <a href="https://play.google.com/store/apps/details?id=com.appromobile.hotel&hl=en" target="_blank">
-              <img class="store-button" align="center" style="width:50%" src="<%=url%>getImage:icon|googleplay-white.png" />
-            </a>
-          </li>
-          <li>
-            <a href="https://itunes.apple.com/us/app/go2joy/id1185445287?ls=1&mt=8" target="_blank">
-              <img class="store-button" align="center" style="width:50%" src="<%=url%>getImage:icon|appstore-white.png" />
-            </a>
-          </li>
-        </ul>
-        <!-- MOBILE -->
-        <!-- MOBILE -->
-        <!-- MOBILE -->
-        <!-- MOBILE -->
-        <!-- MOBILE -->
-      </div>
-      <!-- Navigation End -->
-    </header>
-    <!-- Header End -->
+        <!-- MENU -->
+        <!-- MENU -->
+        <!-- MENU -->
+        <!-- MENU -->
+        <!-- MENU -->
+        <!-- MENU -->
+        <div id="menu" class="">
+          <nav id="navbar" class="deep-orange lighten-1">
+            <div class="nav-wrapper">
+              <!-- ICON -->
+              <!-- ICON -->
+              <!-- ICON -->
+              <!-- ICON -->
+              <!-- ICON -->
+              <a href="#" data-activates="mobile-demo" class="button-collapse">
+                <i class="material-icons">menu</i>
+              </a>
+              <!-- ICON -->
+              <!-- ICON -->
+              <!-- ICON -->
+              <!-- ICON -->
+              <!-- ICON -->
 
 
-    <!-- Main -->
-    <!-- Main -->
-    <!-- Main -->
-    <!-- Main -->
-    <!-- Main -->
-    <!-- Main -->
-    <main>
-      <div style="margin-top:2%;"></div>
-      <!-- PRODUCT DETAILS -->
-      <!-- PRODUCT DETAILS -->
-      <!-- PRODUCT DETAILS -->
-      <div class="row">
-        <div id="product-details" class="section">
-          <!-- Image + Price -->
-          <div class="container section">
-            <div class="row section">
-              <div class="col s12 m6 l8">
-                <div class="card hoverable z-depth-2">
-                  <!-- ============ -->
-                  <div class="carousel carousel-slider" center>
-                    <a class="carousel-item">
-                      <img class="lazyload carousel-image" src="<%=url%>getImage:product|dg095.jpg" data-src="<%=url%>getImage:product|dg095.jpg">
-                    </a>
-                    <a class="carousel-item">
-                      <img class="lazyload carousel-image" src="<%=url%>getImage:product|dg095.jpg" data-src="<%=url%>getImage:product|dg095.jpg">
-                    </a>
-                    <a class="carousel-item">
-                      <img class="lazyload carousel-image" src="<%=url%>getImage:product|dg095.jpg" data-src="<%=url%>getImage:product|dg095.jpg">
-                    </a>
-                    <a class="carousel-item">
-                      <img class="lazyload carousel-image" src="<%=url%>getImage:product|dg095.jpg" data-src="<%=url%>getImage:product|dg095.jpg">
-                    </a>
-                    <a class="carousel-item">
-                      <img class="lazyload carousel-image" src="<%=url%>getImage:product|dg095.jpg" data-src="<%=url%>getImage:product|dg095.jpg">
-                    </a>
-                    <a class="carousel-item">
-                      <div class="video-container">
-                        <iframe width="853" height="480" src="//www.youtube.com/embed/Q8TXgCzxEnw?rel=0" frameborder="0" autoplay allowfullscreen></iframe>
-                      </div>
-                    </a>
-                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                  </div>
-                  <!-- ============ -->
+              <!-- WEB -->
+              <!-- WEB -->
+              <!-- WEB -->
+              <!-- WEB -->
+              <!-- WEB -->
+
+              <div class="row">
+                <div class="col s6">
+                  <ul class="left hide-on-med-and-down">
+                    <li>
+                      <a href="https://docs.google.com/forms/d/e/1FAIpQLScCtwnRHg0BcfpQ_I2fKWAMY5CDwFytHWhx1oI8YlOA99wu2Q/viewform" target="_blank">
+                        Trang Chủ
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://docs.google.com/forms/d/e/1FAIpQLScCtwnRHg0BcfpQ_I2fKWAMY5CDwFytHWhx1oI8YlOA99wu2Q/viewform" target="_blank">
+                        Đồ Chơi Bé Trai
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://docs.google.com/forms/d/e/1FAIpQLScCtwnRHg0BcfpQ_I2fKWAMY5CDwFytHWhx1oI8YlOA99wu2Q/viewform" target="_blank">
+                        Đồ Chơi Bé Gái
+                      </a>
+                    </li>
+                    <li>
+                      <a class="modal-trigger" href="#modal-search">
+                        Tìm Kiếm
+                      </a>
+                    </li>
+                    <li>
+                      <a class="modal-trigger" href="#modal-contact">
+                        Liên Hệ
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col s6">
+                  <ul class="right hide-on-med-and-down">
+                    <li>
+                      <a href="https://itunes.apple.com/us/app/go2joy/id1185445287?ls=1&mt=8" target="_blank">
+                        <img class="store-button" align="center" src="<%=url%>getImage:icon|appstore-white.png" />
+                      </a>
+                    </li>
+
+                    <li>
+                      <a href="https://itunes.apple.com/us/app/go2joy/id1185445287?ls=1&mt=8" target="_blank">
+                        <img class="store-button" align="center" src="<%=url%>getImage:icon|googleplay-white.png" />
+                      </a>
+                    </li>
+                  </ul>
                 </div>
               </div>
-              <div class="col s12 m6 l4">
 
-                <!-- Price -->
-                <div class="row">
-                  <div class="col s12 m12 l12">
-                    <div class="product-price card blue-grey darken-1">
-                      <div class="card-content white-text" align="center">
-                        <span class="card-title">
-                          <div class="row">
-                            <div class="col s9" align="left">
-                              <p class="lineThrough" id="price-original"></p>
+            </div>
+          </nav>
+          <!-- WEB -->
+          <!-- WEB -->
+          <!-- WEB -->
+          <!-- WEB -->
+          <!-- WEB -->
+          <!-- WEB -->
+
+          <!-- MOBILE -->
+          <!-- MOBILE -->
+          <!-- MOBILE -->
+          <!-- MOBILE -->
+          <!-- MOBILE -->
+          <ul class="side-nav" id="mobile-demo">
+            <li>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLScCtwnRHg0BcfpQ_I2fKWAMY5CDwFytHWhx1oI8YlOA99wu2Q/viewform" target="_blank">
+                Trang Chủ
+              </a>
+            </li>
+            <li>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLScCtwnRHg0BcfpQ_I2fKWAMY5CDwFytHWhx1oI8YlOA99wu2Q/viewform" target="_blank">
+                Đồ Chơi Bé Trai
+              </a>
+            </li>
+            <li>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLScCtwnRHg0BcfpQ_I2fKWAMY5CDwFytHWhx1oI8YlOA99wu2Q/viewform" target="_blank">
+                Đồ Chơi Bé Gái
+              </a>
+            </li>
+            <li>
+              <a class="modal-trigger" href="#modal-search">
+                Tìm Kiếm
+              </a>
+            </li>
+            <li>
+              <a class="modal-trigger" href="#modal-contact">
+                Liên Hệ
+              </a>
+            </li>
+            <li>
+              <a href="https://play.google.com/store/apps/details?id=com.appromobile.hotel&hl=en" target="_blank">
+                <img class="store-button" align="center" style="width:50%" src="<%=url%>getImage:icon|googleplay-white.png" />
+              </a>
+            </li>
+            <li>
+              <a href="https://itunes.apple.com/us/app/go2joy/id1185445287?ls=1&mt=8" target="_blank">
+                <img class="store-button" align="center" style="width:50%" src="<%=url%>getImage:icon|appstore-white.png" />
+              </a>
+            </li>
+          </ul>
+          <!-- MOBILE -->
+          <!-- MOBILE -->
+          <!-- MOBILE -->
+          <!-- MOBILE -->
+          <!-- MOBILE -->
+        </div>
+        <!-- Navigation End -->
+      </header>
+      <!-- Header End -->
+
+
+      <!-- Main -->
+      <!-- Main -->
+      <!-- Main -->
+      <!-- Main -->
+      <!-- Main -->
+      <!-- Main -->
+      <main>
+        <div style="margin-top:2%;"></div>
+        <!-- PRODUCT DETAILS -->
+        <!-- PRODUCT DETAILS -->
+        <!-- PRODUCT DETAILS -->
+        <div class="row">
+          <div id="product-details" class="section">
+            <!-- Image + Price -->
+            <div class="container section">
+              <div class="row section">
+                <div class="col s12 m6 l8">
+                  <div class="card hoverable z-depth-2">
+                    <!-- ============ -->
+                    <div class="carousel carousel-slider" center>
+                      <a class="carousel-item">
+                        <img class="lazyload carousel-image" src="<%=url%>getImage:product|truck-1.jpg" data-src="<%=url%>getImage:product|truck-1.jpg">
+                      </a>
+                      <a class="carousel-item">
+                        <img class="lazyload carousel-image" src="<%=url%>getImage:product|truck-1.jpg" data-src="<%=url%>getImage:product|truck-1.jpg">
+                      </a>
+                      <a class="carousel-item">
+                        <img class="lazyload carousel-image" src="<%=url%>getImage:product|truck-1.jpg" data-src="<%=url%>getImage:product|truck-1.jpg">
+                      </a>
+                      <a class="carousel-item">
+                        <img class="lazyload carousel-image" src="<%=url%>getImage:product|truck-1.jpg" data-src="<%=url%>getImage:product|truck-1.jpg">
+                      </a>
+                      <a class="carousel-item">
+                        <img class="lazyload carousel-image" src="<%=url%>getImage:product|truck-1.jpg" data-src="<%=url%>getImage:product|truck-1.jpg">
+                      </a>
+                      <a class="carousel-item">
+                        <div class="video-container">
+                          <iframe width="853" height="480" src="//www.youtube.com/embed/Q8TXgCzxEnw?rel=0" frameborder="0" autoplay allowfullscreen></iframe>
+                        </div>
+                      </a>
+                      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    </div>
+                    <!-- ============ -->
+                  </div>
+                </div>
+                <div class="col s12 m6 l4">
+
+                  <!-- Price -->
+                  <div class="row">
+                    <div class="col s12 m12 l12">
+                      <div class="product-price card blue-grey darken-1">
+                        <div class="card-content white-text" align="center">
+                          <span class="card-title">
+                            <div class="row">
+                              <div class="col s9" align="left">
+                                <p class="lineThrough" id="price-original"></p>
+                              </div>
+                              <div class="col s3" align="right">
+                                <span class="label-details-discount" id="label-discount"></span>
+                              </div>
                             </div>
-                            <div class="col s3" align="right">
-                              <span class="label-details-discount" id="label-discount"></span>
-                            </div>
-                          </div>
-                          <h2 class="total-fee" id="total-fee" align="center"></h2>
-                        </span>
+                            <h2 class="total-fee" id="total-fee" align="center"></h2>
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
 
-                <!-- Short Description -->
-                <div class="row">
-                  <div class="col s12 m12 l12">
-                    <div class="product-price card blue-grey darken-1">
-                      <div class="card-content white-text">
-                        <span class="card-title">Card Title</span>
-                        <p>I am a very simple card. I am good at containing small bits of information. I am convenient because
-                          I require little markup to use effectively.</p>
+                  <!-- Short Description -->
+                  <div class="row">
+                    <div class="col s12 m12 l12">
+                      <div class="product-price card blue-grey darken-1">
+                        <div class="card-content white-text">
+                          <span class="card-title">Card Title</span>
+                          <p>I am a very simple card. I am good at containing small bits of information. I am convenient because
+                            I require little markup to use effectively.</p>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
 
-                <!-- Buy Now -->
-                <div class="row">
-                  <div class="col s12 m12 l12">
-                    <div class="product-price card deep-orange lighten-1">
-                      <div class="card-content white-text" align="center">
-                        <span class="card-title">
-                          <h4>Mua Ngay!</h4>
-                        </span>
+                  <!-- Buy Now -->
+                  <div class="row">
+                    <div class="col s12 m12 l12">
+                      <div class="product-price card deep-orange lighten-1">
+                        <div class="card-content white-text" align="center">
+                          <span class="card-title">
+                            <h4>Mua Ngay!</h4>
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div class="container">
+            <div class="container">
 
-            <!-- Title -->
-            <div>
-              <h3 class="header deep-orange-text row">
-                <blockquote id="product-name"></blockquote>
-              </h3>
-            </div>
+              <!-- Title -->
+              <div>
+                <h3 class="header deep-orange-text row">
+                  <blockquote id="product-name"></blockquote>
+                </h3>
+              </div>
 
-            <!-- Description -->
-            <!-- <div class="row">
+              <!-- Description -->
+              <!-- <div class="row">
               <div class="col s12">
                 <div class="product-price card">
                   <div class="card-content">
@@ -294,75 +294,75 @@
               </div>
             </div> -->
 
-            <!-- Tab -->
-            <div class="card">
-              <div class="card-content">
-                <p></p>
+              <!-- Tab -->
+              <div class="card">
+                <div class="card-content">
+                  <p></p>
+                </div>
+                <div class="card-tabs">
+                  <ul class="tabs tabs-fixed-width">
+                    <li class="tab">
+                      <a class="active" href="#test4">Thông tin</a>
+                    </li>
+                    <li class="tab">
+                      <a href="#active" href="#test5">Đánh giá</a>
+                    </li>
+                    <li class="tab">
+                      <a href="#test6">Câu hỏi</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="card-content grey lighten-4">
+                  <div id="test4">Test 1</div>
+                  <div id="test5">Test 2</div>
+                  <div id="test6">Test 3</div>
+                </div>
               </div>
-              <div class="card-tabs">
-                <ul class="tabs tabs-fixed-width">
-                  <li class="tab">
-                    <a class="active" href="#test4">Thông tin</a>
-                  </li>
-                  <li class="tab">
-                    <a href="#active" href="#test5">Đánh giá</a>
-                  </li>
-                  <li class="tab">
-                    <a href="#test6">Câu hỏi</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="card-content grey lighten-4">
-                <div id="test4">Test 1</div>
-                <div id="test5">Test 2</div>
-                <div id="test6">Test 3</div>
-              </div>
-            </div>
 
-            <!-- Raiting -->
-            <div class="row">
-              <div class="col s12">
-                <div class="product-price card">
-                  <div class="card-content">
-                    <span class="card-title">Card Title</span>
+              <!-- Raiting -->
+              <div class="row">
+                <div class="col s12">
+                  <div class="product-price card">
+                    <div class="card-content">
+                      <span class="card-title">Card Title</span>
 
-                    <!-- Expand -->
+                      <!-- Expand -->
 
-                    <ul class="collapsible">
-                      <li>
-                        <div class="collapsible-header">
-                          <i class="material-icons">filter_drama</i>First</div>
-                        <div class="collapsible-body">
-                          <span>Lorem ipsum dolor sit amet.</span>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="collapsible-header">
-                          <i class="material-icons">place</i>Second</div>
-                        <div class="collapsible-body">
-                          <span>Lorem ipsum dolor sit amet.</span>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="collapsible-header">
-                          <i class="material-icons">whatshot</i>Third</div>
-                        <div class="collapsible-body">
-                          <span>Lorem ipsum dolor sit amet.</span>
-                        </div>
-                      </li>
-                    </ul>
+                      <ul class="collapsible">
+                        <li>
+                          <div class="collapsible-header">
+                            <i class="material-icons">filter_drama</i>First</div>
+                          <div class="collapsible-body">
+                            <span>Lorem ipsum dolor sit amet.</span>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="collapsible-header">
+                            <i class="material-icons">place</i>Second</div>
+                          <div class="collapsible-body">
+                            <span>Lorem ipsum dolor sit amet.</span>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="collapsible-header">
+                            <i class="material-icons">whatshot</i>Third</div>
+                          <div class="collapsible-body">
+                            <span>Lorem ipsum dolor sit amet.</span>
+                          </div>
+                        </li>
+                      </ul>
 
-                    <!-- <div>
+                      <!-- <div>
                       <h5 class="left-align">This should be right aligned</h5>
                     </div>
 
                     <!-- Dropdown Trigger -->
-                    <!-- <a class='dropdown-button btn' href='javascript:void(0);' data-activates='demoDropdown' dropdown data-hover="true">
+                      <!-- <a class='dropdown-button btn' href='javascript:void(0);' data-activates='demoDropdown' dropdown data-hover="true">
                       This is a dropdown
                     </a> -->
 
-                    <!-- Dropdown Structure -->
-                    <!-- <ul id='demoDropdown' class='dropdown-content'>
+                      <!-- Dropdown Structure -->
+                      <!-- <ul id='demoDropdown' class='dropdown-content'>
                       <li>
                         <a href="javascript:void(0);">Link 1</a>
                       </li>
@@ -382,7 +382,7 @@
 
 
 
-                    <!-- <div class="nav-wrapper">
+                      <!-- <div class="nav-wrapper">
                       <form>
                         <div class="input-field">
                           <input id="search" type="search" required>
@@ -395,260 +395,545 @@
                     </div> -->
 
 
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+
           </div>
-
         </div>
-      </div>
-      <!-- PRODUCT DETAILS -->
-      <!-- PRODUCT DETAILS -->
-      <!-- PRODUCT DETAILS -->
+        <!-- PRODUCT DETAILS -->
+        <!-- PRODUCT DETAILS -->
+        <!-- PRODUCT DETAILS -->
 
 
 
-      <!-- PRODUCT -->
-      <!-- PRODUCT -->
-      <!-- PRODUCT -->
-      <!-- PRODUCT -->
-      <!-- PRODUCT -->
-      <div class="row section">
-        <div id="product" class="section">
-          <div class="container section">
-            <h3 class="header deep-orange-text row">
-              <blockquote id="same-product"></blockquote>
-            </h3>
-            <div class="row section">
-              <div id="result"></div>
+        <!-- PRODUCT -->
+        <!-- PRODUCT -->
+        <!-- PRODUCT -->
+        <!-- PRODUCT -->
+        <!-- PRODUCT -->
+        <div class="row section">
+          <div id="product" class="section">
+            <div class="container section">
+              <h3 class="header deep-orange-text row">
+                <blockquote id="same-product"></blockquote>
+              </h3>
+              <div class="row section">
+                <div id="result"></div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-    </main>
-    <!-- Main End -->
-
+      </main>
+      <!-- Main End -->
 
 
-    <!-- Footer -->
-    <!-- Footer -->
-    <!-- Footer -->
-    <!-- Footer -->
-    <!-- Footer -->
-    <!-- Footer -->
-    <footer class="page-footer deep-orange lighten-1">
-      <div class="container">
-        <div class="row">
 
-          <!-- ADDRRESS -->
-          <!-- ADDRRESS -->
-          <!-- ADDRRESS -->
-          <div class="col l6 s12">
-            <h5 class="white-text">Cửa Hàng Đồ Chơi Kingpes</h5>
-            <p class="grey-text text-lighten-4">D/C: 65B Lưu Chí Hiếu - P.Tây Thạnh - Q.Tân Phú - HCM</p>
-            <p class="grey-text text-lighten-4">Hotline: 0902.500.478</p>
-            <p class="grey-text text-lighten-4">Email: kingpesvn@gmail.com</p>
-            <p class="grey-text text-lighten-4">Website: kingpes.com</p>
-          </div>
-          <!-- ADDRRESS -->
-          <!-- ADDRRESS -->
-          <!-- ADDRRESS -->
-
-          <div class="col l4 offset-l2 s12">
-            <h5 class="white-text">Links</h5>
-            <ul>
-              <li>
-                <a class="grey-text text-lighten-3" href="#!">Google+</a>
-              </li>
-              <li>
-                <a class="grey-text text-lighten-3" href="#!">Facebok</a>
-              </li>
-              <li>
-                <a class="grey-text text-lighten-3" href="#!">Youtube</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="footer-copyright">
+      <!-- Footer -->
+      <!-- Footer -->
+      <!-- Footer -->
+      <!-- Footer -->
+      <!-- Footer -->
+      <!-- Footer -->
+      <footer class="page-footer deep-orange lighten-1">
         <div class="container">
-          Copyright © 2018 Kingpes
-          <a class="grey-text text-lighten-4 right" href="#!">Design and Developed by Kingpes</a>
-        </div>
-      </div>
-    </footer>
-    <!-- Footer End -->
+          <div class="row">
 
-    <!-- Modal -->
-    <!-- Modal Trigger -->
-    <!-- Modal Trigger -->
-    <!-- Modal Trigger -->
-    <div id="modal-contact" class="modal">
-      <div class="modal-content">
-        <!-- =========== -->
-        <div class="row">
-          <div class="col s12 m12">
-            <div class="card-panel teal">
-              <span class="white-text" align="center">
-                <h5 class="white-text">Cửa Hàng Đồ Chơi Kingpes</h5>
-                <p class="grey-text text-lighten-4">Đ/C: 65B Lưu Chí Hiếu - P.Tây Thạnh - Q.Tân Phú - HCM</p>
-                <p class="grey-text text-lighten-4">Hotline: 0902.500.478</p>
-                <p class="grey-text text-lighten-4">Email: kingpesvn@gmail.com</p>
-                <p class="grey-text text-lighten-4">Website: kingpes.com</p>
-              </span>
+            <!-- ADDRRESS -->
+            <!-- ADDRRESS -->
+            <!-- ADDRRESS -->
+            <div class="col l6 s12">
+              <h5 class="white-text">Cửa Hàng Đồ Chơi Kingpes</h5>
+              <p class="grey-text text-lighten-4">D/C: 65B Lưu Chí Hiếu - P.Tây Thạnh - Q.Tân Phú - HCM</p>
+              <p class="grey-text text-lighten-4">Hotline: 0902.500.478</p>
+              <p class="grey-text text-lighten-4">Email: kingpesvn@gmail.com</p>
+              <p class="grey-text text-lighten-4">Website: kingpes.com</p>
+            </div>
+            <!-- ADDRRESS -->
+            <!-- ADDRRESS -->
+            <!-- ADDRRESS -->
+
+            <div class="col l4 offset-l2 s12">
+              <h5 class="white-text">Links</h5>
+              <ul>
+                <li>
+                  <a class="grey-text text-lighten-3" href="#!">Google+</a>
+                </li>
+                <li>
+                  <a class="grey-text text-lighten-3" href="#!">Facebok</a>
+                </li>
+                <li>
+                  <a class="grey-text text-lighten-3" href="#!">Youtube</a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
-        <!-- =========== -->
-      </div>
-      <!-- <div class="modal-footer">
+
+
+        <div class="footer-copyright">
+          <div class="container">
+            Copyright © 2018 Kingpes
+            <a class="grey-text text-lighten-4 right" href="#!">Design and Developed by Kingpes</a>
+          </div>
+        </div>
+      </footer>
+      <!-- Footer End -->
+
+      <!-- Modal -->
+      <!-- Modal Trigger -->
+      <!-- Modal Trigger -->
+      <!-- Modal Trigger -->
+      <div id="modal-contact" class="modal">
+        <div class="modal-content">
+          <!-- =========== -->
+          <div class="row">
+            <div class="col s12 m12">
+              <div class="card-panel teal">
+                <span class="white-text" align="center">
+                  <h5 class="white-text">Cửa Hàng Đồ Chơi Kingpes</h5>
+                  <p class="grey-text text-lighten-4">Đ/C: 65B Lưu Chí Hiếu - P.Tây Thạnh - Q.Tân Phú - HCM</p>
+                  <p class="grey-text text-lighten-4">Hotline: 0902.500.478</p>
+                  <p class="grey-text text-lighten-4">Email: kingpesvn@gmail.com</p>
+                  <p class="grey-text text-lighten-4">Website: kingpes.com</p>
+                </span>
+              </div>
+            </div>
+          </div>
+          <!-- =========== -->
+        </div>
+        <!-- <div class="modal-footer">
           <a href="#!" class="modal-action modal-close waves-effect waves-green btn">Tìm</a>
         </div> -->
-    </div>
-    <!-- Modal Trigger -->
-    <!-- Modal Trigger -->
-    <!-- Modal Trigger -->
-    <!-- Modal Trigger -->
-    <!-- Modal Trigger -->
-    <!-- Modal Trigger -->
-    <div id="modal-search" class="modal">
-      <div class="modal-content">
-        <nav class=" teal">
-          <div class="nav-wrapper">
-            <form>
-              <div class="input-field">
-                <input id="search" type="search" placeholder="Nhập từ khóa để tìm" required>
-
-                <i class="material-icons">close</i>
-              </div>
-            </form>
-          </div>
-        </nav>
       </div>
-      <div class="modal-footer">
-        <a href="#!" class="modal-action modal-close waves-effect waves-green btn">Tìm</a>
+      <!-- Modal Trigger -->
+      <!-- Modal Trigger -->
+      <!-- Modal Trigger -->
+      <!-- Modal Trigger -->
+      <!-- Modal Trigger -->
+      <!-- Modal Trigger -->
+      <div id="modal-search" class="modal">
+        <div class="modal-content">
+          <nav class=" teal">
+            <div class="nav-wrapper">
+              <form>
+                <div class="input-field">
+                  <input id="search" type="search" placeholder="Nhập từ khóa để tìm" required>
+
+                  <i class="material-icons">close</i>
+                </div>
+              </form>
+            </div>
+          </nav>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-action modal-close waves-effect waves-green btn">Tìm</a>
+        </div>
       </div>
-    </div>
-    <!-- Modal Trigger -->
-    <!-- Modal Trigger -->
-    <!-- Modal Trigger -->
+      <!-- Modal Trigger -->
+      <!-- Modal Trigger -->
+      <!-- Modal Trigger -->
 
-    <!-- Import query -->
-    <script type="text/javascript" src="<%=url%>getResource:js|jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="<%=url%>getResource:js|owl.carousel.min.js"></script>
-    <script type="text/javascript" src="<%=url%>getResource:js|materialize.js"></script>
-    <script type="text/javascript" src="<%=url%>getResource:js|details.js"></script>
-    <!-- <script type="text/javascript" src="<%=url%>getResource:js|jquery.unveil.js"></script> -->
-    <script type="text/javascript" src="<%=url%>getResource:js|jquery.load-more.js"></script>
+      <!-- Import query -->
+      <script type="text/javascript" src="<%=url%>getResource:js|jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src="<%=url%>getResource:js|owl.carousel.min.js"></script>
+      <script type="text/javascript" src="<%=url%>getResource:js|materialize.js"></script>
+      <script type="text/javascript" src="<%=url%>getResource:js|details.js"></script>
+      <!-- <script type="text/javascript" src="<%=url%>getResource:js|jquery.unveil.js"></script> -->
+      <script type="text/javascript" src="<%=url%>getResource:js|jquery.load-more.js"></script>
 
+      <script>
+        //$(".lazyload").unveil();
+        lazyload();
 
-    <script>
-      //$(".lazyload").unveil();
-      lazyload();
-
-      $('.carousel.carousel-slider').carousel({
-        dist: 0, fullWidth: false, indicators: false
-      });
+        $('.carousel.carousel-slider').carousel({
+          dist: 0, fullWidth: false, indicators: false
+        });
 
 
-      function plusSlides(n) {
-        if (n == 1) {
-          $('.carousel').carousel('prev');
-        } else {
-          $('.carousel').carousel('next');
-        }
-      }
-
-      var xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-          // Response
-          var output;
-          var json = JSON.parse(this.responseText);
-          $.each(json, function (i, item) {
-            item.forEach(function (entry) {
-
-              output = '<div class="col s12 m6 l4">';
-              output += '<a class="modal-trigger" href="#modal1">';
-              output += '<div class="card hoverable z-depth-2">';
-              output += '<div class="card-image">';
-              output += '<img class="lazyload" src ="<%=url%>getImage:product|' + entry.image1 + '" data-src="<%=url%>getImage:product|' + entry.image1 + ">";
-              output += '</div>';
-              output += '<div class="card-content">';
-              output += '<h5 class="deep-orange-text text-darken-1">' + entry.productName + '</h5>';
-              output += '<p class=" grey-text text-darken-4">' + entry.sell + '000 VND</p>';
-              output += '<p class=" grey-text text-darken-4">' + entry.likeTotal + '</p>';
-              output += '<p class=" grey-text text-darken-4">' + entry.rateTotal + '</p>';
-              output += '<p class=" grey-text text-darken-4">' + entry.commentTotal + '</p>';
-              output += '</div>';
-              output += '</div>';
-              output += '</a>';
-              output += '</div>';
-              $('#result').append(output);
-
-            });
-          })
-        }
-      };
-      xhttp.open("GET", "findAllProduct?offset=0&limit=10", true);
-      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-      xhttp.setRequestHeader("secret", "12345");
-      xhttp.send();
-
-      $('#price-original').append("250.000 vnd");
-      $('#label-discount').append("-30%");
-      $('#total-fee').append("205.000 vnd");
-      $('#same-product').append("Sản phẩm tương tự");
-
-
-      $('#product-name').append("Xe dieu khien tu xa the he moi nhat nhat ban san xuat 2018");
-
-      function setCookie(cname, cvalue, exdays) {
-        var d = new Date();
-        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-        var expires = "expires=" + d.toGMTString();
-        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-      }
-
-      function getCookie(cname) {
-        var name = cname + "=";
-        var decodedCookie = decodeURIComponent(document.cookie);
-        var ca = decodedCookie.split(';');
-        for (var i = 0; i < ca.length; i++) {
-          var c = ca[i];
-          while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-          }
-          if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
+        function plusSlides(n) {
+          if (n == 1) {
+            $('.carousel').carousel('prev');
+          } else {
+            $('.carousel').carousel('next');
           }
         }
-        return "";
-      }
 
-      function checkCookie() {
-        var user = getCookie("username");
-        if (user != "") {
-          alert("Welcome again " + user);
-        } else {
-          user = prompt("Please enter your name:", "");
-          if (user != "" && user != null) {
-            setCookie("username", user, 30);
+        // var xhttp = new XMLHttpRequest();
+        // xhttp.onreadystatechange = function () {
+        //   if (this.readyState == 4 && this.status == 200) {
+        //     // Response
+        //     var output;
+        //     var json = JSON.parse(this.responseText);
+        //     $.each(json, function (i, item) {
+        //       item.forEach(function (entry) {
+
+        //         output = '<div class="col s12 m6 l4">';
+        //         output += '<a class="modal-trigger" href="#modal1">';
+        //         output += '<div class="card hoverable z-depth-2">';
+        //         output += '<div class="card-image">';
+        //         output += '<img class="lazyload" src ="<%=url%>getImage:product|' + entry.image1 + '" data-src="<%=url%>getImage:product|' + entry.image1 + ">";
+        //         output += '</div>';
+        //         output += '<div class="card-content">';
+        //         output += '<h5 class="deep-orange-text text-darken-1">' + entry.productName + '</h5>';
+        //         output += '<p class=" grey-text text-darken-4">' + entry.sell + '000 VND</p>';
+        //         output += '<p class=" grey-text text-darken-4">' + entry.likeTotal + '</p>';
+        //         output += '<p class=" grey-text text-darken-4">' + entry.rateTotal + '</p>';
+        //         output += '<p class=" grey-text text-darken-4">' + entry.commentTotal + '</p>';
+        //         output += '</div>';
+        //         output += '</div>';
+        //         output += '</a>';
+        //         output += '</div>';
+        //         $('#result').append(output);
+
+        //       });
+        //     })
+        //   }
+        // };
+        // xhttp.open("GET", "findAllProduct?offset=0&limit=10", true);
+        // xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        // xhttp.setRequestHeader("secret", "12345");
+        // xhttp.send();
+
+        $('#price-original').append("250.000 vnd");
+        $('#label-discount').append("-30%");
+        $('#total-fee').append("205.000 vnd");
+        $('#same-product').append("Sản phẩm tương tự");
+
+
+        $('#product-name').append("Xe dieu khien tu xa the he moi nhat nhat ban san xuat 2018");
+
+        function setCookie(cname, cvalue, exdays) {
+          var d = new Date();
+          d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+          var expires = "expires=" + d.toGMTString();
+          document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+
+        function getCookie(cname) {
+          var name = cname + "=";
+          var decodedCookie = decodeURIComponent(document.cookie);
+          var ca = decodedCookie.split(';');
+          for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+              c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+              return c.substring(name.length, c.length);
+            }
+          }
+          return "";
+        }
+
+        function checkCookie() {
+          var user = getCookie("username");
+          if (user != "") {
+            alert("Welcome again " + user);
+          } else {
+            user = prompt("Please enter your name:", "");
+            if (user != "" && user != null) {
+              setCookie("username", user, 30);
+            }
           }
         }
-      }
 
-    </script>
+      </script>
 
-    <!-- Get Details Product -->
-    <script type="text/javascript">
-      
-    </script>
+      <!-- Get API -->
+      <!-- Get API -->
+      <!-- Get API -->
+      <!-- Get API -->
+      <script type="text/javascript">
 
-  </body>
+        var productId = '<%=productId%>';
+        productId = productId.substr(1);
 
-  </html>
+        function insertOders(){
+          $.ajax({
+            method: "POST",
+            dataType: "json",
+            beforeSend: function (request) {
+              request.setRequestHeader("secret", "12345");
+            },
+            url: "<%=url%>insertOrders",
+            data: {
+              productId: "7",
+              userId: 1,
+              promotionId: 0,
+              voucherId: 0,
+              point: 0,
+              totalFee: 100,
+              status: 0,
+              receiverName:"Nguyen Chau",
+              receiverAddress: "Tay Thanh-HCM",
+              receiverPhone:"0937590127"
+            } ,
+            success: function success(data) {
+              var result = "";
+              $.each(data, function (i, value) {
+                result = value.insert;
+              });
+              alert(result);
+            }
+          });
+        }
+
+        function insertComment(){
+          $.ajax({
+            method: "POST",
+            dataType: "json",
+            beforeSend: function (request) {
+              request.setRequestHeader("secret", "12345");
+            },
+            url: "<%=url%>insertComment",
+            data: {
+              commentId: "7",
+              userId: 4,
+              question: "Trả lời cho Xuân Lan"
+            } ,
+            success: function success(data) {
+              var result = "";
+              $.each(data, function (i, value) {
+                result = value.insert;
+              });
+              alert(result);
+            }
+          });
+        }
+
+        function updateComment(){
+          $.ajax({
+            method: "PUT",
+            dataType: "json",
+            beforeSend: function (request) {
+              request.setRequestHeader("secret", "12345");
+            },
+            url: "<%=url%>updateComment",
+            data: {
+              id: "6",
+              answer: "Huynh Chau Trả lời cho Xuân Lan",
+            } ,
+            success: function success(data) {
+              var result = "";
+              $.each(data, function (i, value) {
+                result = value.update;
+              });
+              alert(result);
+            }
+          });
+        }
+
+        function insertRaiting(){
+          $.ajax({
+            method: "POST",
+            dataType: "json",
+            beforeSend: function (request) {
+              request.setRequestHeader("secret", "12345");
+            },
+            url: "<%=url%>insertRaiting",
+            data: {
+              rateId: "7",
+              userId: 3,
+              question: "Trả lời cho Xuân Lan",
+              rate: 3
+            } ,
+            success: function success(data) {
+              var result = "";
+              $.each(data, function (i, value) {
+                result = value.insert;
+              });
+              alert(result);
+            }
+          });
+        }
+
+        function updateRaiting(){
+          $.ajax({
+            method: "PUT",
+            dataType: "json",
+            beforeSend: function (request) {
+              request.setRequestHeader("secret", "12345");
+            },
+            url: "<%=url%>updateRaiting",
+            data: {
+              id: "20",
+              answer: "Huynh Chau Trả lời cho Quoc Bao",
+            } ,
+            success: function success(data) {
+              var result = "";
+              $.each(data, function (i, value) {
+                result = value.update;
+              });
+              alert(result);
+            }
+          });
+        }
+
+        function insertLikes(){
+          $.ajax({
+            method: "POST",
+            dataType: "json",
+            beforeSend: function (request) {
+              request.setRequestHeader("secret", "12345");
+            },
+            url: "<%=url%>insertLikes",
+            data: {
+              likesId: "7",
+              userId: 3
+            } ,
+            success: function success(data) {
+              var result = "";
+              $.each(data, function (i, value) {
+                result = value.insert;
+              });
+              alert(result);
+            }
+          });
+        }
+
+        function deleteLikes(){
+          $.ajax({
+            method: "DELETE",
+            dataType: "json",
+            beforeSend: function (request) {
+              request.setRequestHeader("secret", "12345");
+            },
+            url: "<%=url%>deleteLikes",
+            data: {
+              id: "1"
+            } ,
+            success: function success(data) {
+              var result = "";
+              $.each(data, function (i, value) {
+                result = value.delete;
+              });
+              alert(result);
+            }
+          });
+        }
+
+        function findProduct() {
+          $.ajax({
+            method: "GET",
+            dataType: "json",
+            beforeSend: function (request) {
+              request.setRequestHeader("secret", "12345");
+            },
+            url: "<%=url%>findProduct?productId=" + productId,
+            success: function success(data) {
+              var result = "";
+              $.each(data, function (i, value) {
+                result = value.productId;
+                result += value.productName;
+              });
+              alert(result);
+              //findAllProduct('Xa', 0, 10);
+              //insertComment();
+              //updateComment();
+              //insertOders();
+              //insertRaiting();
+              //updateRaiting();
+              //insertLikes();
+              deleteLikes();
+              i
+              i
+            }
+          });
+        }
+
+        function findAllProduct(filter, offset, limit) {
+          $.ajax({
+            method: "GET",
+            dataType: "json",
+            beforeSend: function (request) {
+              request.setRequestHeader("secret", "12345");
+            },
+            url: "<%=url%>findAllProduct?filter=" + filter + "&offset=" + offset + "&limit=" + limit,
+            success: function success(data) {
+              var result = "";
+              $.each(data, function (i, value) {
+                value.forEach(function (entry) {
+                  result = entry.productId;
+                  result += entry.productName;
+                  alert(result);
+                  findComment(7, 0, 1);
+                });
+              });
+            }
+          });
+        }
+
+        function findComment(productId, offset, limit) {
+          $.ajax({
+            method: "GET",
+            dataType: "json",
+            beforeSend: function (request) {
+              request.setRequestHeader("secret", "12345");
+            },
+            url: "<%=url%>findComment?productId=" + productId + "&offset=" + offset + "&limit=" + limit,
+            success: function success(data) {
+              var result = "";
+              $.each(data, function (i, value) {
+                value.forEach(function (entry) {
+                  result = entry.commentQuestion;
+                  result += entry.nickname;
+                  alert(result);
+                  findRaiting(7, 0, 1);
+                });
+              });
+            }
+          });
+        }
+
+        function findRaiting(productId, offset, limit) {
+          $.ajax({
+            method: "GET",
+            dataType: "json",
+            beforeSend: function (request) {
+              request.setRequestHeader("secret", "12345");
+            },
+            url: "<%=url%>findRaiting?productId=" + productId + "&offset=" + offset + "&limit=" + limit,
+            success: function success(data) {
+              var result = "";
+              $.each(data, function (i, value) {
+                value.forEach(function (entry) {
+                  result = entry.nickname;
+                  result += entry.rateQuestion;
+                  alert(result);
+                  findLikes(7, 0, 1);
+                });
+              });
+            }
+          });
+        }
+
+        function findLikes(productId, offset, limit) {
+          $.ajax({
+            method: "GET",
+            dataType: "json",
+            beforeSend: function (request) {
+              request.setRequestHeader("secret", "12345");
+            },
+            url: "<%=url%>findLikes?productId=" + productId + "&offset=" + offset + "&limit=" + limit,
+            success: function success(data) {
+              var result = "";
+              $.each(data, function (i, value) {
+                value.forEach(function (entry) {
+                  result = entry.nickname;
+                  result += entry.likesId;
+                  alert(result);
+                });
+              });
+            }
+          });
+        }
+
+      </script>
+
+    </body>
+
+    </html>

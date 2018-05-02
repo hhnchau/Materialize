@@ -259,62 +259,81 @@
               <!-- START one hotel item -->
               <div id="result"></div>
 
-              <!-- <div class="col s12 m6 l4">
+              <div class="col s12 m6 l4">
                 <a class="modal-trigger" href="<%=url%>details">
                   <div class="card hoverable z-depth-2">
+
                     <div class="card-image">
                       <img src="<%=url%>getImage:product|truck-1.jpg">
+                      <span class="label-home-discount" id="label-home-discount">-30%</span>
                     </div>
+
                     <div class="card-content">
-                      <div class="row">
-                        <div class="col s1"></div>
-                        <div class="col s6">
-                          <p class="deep-orange-text text-darken-1" style="font-size:180%;">500.000 vnd</p>
-                        </div>
-                        <div class="price-discount col s4">
-                          <p class="lineThrough" id="price-original">500.000vnd</p>
-                        </div>
-                        <div class="col s1"></div>
-                      </div>
 
-                      <div class="row">
-                        <div class="col s1"></div>
-                        <div class="col s10">
-                          <p id="product-name" style="font-size:140%;">Nam Anh Hotel</p>
-                        </div>
-                        <div class="col s1"></div>
-                      </div>
 
-                      <div class="row">
-                        <div class="col s1"></div>
-                        <div class="col s6">
-                          <i class="material-icons yellow-text text-darken-2 left">star</i>
-                          <i class="material-icons yellow-text text-darken-2 left">star</i>
-                          <i class="material-icons yellow-text text-darken-2 left">star</i>
-                          <i class="material-icons yellow-text text-darken-2 left">star</i>
-                          <i class="material-icons yellow-text text-darken-2 left">star</i>
-                          (5/9)
-                        </div>
-                        <div class="col s4">
-                          <i class="material-icons red-text text-darken-2 left">favorite</i>
-                          (939)
-                        </div>
-                        <div class="col s1"></div>
-                      </div>
+                      <div class="card-content">
+                        <div class="row">
 
-                      <div class="label-home-discount">
-                        <span id="label-discount" align="right">-30%</span>
+                          <div class="col s7">
+                            <h5 class=" price-sell deep-orange-text text-darken-1" id="price-sell">500.000 vnd</h5>
+                          </div>
+
+                          <div class="col s5">
+                            <p class="price-discount" id="price-discount">50.000vnd</p>
+                          </div>
+
+                        </div>
+
+                        <p class="product-name" id="product-name">Nam Anh Hotel 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15</p>
+
+                        <div class="product-name row">
+
+                          <div class="col s6">
+                            <a class="waves-effect waves-light">
+                              <i class="material-icons left yellow-text text-darken-2 left">star</i>
+                            </a>
+                            <a class="waves-effect waves-light">
+                              <i class="material-icons left yellow-text text-darken-2 left">star</i>
+                            </a>
+                            <a class="waves-effect waves-light">
+                              <i class="material-icons left yellow-text text-darken-2 left">star</i>
+                            </a>
+                            <a class="waves-effect waves-light">
+                              <i class="material-icons left yellow-text text-darken-2 left">star</i>
+                            </a>
+                            <a class="waves-effect waves-light">
+                              <i class="material-icons left yellow-text text-darken-2 left">star</i>
+                            </a>
+                            <a class="icon-label">(5/73)</a>
+                          </div>
+
+
+                          <div class="col s3">
+                            <a class="waves-effect waves-light">
+                              <i class="material-icons red-text text-darken-2 left">favorite</i>
+                            </a>
+                            <a class="icon-label">(102)</a>
+                          </div>
+
+                          <div class="col s3">
+                            <a class="waves-effect waves-light">
+                              <i class="material-icons red-text text-darken-2 left">comment</i>
+                            </a>
+                            <a class="icon-label">(173)</a>
+                          </div>
+
+                        </div>
+
                       </div>
                     </div>
-                  </div>
                 </a>
-              </div> -->
+                </div>
 
+              </div>
             </div>
-          </div>
 
+          </div>
         </div>
-      </div>
     </main>
     <!-- Main End -->
 
@@ -438,9 +457,6 @@
       //$(".lazyload").unveil();
       lazyload();
 
-
-
-
       $('#category').append("Tất cả sản phẩm");
 
     </script>
@@ -543,8 +559,6 @@
         xhttp.setRequestHeader("secret", "12345");
         xhttp.send();
       }
-
-    </script>
 
     </script>
 

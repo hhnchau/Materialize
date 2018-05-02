@@ -49,62 +49,113 @@ exports.sqlFindProduct = function (productId, query) {
     query(sql);
 };
 
-exports.sqlFindInfoLikes = function (productId, query) {
+exports.sqlFindLikes = function (productId, offset, limit, query) {
     var sql = "";
     sql += "SELECT u.nickname, l.*";
     sql += " FROM user AS u";
     sql += " LEFT JOIN likes AS l ON u.userId = l.userId";
     sql += " WHERE l.likesId = '" + productId + "'";
+    sql += " LIMIT " + offset + ", " + limit;
 
     query(sql);
 };
 
-exports.sqlFindInfoRaiting = function (productId, query) {
+exports.sqlInsertLikes = function (likesId, userId, query) {
+    //commentId = productId
+    //userId = userId
+    var sql = "";
+    sql += "INSERT INTO likes";
+    sql += " (likesId, userId)";
+    sql += " VALUES";
+    sql += " ('" + likesId + "', '" + userId + "')";
+
+    query(sql);
+}
+
+exports.sqlDeleteLikes = function (id, query) {
+    //id = primary Id Of Table
+    var sql = "";
+    sql += "DELETE FROM likes";
+    sql += " WHERE";
+    sql += " userId = '" + id + "'";
+
+    query(sql);
+}
+
+
+exports.sqlFindRaiting = function (productId, offset, limit, query) {
     var sql = "";
     sql += "SELECT u.nickname, r.*";
     sql += " FROM user AS u";
     sql += " LEFT JOIN rate as r ON u.userId = r.userId";
     sql += " WHERE r.rateId = '" + productId + "'";
+    sql += " LIMIT " + offset + ", " + limit;
 
     query(sql);
 };
 
-exports.sqlFindInfoComment = function (productId, query) {
+exports.sqlInsertRaiting = function (rateId, userId, question, rate, query) {
+    //commentId = productId
+    //userId = userId
+    var sql = "";
+    sql += "INSERT INTO rate";
+    sql += " (rateId, userId, rateQuestion, rate)";
+    sql += " VALUES";
+    sql += " ('" + rateId + "', '" + userId + "', '" + question + "', '" + rate + "')";
+
+    query(sql);
+}
+
+exports.sqlUpdateRaiting = function (id, answer, query) {
+    //id = primary Id Of Table
+    var sql = "";
+    sql += "UPDATE rate";
+    sql += " SET";
+    sql += " rateAnswer = '" + answer + "'";
+    sql += " WHERE";
+    sql += " id = '" + id + "'";
+
+    query(sql);
+}
+
+exports.sqlFindComment = function (productId, offset, limit, query) {
     var sql = "";
     sql += "SELECT u.nickname, c.*";
     sql += " FROM user AS u";
     sql += " LEFT JOIN comment as c ON u.userId = c.userId";
     sql += " WHERE c.commentId = '" + productId + "'";
+    sql += " LIMIT " + offset + ", " + limit;
 
     query(sql);
 };
 
-exports.sqlCreateNewUser = function (query) {
-    // INSERT INTO user(nickname, address, phone, password, sex, email) 
-    // VALUES 
-    // ('lanbao', 'Tay Thanh', '6789', '123456', '1', 'abc@gmail.com')
+exports.sqlInsertComment = function (commentId, userId, question, query) {
+    //commentId = productId
+    //userId = userId
+    var sql = "";
+    sql += "INSERT INTO comment";
+    sql += " (commentId, userId, commentQuestion)";
+    sql += " VALUES";
+    sql += " ('" + commentId + "', '" + userId + "', '" + question + "')";
+
+    query(sql);
 }
 
-exports.sqlInsertLogin = function (query) {
-    // INSERT INTO user(nickname, address, phone, password, sex, email) 
-    // VALUES 
-    // ('lanbao', 'Tay Thanh', '6789', '123456', '1', 'abc@gmail.com')
+exports.sqlUpdateComment = function (id, answer, query) {
+    //id = primary Id Of Table
+    var sql = "";
+    sql += "UPDATE comment";
+    sql += " SET";
+    sql += " commentAnswer = '" + answer + "'";
+    sql += " WHERE";
+    sql += " id = '" + id + "'";
+
+    query(sql);
 }
 
-exports.sqlCreateNewTransactions = function (params, query) {
-    var params = {
-        receiverName: "Huỳnh",
-        receiverAddress: "80/5 Tây Thạnh - Tân Phú - Hồ Chí Minh",
-        receiverPhone: "01234567890",
-        userId: 3,
-        productId: 1,
-        promotionId: 1,
-        voucherId: 1,
-        point: 15,
-        totalFee: 105,
-        status: 0
-    }
-
+exports.sqlInsertTransactions = function (params, query) {
+    //status = 0 : new, 1: waiting for confirm, 2:
+    //userId = 0: Guest mode, >0: Member mode
     var sql = "";
     sql += " INSERT INTO transactions";
     sql += " ("
@@ -140,24 +191,59 @@ exports.sqlCreateNewTransactions = function (params, query) {
     query(sql);
 }
 
-exports.sqlCreateNewDelivery = function (transactionId, receiverName, receiverAddress, receiverPhone, query) {
+exports.sqlInsertDelivery = function (transactionId, receiverName, receiverAddress, receiverPhone, query) {
     var sql = "";
     sql += "INSERT INTO delivery";
     sql += " (deliveryId, receiverName, receiverAddress, receiverPhone)";
     sql += " VALUES";
-    sql += " ('"+ transactionId +"', '"+ receiverName + "', '" + receiverAddress +"', '" + receiverPhone + "')";
+    sql += " ('" + transactionId + "', '" + receiverName + "', '" + receiverAddress + "', '" + receiverPhone + "')";
 
     query(sql);
 }
 
-exports.sqlCreateNewLikes = function (query) {
+exports.sqlInsertUser = function (params, query) {
+    var sql = "";
+    sql += "INSERT INTO user";
+    sql += " ("
+    if (params.nickname > 0)
+        sql += "userId, ";
+    if (params.productId > 0)
+        sql += "productId, ";
+    if (params.promotionId > 0)
+        sql += "promotionId, ";
+    if (params.voucherId > 0)
+        sql += "voucherId, ";
+    if (params.point > 0)
+        sql += "point, ";
+    sql += "totalFee, ";
+    sql += "status ";
+    sql += ")";
 
+    sql += " VALUES (";
+    if (params.userId > 0)
+        sql += "'" + params.userId + "',";
+    if (params.productId > 0)
+        sql += "'" + params.productId + "',";
+    if (params.promotionId > 0)
+        sql += "'" + params.promotionId + "',";
+    if (params.voucherId > 0)
+        sql += "'" + params.voucherId + "',";
+    if (params.point > 0)
+        sql += "'" + params.point + "',";
+    sql += " '" + params.totalFee + "',";
+    sql += " '" + params.status + "'";
+    sql += ");";
+
+
+    var sql = "";
+    sql += "";
+    sql += " (nickname, address, phone, password, sex, email)";
+    sql += " VALUES";
+    sql += " ('" + params.nickname + "', '" + params.address + "', '" + params.phone + "', '" + params.password + "', '" + params.sex + "', '" + params.email + "')";
+
+    query(sql);
 }
 
-exports.sqlCreateNewRate = function (query) {
 
-}
 
-exports.sqlCreateNewComment = function (query) {
 
-}

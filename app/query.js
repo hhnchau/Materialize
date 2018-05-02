@@ -22,9 +22,9 @@ exports.findApiSettings = function (callback) {
   }
 }
 
-exports.findAllProduct = function (offset, limit, callback) {
+exports.findAllProduct = function (filter, offset, limit, callback) {
   try {
-    string.sqlFindAllProduct(null, offset, limit, function (stringQuery) {
+    string.sqlFindAllProduct(filter, offset, limit, function (stringQuery) {
       db.execute(stringQuery, function (data, err) {
         if (err) {
           log.error("findAllProduct", err);
@@ -40,7 +40,7 @@ exports.findAllProduct = function (offset, limit, callback) {
   }
 }
 
-exports.findProduct = function (productSn, callback) {
+exports.findProduct = function (productId, callback) {
   try {
     string.sqlFindProduct(productId, function (stringQuery) {
       db.execute(stringQuery, function (data, err) {
@@ -58,21 +58,199 @@ exports.findProduct = function (productSn, callback) {
   }
 }
 
-exports.createNewOrders = function (params, callback) {
+exports.findComment = function(productId, offset, limit, callback){
   try {
-    string.sqlCreateNewTransactions(params, function (stringQuery) {
-      db.execute(sql, function (data, err) {
+    string.sqlFindComment(productId, offset, limit, function (stringQuery) {
+      db.execute(stringQuery, function (data, err) {
         if (err) {
-          log.error("CreateNewTransactions", err);
+          log.error("findComment", err);
         } else {
-          var transactionId = data[0].insertId;
-          string.sqlCreateNewDelivery(transactionId, params.receiverName, params.receiverAddress, params.receiverPhone, function (stringQuery) {
-            db.execute(sql, function (data, err) {
+          models.ProductForm(data);
+          log.write("findComment", JSON.stringify(models.data));
+          callback(models.data);
+        }
+      });
+    });
+  } catch (ex) {
+    log.write("Execute Sql Query", "---------->Exception<---------- " + ex);
+  }
+}
+
+exports.insertComment = function(params, callback){
+  try {
+    string.sqlInsertComment(params.commentId, params.userId, params.question, function (stringQuery) {
+      db.execute(stringQuery, function (data, err) {
+        if (err) {
+          log.error("insertComment", err);
+          models.ProductForm({insert: 0});
+          callback(models.data);
+        } else {
+          models.ProductForm({insert: 1});
+          log.write("insertComment", JSON.stringify(models.data));
+          callback(models.data);
+        }
+      });
+    });
+  } catch (ex) {
+    log.write("Execute Sql Query", "---------->Exception<---------- " + ex);
+  }
+}
+
+exports.updateComment = function(params, callback){
+  try {
+    string.sqlUpdateComment(params.id, params.answer, function (stringQuery) {
+      db.execute(stringQuery, function (data, err) {
+        if (err) {
+          log.error("updateComment", err);
+          models.ProductForm({update: 0});
+          callback(models.data);
+        } else {
+          models.ProductForm({update: 1});
+          log.write("updateComment", JSON.stringify(models.data));
+          callback(models.data);
+        }
+      });
+    });
+  } catch (ex) {
+    log.write("Execute Sql Query", "---------->Exception<---------- " + ex);
+  }
+}
+
+exports.findRaiting = function(productId, offset, limit, callback){
+  try {
+    string.sqlFindRaiting(productId, offset, limit, function (stringQuery) {
+      db.execute(stringQuery, function (data, err) {
+        if (err) {
+          log.error("findRaiting", err);
+        } else {
+          models.ProductForm(data);
+          log.write("findRaiting", JSON.stringify(models.data));
+          callback(models.data);
+        }
+      });
+    });
+  } catch (ex) {
+    log.write("Execute Sql Query", "---------->Exception<---------- " + ex);
+  }
+}
+
+exports.insertRaiting = function(params, callback){
+  try {
+    string.sqlInsertRaiting(params.rateId, params.userId, params.question, params.rate, function (stringQuery) {
+      db.execute(stringQuery, function (data, err) {
+        if (err) {
+          log.error("insertRaiting", err);
+          models.ProductForm({insert: 0});
+          callback(models.data);
+        } else {
+          models.ProductForm({insert: 1});
+          log.write("insertRaiting", JSON.stringify(models.data));
+          callback(models.data);
+        }
+      });
+    });
+  } catch (ex) {
+    log.write("Execute Sql Query", "---------->Exception<---------- " + ex);
+  }
+}
+
+exports.updateRaiting = function(params, callback){
+  try {
+    string.sqlUpdateRaiting(params.id, params.answer, function (stringQuery) {
+      db.execute(stringQuery, function (data, err) {
+        if (err) {
+          log.error("updateRaiting", err);
+          models.ProductForm({update: 0});
+          callback(models.data);
+        } else {
+          models.ProductForm({update: 1});
+          log.write("updateRaiting", JSON.stringify(models.data));
+          callback(models.data);
+        }
+      });
+    });
+  } catch (ex) {
+    log.write("Execute Sql Query", "---------->Exception<---------- " + ex);
+  }
+}
+
+exports.findLikes = function(productId, offset, limit, callback){
+  try {
+    string.sqlFindLikes(productId, offset, limit, function (stringQuery) {
+      db.execute(stringQuery, function (data, err) {
+        if (err) {
+          log.error("findLikes", err);
+        } else {
+          models.ProductForm(data);
+          log.write("findLikes", JSON.stringify(models.data));
+          callback(models.data);
+        }
+      });
+    });
+  } catch (ex) {
+    log.write("Execute Sql Query", "---------->Exception<---------- " + ex);
+  }
+}
+
+exports.insertLikes = function(params, callback){
+  try {
+    string.sqlInsertLikes(params.likesId, params.userId, function (stringQuery) {
+      db.execute(stringQuery, function (data, err) {
+        if (err) {
+          log.error("insertLikes", err);
+          models.ProductForm({insert: 0});
+          callback(models.data);
+        } else {
+          models.ProductForm({insert: 1});
+          log.write("insertLikes", JSON.stringify(models.data));
+          callback(models.data);
+        }
+      });
+    });
+  } catch (ex) {
+    log.write("Execute Sql Query", "---------->Exception<---------- " + ex);
+  }
+}
+
+exports.deleteLikes = function(params, callback){
+  try {
+    string.sqlDeleteLikes(params.id, function (stringQuery) {
+      db.execute(stringQuery, function (data, err) {
+        if (err) {
+          log.error("deleteLikes", err);
+          models.ProductForm({delete: 0});
+          callback(models.data);
+        } else {
+          models.ProductForm({delete: 1});
+          log.write("deleteLikes", JSON.stringify(models.data));
+          callback(models.data);
+        }
+      });
+    });
+  } catch (ex) {
+    log.write("Execute Sql Query", "---------->Exception<---------- " + ex);
+  }
+}
+
+exports.insertOrders = function (params, callback) {
+  try {
+    string.sqlInsertTransactions(params, function (stringQuery) {
+      db.execute(stringQuery, function (data, err) {
+        if (err) {
+          log.error("insertOrders", err);
+          models.ProductForm({insert: 0});
+          callback(models.data);
+        } else {
+          var transactionId = data.insertId;
+          string.sqlInsertDelivery(transactionId, params.receiverName, params.receiverAddress, params.receiverPhone, function (stringQuery) {
+            db.execute(stringQuery, function (data, err) {
               if (err) {
-                log.error("CreateNewDelivery", err);
+                log.error("insertOrders", err);
+                models.ProductForm({insert: 0});
+                callback(models.data);
               } else {
-                models.ProductForm(data);
-                log.write("CreateNewDelivery", JSON.stringify(models.data));
+                models.ProductForm({insert: 1});
+                log.write("insertOrders", JSON.stringify(models.data));
                 callback(models.data);
               }
             });
@@ -85,15 +263,22 @@ exports.createNewOrders = function (params, callback) {
   }
 }
 
-
-exports.insert = function () {
+exports.insertUser = function (params, callback) {
   try {
-    //var sql = "SELECT product.*, category.* FROM product JOIN category WHERE product.productId = 1";
-    var sql = "DELETE FROM product WHERE productId = 1";
-    db.execute(sql, function (data, err) {
-      console.log(data);
+    string.sqlInsertUser(params, function (stringQuery) {
+      db.execute(stringQuery, function (data, err) {
+        if (err) {
+          log.error("insertUser", err);
+          models.ProductForm({insert: 0});
+          callback(models.data);
+        } else {
+          models.ProductForm({insert: 1});
+          log.write("insertUser", JSON.stringify(models.data));
+          callback(models.data);
+        }
+      });
     });
   } catch (ex) {
     log.write("Execute Sql Query", "---------->Exception<---------- " + ex);
-  };
+  }
 }

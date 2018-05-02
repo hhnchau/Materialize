@@ -8,7 +8,9 @@ exports.dbConfig = {
   
   exports.listenPort = 3000;
 
-  exports.url = "http://192.168.0.105:3000/";
+  //exports.url = "http://192.168.0.105:3000/";
+
+  exports.url = "http://localhost:3000/";
     
 
   /*
@@ -26,22 +28,28 @@ exports.dbConfig = {
 
   exports.findProduct = "/findProduct";
 
-  exports.createNewOrders = "/createNewOrders";
+  exports.insertOrders = "/insertOrders";
 
-  exports.createNewUser = "/createNewUser";
+  exports.insertUser = "/insertUser";
 
-  exports.getInfoUser = "/getInfoUser";
+  exports.findUser = "/findUser";
 
-  exports.createNewLikes = "/createNewLikes";
+  exports.insertLikes = "/insertLikes";
 
-  exports.getInfoLikes = "/getInfoLikes";
+  exports.deleteLikes = "/deleteLikes";
 
-  exports.createNewComment = "/createNewComment";
+  exports.findLikes = "/findLikes";
 
-  exports.getInfoComment = "/getInfoComment";
+  exports.insertComment = "/insertComment";
 
-  exports.createNewRaiting = "/createNewRaiting";
+  exports.updateComment = "/updateComment";
 
-  exports.getInfoRaiting = "/getInfoRaiting";
+  exports.findComment = "/findComment";
+
+  exports.insertRaiting = "/insertRaiting";
+
+  exports.updateRaiting = "/updateRaiting";
+
+  exports.findRaiting = "/findRaiting";
 
   exports.updateOpenApp = "/updateOpenApp";

@@ -34,15 +34,15 @@ app.get(settings.findApiSettings, function (req, res) {
   }
 })
 
-
 app.get(settings.findAllProduct, function (req, res) {
   var secret = req.headers[settings.secret_key];
   if (secret === settings.secret_encrypt) {
 
     var offset = req.query.offset;
     var limit = req.query.limit;
+    var filter = req.query.filter;
 
-    query.findAllProduct(offset, limit, function (ProductForm) {
+    query.findAllProduct(filter, offset, limit, function (ProductForm) {
       res.json(ProductForm);
       res.end();
     });
@@ -58,9 +58,9 @@ app.get(settings.findProduct, function (req, res) {
   var secret = req.headers[settings.secret_key];
   if (secret === settings.secret_encrypt) {
 
-    var productSn = req.query.productSn;
+    var productId = req.query.productId;
 
-    query.findProduct(productSn, function (ProductForm) {
+    query.findProduct(productId, function (ProductForm) {
       res.json(ProductForm);
       res.end();
     });
@@ -72,14 +72,200 @@ app.get(settings.findProduct, function (req, res) {
   }
 })
 
-app.post(settings.createNewOrders, function (req, res) {
+app.get(settings.findComment, function(req, res){
+  var secret = req.headers[settings.secret_key];
+  if (secret === settings.secret_encrypt) {
+
+    var offset = req.query.offset;
+    var limit = req.query.limit;
+    var productId = req.query.productId;
+
+    query.findComment(productId, offset, limit, function (ProductForm) {
+      res.json(ProductForm);
+      res.end();
+    });
+
+  } else {
+    //Response 404
+    res.write(settings.secret_fail);
+    res.end();
+  }
+})
+
+app.post(settings.insertComment, function(req, res){
   var secret = req.headers[settings.secret_key];
   if (secret === settings.secret_encrypt) {
 
     var params = req.body;
-  
-    query.createNewOrders(params, function (ResultForm) {
-      res.json(ResultForm);
+
+    query.insertComment(params, function (ProductForm) {
+      res.json(ProductForm);
+      res.end();
+    });
+
+  } else {
+    //Response 404
+    res.write(settings.secret_fail);
+    res.end();
+  }
+})
+
+app.put(settings.updateComment, function(req, res){
+  var secret = req.headers[settings.secret_key];
+  if (secret === settings.secret_encrypt) {
+
+    var params = req.body;
+
+    query.updateComment(params, function (ProductForm) {
+      res.json(ProductForm);
+      res.end();
+    });
+
+  } else {
+    //Response 404
+    res.write(settings.secret_fail);
+    res.end();
+  }
+})
+
+app.get(settings.findRaiting, function(req, res){
+  var secret = req.headers[settings.secret_key];
+  if (secret === settings.secret_encrypt) {
+
+    var offset = req.query.offset;
+    var limit = req.query.limit;
+    var productId = req.query.productId;
+
+    query.findRaiting(productId, offset, limit, function (ProductForm) {
+      res.json(ProductForm);
+      res.end();
+    });
+
+  } else {
+    //Response 404
+    res.write(settings.secret_fail);
+    res.end();
+  }
+})
+
+app.post(settings.insertRaiting, function(req, res){
+  var secret = req.headers[settings.secret_key];
+  if (secret === settings.secret_encrypt) {
+
+    var params = req.body;
+
+    query.insertRaiting(params, function (ProductForm) {
+      res.json(ProductForm);
+      res.end();
+    });
+
+  } else {
+    //Response 404
+    res.write(settings.secret_fail);
+    res.end();
+  }
+})
+
+app.put(settings.updateRaiting, function(req, res){
+  var secret = req.headers[settings.secret_key];
+  if (secret === settings.secret_encrypt) {
+
+    var params = req.body;
+
+    query.updateRaiting(params, function (ProductForm) {
+      res.json(ProductForm);
+      res.end();
+    });
+
+  } else {
+    //Response 404
+    res.write(settings.secret_fail);
+    res.end();
+  }
+})
+
+app.get(settings.findLikes, function(req, res){
+  var secret = req.headers[settings.secret_key];
+  if (secret === settings.secret_encrypt) {
+
+    var offset = req.query.offset;
+    var limit = req.query.limit;
+    var productId = req.query.productId;
+
+    query.findLikes(productId, offset, limit, function (ProductForm) {
+      res.json(ProductForm);
+      res.end();
+    });
+
+  } else {
+    //Response 404
+    res.write(settings.secret_fail);
+    res.end();
+  }
+})
+
+app.post(settings.insertLikes, function(req, res){
+  var secret = req.headers[settings.secret_key];
+  if (secret === settings.secret_encrypt) {
+
+    var params = req.body;
+
+    query.insertLikes(params, function (ProductForm) {
+      res.json(ProductForm);
+      res.end();
+    });
+
+  } else {
+    //Response 404
+    res.write(settings.secret_fail);
+    res.end();
+  }
+})
+
+app.delete(settings.deleteLikes, function(req, res){
+  var secret = req.headers[settings.secret_key];
+  if (secret === settings.secret_encrypt) {
+
+    var params = req.body;
+
+    query.deleteLikes(params, function (ProductForm) {
+      res.json(ProductForm);
+      res.end();
+    });
+
+  } else {
+    //Response 404
+    res.write(settings.secret_fail);
+    res.end();
+  }
+})
+
+app.post(settings.insertOrders, function (req, res) {
+  var secret = req.headers[settings.secret_key];
+  if (secret === settings.secret_encrypt) {
+
+    var params = req.body;
+
+    query.insertOrders(params, function (ProductForm) {
+      res.json(ProductForm);
+      res.end();
+    });
+
+  } else {
+    //Response 404
+    res.write(settings.secret_fail);
+    res.end();
+  }
+})
+
+app.post(settings.insertUser, function (req, res) {
+  var secret = req.headers[settings.secret_key];
+  if (secret === settings.secret_encrypt) {
+
+    var params = req.body;
+
+    query.insertUser(params, function (ProductForm) {
+      res.json(ProductForm);
       res.end();
     });
 
@@ -95,15 +281,15 @@ app.post(settings.createNewOrders, function (req, res) {
 * WEB
 */
 app.get("/index", function (req, res) {
-  res.render("index", {host: settings.url});
+  res.render("index", { host: settings.url });
 });
 
 app.get("/details/sn:id", function (req, res) {
-  res.render("details", {host: settings.url, id: req.params.id});
+  res.render("details", { host: settings.url, id: req.params.id });
 });
 
 app.get("/search/keyword:key", function (req, res) {
-  res.render("details", {host: settings.url, keyword: req.params.key});
+  res.render("details", { host: settings.url, keyword: req.params.key });
 });
 
 app.get("/login", function (req, res) {
@@ -111,7 +297,7 @@ app.get("/login", function (req, res) {
 });
 
 app.get("/admin-dashboard", function (req, res) {
-  res.render("admin-dashboard");
+  res.render("admin-dashboard", { host: settings.url });
 });
 
 app.get("/new-product", function (req, res) {
@@ -142,6 +328,11 @@ app.get('/getImage:id', function (req, res) {
   file.sendImage(req, res);
 });
 
+
+
+/*
+* WEB
+*/
 var person = {
   ho: "Chau",
   ten: "Huynh",
@@ -159,7 +350,6 @@ app.get("/demoGet", function (req, res) {
   console.log(head1);
   console.log(head2);
   console.log(head3);
-
   console.log(req.url);
 
   var ho = req.query.ho;

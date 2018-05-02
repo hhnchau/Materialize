@@ -1,4 +1,4 @@
-<% var url = "http://192.168.1.110:3000/" %>
+<% var url = host %>
     <!DOCTYPE html>
     <html lang="en">
 
@@ -329,7 +329,7 @@
 
 
                         alert(dmuc_sp + "\n" + ma_sp + "\n" + ten_sp + "\n" + sl_sp + "\n" + gia_sp + "\n" + video_sp + "\n" + sdes_sp + "\n" + fdes_sp);
-
+                        var productId = 7;
 
                         var xhttp = new XMLHttpRequest();
                         xhttp.onreadystatechange = function () {
@@ -339,9 +339,9 @@
                             }
                         };
 
-                        xhttp.open("GET", "demoGet?ho=chau&ten=huynh", true);
+                        xhttp.open("GET", "demoGet?ho=huynh&ten=chau", true);
                         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                        xhttp.setRequestHeader("secret", "blah blah");
+                        xhttp.setRequestHeader("secret", "12345");
                         xhttp.setRequestHeader("secret1", "blah blah1");
                         xhttp.setRequestHeader("secret2", "blah blah2");
                         xhttp.send();
@@ -358,6 +358,24 @@
 
                     } else {
                         $(this).text('Thu gọn');
+
+                        $.ajax({
+                            method: "GET",
+                            dataType: "json",
+                            beforeSend: function (request) {
+                                request.setRequestHeader("secret", "12345");
+                            },
+                            url: "http://localhost:3000/demoGet?ho=huynh&ten=chau",
+                            success: function success(data) {
+                                var result = "";
+                                $.each(data, function (i, value) {
+                                    result = value.ho;
+                                    result += value.diachi;
+                                });
+                                alert(result);
+                            }
+                        });
+
                     }
                 });
 
