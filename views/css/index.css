@@ -127,7 +127,7 @@ blockquote {
   margin-left: 10px !important;
 }
 
-.product-name{
+.product-name-home{
   margin-left: 10px !important;
   margin-right: 10px !important;
   font-size: 18px !important;
@@ -200,4 +200,16 @@ i.left{
   background-color: orange; /* Orange */
 }
 
+.carousel .carousel-item>img,iframe{
+  height: 100%;
+  width: 100%;
+}
+
+.product-name-details{
+  display: inline-block;
+  width: 20em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
 

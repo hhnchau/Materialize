@@ -30,6 +30,8 @@ exports.dbConfig = {
 
   exports.insertOrders = "/insertOrders";
 
+  exports.updateUser = "/updateUser";
+
   exports.insertUser = "/insertUser";
 
   exports.findUser = "/findUser";

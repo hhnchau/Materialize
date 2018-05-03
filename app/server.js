@@ -276,6 +276,24 @@ app.post(settings.insertUser, function (req, res) {
   }
 })
 
+app.put(settings.updateUser, function (req, res) {
+  var secret = req.headers[settings.secret_key];
+  if (secret === settings.secret_encrypt) {
+
+    var params = req.body;
+
+    query.updateUser(params, function (ProductForm) {
+      res.json(ProductForm);
+      res.end();
+    });
+
+  } else {
+    //Response 404
+    res.write(settings.secret_fail);
+    res.end();
+  }
+})
+
 
 /*
 * WEB

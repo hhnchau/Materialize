@@ -8,28 +8,16 @@ $(document).ready(function () {
 });
 
 function calculateBannerSize() {
-    var h = $(window).height();
-    var w = $(window).width();
-    if (w > 992) {
-        var newHeight = h - $('#menu').height();
-        console.log('height', newHeight);
-        $('#banner').height(newHeight);
-        $('.carousel.carousel-slider').height(newHeight);
-        $('.carousel-image').height(newHeight);
-        $('.carousel-item').height(newHeight);
-    }
-}
-
-function initSlider() {
-    // $(".owl-carousel").owlCarousel({
-    //     items: 1,
-    //     loop: true,
-    //     autoplay: true,
-    //     autoplayTimeout: 3000,
-    //     animateOut: 'fadeOut'
-    // });
-    //$('.carousel.carousel-slider').carousel({ fullWidth: true });
-    //startAutoplay(3000);
+    // var h = $(window).height();
+    // var w = $(window).width();
+    // if (w > 992) {
+    //     var newHeight = h - $('#menu').height();
+    //     console.log('height', newHeight);
+    //     $('#banner').height(newHeight);
+    //     $('.carousel.carousel-slider').height(newHeight);
+    //     $('.carousel-image').height(newHeight);
+    //     $('.carousel-item').height(newHeight);
+    // }
 }
 
 function initFixedMenu() {

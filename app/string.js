@@ -203,40 +203,7 @@ exports.sqlInsertDelivery = function (transactionId, receiverName, receiverAddre
 
 exports.sqlInsertUser = function (params, query) {
     var sql = "";
-    sql += "INSERT INTO user";
-    sql += " ("
-    if (params.nickname > 0)
-        sql += "userId, ";
-    if (params.productId > 0)
-        sql += "productId, ";
-    if (params.promotionId > 0)
-        sql += "promotionId, ";
-    if (params.voucherId > 0)
-        sql += "voucherId, ";
-    if (params.point > 0)
-        sql += "point, ";
-    sql += "totalFee, ";
-    sql += "status ";
-    sql += ")";
-
-    sql += " VALUES (";
-    if (params.userId > 0)
-        sql += "'" + params.userId + "',";
-    if (params.productId > 0)
-        sql += "'" + params.productId + "',";
-    if (params.promotionId > 0)
-        sql += "'" + params.promotionId + "',";
-    if (params.voucherId > 0)
-        sql += "'" + params.voucherId + "',";
-    if (params.point > 0)
-        sql += "'" + params.point + "',";
-    sql += " '" + params.totalFee + "',";
-    sql += " '" + params.status + "'";
-    sql += ");";
-
-
-    var sql = "";
-    sql += "";
+    sql += " INSERT INTO user";
     sql += " (nickname, address, phone, password, sex, email)";
     sql += " VALUES";
     sql += " ('" + params.nickname + "', '" + params.address + "', '" + params.phone + "', '" + params.password + "', '" + params.sex + "', '" + params.email + "')";
@@ -244,6 +211,19 @@ exports.sqlInsertUser = function (params, query) {
     query(sql);
 }
 
+exports.sqlUpdateUser = function (params, query) {
+    var sql = "";
+    sql += "UPDATE user";
+    sql += " SET";
+    sql += " nickname = '" + params.nickname + "',";
+    sql += " address = '" + params.address + "',";
+    sql += " password = '" + params.password + "',";
+    sql += " sex = '" + params.sex + "'";
+    sql += " WHERE";
+    sql += " userId = '" + params.userId + "'";
+
+    query(sql);
+}
 
 
 

@@ -282,3 +282,23 @@ exports.insertUser = function (params, callback) {
     log.write("Execute Sql Query", "---------->Exception<---------- " + ex);
   }
 }
+
+exports.updateUser = function (params, callback) {
+  try {
+    string.sqlUpdateUser(params, function (stringQuery) {
+      db.execute(stringQuery, function (data, err) {
+        if (err) {
+          log.error("updatetUser", err);
+          models.ProductForm({update: 0});
+          callback(models.data);
+        } else {
+          models.ProductForm({update: 1});
+          log.write("updatetUser", JSON.stringify(models.data));
+          callback(models.data);
+        }
+      });
+    });
+  } catch (ex) {
+    log.write("Execute Sql Query", "---------->Exception<---------- " + ex);
+  }
+}
