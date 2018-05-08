@@ -14,89 +14,59 @@ blockquote {
   border-left: 5px solid #ff5722  !important; 
 }
 
-@media screen and (min-width: 601px) {
+@media screen and (min-width: 600px) {
   .price-sell {
     font-size: 20px !important;
   }
 }
 
-@media screen and (max-width: 600px) {
-  .price-sell {
-    font-size: 20px !important;
-  }
-}
+@media screen and (min-width: 1024px) {
 
-@media screen and (min-width: 992px) {
   .price-sell {
     font-size: 18px !important;
   }
-}
-
-@media screen and (max-width: 1280px) {
-
-  i.left{
-    margin-right:0px;
-    margin-bottom: 3px !important;
-    font-size: 13px;
-  }
-
-  .icon-label {
-    font-size: 13px !important;
-  }
-}
-
-@media screen and (max-width: 1240px) {
 
   i.left{
     margin-right:0px;
     margin-bottom: 2px !important;
-    font-size: 12px;
-  }
-
-  .icon-label {
-    font-size: 12px !important;
-  }
-}
-
-@media screen and (max-width: 1220px) {
-
-  i.left{
-    margin-right:0px;
-    margin-bottom: 2px !important;
-    font-size: 11px;
-  }
-
-  .icon-label {
-    font-size: 11px !important;
-  }
-}
-
-@media screen and (max-width: 1190px) {
-
-  i.left{
-    margin-right:0px;
-    margin-bottom: 1px !important;
-    font-size: 10px;
+    font-size: 10px !important;
   }
 
   .icon-label {
     font-size: 10px !important;
   }
+
+  .btn{
+    padding: 0rem !important;
+    text-transform: none !important;
+    letter-spacing: 0px;
+    font-size: 9px;
+  }
 }
 
-@media screen and (max-width: 1170px) {
+@media screen and (min-width: 1280px) {
+
+  .price-sell {
+    font-size: 20px !important;
+  }
 
   i.left{
     margin-right:0px;
-    margin-bottom: 1px !important;
-    font-size: 9px;
+    margin-bottom: 2px !important;
+    font-size: 13px !important;
   }
 
   .icon-label {
-    font-size: 9px !important;
+    font-size: 13px !important;
+  }
+
+  .btn{
+    padding: 0rem !important;
+    text-transform: none !important;
+    letter-spacing: 0px;
+    font-size: 13px;
   }
 }
-
 
 .card .card-content {
   padding: 1px;
@@ -150,19 +120,42 @@ i.left{
     font-size: 15px;
 }
 
+.rate-star{
+  margin-left: 1px !important;
+}
+
 .row{
   margin-bottom: 5px;
 }
 
 
 .buy-now{
-  width: 100%;
+  width: 100% !important;
+}
+
+.price-original{
+  text-decoration: line-through;
 }
 
 
 .product-price {
   margin-bottom: -5px;
   margin-top: 7px;
+}
+
+.product-voucher{
+  margin-left: 1.5rem;
+  margin-right: 1.5rem
+}
+
+.product-ship,
+ .product-time{
+  text-align: center;
+  font-size: 2rem;
+}
+
+.autocomplete{
+  margin-bottom: 10px !important;
 }
 
 .total-fee{
@@ -197,7 +190,7 @@ i.left{
 
 
 .label-details-discount{
-  background-color: orange; /* Orange */
+  background-color: orange;
 }
 
 .carousel .carousel-item>img,iframe{
@@ -213,3 +206,9 @@ i.left{
   text-overflow: ellipsis;
 }
 
+.btn{
+  margin-top:  1.5rem !important;
+  padding: 0 1rem !important;
+  text-transform: none !important;
+  letter-spacing: .1px;
+}

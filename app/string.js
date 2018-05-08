@@ -3,7 +3,7 @@ exports.sqlFindAllProduct = function (search, offset, limit, query) {
     var sql = "";
     sql += "SELECT allProduct.*, raiting.likeTotal, raiting.rateTotal, raiting.rateValue, raiting.commentTotal";
     sql += " FROM";
-    sql += " (SELECT p.productId, p.productName, pri.sell, pro.value, img.image1";
+    sql += " (SELECT p.productId, p.productName, pri.sell, pro.discount, img.image1";
     sql += " FROM product AS p";
     sql += " LEFT JOIN price AS pri ON p.productId = pri.priceId";
     sql += " LEFT JOIN image AS img ON p.productId = img.imageId";
@@ -40,10 +40,11 @@ exports.sqlFindAllProduct = function (search, offset, limit, query) {
 
 exports.sqlFindProduct = function (productId, query) {
     var sql = "";
-    sql += "SELECT p.*, img.*, yt.*";
+    sql += "SELECT p.*, ca.*, img.*, yt.*";
     sql += " FROM product AS p";
     sql += " LEFT JOIN image as img ON p.productId = img.imageId";
     sql += " LEFT JOIN youtube as yt ON p.productId = yt.ytId";
+    sql += " LEFT JOIN category as ca ON p.productId = ca.categoryId";
     sql += " WHERE p.productId = '" + productId + "'";
 
     query(sql);

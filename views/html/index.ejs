@@ -67,8 +67,6 @@
       <!-- Banner End -->
 
 
-
-
       <!-- MENU -->
       <!-- MENU -->
       <!-- MENU -->
@@ -216,11 +214,12 @@
     <!-- Main -->
     <main>
       <div>
-        <div class="parallax-container">
+
+        <!-- <div class="parallax-container">
           <div class="parallax">
             <img src="<%=url%>getImage:icon|banner.jpg">
           </div>
-        </div>
+        </div> -->
 
         <div class="section white">
           <div class="row container">
@@ -233,7 +232,10 @@
             <div class="product-price card blue-grey darken-1">
               <div class="card-content white-text">
                 <span class="card-title header deep-orange-text">Kingpes</span>
-                <p>Cửa hàng đồ chơi Kingpes chuyên cung cấp đồ chơi cho trẻ em.</p>
+                <p>Chuyên cung cấp đồ chơi trẻ em.</p>
+                <p>Sản phẩm đa dạng phong phú.</p>
+                <p>Giá thành rẻ.</p>
+                <p>Giao hàng tận nơi.</p>
               </div>
             </div>
           </div>
@@ -259,7 +261,7 @@
               <!-- START one hotel item -->
               <div id="result"></div>
 
-              <div class="col s12 m6 l4">
+              <!-- <div class="col s12 m6 l4">
                 <a class="modal-trigger" href="<%=url%>details">
                   <div class="card hoverable z-depth-2">
 
@@ -269,67 +271,64 @@
                     </div>
 
                     <div class="card-content">
+                      <div class="row">
 
-
-                      <div class="card-content">
-                        <div class="row">
-
-                          <div class="col s7">
-                            <h5 class=" price-sell deep-orange-text text-darken-1" id="price-sell">500.000 vnd</h5>
-                          </div>
-
-                          <div class="col s5">
-                            <p class="price-discount" id="price-discount">50.000vnd</p>
-                          </div>
-
+                        <div class="col s7">
+                          <h5 class=" price-sell deep-orange-text text-darken-1" id="price-sell">500.000 vnd</h5>
                         </div>
 
-                        <p class="product-name-home" id="product-name">Nam Anh Hotel 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15</p>
-
-                        <div class="product-name row">
-
-                          <div class="col s6">
-                            <a class="waves-effect waves-light">
-                              <i class="material-icons left yellow-text text-darken-2 left">star</i>
-                            </a>
-                            <a class="waves-effect waves-light">
-                              <i class="material-icons left yellow-text text-darken-2 left">star</i>
-                            </a>
-                            <a class="waves-effect waves-light">
-                              <i class="material-icons left yellow-text text-darken-2 left">star</i>
-                            </a>
-                            <a class="waves-effect waves-light">
-                              <i class="material-icons left yellow-text text-darken-2 left">star</i>
-                            </a>
-                            <a class="waves-effect waves-light">
-                              <i class="material-icons left yellow-text text-darken-2 left">star</i>
-                            </a>
-                            <a class="icon-label">(5/73)</a>
-                          </div>
-
-
-                          <div class="col s3">
-                            <a class="waves-effect waves-light">
-                              <i class="material-icons red-text text-darken-2 left">favorite</i>
-                            </a>
-                            <a class="icon-label">(102)</a>
-                          </div>
-
-                          <div class="col s3">
-                            <a class="waves-effect waves-light">
-                              <i class="material-icons red-text text-darken-2 left">comment</i>
-                            </a>
-                            <a class="icon-label">(173)</a>
-                          </div>
-
+                        <div class="col s5">
+                          <p class="price-discount" id="price-discount">50.000vnd</p>
                         </div>
 
                       </div>
-                    </div>
-                </a>
-                </div>
 
-              </div>
+                      <p class="product-name-home" id="product-name">Nam Anh Hotel 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15</p>
+
+                      <div class="rate-star row">
+
+                        <div class="col s6">
+                          <a class="waves-effect waves-light">
+                            <i class="material-icons left yellow-text text-darken-2 left">star</i>
+                          </a>
+                          <a class="waves-effect waves-light">
+                            <i class="material-icons left yellow-text text-darken-2 left">star</i>
+                          </a>
+                          <a class="waves-effect waves-light">
+                            <i class="material-icons left yellow-text text-darken-2 left">star</i>
+                          </a>
+                          <a class="waves-effect waves-light">
+                            <i class="material-icons left yellow-text text-darken-2 left">star</i>
+                          </a>
+                          <a class="waves-effect waves-light">
+                            <i class="material-icons left yellow-text text-darken-2 left">star</i>
+                          </a>
+                          <a class="icon-label">(5/73)</a>
+                        </div>
+
+
+                        <div class="col s3">
+                          <a class="waves-effect waves-light">
+                            <i class="material-icons red-text text-darken-2 left">favorite</i>
+                          </a>
+                          <a class="icon-label">(102)</a>
+                        </div>
+
+                        <div class="col s3">
+                          <a class="waves-effect waves-light">
+                            <i class="material-icons red-text text-darken-2 left">comment</i>
+                          </a>
+                          <a class="icon-label">(173)</a>
+                        </div>
+
+                      </div>
+
+                    </div>
+                  </div>
+                </a>
+
+              </div> -->
+
             </div>
 
           </div>
@@ -468,13 +467,13 @@
       var isFinish = false;
       var size = 0;
       var _offset = 0;
-      var _limit = 1;
+      var _limit = 10;
       loadData(_offset, _limit);
 
       $(window).scroll(function () {
         if ($(window).scrollTop() >= $(document).height() - ($(window).height() * 4)) {
           if (!isFinish) {
-            loadData(_offset, _limit);
+            //loadData(_offset, _limit);
           }
         }
       });
@@ -491,56 +490,110 @@
 
             $.each(json, function (i, item) {
               item.forEach(function (entry) {
+                var productId = entry.productId;
+                var productName = entry.productName;
+                var sell = entry.sell;
+                var discount = entry.discount;
+                var image1 = entry.image1;
+                var likeTotal = entry.likeTotal;
+                var rateTotal = entry.rateTotal;
+                var rateValue = entry.rateValue;
+                var commentTotal = entry.commentTotal;
+
+                var id = productId + "-" + sell + "-" + discount + "-" + likeTotal + "-" + rateTotal + "-" + rateValue + "-" + commentTotal;
+
                 output = '<div class="col s12 m6 l4">';
-                output += '<a class="modal-trigger" href="<%=url%>details/sn:' + entry.productId + '">';
+                output += '<a class="modal-trigger" href="<%=url%>details/sn:' + id + '">';
                 output += '<div class="card hoverable z-depth-2">';
 
                 output += '<div class="card-image">';
-                output += '<img class="lazyload" src ="<%=url%>getImage:product|' + entry.image1 + '.jpg" data-src="<%=url%>getImage:product|' + entry.image1 + ".jpg>";
+                output += '<img src="<%=url%>getImage:product|' + entry.image1 + '.jpg">';
+                if (discount != null || discount > 0) {
+                  output += '<span class="label-home-discount"> -' + discount + '% </span>'
+                }
                 output += '</div>';
 
                 output += '<div class="card-content">';
                 output += '<div class="row">';
-                output += '<div class="col s1"></div>';
-                output += '<div class="col s6">';
-                output += '<p class="deep-orange-text text-darken-1" style="font-size:180%;">' + entry.sell + '</p>';
-                output += '</div>';
-                output += '<div class="price-discount col s4">';
-                output += '<p class="lineThrough" id="price-original">' + entry.sell + '</p>';
-                output += '</div>';
-                output += '<div class="col s1"></div>';
-                output += '</div>';
-                output += '<div class="row">';
-                output += '<div class="col s1"></div>';
-                output += '<div class="col s10">';
-                output += '<p id="product-name" style="font-size:140%;">' + entry.productName + '</p>';
-                output += '</div>';
-                output += '<div class="col s1"></div>';
+
+                output += '<div class="col s7">';
+
+                var formatCurrency = sell - ((sell * discount) / 100);
+                formatCurrency = formatCurrency.toLocaleString('it-IT', { style: 'currency', currency: 'VND' });
+
+                output += '<h5 class=" price-sell deep-orange-text text-darken-1" id="price-sell">' + formatCurrency + '</h5>';
                 output += '</div>';
 
-                output += '<div class="row">';
-                output += '<div class="col s1"></div>';
+                output += '<div class="col s5">';
+                if (discount != null || discount > 0) {
+                  var formatCurrency = sell;
+                  formatCurrency = formatCurrency.toLocaleString('it-IT', { style: 'currency', currency: 'VND' });
+                  output += '<p class="price-discount">' + formatCurrency + '</p>';
+                }
+                output += '</div>';
+
+                output += '</div>';
+
+                output += '<p class="product-name-home">' + entry.productName + '</p>';
+
+                output += '<div class="rate-star row">';
                 output += '<div class="col s6">';
-                output += '<i class="material-icons yellow-text text-darken-2 left">star</i>';
-                output += '<i class="material-icons yellow-text text-darken-2 left">star</i>';
-                output += '<i class="material-icons yellow-text text-darken-2 left">star</i>';
-                output += '<i class="material-icons yellow-text text-darken-2 left">star</i>';
-                output += '<i class="material-icons yellow-text text-darken-2 left">star</i>';
-                output += entry.likeTotal;
+
+                var rate = rateValue / rateTotal;
+                if (rateTotal == null || rateTotal == 0) {
+                  rate = 0;
+                  rateTotal = 0;
+                }
+                for (i = 0; i < rate; i++) {
+                  output += '<a class="waves-effect waves-light">';
+                  output += '<i class="material-icons left yellow-text text-darken-2 left">star</i>';
+                  output += '</a>';
+                }
+
+                for (i = 0; i < 5 - rate; i++) {
+                  output += '<a class="waves-effect waves-light">';
+                  output += '<i class="material-icons left grey-text text-darken-2 left">star</i>';
+                  output += '</a>';
+                }
+
+                output += '<a class="icon-label">(' + rate + "/" + rateTotal + ')</a>';
                 output += '</div>';
-                output += '<div class="col s4">';
-                output += '<i class="material-icons red-text text-darken-2 left">favorite</i>';
-                output += entry.rateTotal;
-                output += '</div>';
-                output += '<div class="col s1"></div>';
-                output += '</div>';
-                output += '<div class="label-home-discount">';
-                output += '<span id="label-discount" align="right">' + entry.value + '%</span>';
+
+                output += '<div class="col s3">';
+                output += '<a class="waves-effect waves-light">';
+                if (likeTotal != null || likeTotal > 0) {
+                  output += '<i class="material-icons red-text text-darken-2 left">favorite</i>';
+                  output += '</a>';
+                  output += '<a class="icon-label">(' + likeTotal + ')</a>';
+                  output += '</div>';
+                } else {
+                  output += '<i class="material-icons grey-text text-darken-2 left">favorite</i>';
+                  output += '</a>';
+                  output += '<a class="icon-label">(' + 0 + ')</a>';
+                  output += '</div>';
+                }
+
+
+                output += '<div class="col s3">';
+                output += '<a class="waves-effect waves-light">';
+                if (commentTotal != null || commentTotal > 0) {
+                  output += '<i class="material-icons red-text text-darken-2 left">comment</i>';
+                  output += '</a>';
+                  output += '<a class="icon-label">(' + commentTotal + ')</a>';
+                  output += '</div>';
+                } else {
+                  output += '<i class="material-icons grey-text text-darken-2 left">comment</i>';
+                  output += '</a>';
+                  output += '<a class="icon-label">(' + 0 + ')</a>';
+                  output += '</div>';
+                }
+
                 output += '</div>';
                 output += '</div>';
                 output += '</div>';
                 output += '</a>';
                 output += '</div>';
+
                 $('#result').append(output);
                 size++;
                 _offset++;

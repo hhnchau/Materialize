@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 26, 2018 at 02:57 AM
+-- Generation Time: May 08, 2018 at 02:32 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -59,8 +59,9 @@ CREATE TABLE `certify` (
 --
 
 CREATE TABLE `comment` (
+  `id` int(11) NOT NULL,
   `commentId` int(11) NOT NULL,
-  `conmentQuestion` text NOT NULL,
+  `commentQuestion` text NOT NULL,
   `commentAnswer` text NOT NULL,
   `userId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -69,11 +70,15 @@ CREATE TABLE `comment` (
 -- Dumping data for table `comment`
 --
 
-INSERT INTO `comment` (`commentId`, `conmentQuestion`, `commentAnswer`, `userId`) VALUES
-(7, 'Bao nhiêu tiền vậy bạn?', 'Đây là hàng tặng, không có bán bạn ơi.', 1),
-(7, 'Có bảo hành không ad?', 'Tất cả đều có bảo hành bạn ơi.', 2),
-(7, 'Giao hàng trong bao lâu vậy ad?', 'Trong vòng 2 ngày làm việc bạn ơi.', 3),
-(8, 'Có cho đổi trả không ad?', 'Tất cả đều được 1 đổi 1 ban nhé.', 3);
+INSERT INTO `comment` (`id`, `commentId`, `commentQuestion`, `commentAnswer`, `userId`) VALUES
+(1, 7, 'Bao nhiêu tiền vậy bạn?', 'Đây là hàng tặng, không có bán bạn ơi.', 1),
+(2, 7, 'Có bảo hành không ad?', 'Tất cả đều có bảo hành bạn ơi.', 2),
+(3, 7, 'Giao hàng trong bao lâu vậy ad?', 'Trong vòng 2 ngày làm việc bạn ơi.', 3),
+(4, 8, 'Có cho đổi trả không ad?', 'Tất cả đều được 1 đổi 1 ban nhé.', 3),
+(5, 7, 'insert cau hoi', '', 3),
+(6, 10, '', 'Huynh Chau Trả lời cho Xuân Lan', 2),
+(7, 10, 'Trả lời cho Xuân Lan', 'Tra loi cau hoi cho xuan lan', 2),
+(8, 7, 'Trả lời cho Xuân Lan', '', 3);
 
 -- --------------------------------------------------------
 
@@ -82,6 +87,7 @@ INSERT INTO `comment` (`commentId`, `conmentQuestion`, `commentAnswer`, `userId`
 --
 
 CREATE TABLE `delivery` (
+  `id` int(11) NOT NULL,
   `receiverName` varchar(200) NOT NULL,
   `receiverAddress` varchar(255) NOT NULL,
   `receiverPhone` varchar(15) NOT NULL,
@@ -94,131 +100,9 @@ CREATE TABLE `delivery` (
 -- Dumping data for table `delivery`
 --
 
-INSERT INTO `delivery` (`receiverName`, `receiverAddress`, `receiverPhone`, `latitude`, `longitude`, `deliveryId`) VALUES
-('Huỳnh Ngọc Châu', 'Lưu Chí Hiếu', '0123456789', 1, 1, 1),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6),
-('HuynhX', 'Tây Thạnh - Tân Phú', '0123456876', 0, 0, 6);
+INSERT INTO `delivery` (`id`, `receiverName`, `receiverAddress`, `receiverPhone`, `latitude`, `longitude`, `deliveryId`) VALUES
+(1, 'Huỳnh Ngọc Châu', 'Lưu Chí Hiếu', '0123456789', 1, 1, 1),
+(2, 'Nguyen Chau', 'Tay Thanh-HCM', '0937590127', 0, 0, 9);
 
 -- --------------------------------------------------------
 
@@ -261,11 +145,8 @@ CREATE TABLE `likes` (
 --
 
 INSERT INTO `likes` (`likesId`, `userId`) VALUES
-(7, 1),
 (7, 2),
-(8, 1),
-(8, 2),
-(8, 3);
+(8, 2);
 
 -- --------------------------------------------------------
 
@@ -339,7 +220,7 @@ CREATE TABLE `product` (
   `promotionId` int(11) DEFAULT NULL,
   `productName` varchar(30) NOT NULL,
   `amount` int(3) NOT NULL,
-  `decsription` text NOT NULL,
+  `description` text NOT NULL,
   `productSn` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -347,7 +228,7 @@ CREATE TABLE `product` (
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`productId`, `promotionId`, `productName`, `amount`, `decsription`, `productSn`) VALUES
+INSERT INTO `product` (`productId`, `promotionId`, `productName`, `amount`, `description`, `productSn`) VALUES
 (7, NULL, 'Xe chạy đà cứu hỏa', 7, 'Xe chạy đà cứu hỏa DG.095', '31300772'),
 (8, NULL, 'Đồ chơi xe bus vui vẻ Niniya', 15, 'Đồ chơi xe bus vui vẻ Niniya DG.047', '31300768'),
 (9, 1, 'Mô hình xe công trình Bruder ', 5, 'Mô hình xe công trình Bruder được làm từ chất liệu an toàn cùng thiết kế mô phỏng sinh động các loại xe chuyên dụng trong thực tế, giúp bé thỏa trí tưởng tượng và tập nhận biết hình dạng các phương tiện giao thông thông thường trong cuộc sống hàng ngày.\r\n\r\nChất liệu nhựa cao cấp, không chứa BPA, an toàn cho sức khỏe\r\nThiết kế mô phỏng mô hình xe xúc đào\r\nSản phẩm với các máy xúc như thật\r\n2 chân chống ổn định giúp máy xúc có thể hoạt động mà vẫn giữ thăng bằng, thân xe nhỏ gọn nên hoạt động linh hoạt\r\nXe trơn nhẵn, không góc cạnh\r\nKích thích sự tưởng tưởng, giúp bé làm quen với thực tế sinh động', 'BRU02445'),
@@ -363,7 +244,7 @@ CREATE TABLE `promotion` (
   `promotionId` int(11) NOT NULL,
   `promptionName` varchar(20) NOT NULL,
   `promotionDescription` varchar(200) DEFAULT NULL,
-  `value` int(7) NOT NULL,
+  `discount` int(7) NOT NULL,
   `end` timestamp NULL DEFAULT NULL,
   `start` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -372,7 +253,7 @@ CREATE TABLE `promotion` (
 -- Dumping data for table `promotion`
 --
 
-INSERT INTO `promotion` (`promotionId`, `promptionName`, `promotionDescription`, `value`, `end`, `start`) VALUES
+INSERT INTO `promotion` (`promotionId`, `promptionName`, `promotionDescription`, `discount`, `end`, `start`) VALUES
 (1, 'Thương Hiệu', 'Promotion thuong hieu Kingpppes', 30, '2018-04-22 17:00:00', '2018-07-30 17:00:00'),
 (2, 'Discount', 'Giam Gia', 100, '2018-04-29 17:00:00', '2018-09-29 17:00:00');
 
@@ -383,6 +264,7 @@ INSERT INTO `promotion` (`promotionId`, `promptionName`, `promotionDescription`,
 --
 
 CREATE TABLE `rate` (
+  `id` int(11) NOT NULL,
   `rateId` int(11) NOT NULL,
   `rate` int(1) NOT NULL,
   `rateQuestion` text NOT NULL,
@@ -394,10 +276,11 @@ CREATE TABLE `rate` (
 -- Dumping data for table `rate`
 --
 
-INSERT INTO `rate` (`rateId`, `rate`, `rateQuestion`, `rateAnswer`, `userId`) VALUES
-(7, 5, 'Hàng đẹp, cho 5 sao.', '', 1),
-(7, 1, 'Đồ lừa đảo.', '', 2),
-(8, 5, 'Dịch vụ tốt', 'Rất cám ơn bạn', 3);
+INSERT INTO `rate` (`id`, `rateId`, `rate`, `rateQuestion`, `rateAnswer`, `userId`) VALUES
+(1, 7, 5, 'Hàng đẹp, cho 5 sao.', '', 1),
+(2, 7, 1, 'Đồ lừa đảo.', 'Huynh Chau Trả lời cho Quoc Bao', 2),
+(3, 8, 5, 'Dịch vụ tốt', 'Rất cám ơn bạn', 3),
+(6, 7, 3, 'Trả lời cho Xuân Lan', 'Huynh Chau Trả lời cho Xuân Lan', 3);
 
 -- --------------------------------------------------------
 
@@ -443,7 +326,8 @@ INSERT INTO `transactions` (`transactionId`, `userId`, `productId`, `promotionId
 (1, 1, 9, NULL, NULL, NULL, 1000, 1, '2018-04-23 15:45:44'),
 (4, 1, 7, 1, NULL, 10, 160, 0, '2018-04-24 13:52:10'),
 (5, 1, 7, 1, 1, 15, 195, 0, '2018-04-24 13:56:08'),
-(6, 3, 7, 1, 1, 15, 105, 0, '2018-04-24 13:59:15');
+(8, 1, 7, NULL, NULL, NULL, 100, 0, '2018-04-29 00:19:11'),
+(9, 1, 7, NULL, NULL, NULL, 100, 0, '2018-04-29 00:20:11');
 
 -- --------------------------------------------------------
 
@@ -469,7 +353,8 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`userId`, `nickname`, `address`, `phone`, `password`, `sex`, `email`, `timeCreate`) VALUES
 (1, 'huynhchau', NULL, '012345678', NULL, NULL, NULL, '2018-04-23 15:24:13'),
 (2, 'quocbao', NULL, '6789', NULL, NULL, NULL, '2018-04-23 15:24:13'),
-(3, 'xuanlan', NULL, '123789', NULL, NULL, NULL, '2018-04-23 15:24:13');
+(3, 'xuanlan', NULL, '123789', NULL, NULL, NULL, '2018-04-23 15:24:13'),
+(4, 'Huynh3', 'Luu Chi Hieu', '0937590127', 'aasdfghjkl', 1, 'adc@gmail.com', '2018-05-02 15:47:55');
 
 -- --------------------------------------------------------
 
@@ -537,6 +422,7 @@ ALTER TABLE `certify`
 -- Indexes for table `comment`
 --
 ALTER TABLE `comment`
+  ADD PRIMARY KEY (`id`),
   ADD KEY `commentId` (`commentId`),
   ADD KEY `userId` (`userId`);
 
@@ -544,6 +430,7 @@ ALTER TABLE `comment`
 -- Indexes for table `delivery`
 --
 ALTER TABLE `delivery`
+  ADD PRIMARY KEY (`id`),
   ADD KEY `deliveryId` (`deliveryId`);
 
 --
@@ -600,6 +487,7 @@ ALTER TABLE `promotion`
 -- Indexes for table `rate`
 --
 ALTER TABLE `rate`
+  ADD PRIMARY KEY (`id`),
   ADD KEY `rateId` (`rateId`),
   ADD KEY `userId` (`userId`);
 
@@ -637,6 +525,16 @@ ALTER TABLE `youtube`
 --
 
 --
+-- AUTO_INCREMENT for table `comment`
+--
+ALTER TABLE `comment`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `delivery`
+--
+ALTER TABLE `delivery`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT for table `open`
 --
 ALTER TABLE `open`
@@ -652,15 +550,20 @@ ALTER TABLE `product`
 ALTER TABLE `promotion`
   MODIFY `promotionId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
+-- AUTO_INCREMENT for table `rate`
+--
+ALTER TABLE `rate`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
 -- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `transactionId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `transactionId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `voucher`
 --
