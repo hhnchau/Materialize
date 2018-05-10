@@ -17,12 +17,40 @@ app.set("views", "../views/html");
 
 
 
-var url = "abcdefgh";
-var encoded = new Buffer(url).toString('base64');
-var decoded = new Buffer(encoded, 'base64').toString('ascii')
+// var url = "foo";
+// var encoded = new Buffer(url).toString('base64');
+// var decoded = new Buffer(encoded, 'base64').toString('ascii')
 
-console.log(encoded);
-console.log(decoded);
+// console.log(encoded);
+// console.log(decoded);
+
+// // Sending side
+// String s = "abcd";
+// // Sending side
+// byte[] data = s.getBytes(StandardCharsets.UTF_8);
+// String base64 = Base64.encodeToString(data, Base64.DEFAULT);
+
+// // Receiving side
+// byte[] data1 = Base64.decode(base64, Base64.DEFAULT);
+// String text = new String(data1, StandardCharsets.UTF_8);
+
+// Log.d("running", base64 + " - " + text);
+
+
+
+
+
+
+// let plainString = "foo"
+// Encoding
+// let plainData = plainString.data(using: .utf8)
+// let base64String = plainData ?.base64EncodedString()
+// print(base64String!) // Zm9v
+// Decoding
+// if let decodedData = Data(base64Encoded: base64String!),
+//   let decodedString = String(data: decodedData, encoding: .utf8) {
+//   print(decodedString) // foo
+// }
 
 
 /*
@@ -82,7 +110,7 @@ app.get(settings.findProduct, function (req, res) {
   }
 })
 
-app.get(settings.findComment, function(req, res){
+app.get(settings.findComment, function (req, res) {
   var secret = req.headers[settings.secret_key];
   if (secret === settings.secret_encrypt) {
 
@@ -102,7 +130,7 @@ app.get(settings.findComment, function(req, res){
   }
 })
 
-app.post(settings.insertComment, function(req, res){
+app.post(settings.insertComment, function (req, res) {
   var secret = req.headers[settings.secret_key];
   if (secret === settings.secret_encrypt) {
 
@@ -120,7 +148,7 @@ app.post(settings.insertComment, function(req, res){
   }
 })
 
-app.put(settings.updateComment, function(req, res){
+app.put(settings.updateComment, function (req, res) {
   var secret = req.headers[settings.secret_key];
   if (secret === settings.secret_encrypt) {
 
@@ -138,7 +166,7 @@ app.put(settings.updateComment, function(req, res){
   }
 })
 
-app.get(settings.findRaiting, function(req, res){
+app.get(settings.findRaiting, function (req, res) {
   var secret = req.headers[settings.secret_key];
   if (secret === settings.secret_encrypt) {
 
@@ -158,7 +186,7 @@ app.get(settings.findRaiting, function(req, res){
   }
 })
 
-app.post(settings.insertRaiting, function(req, res){
+app.post(settings.insertRaiting, function (req, res) {
   var secret = req.headers[settings.secret_key];
   if (secret === settings.secret_encrypt) {
 
@@ -176,7 +204,7 @@ app.post(settings.insertRaiting, function(req, res){
   }
 })
 
-app.put(settings.updateRaiting, function(req, res){
+app.put(settings.updateRaiting, function (req, res) {
   var secret = req.headers[settings.secret_key];
   if (secret === settings.secret_encrypt) {
 
@@ -194,7 +222,7 @@ app.put(settings.updateRaiting, function(req, res){
   }
 })
 
-app.get(settings.findLikes, function(req, res){
+app.get(settings.findLikes, function (req, res) {
   var secret = req.headers[settings.secret_key];
   if (secret === settings.secret_encrypt) {
 
@@ -214,7 +242,7 @@ app.get(settings.findLikes, function(req, res){
   }
 })
 
-app.post(settings.insertLikes, function(req, res){
+app.post(settings.insertLikes, function (req, res) {
   var secret = req.headers[settings.secret_key];
   if (secret === settings.secret_encrypt) {
 
@@ -232,7 +260,7 @@ app.post(settings.insertLikes, function(req, res){
   }
 })
 
-app.delete(settings.deleteLikes, function(req, res){
+app.delete(settings.deleteLikes, function (req, res) {
   var secret = req.headers[settings.secret_key];
   if (secret === settings.secret_encrypt) {
 

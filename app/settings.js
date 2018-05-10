@@ -2,7 +2,7 @@ exports.dbConfig = {
     host: 'localhost',
     user: 'root',
     pass: '',
-    database: 'kingpesvn',
+    database: 'kps',
     port: '3306'
   };
   
