@@ -475,7 +475,7 @@ var commentTotal = params[6];
     <!-- Modal Trigger -->
     <!-- Modal Trigger -->
 
-    <%include modal-login.ejs%>
+    <%include modal/modal-login.ejs%>
 
       <!-- Modal Trigger -->
       <div id="modal-search" class="modal">
@@ -633,13 +633,7 @@ var commentTotal = params[6];
 
       </script>
 
-      <script>
-        $('#btn-login').click(function () {
-          var nickname = $('#login-nickname').val();
-          var password = $('#login-password').val();
-          alert(nickname + "/" + password)
-        });
-      </script>
+      <%include ajax/js-login.ejs%>
 
       <!-- Get API -->
       <!-- Get API -->
