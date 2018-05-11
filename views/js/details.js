@@ -20,6 +20,18 @@ function calculateBannerSize() {
     // }
 }
 
+function initSlider() {
+    // $(".owl-carousel").owlCarousel({
+    //     items: 1,
+    //     loop: true,
+    //     autoplay: true,
+    //     autoplayTimeout: 3000,
+    //     animateOut: 'fadeOut'
+    // });
+    //$('.carousel.carousel-slider').carousel({ fullWidth: true });
+    //startAutoplay(3000);
+}
+
 function initFixedMenu() {
     $(".button-collapse").sideNav();
     $('#navbar').pushpin({

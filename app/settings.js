@@ -30,6 +30,8 @@ exports.dbConfig = {
 
   exports.insertOrders = "/insertOrders";
 
+  exports.deleteUser = "/deleteUser";
+
   exports.updateUser = "/updateUser";
 
   exports.insertUser = "/insertUser";
@@ -53,5 +55,13 @@ exports.dbConfig = {
   exports.updateRaiting = "/updateRaiting";
 
   exports.findRaiting = "/findRaiting";
+
+  exports.findVoucher = "/findVoucher";
+
+  exports.insertVoucher = "/insertVoucher";
+
+  exports.updateVoucher = "/updateVoucher";
+
+  exports.deleteVoucher = "/deleteVoucher";
 
   exports.updateOpenApp = "/updateOpenApp";

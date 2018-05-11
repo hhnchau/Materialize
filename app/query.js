@@ -302,3 +302,65 @@ exports.updateUser = function (params, callback) {
     log.write("Execute Sql Query", "---------->Exception<---------- " + ex);
   }
 }
+
+exports.findVoucher = function(code, callback){
+  try {
+    string.sqlFindVoucher(code, function (stringQuery) {
+      db.execute(stringQuery, function (data, err) {
+        if (err) {
+          log.error("findVoucher", err);
+        } else {
+          if(data.length > 0){
+            models.ProductForm(data[0]);
+          }else{
+            models.ProductForm({value: 0});
+          }
+          log.write("findVoucher", JSON.stringify(models.data));
+          callback(models.data);
+        }
+      });
+    });
+  } catch (ex) {
+    log.write("Execute Sql Query", "---------->Exception<---------- " + ex);
+  }
+}
+
+exports.insertVoucher = function (params, callback) {
+  try {
+    string.sqlInsertVoucher(params, function (stringQuery) {
+      db.execute(stringQuery, function (data, err) {
+        if (err) {
+          log.error("insertVoucher", err);
+          models.ProductForm({insert: 0});
+          callback(models.data);
+        } else {
+          models.ProductForm({insert: 1});
+          log.write("insertVoucher", JSON.stringify(models.data));
+          callback(models.data);
+        }
+      });
+    });
+  } catch (ex) {
+    log.write("Execute Sql Query", "---------->Exception<---------- " + ex);
+  }
+}
+
+exports.updateVoucher = function (params, callback) {
+  try {
+    string.sqlUpdateVoucher(params, function (stringQuery) {
+      db.execute(stringQuery, function (data, err) {
+        if (err) {
+          log.error("updateVoucher", err);
+          models.ProductForm({update: 0});
+          callback(models.data);
+        } else {
+          models.ProductForm({update: 1});
+          log.write("updateVoucher", JSON.stringify(models.data));
+          callback(models.data);
+        }
+      });
+    });
+  } catch (ex) {
+    log.write("Execute Sql Query", "---------->Exception<---------- " + ex);
+  }
+}

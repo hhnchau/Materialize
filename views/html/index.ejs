@@ -545,45 +545,45 @@
                   rateTotal = 0;
                 }
                 for (i = 0; i < rate; i++) {
-                  output += '<a class="waves-effect waves-light">';
+               
                   output += '<i class="material-icons left yellow-text text-darken-2 left">star</i>';
-                  output += '</a>';
+     
                 }
 
                 for (i = 0; i < 5 - rate; i++) {
-                  output += '<a class="waves-effect waves-light">';
+       
                   output += '<i class="material-icons left grey-text text-darken-2 left">star</i>';
-                  output += '</a>';
+        
                 }
 
                 output += '<a class="icon-label">(' + rate + "/" + rateTotal + ')</a>';
                 output += '</div>';
 
                 output += '<div class="col s3">';
-                output += '<a class="waves-effect waves-light">';
+              
                 if (likeTotal != null || likeTotal > 0) {
                   output += '<i class="material-icons red-text text-darken-2 left">favorite</i>';
-                  output += '</a>';
+            
                   output += '<a class="icon-label">(' + likeTotal + ')</a>';
                   output += '</div>';
                 } else {
                   output += '<i class="material-icons grey-text text-darken-2 left">favorite</i>';
-                  output += '</a>';
+     
                   output += '<a class="icon-label">(' + 0 + ')</a>';
                   output += '</div>';
                 }
 
 
                 output += '<div class="col s3">';
-                output += '<a class="waves-effect waves-light">';
+      
                 if (commentTotal != null || commentTotal > 0) {
                   output += '<i class="material-icons red-text text-darken-2 left">comment</i>';
-                  output += '</a>';
+       
                   output += '<a class="icon-label">(' + commentTotal + ')</a>';
                   output += '</div>';
                 } else {
                   output += '<i class="material-icons grey-text text-darken-2 left">comment</i>';
-                  output += '</a>';
+     
                   output += '<a class="icon-label">(' + 0 + ')</a>';
                   output += '</div>';
                 }

@@ -16,7 +16,6 @@ app.set("view engine", "ejs");
 app.set("views", "../views/html");
 
 
-
 var url = "abcdefgh";
 var encoded = new Buffer(url).toString('base64');
 var decoded = new Buffer(encoded, 'base64').toString('ascii')
@@ -293,6 +292,60 @@ app.put(settings.updateUser, function (req, res) {
     var params = req.body;
 
     query.updateUser(params, function (ProductForm) {
+      res.json(ProductForm);
+      res.end();
+    });
+
+  } else {
+    //Response 404
+    res.write(settings.secret_fail);
+    res.end();
+  }
+})
+
+app.get(settings.findVoucher, function(req, res){
+  var secret = req.headers[settings.secret_key];
+  if (secret === settings.secret_encrypt) {
+
+    var code = req.query.code;
+
+    query.findVoucher(code, function (ProductForm) {
+      res.json(ProductForm);
+      res.end();
+    });
+
+  } else {
+    //Response 404
+    res.write(settings.secret_fail);
+    res.end();
+  }
+})
+
+app.post(settings.insertVoucher, function (req, res) {
+  var secret = req.headers[settings.secret_key];
+  if (secret === settings.secret_encrypt) {
+
+    var params = req.body;
+
+    query.insertVoucher(params, function (ProductForm) {
+      res.json(ProductForm);
+      res.end();
+    });
+
+  } else {
+    //Response 404
+    res.write(settings.secret_fail);
+    res.end();
+  }
+})
+
+app.put(settings.updateVoucher, function (req, res) {
+  var secret = req.headers[settings.secret_key];
+  if (secret === settings.secret_encrypt) {
+
+    var params = req.body;
+
+    query.updateVoucher(params, function (ProductForm) {
       res.json(ProductForm);
       res.end();
     });

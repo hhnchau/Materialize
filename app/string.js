@@ -83,7 +83,6 @@ exports.sqlDeleteLikes = function (id, query) {
     query(sql);
 }
 
-
 exports.sqlFindRaiting = function (productId, offset, limit, query) {
     var sql = "";
     sql += "SELECT u.nickname, r.*";
@@ -222,6 +221,58 @@ exports.sqlUpdateUser = function (params, query) {
     sql += " sex = '" + params.sex + "'";
     sql += " WHERE";
     sql += " userId = '" + params.userId + "'";
+
+    query(sql);
+}
+
+exports.sqlFindVoucher = function (code, query) {
+    var sql = "";
+    sql += "SELECT value FROM voucher";
+    sql += " WHERE";
+    sql += " code = '" + code + "'";
+    sql += " && now() > start";
+    sql += " && now() < end";
+
+    query(sql);
+}
+
+exports.sqlInsertVoucher = function (params, query) {
+    var sql = "";
+    sql += " INSERT INTO voucher";
+    sql += " (voucherName, voucherDescription, code, value, start, end)";
+    sql += " VALUES";
+    sql += " ('" + params.voucherName + "', '" + params.voucherDescription + "', '" + params.code + "', '" + params.value + "', '" + params.start + "', '" + params.end + "')";
+
+    query(sql);
+}
+
+exports.sqlUpdateVoucher = function (params, query) {
+    var sql = "";
+    sql += "UPDATE voucher";
+    sql += " SET";
+    if (params.voucherName != undefined)
+        sql += " voucherName = '" + params.voucherName + "',";
+    if (params.voucherDescription != undefined)
+        sql += " voucherDescription = '" + params.voucherDescription + "',";
+    if (params.code != undefined)
+        sql += " code = '" + params.code + "',";
+    if (params.value != undefined)
+        sql += " value = '" + params.value + "',";
+    if (params.start != undefined)
+        sql += " start = '" + params.start + "',";
+    if (params.end != undefined)
+        sql += " end = '" + params.end + "'";
+    sql += " WHERE";
+    sql += " voucherId = '" + params.voucherId + "'";
+
+    query(sql);
+}
+
+exports.sqlDeleteVoucher = function (id, query) {
+    var sql = "";
+    sql += "DELETE FROM voucher";
+    sql += " WHERE";
+    sql += " voucherId = '" + id + "'";
 
     query(sql);
 }

@@ -1,3 +1,7 @@
 npm init
 npm install express ejs multer mysql socket.io body-parser
 git stash -u
+
+s: < 600
+m: > 600 < 992
+l: > 993
