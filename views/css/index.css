@@ -20,6 +20,12 @@ blockquote {
   }
 }
 
+@media screen and (min-width: 992px) {
+  .price-sell {
+    font-size: 20px !important;
+  }
+}
+
 @media screen and (min-width: 1024px) {
 
   .price-sell {
@@ -156,10 +162,6 @@ i.left{
   font-size: 2rem;
 }
 
-.autocomplete{
-  margin-bottom: 10px !important;
-}
-
 .total-fee{
   margin-bottom: -5px;
   margin-top: -20px;
@@ -195,20 +197,20 @@ i.left{
   background-color: orange;
 }
 
-.carousel .carousel-item>img,iframe{
-  height: 100%;
-  width: 100%;
-}
-
 .product-name-details{
   display: inline-block;
-  width: 20em;
+  width: 100%;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 
+.autocomplete{
+  margin-bottom: 10px !important;
+}
+
 .btn-voucher{
+  width: 100%;
   margin-top:  1.5rem !important;
   padding: 0 1rem !important;
   text-transform: none !important;

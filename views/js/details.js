@@ -10,13 +10,20 @@ $(document).ready(function () {
 function calculateBannerSize() {
     // var h = $(window).height();
     // var w = $(window).width();
-    // if (w > 992) {
-    //     var newHeight = h - $('#menu').height();
-    //     console.log('height', newHeight);
-    //     $('#banner').height(newHeight);
+    // var h_menu=$('#menu').height();
+
+    // if(w<600){
+    //     alert(h);
+    // }else if (w > 600 && w <=992) {
+    //     alert(h);
+        
+    //     var newHeight = h - h_menu;
+    //     alert(h_menu)
     //     $('.carousel.carousel-slider').height(newHeight);
     //     $('.carousel-image').height(newHeight);
     //     $('.carousel-item').height(newHeight);
+    // }else{//>992
+    //     alert(h);
     // }
 }
 
@@ -48,12 +55,12 @@ function initHotelClickListener() {
 }
 
 
-function startAutoplay($carousel) {
-    autoplay_id = setInterval(function () {
-        $('.carousel').carousel('next');
-    }, 3000); // every x seconds
-    //console.log("starting autoplay");
-}
+// function startAutoplay($carousel) {
+//     autoplay_id = setInterval(function () {
+//         $('.carousel').carousel('next');
+//     }, 3000); // every x seconds
+//     //console.log("starting autoplay");
+// }
 
 function stopAutoplay(autoplay_id) {
     if (autoplay_id) {

@@ -25,19 +25,8 @@ var commentTotal = params[6];
     <meta name="description" content="kingpes, do choi, do choi gia re, do choi tre em, do choi cho be, do choi lego, do choi youtube">
     <meta name="keywords" content="kingpes, do choi, do choi gia re, do choi tre em, do choi cho be, do choi lego, do choi youtube">
 
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
-    <link rel="stylesheet" href="<%=url%>getResource:css|materialize.css">
-    <!--Import owl-carousel.css-->
-    <link rel="stylesheet" href="<%=url%>getResource:css|owl.carousel.min.css">
-    <link rel="stylesheet" href="<%=url%>getResource:css|owl.theme.default.min.css">
-    <!--Import animate.css-->
-    <link type="text/css" rel="stylesheet" href="<%=url%>getResource:css|animate.css" media="screen,projection" />
-    <!--Import index.css-->
-    <link type="text/css" rel="stylesheet" href="<%=url%>getResource:css|index.css" media="screen,projection" />
-
-    <title>Cửa Hàng Đồ Chơi Kingpes</title>
+    <%include css.ejs%>
+      <title>Cửa Hàng Đồ Chơi Kingpes</title>
   </head>
   <!-- Head End -->
 
@@ -48,202 +37,200 @@ var commentTotal = params[6];
     </header>
     <!-- Header End -->
 
-
     <!-- Main -->
     <main>
-      <!-- PRODUCT DETAILS -->
-      <!-- PRODUCT DETAILS -->
-      <!-- PRODUCT DETAILS -->
-      <div class="row">
-        <div id="product-details" class="section">
 
-          <div class="container section">
 
-            <!-- product Name -->
-            <h3 class="product-name-details deep-orange-text row">
+      <!-- PRODUCT DETAILS -->
+      <div class="container section">
+        <div class="row section">
+
+          <div class=" col s12 m12 l12">
+            <h3 class="product-name-details deep-orange-text row flow-text">
               <blockquote id="product-name-details"></blockquote>
             </h3>
+          </div>
 
-            <!-- Image + Price -->
-            <div class="row section">
-              <div class="col s12 m6 l8">
-                <div class="card hoverable z-depth-2">
-                  <!-- ============ -->
-                  <div class="carousel carousel-slider" center>
-                    <a class="carousel-item">
-                      <img class="carousel-image" src="<%=url%>getImage:product|truck-1.jpg">
-                    </a>
-                    <a class="carousel-item">
-                      <img class="carousel-image" src="<%=url%>getImage:product|truck-1.jpg">
-                    </a>
-                    <a class="carousel-item">
-                      <img class="carousel-image" src="<%=url%>getImage:product|truck-1.jpg">
-                    </a>
-                    <a class="carousel-item">
-                      <img class="carousel-image" src="<%=url%>getImage:product|truck-1.jpg">
-                    </a>
-                    <a class="carousel-item">
-                      <img class="carousel-image" src="<%=url%>getImage:product|truck-1.jpg">
-                    </a>
-                    <a class="carousel-item">
-                      <iframe width="853" height="480" src="//www.youtube.com/embed/Q8TXgCzxEnw?rel=0" frameborder="0" allowfullscreen></iframe>
-                    </a>
-                    <a class="prev" onclick="plusSlides(1)">&#10094;</a>
-                    <a class="next" onclick="plusSlides(-1)">&#10095;</a>
-                  </div>
-                  <!-- ============ -->
+          <!-- Image + Price -->
+          <div class="row section">
+            <div class="col s12 m12 l8">
+              <div class="card hoverable z-depth-2">
+                <!-- ============ -->
+
+                <div class="carousel carousel-slider">
+                  <a class="carousel-item">
+                    <img class="carousel-image" src="<%=url%>getImage:product|truck-1.jpg">
+                  </a>
+                  <a class="carousel-item">
+                    <img class="carousel-image" src="<%=url%>getImage:product|truck-1.jpg">
+                  </a>
+                  <a class="carousel-item">
+                    <img class="carousel-image" src="<%=url%>getImage:product|truck-1.jpg">
+                  </a>
+                  <a class="carousel-item">
+                    <img class="carousel-image" src="<%=url%>getImage:product|truck-1.jpg">
+                  </a>
+                  <a class="carousel-item">
+                    <div class="video-container">
+                      <iframe width="853" height="480" src="//www.youtube.com/embed/FzG4uDgje3M" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                  </a>
+                  <a class="prev">&#10094;</a>
+                  <a class="next">&#10095;</a>
                 </div>
-              </div>
 
-              <div class="col s12 m6 l4">
-                <!-- Price -->
-                <div class="row">
-                  <div class="col s12 m12 l12">
-                    <div class="product-price card hoverable blue-grey darken-1">
-                      <div class="card-content white-text" align="center">
-                        <span class="card-title">
-                          <div class="row">
-                            <div class="col s9" align="left">
-                              <p class="price-original" id="price-original"></p>
-                            </div>
-                            <div class="col s3" align="right">
-                              <span class="label-details-discount" id="label-discount"></span>
-                            </div>
-                          </div>
+                <!-- ============ -->
+              </div>
+            </div>
+
+            <div class="col s12 m12 l4">
+              <!-- Price -->
+              <div class="row">
+                <div class="col s12 m12 l12">
+                  <div class="product-price card hoverable white darken-1">
+                    <div class="card-content">
+                      <span class="card-title blue-text flow-text">Xe Hoi Bien Hinh</span>
+
+                      <div class="row">
+                        <div class="col s4 m4 l4">
+                          <!-- Price Sell -->
                           <h3 class="total-fee" id="total-fee" align="center"></h3>
-                        </span>
+                        </div>
+
+                        <div class="col s4 m4 l4">
+                          <!-- Price Original -->
+                          <p class="price-original" id="price-original"></p>
+                        </div>
+
+                        <div class="col s4 m4 l4">
+                          <!-- Label Discount -->
+                          <span class="label-details-discount" id="label-discount"></span>
+                        </div>
+
                       </div>
                     </div>
                   </div>
                 </div>
+              </div>
 
-                <!-- Voucher -->
-                <div class="row">
-                  <div class="col s12 m12 l12">
-                    <div class="product-price card hoverable blue-grey darken-1">
-                      <div class="product-voucher card-content white-text">
+              <!-- Voucher -->
+              <div class="row">
+                <div class="col s12 m12 l12">
+                  <div class="product-price card hoverable blue-grey darken-1">
+                    <div class="product-voucher card-content white-text">
+                      <span class="card-title">
 
                         <div class="row">
-                          <div class="input-field col s7">
+                          <div class="input-field col s7 m7 l6" align="center">
                             <input type="text" id="autocomplete-input" class="autocomplete">
                             <label for="autocomplete-input" id="label-autocomplete-input">Mã Giảm Giá</label>
                           </div>
-                          <div class="col s5">
-                            <span class="btn-voucher btn" id="apply-voucher">Áp Dụng</span>
+                          <div class="col s5 m5 l6" align="center">
+                            <span class="btn-voucher btn flow-text" id="apply-voucher">Áp Dụng</span>
                           </div>
                         </div>
 
-                      </div>
+                      </span>
                     </div>
                   </div>
                 </div>
+              </div>
 
-                <!-- Ship -->
-                <div class="row">
-                  <div class="col s12 m12 l12">
-                    <div class="product-price card hoverable blue-grey darken-1">
-                      <div class="card-content white-text">
-                        <span>Phí Vận Chuyển:</span>
-                        <p class="product-ship" id="transport-fee"></p>
-                      </div>
+              <!-- Ship -->
+              <div class="row">
+                <div class="col s12 m12 l12">
+                  <div class="product-price card hoverable blue-grey darken-1">
+                    <div class="card-content white-text">
+                      <span>Phí Vận Chuyển:</span>
+                      <p class="product-ship" id="transport-fee"></p>
                     </div>
                   </div>
                 </div>
+              </div>
 
-                <!-- Time -->
-                <div class="row">
-                  <div class="col s12 m12 l12">
-                    <div class="product-price card hoverable blue-grey darken-1">
-                      <div class="card-content white-text">
-                        <span>Thành Tiền:</span>
-                        <p class="product-time" id="delivery-time"></p>
-                      </div>
+              <!-- Time -->
+              <div class="row">
+                <div class="col s12 m12 l12">
+                  <div class="product-price card hoverable blue-grey darken-1">
+                    <div class="card-content white-text">
+                      <span>Thành Tiền:</span>
+                      <p class="product-time" id="delivery-time"></p>
                     </div>
                   </div>
                 </div>
+              </div>
 
-                <!-- Buy Now -->
-                <div class="row">
-                  <div class="col s12 m12 l12">
-                    <a class="modal-trigger" href="http://localhost:3000/index">
-                      <div class="card hoverable deep-orange lighten-1 product-price">
-                        <div class="card-content white-text" align="center">
-                          <span class="card-title">
-                            <h4>Mua Ngay!</h4>
-                          </span>
-                        </div>
+              <!-- Buy Now -->
+              <div class="row">
+                <div class="col s12 m12 l12">
+                  <a class="modal-trigger" href="http://localhost:3000/index">
+                    <div class="card hoverable deep-orange lighten-1 product-price">
+                      <div class="card-content white-text" align="center">
+                        <span class="card-title">
+                          <h4>Mua Ngay!</h4>
+                        </span>
                       </div>
-                    </a>
-                  </div>
+                    </div>
+                  </a>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="container">
-
-            <!-- Tab -->
-            <div class="card hoverable">
-              <div class="card-tabs">
-                <ul class="tabs tabs-fixed-width">
-                  <li class="tab">
-                    <a class="active" href="#thong-tin">Thông tin</a>
-                  </li>
-                  <li class="tab">
-                    <a href="#danh-gia">Đánh giá (
-                      <%if(rateTotal > 0){%>
-                        <%=rateTotal%>
-                          <%}else {%>
-                            <%=0%>
-                              <%}%>
-                                )</a>
-                  </li>
-                  <li class="tab">
-                    <a href="#cau-hoi">Câu hỏi (
-                      <%if(commentTotal > 0){%>
-                        <%=commentTotal%>
-                          <%}else {%>
-                            <%=0%>
-                              <%}%>
-                                )</a>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- Tab Info -->
-              <div id="thong-tin">
-                <h6 id="description" class="collection"></h6>
-              </div>
-
-              <!-- Tab Raiting -->
-              <div id="danh-gia">
-                <ul class="collection" id="rate-item"></ul>
-              </div>
-
-              <!-- Tab Question -->
-              <div id="cau-hoi">
-                <ul class="collection" id="comment-item"></ul>
-              </div>
-
-            </div>
-          </div>
         </div>
-
       </div>
+
+      <!-- DETAIL -RAITING -->
+      <div class="container">
+        <!-- Tab -->
+        <div class="card hoverable">
+          <div class="card-tabs">
+            <ul class="tabs tabs-fixed-width">
+              <li class="tab">
+                <a class="active" href="#thong-tin">Thông tin</a>
+              </li>
+              <li class="tab">
+                <a href="#danh-gia">Đánh giá (
+                  <%if(rateTotal > 0){%>
+                    <%=rateTotal%>
+                      <%}else {%>
+                        <%=0%>
+                          <%}%>
+                            )</a>
+              </li>
+              <li class="tab">
+                <a href="#cau-hoi">Câu hỏi (
+                  <%if(commentTotal > 0){%>
+                    <%=commentTotal%>
+                      <%}else {%>
+                        <%=0%>
+                          <%}%>
+                            )</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Tab Info -->
+          <div id="thong-tin">
+            <h6 id="description" class="collection"></h6>
+          </div>
+
+          <!-- Tab Raiting -->
+          <div id="danh-gia">
+            <ul class="collection" id="rate-item"></ul>
+          </div>
+
+          <!-- Tab Question -->
+          <div id="cau-hoi">
+            <ul class="collection" id="comment-item"></ul>
+          </div>
+
+        </div>
       </div>
-      <!-- PRODUCT DETAILS -->
-      <!-- PRODUCT DETAILS -->
-      <!-- PRODUCT DETAILS -->
 
-
-
-      <!-- PRODUCT -->
-      <!-- PRODUCT -->
-      <!-- PRODUCT -->
-      <!-- PRODUCT -->
-      <!-- PRODUCT -->
+      <!--SAME PRODUCT -->
       <div class="row section">
-        <div id="product" class="section">
+        <div class="section">
           <div class="container section">
             <h3 class="header deep-orange-text row">
               <blockquote id="same-product"></blockquote>
@@ -259,750 +246,768 @@ var commentTotal = params[6];
     <!-- Main End -->
 
     <!-- Footer -->
-    <!-- Footer -->
     <%include footer.ejs %>
       <!-- Footer End -->
 
       <!-- Modal -->
-      <!-- Modal Trigger -->
       <% include modal-login.ejs %>
         <% include modal-search.ejs %>
           <% include modal-contact.ejs %>
             <!-- Modal Trigger -->
-            <!-- Modal Trigger -->
+
+            <%include js.ejs%>
+
+              <script>
+                //$(".lazyload").unveil();
+                lazyload();
+
+                $('.carousel.carousel-slider').carousel({
+                  dist: 1, fullWidth: true, indicators: false
+                });
 
 
-            <!-- Import query -->
-            <script type="text/javascript" src="<%=url%>getResource:js|jquery-3.2.1.min.js"></script>
-            <script type="text/javascript" src="<%=url%>getResource:js|owl.carousel.min.js"></script>
-            <script type="text/javascript" src="<%=url%>getResource:js|materialize.js"></script>
-            <script type="text/javascript" src="<%=url%>getResource:js|details.js"></script>
-            <!-- <script type="text/javascript" src="<%=url%>getResource:js|jquery.unveil.js"></script> -->
-            <script type="text/javascript" src="<%=url%>getResource:js|jquery.load-more.js"></script>
+                // $(function () {
+                //   $('#video').css({ width: $(window).innerWidth() + 'px', height: $(window).innerHeight() + 'px' });
 
-            <script>
-              //$(".lazyload").unveil();
-              lazyload();
+                //   $(window).resize(function () {
+                //     $('#video').css({ width: $(window).innerWidth() + 'px', height: $(window).innerHeight() + 'px' });
+                //   });
+                // });
 
-              $('.carousel.carousel-slider').carousel({
-                dist: 0, fullWidth: false, indicators: true
-              });
+                var flag = true;
+                $(document).on('touchstart click', '.prev', function () {
+                  if (flag) {
+                    flag = false;
+                    setTimeout(function () {
+                      $('.carousel').carousel('prev');
+                      flag = true;
+                    }, 300);
+                  }
+                });
+
+                $(document).on('touchstart click', '.next', function () {
+                  if (flag) {
+                    flag = false;
+                    setTimeout(function () {
+                      $('.carousel').carousel('next');
+                      flag = true;
+                    }, 300);
+                  }
+                });
 
 
-              function plusSlides(n) {
-                if (n == 1) {
-                  $('.carousel').carousel('prev');
-                } else if (n == -1) {
-                  $('.carousel').carousel('next');
+                // var xhttp = new XMLHttpRequest();
+                // xhttp.onreadystatechange = function () {
+                //   if (this.readyState == 4 && this.status == 200) {
+                //     // Response
+                //     var output;
+                //     var json = JSON.parse(this.responseText);
+                //     $.each(json, function (i, item) {
+                //       item.forEach(function (entry) {
+
+                //         output = '<div class="col s12 m6 l4">';
+                //         output += '<a class="modal-trigger" href="#modal1">';
+                //         output += '<div class="card hoverable z-depth-2">';
+                //         output += '<div class="card-image">';
+                //         output += '<img class="lazyload" src ="<%=url%>getImage:product|' + entry.image1 + '" data-src="<%=url%>getImage:product|' + entry.image1 + ">";
+                //         output += '</div>';
+                //         output += '<div class="card-content">';
+                //         output += '<h5 class="deep-orange-text text-darken-1">' + entry.productName + '</h5>';
+                //         output += '<p class=" grey-text text-darken-4">' + entry.sell + '000 VND</p>';
+                //         output += '<p class=" grey-text text-darken-4">' + entry.likeTotal + '</p>';
+                //         output += '<p class=" grey-text text-darken-4">' + entry.rateTotal + '</p>';
+                //         output += '<p class=" grey-text text-darken-4">' + entry.commentTotal + '</p>';
+                //         output += '</div>';
+                //         output += '</div>';
+                //         output += '</a>';
+                //         output += '</div>';
+                //         $('#result').append(output);
+
+                //       });
+                //     })
+                //   }
+                // };
+                // xhttp.open("GET", "findAllProduct?offset=0&limit=10", true);
+                // xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                // xhttp.setRequestHeader("secret", "12345");
+                // xhttp.send();
+
+                $('#apply-voucher').click(function () {
+                  if ($(this).text() == "Áp Dụng") {
+                    $(this).text('Xóa');
+
+                    $('#label-autocomplete-input').text('- 1000d');
+
+                    $('#total-fee').text('100vnd');
+
+
+
+                  } else {
+                    $(this).text('Áp Dụng');
+
+
+
+                    // Define the string
+                    var string = 'abcdefgh';
+
+                    // Encode the String
+                    var encodedString = btoa(string);
+                    alert(encodedString); // Outputs: "SGVsbG8gV29ybGQh"
+
+                    // Decode the String
+                    var decodedString = atob(encodedString);
+                    alert(decodedString); // Outputs: "Hello World!"
+
+
+
+                  }
+                });
+
+
+                $('#same-product').append("Sản phẩm tương tự");
+
+                //checkCookie();
+                //deleteCookie("username");
+
+                function deleteCookie(cname) {
+                  document.cookie = cname + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
                 }
-              }
 
-              // var xhttp = new XMLHttpRequest();
-              // xhttp.onreadystatechange = function () {
-              //   if (this.readyState == 4 && this.status == 200) {
-              //     // Response
-              //     var output;
-              //     var json = JSON.parse(this.responseText);
-              //     $.each(json, function (i, item) {
-              //       item.forEach(function (entry) {
-
-              //         output = '<div class="col s12 m6 l4">';
-              //         output += '<a class="modal-trigger" href="#modal1">';
-              //         output += '<div class="card hoverable z-depth-2">';
-              //         output += '<div class="card-image">';
-              //         output += '<img class="lazyload" src ="<%=url%>getImage:product|' + entry.image1 + '" data-src="<%=url%>getImage:product|' + entry.image1 + ">";
-              //         output += '</div>';
-              //         output += '<div class="card-content">';
-              //         output += '<h5 class="deep-orange-text text-darken-1">' + entry.productName + '</h5>';
-              //         output += '<p class=" grey-text text-darken-4">' + entry.sell + '000 VND</p>';
-              //         output += '<p class=" grey-text text-darken-4">' + entry.likeTotal + '</p>';
-              //         output += '<p class=" grey-text text-darken-4">' + entry.rateTotal + '</p>';
-              //         output += '<p class=" grey-text text-darken-4">' + entry.commentTotal + '</p>';
-              //         output += '</div>';
-              //         output += '</div>';
-              //         output += '</a>';
-              //         output += '</div>';
-              //         $('#result').append(output);
-
-              //       });
-              //     })
-              //   }
-              // };
-              // xhttp.open("GET", "findAllProduct?offset=0&limit=10", true);
-              // xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-              // xhttp.setRequestHeader("secret", "12345");
-              // xhttp.send();
-
-              $('#apply-voucher').click(function () {
-                if ($(this).text() == "Áp Dụng") {
-                  $(this).text('Xóa');
-
-                  $('#label-autocomplete-input').text('- 1000d');
-
-                  $('#total-fee').text('100vnd');
-
-
-
-                } else {
-                  $(this).text('Áp Dụng');
-
-
-
-                  // Define the string
-                  var string = 'abcdefgh';
-
-                  // Encode the String
-                  var encodedString = btoa(string);
-                  alert(encodedString); // Outputs: "SGVsbG8gV29ybGQh"
-
-                  // Decode the String
-                  var decodedString = atob(encodedString);
-                  alert(decodedString); // Outputs: "Hello World!"
-
-
-
+                function setCookie(cname, cvalue, exdays) {
+                  var d = new Date();
+                  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+                  var expires = "expires=" + d.toGMTString();
+                  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
                 }
-              });
 
-
-              $('#same-product').append("Sản phẩm tương tự");
-
-
-              function setCookie(cname, cvalue, exdays) {
-                var d = new Date();
-                d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-                var expires = "expires=" + d.toGMTString();
-                document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-              }
-
-              function getCookie(cname) {
-                var name = cname + "=";
-                var decodedCookie = decodeURIComponent(document.cookie);
-                var ca = decodedCookie.split(';');
-                for (var i = 0; i < ca.length; i++) {
-                  var c = ca[i];
-                  while (c.charAt(0) == ' ') {
-                    c = c.substring(1);
+                function getCookie(cname) {
+                  var name = cname + "=";
+                  var decodedCookie = decodeURIComponent(document.cookie);
+                  var ca = decodedCookie.split(';');
+                  for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                      c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                      return c.substring(name.length, c.length);
+                    }
                   }
-                  if (c.indexOf(name) == 0) {
-                    return c.substring(name.length, c.length);
+                  return "";
+                }
+
+                function checkCookie() {
+                  var user = getCookie("username");
+                  if (user != "") {
+                    alert("Welcome again " + user);
+                  } else {
+                    user = prompt("Please enter your name:", "");
+                    if (user != "" && user != null) {
+                      setCookie("username", user, 30);
+                    }
                   }
                 }
-                return "";
-              }
 
-              function checkCookie() {
-                var user = getCookie("username");
-                if (user != "") {
-                  alert("Welcome again " + user);
-                } else {
-                  user = prompt("Please enter your name:", "");
-                  if (user != "" && user != null) {
-                    setCookie("username", user, 30);
-                  }
+              </script>
+
+              <!-- Get API -->
+              <!-- Get API -->
+              <!-- Get API -->
+              <!-- Get API -->
+              <script type="text/javascript">
+
+                var productId = '<%=productId%>';
+
+                function updateVoucher() {
+                  $.ajax({
+                    method: "PUT",
+                    dataType: "json",
+                    beforeSend: function (request) {
+                      request.setRequestHeader("secret", "12345");
+                    },
+                    url: "<%=url%>updateVoucher",
+                    data: {
+                      voucherId: 1,
+                      //voucherName: "Huynh3",
+                      //voucherDescription: "Sua lai giam 10 thoi",
+                      code: "aaaaa",
+                      value: "10",
+                      start: "2018-05-10",
+                      end: "2018-05-30"
+                    },
+                    success: function success(data) {
+                      var result = "";
+                      $.each(data, function (i, value) {
+                        result = value.update;
+                      });
+                      alert(result);
+                    }
+                  });
                 }
-              }
 
-            </script>
+                function insertVoucher() {
+                  $.ajax({
+                    method: "POST",
+                    dataType: "json",
+                    beforeSend: function (request) {
+                      request.setRequestHeader("secret", "12345");
+                    },
+                    url: "<%=url%>insertVoucher",
+                    data: {
+                      voucherName: "HuynhChau",
+                      voucherDescription: "Khuyen mai 30k",
+                      code: "A1B2C3D4",
+                      value: 30,
+                      start: "2018-05-09",
+                      end: "2018-06-01"
+                    },
+                    success: function success(data) {
+                      var result = "";
+                      $.each(data, function (i, value) {
+                        result = value.insert;
+                      });
+                      alert(result);
+                    }
+                  });
+                }
 
-            <!-- Get API -->
-            <!-- Get API -->
-            <!-- Get API -->
-            <!-- Get API -->
-            <script type="text/javascript">
+                function findVoucher(code) {
+                  $.ajax({
+                    method: "GET",
+                    dataType: "json",
+                    beforeSend: function (request) {
+                      request.setRequestHeader("secret", "12345");
+                    },
+                    url: "<%=url%>findVoucher?code=" + code,
+                    success: function success(data) {
+                      var output = "";
+                      $.each(data, function (i, entry) {
 
-              var productId = '<%=productId%>';
+                        alert(entry.value);
 
-              function updateVoucher() {
-                $.ajax({
-                  method: "PUT",
-                  dataType: "json",
-                  beforeSend: function (request) {
-                    request.setRequestHeader("secret", "12345");
-                  },
-                  url: "<%=url%>updateVoucher",
-                  data: {
-                    voucherId: 1,
-                    //voucherName: "Huynh3",
-                    //voucherDescription: "Sua lai giam 10 thoi",
-                    code: "aaaaa",
-                    value: "10",
-                    start: "2018-05-10",
-                    end: "2018-05-30"
-                  },
-                  success: function success(data) {
-                    var result = "";
-                    $.each(data, function (i, value) {
-                      result = value.update;
-                    });
-                    alert(result);
-                  }
-                });
-              }
+                        $('#comment-item').append(output);
+                      });
+                    }
+                  });
+                }
 
-              function insertVoucher() {
-                $.ajax({
-                  method: "POST",
-                  dataType: "json",
-                  beforeSend: function (request) {
-                    request.setRequestHeader("secret", "12345");
-                  },
-                  url: "<%=url%>insertVoucher",
-                  data: {
-                    voucherName: "HuynhChau",
-                    voucherDescription: "Khuyen mai 30k",
-                    code: "A1B2C3D4",
-                    value: 30,
-                    start: "2018-05-09",
-                    end: "2018-06-01"
-                  },
-                  success: function success(data) {
-                    var result = "";
-                    $.each(data, function (i, value) {
-                      result = value.insert;
-                    });
-                    alert(result);
-                  }
-                });
-              }
+                function updateUser() {
+                  $.ajax({
+                    method: "PUT",
+                    dataType: "json",
+                    beforeSend: function (request) {
+                      request.setRequestHeader("secret", "12345");
+                    },
+                    url: "<%=url%>updateUser",
+                    data: {
+                      userId: 4,
+                      nickname: "Huynh3",
+                      address: "Luu Chi Hieu",
+                      phone: "0937590127",
+                      password: "aasdfghjkl",
+                      sex: 1,
+                      email: "adc@gmail.com"
+                    },
+                    success: function success(data) {
+                      var result = "";
+                      $.each(data, function (i, value) {
+                        result = value.update;
+                      });
+                      alert(result);
+                    }
+                  });
+                }
 
-              function findVoucher(code) {
-                $.ajax({
-                  method: "GET",
-                  dataType: "json",
-                  beforeSend: function (request) {
-                    request.setRequestHeader("secret", "12345");
-                  },
-                  url: "<%=url%>findVoucher?code=" + code,
-                  success: function success(data) {
-                    var output = "";
-                    $.each(data, function (i, entry) {
+                function insertUser() {
+                  $.ajax({
+                    method: "POST",
+                    dataType: "json",
+                    beforeSend: function (request) {
+                      request.setRequestHeader("secret", "12345");
+                    },
+                    url: "<%=url%>insertUser",
+                    data: {
+                      nickname: "Huynh",
+                      address: "Luu Chi Hieu",
+                      phone: "0937590127",
+                      password: "aasdfghjkl",
+                      sex: 1,
+                      email: "adc@gmail.com"
+                    },
+                    success: function success(data) {
+                      var result = "";
+                      $.each(data, function (i, value) {
+                        result = value.insert;
+                      });
+                      alert(result);
+                    }
+                  });
+                }
 
-                      alert(entry.value);
+                function insertOders() {
+                  $.ajax({
+                    method: "POST",
+                    dataType: "json",
+                    beforeSend: function (request) {
+                      request.setRequestHeader("secret", "12345");
+                    },
+                    url: "<%=url%>insertOrders",
+                    data: {
+                      productId: "7",
+                      userId: 1,
+                      promotionId: 0,
+                      voucherId: 0,
+                      point: 0,
+                      totalFee: 100,
+                      status: 0,
+                      receiverName: "Nguyen Chau",
+                      receiverAddress: "Tay Thanh-HCM",
+                      receiverPhone: "0937590127"
+                    },
+                    success: function success(data) {
+                      var result = "";
+                      $.each(data, function (i, value) {
+                        result = value.insert;
+                      });
+                      alert(result);
+                    }
+                  });
+                }
 
-                      $('#comment-item').append(output);
-                    });
-                  }
-                });
-              }
+                function insertComment() {
+                  $.ajax({
+                    method: "POST",
+                    dataType: "json",
+                    beforeSend: function (request) {
+                      request.setRequestHeader("secret", "12345");
+                    },
+                    url: "<%=url%>insertComment",
+                    data: {
+                      commentId: "7",
+                      userId: 4,
+                      question: "Trả lời cho Xuân Lan"
+                    },
+                    success: function success(data) {
+                      var result = "";
+                      $.each(data, function (i, value) {
+                        result = value.insert;
+                      });
+                      alert(result);
+                    }
+                  });
+                }
 
-              function updateUser() {
-                $.ajax({
-                  method: "PUT",
-                  dataType: "json",
-                  beforeSend: function (request) {
-                    request.setRequestHeader("secret", "12345");
-                  },
-                  url: "<%=url%>updateUser",
-                  data: {
-                    userId: 4,
-                    nickname: "Huynh3",
-                    address: "Luu Chi Hieu",
-                    phone: "0937590127",
-                    password: "aasdfghjkl",
-                    sex: 1,
-                    email: "adc@gmail.com"
-                  },
-                  success: function success(data) {
-                    var result = "";
-                    $.each(data, function (i, value) {
-                      result = value.update;
-                    });
-                    alert(result);
-                  }
-                });
-              }
+                function updateComment() {
+                  $.ajax({
+                    method: "PUT",
+                    dataType: "json",
+                    beforeSend: function (request) {
+                      request.setRequestHeader("secret", "12345");
+                    },
+                    url: "<%=url%>updateComment",
+                    data: {
+                      id: "6",
+                      answer: "Huynh Chau Trả lời cho Xuân Lan",
+                    },
+                    success: function success(data) {
+                      var result = "";
+                      $.each(data, function (i, value) {
+                        result = value.update;
+                      });
+                      alert(result);
+                    }
+                  });
+                }
 
-              function insertUser() {
-                $.ajax({
-                  method: "POST",
-                  dataType: "json",
-                  beforeSend: function (request) {
-                    request.setRequestHeader("secret", "12345");
-                  },
-                  url: "<%=url%>insertUser",
-                  data: {
-                    nickname: "Huynh",
-                    address: "Luu Chi Hieu",
-                    phone: "0937590127",
-                    password: "aasdfghjkl",
-                    sex: 1,
-                    email: "adc@gmail.com"
-                  },
-                  success: function success(data) {
-                    var result = "";
-                    $.each(data, function (i, value) {
-                      result = value.insert;
-                    });
-                    alert(result);
-                  }
-                });
-              }
+                function insertRaiting() {
+                  $.ajax({
+                    method: "POST",
+                    dataType: "json",
+                    beforeSend: function (request) {
+                      request.setRequestHeader("secret", "12345");
+                    },
+                    url: "<%=url%>insertRaiting",
+                    data: {
+                      rateId: "7",
+                      userId: 3,
+                      question: "Trả lời cho Xuân Lan",
+                      rate: 3
+                    },
+                    success: function success(data) {
+                      var result = "";
+                      $.each(data, function (i, value) {
+                        result = value.insert;
+                      });
+                      alert(result);
+                    }
+                  });
+                }
 
-              function insertOders() {
-                $.ajax({
-                  method: "POST",
-                  dataType: "json",
-                  beforeSend: function (request) {
-                    request.setRequestHeader("secret", "12345");
-                  },
-                  url: "<%=url%>insertOrders",
-                  data: {
-                    productId: "7",
-                    userId: 1,
-                    promotionId: 0,
-                    voucherId: 0,
-                    point: 0,
-                    totalFee: 100,
-                    status: 0,
-                    receiverName: "Nguyen Chau",
-                    receiverAddress: "Tay Thanh-HCM",
-                    receiverPhone: "0937590127"
-                  },
-                  success: function success(data) {
-                    var result = "";
-                    $.each(data, function (i, value) {
-                      result = value.insert;
-                    });
-                    alert(result);
-                  }
-                });
-              }
+                function updateRaiting() {
+                  $.ajax({
+                    method: "PUT",
+                    dataType: "json",
+                    beforeSend: function (request) {
+                      request.setRequestHeader("secret", "12345");
+                    },
+                    url: "<%=url%>updateRaiting",
+                    data: {
+                      id: "20",
+                      answer: "Huynh Chau Trả lời cho Quoc Bao",
+                    },
+                    success: function success(data) {
+                      var result = "";
+                      $.each(data, function (i, value) {
+                        result = value.update;
+                      });
+                      alert(result);
+                    }
+                  });
+                }
 
-              function insertComment() {
-                $.ajax({
-                  method: "POST",
-                  dataType: "json",
-                  beforeSend: function (request) {
-                    request.setRequestHeader("secret", "12345");
-                  },
-                  url: "<%=url%>insertComment",
-                  data: {
-                    commentId: "7",
-                    userId: 4,
-                    question: "Trả lời cho Xuân Lan"
-                  },
-                  success: function success(data) {
-                    var result = "";
-                    $.each(data, function (i, value) {
-                      result = value.insert;
-                    });
-                    alert(result);
-                  }
-                });
-              }
+                function insertLikes() {
+                  $.ajax({
+                    method: "POST",
+                    dataType: "json",
+                    beforeSend: function (request) {
+                      request.setRequestHeader("secret", "12345");
+                    },
+                    url: "<%=url%>insertLikes",
+                    data: {
+                      likesId: "7",
+                      userId: 3
+                    },
+                    success: function success(data) {
+                      var result = "";
+                      $.each(data, function (i, value) {
+                        result = value.insert;
+                      });
+                      alert(result);
+                    }
+                  });
+                }
 
-              function updateComment() {
-                $.ajax({
-                  method: "PUT",
-                  dataType: "json",
-                  beforeSend: function (request) {
-                    request.setRequestHeader("secret", "12345");
-                  },
-                  url: "<%=url%>updateComment",
-                  data: {
-                    id: "6",
-                    answer: "Huynh Chau Trả lời cho Xuân Lan",
-                  },
-                  success: function success(data) {
-                    var result = "";
-                    $.each(data, function (i, value) {
-                      result = value.update;
-                    });
-                    alert(result);
-                  }
-                });
-              }
+                function deleteLikes() {
+                  $.ajax({
+                    method: "DELETE",
+                    dataType: "json",
+                    beforeSend: function (request) {
+                      request.setRequestHeader("secret", "12345");
+                    },
+                    url: "<%=url%>deleteLikes",
+                    data: {
+                      id: "1"
+                    },
+                    success: function success(data) {
+                      var result = "";
+                      $.each(data, function (i, value) {
+                        result = value.delete;
+                      });
+                      alert(result);
+                    }
+                  });
+                }
 
-              function insertRaiting() {
-                $.ajax({
-                  method: "POST",
-                  dataType: "json",
-                  beforeSend: function (request) {
-                    request.setRequestHeader("secret", "12345");
-                  },
-                  url: "<%=url%>insertRaiting",
-                  data: {
-                    rateId: "7",
-                    userId: 3,
-                    question: "Trả lời cho Xuân Lan",
-                    rate: 3
-                  },
-                  success: function success(data) {
-                    var result = "";
-                    $.each(data, function (i, value) {
-                      result = value.insert;
-                    });
-                    alert(result);
-                  }
-                });
-              }
+                function findProduct() {
+                  $.ajax({
+                    method: "GET",
+                    dataType: "json",
+                    beforeSend: function (request) {
+                      request.setRequestHeader("secret", "12345");
+                    },
+                    url: "<%=url%>findProduct?productId=" + productId,
+                    success: function success(data) {
+                      $.each(data, function (i, value) {
+                        var productName = value.productName;
+                        var promotionId = value.productId;
+                        var amount = value.amount;
+                        var description = value.description;
+                        var productSn = value.productSn;
+                        var category = value.categoryName;
+                        var image1 = value.image1;
+                        var image2 = value.image2;
+                        var image3 = value.image3;
+                        var image4 = value.image4;
+                        var image5 = value.image5;
+                        var yt1 = value.yt1;
+                        var yt2 = value.yt2;
+                        var yt3 = value.yt3;
 
-              function updateRaiting() {
-                $.ajax({
-                  method: "PUT",
-                  dataType: "json",
-                  beforeSend: function (request) {
-                    request.setRequestHeader("secret", "12345");
-                  },
-                  url: "<%=url%>updateRaiting",
-                  data: {
-                    id: "20",
-                    answer: "Huynh Chau Trả lời cho Quoc Bao",
-                  },
-                  success: function success(data) {
-                    var result = "";
-                    $.each(data, function (i, value) {
-                      result = value.update;
-                    });
-                    alert(result);
-                  }
-                });
-              }
+                        var sell = "<%=sell%>";
+                        var discount = "<%=discount%>"
 
-              function insertLikes() {
-                $.ajax({
-                  method: "POST",
-                  dataType: "json",
-                  beforeSend: function (request) {
-                    request.setRequestHeader("secret", "12345");
-                  },
-                  url: "<%=url%>insertLikes",
-                  data: {
-                    likesId: "7",
-                    userId: 3
-                  },
-                  success: function success(data) {
-                    var result = "";
-                    $.each(data, function (i, value) {
-                      result = value.insert;
-                    });
-                    alert(result);
-                  }
-                });
-              }
+                        var totalPrice = Number(sell);
+                        totalPrice = totalPrice.toLocaleString('it-IT', { style: 'currency', currency: 'VND' });
+                        $('#price-original').append(totalPrice);
 
-              function deleteLikes() {
-                $.ajax({
-                  method: "DELETE",
-                  dataType: "json",
-                  beforeSend: function (request) {
-                    request.setRequestHeader("secret", "12345");
-                  },
-                  url: "<%=url%>deleteLikes",
-                  data: {
-                    id: "1"
-                  },
-                  success: function success(data) {
-                    var result = "";
-                    $.each(data, function (i, value) {
-                      result = value.delete;
-                    });
-                    alert(result);
-                  }
-                });
-              }
-
-              function findProduct() {
-                $.ajax({
-                  method: "GET",
-                  dataType: "json",
-                  beforeSend: function (request) {
-                    request.setRequestHeader("secret", "12345");
-                  },
-                  url: "<%=url%>findProduct?productId=" + productId,
-                  success: function success(data) {
-                    $.each(data, function (i, value) {
-                      var productName = value.productName;
-                      var promotionId = value.productId;
-                      var amount = value.amount;
-                      var description = value.description;
-                      var productSn = value.productSn;
-                      var category = value.categoryName;
-                      var image1 = value.image1;
-                      var image2 = value.image2;
-                      var image3 = value.image3;
-                      var image4 = value.image4;
-                      var image5 = value.image5;
-                      var yt1 = value.yt1;
-                      var yt2 = value.yt2;
-                      var yt3 = value.yt3;
-
-                      var sell = "<%=sell%>";
-                      var discount = "<%=discount%>"
-
-                      var totalPrice = Number(sell);
-                      totalPrice = totalPrice.toLocaleString('it-IT', { style: 'currency', currency: 'VND' });
-                      $('#price-original').append(totalPrice);
-
-                      var totalFee = sell - ((sell * discount) / 100);
-                      if (discount > 0) {
-                        $('#label-discount').append("-" + discount + "%");
-                      } else {
-                        totalFee = Number(sell);
-                      }
-                      totalFee = totalFee.toLocaleString('it-IT', { style: 'currency', currency: 'VND' });
-                      $('#total-fee').append(totalFee);
-
-                      $('#product-name-details').append(productName);
-                      $('#description').append(description);
-
-
-                      var ship = 10;
-                      ship = ship.toLocaleString('it-IT', { style: 'currency', currency: 'VND' });
-                      $('#transport-fee').append(ship);
-
-                      var totalAmount = Number(totalFee - ship);
-                      totalAmount = totalAmount.toLocaleString('it-IT', { style: 'currency', currency: 'VND' });
-                      $('#delivery-time').append(totalAmount);
-
-                      findAllProduct(category, 0, 10);
-
-                    });
-
-
-                    //insertComment();
-                    //updateComment();
-                    //insertOders();
-                    //insertRaiting();
-                    //updateRaiting();
-                    //insertLikes();
-                    //deleteLikes();
-                    //insertUser();
-                    //updateUser();
-                    findComment(7, 0, 10);
-                    findRaiting(7, 0, 10);
-                    //findVoucher("ABCDF");
-                    //insertVoucher();
-                    //updateVoucher();
-                  }
-                });
-              }
-
-              function findAllProduct(filter, offset, limit) {
-                $.ajax({
-                  method: "GET",
-                  dataType: "json",
-                  beforeSend: function (request) {
-                    request.setRequestHeader("secret", "12345");
-                  },
-                  url: "<%=url%>findAllProduct?filter=" + filter + "&offset=" + offset + "&limit=" + limit,
-                  success: function success(data) {
-                    var output = "";
-                    $.each(data, function (i, value) {
-                      value.forEach(function (entry) {
-
-                        var productId = entry.productId;
-                        var productName = entry.productName;
-                        var sell = entry.sell;
-                        var discount = entry.discount;
-                        var image1 = entry.image1;
-                        var likeTotal = entry.likeTotal;
-                        var rateTotal = entry.rateTotal;
-                        var rateValue = entry.rateValue;
-                        var commentTotal = entry.commentTotal;
-
-                        var id = productId + "-" + sell + "-" + discount + "-" + likeTotal + "-" + rateTotal + "-" + rateValue + "-" + commentTotal;
-
-                        output = '<div class="col s12 m6 l4">';
-                        output += '<a class="modal-trigger" href="<%=url%>details/sn:' + id + '">';
-                        output += '<div class="card hoverable z-depth-2">';
-
-                        output += '<div class="card-image">';
-                        output += '<img src="<%=url%>getImage:product|' + entry.image1 + '.jpg">';
-                        if (discount != null || discount > 0) {
-                          output += '<span class="label-home-discount"> -' + discount + '% </span>'
+                        var totalFee = sell - ((sell * discount) / 100);
+                        if (discount > 0) {
+                          $('#label-discount').append("-" + discount + "%");
+                        } else {
+                          totalFee = Number(sell);
                         }
-                        output += '</div>';
+                        totalFee = totalFee.toLocaleString('it-IT', { style: 'currency', currency: 'VND' });
+                        $('#total-fee').append(totalFee);
 
-                        output += '<div class="card-content">';
-                        output += '<div class="row">';
+                        $('#product-name-details').append(productName);
+                        $('#description').append(description);
 
-                        output += '<div class="col s7">';
 
-                        var formatCurrency = sell - ((sell * discount) / 100);
-                        formatCurrency = formatCurrency.toLocaleString('it-IT', { style: 'currency', currency: 'VND' });
+                        var ship = 10;
+                        ship = ship.toLocaleString('it-IT', { style: 'currency', currency: 'VND' });
+                        $('#transport-fee').append(ship);
 
-                        output += '<h5 class=" price-sell deep-orange-text text-darken-1" id="price-sell">' + formatCurrency + '</h5>';
-                        output += '</div>';
+                        var totalAmount = Number(totalFee - ship);
+                        totalAmount = totalAmount.toLocaleString('it-IT', { style: 'currency', currency: 'VND' });
+                        $('#delivery-time').append(totalAmount);
 
-                        output += '<div class="col s5">';
-                        if (discount != null || discount > 0) {
-                          var formatCurrency = sell;
+                        findAllProduct(category, 0, 10);
+
+                      });
+
+
+                      //insertComment();
+                      //updateComment();
+                      //insertOders();
+                      //insertRaiting();
+                      //updateRaiting();
+                      //insertLikes();
+                      //deleteLikes();
+                      //insertUser();
+                      //updateUser();
+                      findComment(7, 0, 10);
+                      findRaiting(7, 0, 10);
+                      //findVoucher("ABCDF");
+                      //insertVoucher();
+                      //updateVoucher();
+                    }
+                  });
+                }
+
+                function findAllProduct(filter, offset, limit) {
+                  $.ajax({
+                    method: "GET",
+                    dataType: "json",
+                    beforeSend: function (request) {
+                      request.setRequestHeader("secret", "12345");
+                    },
+                    url: "<%=url%>findAllProduct?filter=" + filter + "&offset=" + offset + "&limit=" + limit,
+                    success: function success(data) {
+                      var output = "";
+                      $.each(data, function (i, value) {
+                        value.forEach(function (entry) {
+
+                          var productId = entry.productId;
+                          var productName = entry.productName;
+                          var sell = entry.sell;
+                          var discount = entry.discount;
+                          var image1 = entry.image1;
+                          var likeTotal = entry.likeTotal;
+                          var rateTotal = entry.rateTotal;
+                          var rateValue = entry.rateValue;
+                          var commentTotal = entry.commentTotal;
+
+                          var id = productId + "-" + sell + "-" + discount + "-" + likeTotal + "-" + rateTotal + "-" + rateValue + "-" + commentTotal;
+
+                          output = '<div class="col s12 m6 l4">';
+                          output += '<a class="modal-trigger" href="<%=url%>details/sn:' + id + '">';
+                          output += '<div class="card hoverable z-depth-2">';
+
+                          output += '<div class="card-image">';
+                          output += '<img src="<%=url%>getImage:product|' + entry.image1 + '.jpg">';
+                          if (discount != null || discount > 0) {
+                            output += '<span class="label-home-discount"> -' + discount + '% </span>'
+                          }
+                          output += '</div>';
+
+                          output += '<div class="card-content">';
+                          output += '<div class="row">';
+
+                          output += '<div class="col s7">';
+
+                          var formatCurrency = sell - ((sell * discount) / 100);
                           formatCurrency = formatCurrency.toLocaleString('it-IT', { style: 'currency', currency: 'VND' });
-                          output += '<p class="price-discount">' + formatCurrency + '</p>';
-                        }
-                        output += '</div>';
 
-                        output += '</div>';
+                          output += '<h5 class=" price-sell deep-orange-text text-darken-1" id="price-sell">' + formatCurrency + '</h5>';
+                          output += '</div>';
 
-                        output += '<p class="product-name-home">' + entry.productName + '</p>';
+                          output += '<div class="col s5">';
+                          if (discount != null || discount > 0) {
+                            var formatCurrency = sell;
+                            formatCurrency = formatCurrency.toLocaleString('it-IT', { style: 'currency', currency: 'VND' });
+                            output += '<p class="price-discount">' + formatCurrency + '</p>';
+                          }
+                          output += '</div>';
 
-                        output += '<div class="rate-star row">';
-                        output += '<div class="col s6">';
+                          output += '</div>';
 
-                        var rate = rateValue / rateTotal;
-                        if (rateTotal == null || rateTotal == 0) {
-                          rate = 0;
-                          rateTotal = 0;
-                        }
-                        for (i = 0; i < rate; i++) {
+                          output += '<p class="product-name-home">' + entry.productName + '</p>';
+
+                          output += '<div class="rate-star row">';
+                          output += '<div class="col s6">';
+
+                          var rate = rateValue / rateTotal;
+                          if (rateTotal == null || rateTotal == 0) {
+                            rate = 0;
+                            rateTotal = 0;
+                          }
+                          for (i = 0; i < rate; i++) {
+                            output += '<a class="waves-effect waves-light">';
+                            output += '<i class="material-icons left yellow-text text-darken-2 left">star</i>';
+                            output += '</a>';
+                          }
+
+                          for (i = 0; i < 5 - rate; i++) {
+                            output += '<a class="waves-effect waves-light">';
+                            output += '<i class="material-icons left grey-text text-darken-2 left">star</i>';
+                            output += '</a>';
+                          }
+
+                          output += '<a class="icon-label">(' + rate + "/" + rateTotal + ')</a>';
+                          output += '</div>';
+
+                          output += '<div class="col s3">';
                           output += '<a class="waves-effect waves-light">';
-                          output += '<i class="material-icons left yellow-text text-darken-2 left">star</i>';
-                          output += '</a>';
-                        }
+                          if (likeTotal != null || likeTotal > 0) {
+                            output += '<i class="material-icons red-text text-darken-2 left">favorite</i>';
+                            output += '</a>';
+                            output += '<a class="icon-label">(' + likeTotal + ')</a>';
+                            output += '</div>';
+                          } else {
+                            output += '<i class="material-icons grey-text text-darken-2 left">favorite</i>';
+                            output += '</a>';
+                            output += '<a class="icon-label">(' + 0 + ')</a>';
+                            output += '</div>';
+                          }
 
-                        for (i = 0; i < 5 - rate; i++) {
+
+                          output += '<div class="col s3">';
                           output += '<a class="waves-effect waves-light">';
-                          output += '<i class="material-icons left grey-text text-darken-2 left">star</i>';
-                          output += '</a>';
-                        }
+                          if (commentTotal != null || commentTotal > 0) {
+                            output += '<i class="material-icons red-text text-darken-2 left">comment</i>';
+                            output += '</a>';
+                            output += '<a class="icon-label">(' + commentTotal + ')</a>';
+                            output += '</div>';
+                          } else {
+                            output += '<i class="material-icons grey-text text-darken-2 left">comment</i>';
+                            output += '</a>';
+                            output += '<a class="icon-label">(' + 0 + ')</a>';
+                            output += '</div>';
+                          }
 
-                        output += '<a class="icon-label">(' + rate + "/" + rateTotal + ')</a>';
-                        output += '</div>';
-
-                        output += '<div class="col s3">';
-                        output += '<a class="waves-effect waves-light">';
-                        if (likeTotal != null || likeTotal > 0) {
-                          output += '<i class="material-icons red-text text-darken-2 left">favorite</i>';
-                          output += '</a>';
-                          output += '<a class="icon-label">(' + likeTotal + ')</a>';
                           output += '</div>';
-                        } else {
-                          output += '<i class="material-icons grey-text text-darken-2 left">favorite</i>';
-                          output += '</a>';
-                          output += '<a class="icon-label">(' + 0 + ')</a>';
                           output += '</div>';
-                        }
-
-
-                        output += '<div class="col s3">';
-                        output += '<a class="waves-effect waves-light">';
-                        if (commentTotal != null || commentTotal > 0) {
-                          output += '<i class="material-icons red-text text-darken-2 left">comment</i>';
-                          output += '</a>';
-                          output += '<a class="icon-label">(' + commentTotal + ')</a>';
                           output += '</div>';
-                        } else {
-                          output += '<i class="material-icons grey-text text-darken-2 left">comment</i>';
                           output += '</a>';
-                          output += '<a class="icon-label">(' + 0 + ')</a>';
                           output += '</div>';
-                        }
 
-                        output += '</div>';
-                        output += '</div>';
-                        output += '</div>';
+                          $('#result-same-product').append(output);
+
+                        });
+                      });
+                    }
+                  });
+                }
+
+                function findComment(productId, offset, limit) {
+                  $.ajax({
+                    method: "GET",
+                    dataType: "json",
+                    beforeSend: function (request) {
+                      request.setRequestHeader("secret", "12345");
+                    },
+                    url: "<%=url%>findComment?productId=" + productId + "&offset=" + offset + "&limit=" + limit,
+                    success: function success(data) {
+                      var output = "";
+                      $.each(data, function (i, value) {
+                        value.forEach(function (entry) {
+                          output += '<li class="collection-item">';
+                          output += '<h5>' + entry.commentQuestion + '</h5>';
+                          output += '<h6>' + entry.commentAnswer + '</h6>';
+                          output += '</li>';
+                        });
+                        output += '<li class="collection-item">';
+                        output += '<a class="modal-trigger btn-floating btn-small red" href="#modal-login">';
+                        output += '<i class="large material-icons">mode_edit</i>';
                         output += '</a>';
-                        output += '</div>';
-
-                        $('#result-same-product').append(output);
-
-                      });
-                    });
-                  }
-                });
-              }
-
-              function findComment(productId, offset, limit) {
-                $.ajax({
-                  method: "GET",
-                  dataType: "json",
-                  beforeSend: function (request) {
-                    request.setRequestHeader("secret", "12345");
-                  },
-                  url: "<%=url%>findComment?productId=" + productId + "&offset=" + offset + "&limit=" + limit,
-                  success: function success(data) {
-                    var output = "";
-                    $.each(data, function (i, value) {
-                      value.forEach(function (entry) {
-                        output += '<li class="collection-item">';
-                        output += '<h5>' + entry.commentQuestion + '</h5>';
-                        output += '<h6>' + entry.commentAnswer + '</h6>';
                         output += '</li>';
+                        $('#comment-item').append(output);
                       });
-                      output += '<li class="collection-item">';
-                      output += '<a class="modal-trigger btn-floating btn-small red" href="#modal-login">';
-                      output += '<i class="large material-icons">mode_edit</i>';
-                      output += '</a>';
+                    }
+                  });
+                }
+
+                function findRaiting(productId, offset, limit) {
+                  $.ajax({
+                    method: "GET",
+                    dataType: "json",
+                    beforeSend: function (request) {
+                      request.setRequestHeader("secret", "12345");
+                    },
+                    url: "<%=url%>findRaiting?productId=" + productId + "&offset=" + offset + "&limit=" + limit,
+                    success: function success(data) {
+                      var output = "";
+                      output += '<li class="rate-icon collection-item">';
+                      var rateValue = Number("<%=rateValue%>");
+                      var rateTotal = Number("<%=rateTotal%>");
+
+                      var rate = rateValue / rateTotal;
+                      if (rateTotal > 0) {
+                      } else {
+                        rate = 0;
+                        rateTotal = 0;
+                      }
+
+                      for (i = 0; i < rate; i++) {
+                        output += '<a class="waves-effect waves-light">';
+                        output += '<i class="material-icons left yellow-text text-darken-2 left">star</i>';
+                        output += '</a>';
+                      }
+
+                      for (i = 0; i < 5 - rate; i++) {
+                        output += '<a class="waves-effect waves-light">';
+                        output += '<i class="material-icons left grey-text text-darken-2 left">star</i>';
+                        output += '</a>';
+                      }
+
+                      output += '<a class="icon-label">(' + rate + "/" + rateTotal + ')</a>';
                       output += '</li>';
-                      $('#comment-item').append(output);
-                    });
-                  }
-                });
-              }
 
-              function findRaiting(productId, offset, limit) {
-                $.ajax({
-                  method: "GET",
-                  dataType: "json",
-                  beforeSend: function (request) {
-                    request.setRequestHeader("secret", "12345");
-                  },
-                  url: "<%=url%>findRaiting?productId=" + productId + "&offset=" + offset + "&limit=" + limit,
-                  success: function success(data) {
-                    var output = "";
-                    output += '<li class="rate-icon collection-item">';
-                    var rateValue = Number("<%=rateValue%>");
-                    var rateTotal = Number("<%=rateTotal%>");
-
-                    var rate = rateValue / rateTotal;
-                    if (rateTotal > 0) {
-                    } else {
-                      rate = 0;
-                      rateTotal = 0;
-                    }
-
-                    for (i = 0; i < rate; i++) {
-                      output += '<a class="waves-effect waves-light">';
-                      output += '<i class="material-icons left yellow-text text-darken-2 left">star</i>';
-                      output += '</a>';
-                    }
-
-                    for (i = 0; i < 5 - rate; i++) {
-                      output += '<a class="waves-effect waves-light">';
-                      output += '<i class="material-icons left grey-text text-darken-2 left">star</i>';
-                      output += '</a>';
-                    }
-
-                    output += '<a class="icon-label">(' + rate + "/" + rateTotal + ')</a>';
-                    output += '</li>';
-
-                    $.each(data, function (i, value) {
-                      value.forEach(function (entry) {
-                        output += '<li class="collection-item">';
-                        output += '<h5>' + entry.rateQuestion + '</h5>';
-                        output += '<h6>' + entry.rateAnswer + '</h6>';
-                        output += '</li>';
+                      $.each(data, function (i, value) {
+                        value.forEach(function (entry) {
+                          output += '<li class="collection-item">';
+                          output += '<h5>' + entry.rateQuestion + '</h5>';
+                          output += '<h6>' + entry.rateAnswer + '</h6>';
+                          output += '</li>';
+                        });
+                        $('#rate-item').append(output);
                       });
-                      $('#rate-item').append(output);
-                    });
-                  }
-                });
-              }
+                    }
+                  });
+                }
 
-              function findLikes(productId, offset, limit) {
-                $.ajax({
-                  method: "GET",
-                  dataType: "json",
-                  beforeSend: function (request) {
-                    request.setRequestHeader("secret", "12345");
-                  },
-                  url: "<%=url%>findLikes?productId=" + productId + "&offset=" + offset + "&limit=" + limit,
-                  success: function success(data) {
-                    var result = "";
-                    $.each(data, function (i, value) {
-                      value.forEach(function (entry) {
-                        result = entry.nickname;
-                        result += entry.likesId;
-                        alert(result);
+                function findLikes(productId, offset, limit) {
+                  $.ajax({
+                    method: "GET",
+                    dataType: "json",
+                    beforeSend: function (request) {
+                      request.setRequestHeader("secret", "12345");
+                    },
+                    url: "<%=url%>findLikes?productId=" + productId + "&offset=" + offset + "&limit=" + limit,
+                    success: function success(data) {
+                      var result = "";
+                      $.each(data, function (i, value) {
+                        value.forEach(function (entry) {
+                          result = entry.nickname;
+                          result += entry.likesId;
+                          alert(result);
+                        });
                       });
-                    });
-                  }
-                });
-              }
+                    }
+                  });
+                }
 
-            </script>
+              </script>
 
   </body>
 
