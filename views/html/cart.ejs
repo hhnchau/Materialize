@@ -1,0 +1,184 @@
+<%var url = host %>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="description" content="kingpes, do choi, do choi gia re, do choi tre em, do choi cho be, do choi lego, do choi youtube">
+        <meta name="keywords" content="kingpes, do choi, do choi gia re, do choi tre em, do choi cho be, do choi lego, do choi youtube">
+
+        <%include css.ejs%>
+            <title>Giỏ Hàng Của Bạn</title>
+    </head>
+
+    <body>
+        <header>
+            <%include header.ejs %>
+        </header>
+
+        <main>
+            <div class="container">
+
+                <div class=" col s12 m12 l12" style="margin-top: 80px;"></div>
+
+                <!-- Title  -->
+                <div class="card hoverable white darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title deep-orange-text flow-text">
+                            <h5>Sản Phẩm Đã Chọn</h5>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Product Selected -->
+                <div class="card hoverable white darken-1">
+                    <div class="card-content">
+                        <span class="card-title flow-text">
+                            <table class="highlight centered flow-text" id="table-product">
+                                <thead>
+                                    <tr>
+                                        <th>Tên SP</th>
+                                        <th>Giá Tiền</th>
+                                        <th>Số Lượng</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td>Xe Đồ Chơi F1 Đời 2018</td>
+                                        <td>75.000</td>
+                                        <td>
+                                            <i class="material-icons hoverable" style = "cursor: pointer;">arrow_drop_down</i>
+                                            <a>1</a>
+                                            <i class="material-icons hoverable" style = "cursor: pointer;">arrow_drop_up</i>
+                                        </td>
+                                        <td>
+                                            <i class="material-icons hoverable red-text" style = "cursor: pointer;">cancel</i>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Xe Đồ Chơi F1 Đời 2018</td>
+                                        <td>105.000</td>
+                                        <td>1</td>
+                                        <td>
+                                            <a class="btn"> - </a>
+                                            <a class="btn"> + </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>Tổng Cộng:</td>
+                                        <td>$7.00</td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Infomation -->
+                <div class="card hoverable white darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title deep-orange-text flow-text">
+                            <h5>Thông Tin Giao Hàng</h5>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Form Input Info -->
+                <div class="card hoverable white darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title deep-orange-text flow-text">
+
+                            <form class="col s12">
+
+                                <!-- Name Receiver -->
+                                <div class="row">
+                                    <div class="input-field col s10 m8 l6 offset-s1 offset-m2 offset-l3">
+                                        <input id="receiver-name" type="text">
+                                        <label for="receiver-name">Tên Nguời Nhận</label>
+                                    </div>
+                                </div>
+
+                                <!-- Address Receiver -->
+                                <div class="row">
+                                    <div class="input-field col s10 m8 l6 offset-s1 offset-m2 offset-l3">
+                                        <input id="receiver-adrress" type="text">
+                                        <label for="receiver-adrress">Địa Chỉ Người Nhận</label>
+                                    </div>
+                                </div>
+
+                                <!-- Phone Receiver -->
+                                <div class="row">
+                                    <div class="input-field col s10 m8 l6 offset-s1 offset-m2 offset-l3">
+                                        <input id="receiver-phone" type="text">
+                                        <label for="receiver-phone">Điện Thoại Người Nhận</label>
+                                    </div>
+                                </div>
+
+                                <!-- Note Receiver -->
+                                <div class="row">
+                                    <div class="input-field col s10 m8 l6 offset-s1 offset-m2 offset-l3">
+                                        <textarea id="receiver-note" class="materialize-textarea"></textarea>
+                                        <label for="receiver-note">Ghi Chú Thêm</label>
+                                    </div>
+                                </div>
+
+                                <!-- Payment Method -->
+                                <div class="row">
+
+                                    <div class="col s10 m8 l6 offset-s1 offset-m2 offset-l3">
+                                        <p class="text-center center-align flow-text" style="font-size: 15px;">
+                                            <select class="browser-default">
+                                                <option value="1">Thanh Toán Khi Nhận Hàng</option>
+                                                <option value="2">Thanh Toán Trước Bằng Thẻ Ngân Hàng</option>
+                                            </select>
+                                        </p>
+                                    </div>
+
+
+                                </div>
+
+                                <!-- Button -->
+                                <div class="row">
+                                    <div class="col s6 offset-s3">
+                                        <p class="text-center center-align">
+                                            <a href="javascript:void(0)" id="btn-finish" data-toggle="collapse" class="btn-login btn btn-default2 animate-box" data-on="Enabled"
+                                                data-off="Disabled">Hoàn Tất</a>
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </form>
+
+                        </span>
+                    </div>
+                </div>
+
+
+            </div>
+        </main>
+
+        <%include footer.ejs %>
+
+            <% include modal-login.ejs %>
+                <% include modal-search.ejs %>
+                    <% include modal-contact.ejs %>
+
+                        <%include js.ejs%>
+
+                            <%include js-cart.ejs%>
+
+
+
+    </body>
+
+    </html>

@@ -24,6 +24,32 @@ blockquote {
   .price-sell {
     font-size: 20px !important;
   }
+
+  .store-button{
+    width: 120%;
+  }
+
+  .mobile-search input:first-child {
+    display: none !important;
+  }
+
+  .mobile-search label:last-child {
+    display: none !important;
+  }
+}
+
+.box-search-input{
+  position: absolute;
+  width:90%; 
+  height:3.5rem; 
+  margin-left:3rem;
+  margin-top:0.3rem !important;
+}
+
+.mobile-search-input{
+  background-color: white !important;
+  padding-left:0px !important;
+  text-indent: 5rem;
 }
 
 @media screen and (min-width: 1024px) {
@@ -141,11 +167,6 @@ i.left{
   width: 100% !important;
 }
 
-.price-original{
-  text-decoration: line-through;
-}
-
-
 .product-price {
   margin-bottom: -5px;
   margin-top: 7px;
@@ -164,7 +185,19 @@ i.left{
 
 .total-fee{
   margin-bottom: -5px;
-  margin-top: -20px;
+  margin-left: 5px;
+}
+
+.label-details-discount{
+  position: absolute;
+  background-color: orange;
+  margin-top: 30px !important;
+}
+
+.price-original{
+  text-decoration: line-through;
+  margin-top: 30px !important;
+  margin-left: 10px !important;
 }
 
 .prev,
@@ -192,17 +225,13 @@ i.left{
         background-color: rgba(0, 0, 0, 0.8);
 }
 
-
-.label-details-discount{
-  background-color: orange;
-}
-
 .product-name-details{
   display: inline-block;
   width: 100%;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  margin-left: 5px !important;
 }
 
 .autocomplete{
@@ -217,8 +246,8 @@ i.left{
   letter-spacing: .1px;
 }
 
-.rate-icon{
-  text-align: center;
+.description{
+  padding: 1% !important;
 }
 
 .tabs .tab a{
@@ -246,4 +275,8 @@ i.left{
 .login-remember{
   padding-left: 22px !important;
   color: #039be5;
+}
+
+.cart-badge{
+  margin-left: -15px !important;
 }

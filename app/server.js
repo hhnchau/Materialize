@@ -369,6 +369,10 @@ app.get("/details/sn:id", function (req, res) {
   res.render("details", { host: settings.url, id: req.params.id });
 });
 
+app.get("/cart", function (req, res) {
+  res.render("cart", {host: settings.url });
+});
+
 app.get("/search/keyword:key", function (req, res) {
   res.render("details", { host: settings.url, keyword: req.params.key });
 });

@@ -1,0 +1,71 @@
+<script>
+var shoppingCartItem = [];
+
+$(document).ready(function () {
+    if (sessionStorage["shopping-cart-item"] != null) {
+        shoppingCartItem = JSON.parse(sessionStorage["shopping-cart-item"].toString());
+    }
+    displayShoppingCartItem();
+});
+
+$("#btn-finish").click(function () {
+    var button = $(this);
+    var id = button.attr("id");
+    var name = button.attr("data-name");
+    var price = button.attr("data-price");
+    var quality = 1;
+
+    var item = {
+        id: 1,
+        name: "name",
+        price: "price",
+        quality: 1
+    }
+
+    
+    alert(JSON.stringify(item));    
+
+    var exists = false;
+    if (shoppingCartItem.lenght > 0) {
+        $.each(shoppingCartItem, function (index, value) {
+            if (value.id == item.id) {
+                value.quality++;
+                exists = true;
+                return false;
+            }
+        });
+    }
+
+    if (!exists) {
+        shoppingCartItem.push(item);
+    }
+
+    sessionStorage["shopping-cart-items"] = JSON.stringify(shoppingCartItem);
+    displayShoppingCartItem();
+});
+
+$("#btn-finishs").click(function () {
+    shoppingCartItem = [];
+    sessionStorage["shopping-cart-items"] = JSON.stringify(shoppingCartItem);
+    $("#table-product > tbody").html("");
+});
+
+function displayShoppingCartItem() {
+    if (sessionStorage["shopping-cart-items"] != null) {
+        shoppingCartItem = JSON.parse(sessionStorage["shopping-cart-items"].toString());
+
+        $("#table-product > tbody").html("");
+
+        $.each(shoppingCartItem, function (index, item) {
+            var output = "";
+            output += "<tr>";
+            output += "<td>" + item.id + "<td>";
+            output += "<td>" + item.name + "<td>";
+            output += "</tr>";
+
+            $('#table-product > tbody:last').append(output);
+        });
+    }
+}
+
+</script>

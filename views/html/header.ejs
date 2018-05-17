@@ -2,55 +2,100 @@
     <nav id="navbar" class="deep-orange lighten-1">
         <div class="nav-wrapper">
             <!-- ICON -->
+
+
             <a href="#" data-activates="mobile-demo" class="button-collapse">
                 <i class="material-icons">menu</i>
             </a>
+
+            <a class="brand-logo box-search-input">
+                <div class="input-field mobile-search">
+                    <input class="mobile-search-input" id="mobile-search" type="search" placeholder="Nhập từ khóa để tìm" required>
+                    <label class="label-icon" for="search" style = "margin-top:-1.3rem;"><i class="material-icons red-text">search</i></label>
+                </div>
+            </a>
+
+
             <!-- ICON -->
 
             <!-- WEB -->
             <div class="row">
-                <div class="col s6">
+                <div class="col s6 m6 l8">
                     <ul class="left hide-on-med-and-down">
                         <li>
                             <a href="https://docs.google.com/forms/d/e/1FAIpQLScCtwnRHg0BcfpQ_I2fKWAMY5CDwFytHWhx1oI8YlOA99wu2Q/viewform" target="_blank">
                                 Trang Chủ
                             </a>
                         </li>
-                        <li>
-                            <a href="https://docs.google.com/forms/d/e/1FAIpQLScCtwnRHg0BcfpQ_I2fKWAMY5CDwFytHWhx1oI8YlOA99wu2Q/viewform" target="_blank">
-                                Đồ Chơi Bé Trai
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://docs.google.com/forms/d/e/1FAIpQLScCtwnRHg0BcfpQ_I2fKWAMY5CDwFytHWhx1oI8YlOA99wu2Q/viewform" target="_blank">
-                                Đồ Chơi Bé Gái
-                            </a>
-                        </li>
+
                         <li>
                             <a class="modal-trigger" href="#modal-search">
                                 Tìm Kiếm
                             </a>
                         </li>
+
+                        <li>
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLScCtwnRHg0BcfpQ_I2fKWAMY5CDwFytHWhx1oI8YlOA99wu2Q/viewform" target="_blank">
+                                Bé Trai
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLScCtwnRHg0BcfpQ_I2fKWAMY5CDwFytHWhx1oI8YlOA99wu2Q/viewform" target="_blank">
+                                Bé Gái
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="modal-trigger" href="#modal-contact">
+                                Sự Kiện
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="modal-trigger" href="#modal-contact">
+                                Blog
+                            </a>
+                        </li>
+
                         <li>
                             <a class="modal-trigger" href="#modal-contact">
                                 Liên Hệ
                             </a>
                         </li>
-                    </ul>
-                </div>
-                <div class="col s6">
-                    <ul class="right hide-on-med-and-down">
+
                         <li>
-                            <a href="https://itunes.apple.com/us/app/go2joy/id1185445287?ls=1&mt=8" target="_blank">
-                                <img class="store-button" align="center" src="<%=url%>getImage:icon|appstore-white.png" />
+                            <a class="modal-trigger" href="#modal-contact">
+                                <li>
+                                    <a href="">Giỏ Hàng
+                                        <span class="badge cart-badge white-text">(4)</span>
+                                    </a>
+                                </li>
+                                <!-- <i class="material-icons">shopping_cart</i> -->
                             </a>
                         </li>
 
-                        <li>
-                            <a href="https://itunes.apple.com/us/app/go2joy/id1185445287?ls=1&mt=8" target="_blank">
-                                <img class="store-button" align="center" src="<%=url%>getImage:icon|googleplay-white.png" />
-                            </a>
-                        </li>
+                    </ul>
+                </div>
+
+                <div class="col s6 m6 l4">
+                    <ul class="right hide-on-med-and-down">
+                        <div class="row">
+                            <div class="col s6 m6 l6">
+                                <li>
+                                    <a href="https://itunes.apple.com/us/app/go2joy/id1185445287?ls=1&mt=8" target="_blank">
+                                        <img class="store-button" align="center" src="<%=url%>getImage:icon|appstore-white.png" />
+                                    </a>
+                                </li>
+                            </div>
+                            <div class="col s6 m6 l6">
+                                <li>
+                                    <a href="https://itunes.apple.com/us/app/go2joy/id1185445287?ls=1&mt=8" target="_blank">
+                                        <img class="store-button" align="center" src="<%=url%>getImage:icon|googleplay-white.png" />
+                                    </a>
+                                </li>
+                            </div>
+                        </div>
                     </ul>
                 </div>
             </div>
