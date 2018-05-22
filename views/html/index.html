@@ -16,6 +16,10 @@
   <!--Import index.css-->
   <link type="text/css" rel="stylesheet" href="../css/index.css" media="screen,projection" />
   <!--Mobile optimize -->
+
+    <!-- Include the default SCEditor theme -->
+  <link rel="stylesheet" href="../sceditor/minified/themes/default.min.css" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Kingpesvn</title>
@@ -201,6 +205,13 @@
             </a>
           </div>
 
+          <div class="container">
+          <div class="col s12 m12 l12">
+          <textarea id="editor">Hello world</textarea>
+          </div>          
+        </div>
+
+
           <!-- END one hotel item -->
 
         </div>
@@ -251,7 +262,29 @@
   <script type="text/javascript" src="../js/materialize.js"></script>
   <script type="text/javascript" src="../js/index.js"></script>
 
-  <script type="text/javascript" src="../js/youtube.js"></script>
+
+
+<!-- Include SCEditor's JS -->
+<script src="../sceditor/minified/sceditor.min.js"></script>
+
+<!-- Include the XHTML format -->
+<script src="../sceditor/minified/formats/xhtml.js"></script>
+
+<script>
+  // Get the textarea to be converted
+  var textarea = document.getElementById('editor');
+  
+  sceditor.create(textarea, {
+    // Load the XHTML format
+    format: 'xhtml',
+  
+    // Use themes/content/default.min.css to style the content
+    style: '/minified/themes/content/default.min.css'
+  });
+
+  alert($('#editor').val());
+
+  </script>
 
 </body>
 
