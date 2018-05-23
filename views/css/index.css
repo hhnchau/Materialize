@@ -18,6 +18,10 @@ blockquote {
   .price-sell {
     font-size: 20px !important;
   }
+
+  .mobile-search-input{
+    margin-top: 4px !important;
+  }
 }
 
 @media screen and (min-width: 992px) {
@@ -40,7 +44,7 @@ blockquote {
 
 .box-search-input{
   position: absolute;
-  width:90%; 
+  width: 98%; 
   height:3.5rem; 
   margin-left:3rem;
   margin-top:0.3rem !important;

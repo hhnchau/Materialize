@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%include admin-meta.ejs%>
+        <%include admin-css.ejs%>
+            <title>KINGPES-ADMIN-PAGE</title>
+</head>
+
+<body>
+
+    <header>
+        <%include admin-header.ejs%>
+    </header>
+
+    <main>
+        <%include admin-add.ejs%>
+            <textarea id="editor" name="editor">Demo</textarea>
+    </main>
+
+    <footer>
+        <%include admin-footer.ejs%>
+    </footer>
+
+    <%include admin-js.ejs%>
+
+        <!-- Script -->
+        <%include admin-script.ejs%>
+            <!-- Script -->
+
+            <!-- Modal -->
+
+            <!-- Modal -->
+            <script src="ckeditor/ckeditor.js"></script>
+            <script>CKEDITOR.replace('editor')</script>
+
+            <script>
+                $('#btn-add').click(function () {
+                    var e = CKEDITOR.instances['editor'].getData()
+                    alert(e);
+                });
+            </script>
+
+</body>
+
+</html>

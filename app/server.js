@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var path = require('path');
 var file = require('./file');
 var settings = require('./settings');
 var query = require('./query');
@@ -13,7 +14,8 @@ app.listen(settings.listenPort, function () {
 });
 
 app.set("view engine", "ejs");
-app.set("views", "../views/html");
+app.set("views", "../views/html/admin");
+app.use(express.static(path.join(__dirname, '../views/html/admin')));
 
 
 var url = "abcdefgh";
@@ -381,8 +383,8 @@ app.get("/login", function (req, res) {
   res.render("login");
 });
 
-app.get("/admin-dashboard", function (req, res) {
-  res.render("admin-dashboard", { host: settings.url });
+app.get("/admin-home", function (req, res) {
+  res.render("admin-home", { host: settings.url });
 });
 
 app.get("/new-product", function (req, res) {
