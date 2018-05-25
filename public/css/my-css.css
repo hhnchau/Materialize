@@ -7,3 +7,7 @@ header, main, footer {
       padding-left: 0;
     }
   }
+
+  .image-input{
+    margin-left: -10px;
+}

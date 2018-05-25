@@ -1,0 +1,70 @@
+<!-- Section: Contact -->
+<section id="product-add" class="section section-add">
+    <div class="container">
+        <div class="row">
+            <div class="card-panel grey lighten-3">
+
+                <h5 class="center flow-text">THÊM MỚI SẢN PHẨM</h5>
+
+                <div class="input-field">
+                    <input id="product-code" type="text" class="validate">
+                    <label for="product-code">Mã Sản Phẩm</label>
+                </div>
+
+                <div class="input-field">
+                    <input id="product-name" type="text" class="validate">
+                    <label for="product-name">Tên Sản Phẩm</label>
+                </div>
+
+                <div class="input-field">
+                    <input id="product-category" type="text" class="validate">
+                    <label for="product-category">Danh Mục-Chon tu combox</label>
+                </div>
+
+                <div class="input-field">
+                    <input id="product-amount" type="text" class="validate">
+                    <label for="product-amount">Số Lượng</label>
+                </div>
+
+                <div class="input-field">
+                    <input id="product-buy" type="text" class="validate">
+                    <label for="product-buy">Mua Vào</label>
+                </div>
+
+                <div class="input-field">
+                    <input id="product-sell" type="text" class="validate">
+                    <label for="product-sell">Bán Ra</label>
+                </div>
+
+                <div class="input-field">
+                    <input id="product-promotion" type="text" class="validate">
+                    <label for="product-promotion">Khuyến Mại-Chon tu combox</label>
+                </div>
+
+                <div class="input-field file-field image-input">
+                    <input type="file" multiple>
+                    <div class="file-path-wrapper">
+                        <input class="file-path" name="file" id="fileUploader" type="text" placeholder="Chọn hình ảnh cho sản phẩm">
+                    </div>
+                </div>
+
+                <div>
+                    <div id="product-video" class="chips chips-placeholder"></div>
+                </div>
+
+                <div class="file-field input-field">
+                    <textarea id="editor" name="editor"></textarea>
+                </div>
+
+                <input type="submit" value="Thêm" class="btn" id="btn-add">
+
+        
+                        <form action="http://localhost:3000/upload" method="Post" enctype="multipart/form-data">
+                          <input type="file" name="file"></br>
+                          <input type="submit" name="upload">
+                      
+
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,46 @@
+<script src="ckeditor/ckeditor.js"></script>
+
+<script>CKEDITOR.replace('editor')</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('.chips');
+        var instances = M.Chips.init(elems, {
+            placeholder: 'Nhập ID Video',
+            secondaryPlaceholder: '+ ID Video',
+            limit: 5
+        });
+    });
+</script>
+
+<script>
+    const sideNav = document.querySelector('.sidenav');
+    M.Sidenav.init(sideNav, {});
+</script>
+
+<script>
+    $('#btn-add').click(function () {
+        //var e = CKEDITOR.instances['editor'].getData()
+
+        var file = document.getElementById("fileUploader");
+        alert(file);
+
+        $.ajax({
+            method: "POST",
+            dataType: "json",
+            beforeSend: function (request) {
+                request.setRequestHeader("secret", "12345");
+            },
+            url: "http://localhost:3000/upload",
+            success: function success(data) {
+                var result = "";
+                // $.each(data, function (i, value) {
+                //     result = value.ho;
+                //     result += value.diachi;
+                // });
+                alert(data);
+            }
+        });
+
+    });
+</script>

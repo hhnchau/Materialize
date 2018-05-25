@@ -1,0 +1,41 @@
+
+
+<div class="chip">
+    <img src="img/resort1.jpg" alt="Contact Person"> Jane Doe
+    <i class="close material-icons">close</i>
+</div>
+
+<div id="inputChip" class="chips chips-placeholder"></div>
+
+<div class="preloader-wrapper big active">
+        <div class="spinner-layer spinner-blue-only">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div><div class="gap-patch">
+            <div class="circle"></div>
+          </div><div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="collection fixed">
+            <a href="#!" class="collection-item">Alvin</a>
+            <a href="#!" class="collection-item active">Alvin</a>
+            <a href="#!" class="collection-item">Alvin</a>
+            <a href="#!" class="collection-item">Alvin</a>
+          </div>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('.chips');
+        var instances = M.Chips.init(elems, {
+            placeholder: 'Enter a tag',
+            secondaryPlaceholder: '+Tag',
+            onChipAdd: function(){
+                alert('ádasd');
+            }
+        });
+    });
+</script>

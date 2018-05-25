@@ -17,10 +17,8 @@ app.listen(settings.listenPort, function () {
   console.log("Connect successfull!");
 });
 
-var demo = require('./routes/demo');
-app.use('/', demo);
-
-
+var upload = require('./routes/upload');
+app.use('/', upload);
 
 
 var url = "abcdefgh";
