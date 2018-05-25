@@ -1,21 +1,26 @@
 var express = require('express');
-var app = express();
 var path = require('path');
 var file = require('./file');
 var settings = require('./settings');
 var query = require('./query');
 var querystring = require('querystring');
 var bodyParser = require('body-parser');
+
+var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.set("view engine", "ejs");
+app.set("views", "../views");
+app.use(express.static(path.join(__dirname, '../public')));
 
 app.listen(settings.listenPort, function () {
   console.log("Connect successfull!");
 });
 
-app.set("view engine", "ejs");
-app.set("views", "../views/html/admin");
-app.use(express.static(path.join(__dirname, '../views/html/admin')));
+var demo = require('./routes/demo');
+app.use('/', demo);
+
+
 
 
 var url = "abcdefgh";
@@ -384,7 +389,7 @@ app.get("/login", function (req, res) {
 });
 
 app.get("/admin-home", function (req, res) {
-  res.render("admin-home", { host: settings.url });
+  res.render("admin/admin-home", { host: settings.url });
 });
 
 app.get("/new-product", function (req, res) {
