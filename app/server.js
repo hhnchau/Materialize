@@ -5,6 +5,7 @@ var settings = require('./settings');
 var query = require('./query');
 var querystring = require('querystring');
 var bodyParser = require('body-parser');
+var multer = require('multer');
 
 var app = express();
 app.use(bodyParser.json());
@@ -396,15 +397,37 @@ app.post("/admin-login", function (req, res) {
     var password = req.body.password;
 
     console.log(username + password);
-
-    console.log(req.body.ba);
     
-    
-    res.end("Login OK");
+    res.end('OK');
 
   }else{
     res.end("Login Fail");
   }
+});
+
+var storage = multer.diskStorage({
+  destination: function (req, file, callback) {
+    callback(null, '../public/upload');
+  },
+  filename: function (req, file, callback) {
+    callback(null, Date.now() + file.originalname);
+  }
+});
+var upload = multer({ storage: storage }).any();
+
+app.post('/admin-logins', function (req, res) {
+  upload(req, res, function (err) {
+    var secret = req.headers['secret'];
+    console.log(secret);
+    console.log(req.files);
+    console.log(req.body.mot);
+    console.log(req.body.hai);
+    console.log(req.body.ba);
+    if (err) {
+      return res.end("Error uploading file.");
+    }
+    res.end("File is uploaded");
+  });
 });
 
 app.get("/admin-home", function (req, res) {

@@ -23,12 +23,22 @@ exports.sendImage = function (req, res) {
         string = string.split(":").map(val => val);
         var id = string[1].split("|").map(val => val);
         log.write("File Image ID:", id[1]);
-        if(id[0] == "icon"){
+        if (id[0] == "icon") {
             res.sendFile(path.resolve("../views/images/icon/" + id[1]));
-        }else{
+        } else {
             res.sendFile(path.resolve("../views/images/product/" + id[1]));
         }
     } catch (ex) {
         log.write("---------->EXCEPTION<----------", ex);
+    }
+
+    exports.deleteFile = function (nameImage) {
+        try {
+            var fs = require('fs');
+            var filePath = 'c:/book/discovery.docx';
+            fs.unlinkSync(filePath);
+        } catch (ex) {
+
+        }
     }
 }
