@@ -17,8 +17,8 @@ app.listen(settings.listenPort, function () {
   console.log("Connect successfull!");
 });
 
-var upload = require('./routes/upload');
-app.use('/', upload);
+// var upload = require('./routes/upload');
+// app.use('/', upload);
 
 
 var url = "abcdefgh";
@@ -375,15 +375,36 @@ app.get("/details/sn:id", function (req, res) {
 });
 
 app.get("/cart", function (req, res) {
-  res.render("cart", {host: settings.url });
+  res.render("html/cart", {host: settings.url });
 });
 
 app.get("/search/keyword:key", function (req, res) {
   res.render("details", { host: settings.url, keyword: req.params.key });
 });
 
-app.get("/login", function (req, res) {
-  res.render("login");
+app.get("/admin-login", function (req, res) {
+  res.render("admin/admin-login");
+});
+
+app.post("/admin-login", function (req, res) {
+  var secret = req.headers[settings.secret_key];
+  console.log(secret);
+  
+  if (secret === settings.secret_encrypt) {
+
+    var username = req.body.username;
+    var password = req.body.password;
+
+    console.log(username + password);
+
+    console.log(req.body.ba);
+    
+    
+    res.end("Login OK");
+
+  }else{
+    res.end("Login Fail");
+  }
 });
 
 app.get("/admin-home", function (req, res) {

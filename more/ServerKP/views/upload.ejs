@@ -1,12 +1,73 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>UPLOAD FILE</title>
-  </head>
-  <body>
-    <form action="http://localhost:3000/upload" method="Post" enctype="multipart/form-data">
-      <input type="file" name="file"></br>
-      <input type="submit" name="upload">
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <title>UPLOAD FILE</title>
+</head>
+
+<body>
+  <form action="http://localhost:3000/chau/upload" method="Post" enctype="multipart/form-data">
+    <input type="file" name="file" multiple>
+    </br>
+    <input type="submit" name="upload">
+
+
+
+    <br>
+    <br>
+    <br>
+
+    <form action="" method="POST" role="form">
+      <legend>Upload</legend>
+
+      <div class="form-group">
+        <label for="">Chọn file</label>
+        <input id="file" type="file" name="sortpic" required="" />
+      </div>
+      <div class="form-group">
+        <button id="upload" class="btn btn-primary">Upload</button>
+      </div>
+    </form>
+    <div class="status alert alert-success"></div>
+
+
+
+    <script>
+      //xử lý khi có sự kiện click
+      $('#upload').on('click', function() {
+          //Lấy ra files
+          var file_data = $('#file').prop('files')[0];
+          //lấy ra kiểu file
+          var type = file_data.type;
+          //Xét kiểu file được upload
+          var match= ["image/gif","image/png","image/jpg",];
+          //kiểm tra kiểu file
+          
+              //khởi tạo đối tượng form data
+              var form_data = new FormData();
+              //thêm files vào trong form data
+              form_data.append('file', file_data);
+              //sử dụng ajax post
+              $.ajax({
+                  url: 'http://localhost:3000/chau/upload',
+                  dataType: 'text',
+                  cache: false,
+                  contentType: false,
+                  processData: false,
+                  data: form_data,                       
+                  type: 'post',
+                  success: function(res){
+                      $('.status').text(res);
+                      $('#file').val('');
+              }
+          });
+          
+          return false;
+      });
+  </script>
+
+
+</body>
+
 </html>

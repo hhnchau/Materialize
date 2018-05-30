@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%include admin-meta.ejs%>
+
+        <%include admin-css.ejs%>
+
+            <title>KINGPES-ADMIN-LOGIN</title>
+</head>
+
+<body class="grey lighten-3 center-align">
+
+    <div style="margin-top: 10%"></div>
+
+    <div class="row">
+        <div class="col s12 m4 offset-m4">
+
+            <div class="card-panel grey lighten-3">
+
+                <h5 class="center flow-text">DANG NHAP</h5>
+
+                <form id="loginForm" enctype="multipart/form-data" action="/admin-login" method="post">
+                    <div class="input-field">
+                        <input id="username" type="text" name="username">
+                        <label for="username">Ten Dang Nhap</label>
+                    </div>
+
+                    <div class="input-field">
+                        <input id="password" type="text" name="password">
+                        <label for="password">Password</label>
+                    </div>
+
+                    <div style="margin-top: 20px">
+                        <input type="submit" class="btn bottom" value="DANG NHAP" name="submit">
+                        <br>
+                        <span id="status">chu</span>
+                        <div id="progress" class="progress">
+                            <div class="indeterminate"></div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <%include admin-js.ejs%>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
+
+
+        <script>
+            $(document).ready(function () {
+                $('#loginForm').submit(function () {
+                    $("#status").empty().text("File is uploading...");
+                    $(this).ajaxSubmit({
+                        beforeSend: function (request) {
+                            request.setRequestHeader("secret", "12345");
+                        },
+                        error: function (xhr) {
+                            status('Error: ' + xhr.status);
+                        },
+                        success: function (response) {
+                            console.log(response)
+                            $("#status").empty().text(response);
+                        }
+                    });
+                    return false;
+                });
+            });
+
+
+            function login() {
+                $.ajax({
+                    method: "POST",
+                    dataType: "json",
+                    beforeSend: function (request) {
+                        request.setRequestHeader("secret", "12345");
+                    },
+                    url: "http://localhost:3000/admin-login",
+                    data: {
+                        username: "HuynhChau",
+                        password: "Khuyen mai 30k"
+                    },
+                    success: function success(data) {
+                        var result = "";
+                        $.each(data, function (i, value) {
+                            result = value.insert;
+                        });
+                        alert(result);
+                    }
+                });
+            }
+
+        </script>
+
+</body>
+
+</html>

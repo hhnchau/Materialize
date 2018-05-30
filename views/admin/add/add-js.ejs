@@ -22,25 +22,104 @@
     $('#btn-add').click(function () {
         //var e = CKEDITOR.instances['editor'].getData()
 
-        var file = document.getElementById("fileUploader");
-        alert(file);
+        var progress = $("#progress");
+        if (progress.is(':visible')) {
+            progress.hide();
+        } else {
+            progress.show();
+        }
 
+        var file_data = $('#file').prop('files')[0];
+        alert(file_data.length);
+
+        //lấy ra kiểu file
+        var type = file_data.type;
+        //Xét kiểu file được upload
+        var match = ["image/gif", "image/png", "image/jpg",];
+        //kiểm tra kiểu file
+        //if (type == match[0] || type == match[1] || type == match[2]) {
+        //khởi tạo đối tượng form data
+        var form_data = new FormData();
+        //thêm files vào trong form data
+        form_data.append('model', {ho:"huynh", ten:"chau"});
+        //form_data.append('file', file_data);
+
+        alert(form_data.ho);
+        //sử dụng ajax post
         $.ajax({
-            method: "POST",
-            dataType: "json",
+            method: 'POST',
+            dataType: 'json',
+            cache: false,
+            contentType: false,
+            processData: false,
+            url: 'http://localhost:3000/upload',
+            data: form_data,
             beforeSend: function (request) {
                 request.setRequestHeader("secret", "12345");
             },
-            url: "http://localhost:3000/upload",
-            success: function success(data) {
-                var result = "";
-                // $.each(data, function (i, value) {
-                //     result = value.ho;
-                //     result += value.diachi;
-                // });
-                alert(data);
+            success: function (res) {
+                $('.status').text(res);
+                $('#file').val('');
             }
         });
+        // } else {
+        //     $('.status').text('Chỉ được upload file ảnh');
+        //     $('#file').val('');
+        // }
+        return false;
 
+    });
+
+    function uploadImage(form_data) {
+        $.ajax({
+            url: 'http://localhost:3000/upload',
+            dataType: 'text',
+            cache: false,
+            contentType: false,
+            processData: false,
+            data: form_data,
+            type: 'post',
+            success: function (res) {
+                $('.status').text(res);
+                $('#file').val('');
+            }
+        });
+    }
+</script>
+
+<script>
+    //xử lý khi có sự kiện click
+    $('#upload').on('click', function () {
+        //Lấy ra files
+        var file_data = $('#file').prop('files')[0];
+        //lấy ra kiểu file
+        var type = file_data.type;
+        //Xét kiểu file được upload
+        var match = ["image/gif", "image/png", "image/jpg",];
+        //kiểm tra kiểu file
+        //if (type == match[0] || type == match[1] || type == match[2]) {
+        //khởi tạo đối tượng form data
+        var form_data = new FormData();
+        //thêm files vào trong form data
+        form_data.append('file', file_data);
+        //sử dụng ajax post
+        $.ajax({
+            url: 'http://localhost:3000/upload', // gửi đến file upload.php 
+            dataType: 'text',
+            cache: false,
+            contentType: false,
+            processData: false,
+            data: form_data,
+            type: 'post',
+            success: function (res) {
+                $('.status').text(res);
+                $('#file').val('');
+            }
+        });
+        // } else {
+        //     $('.status').text('Chỉ được upload file ảnh');
+        //     $('#file').val('');
+        // }
+        return false;
     });
 </script>

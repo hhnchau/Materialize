@@ -1,0 +1,6 @@
+npm init -y
+npm install express ejs -save
+npm install body-parser -save
+npm install passport -save
+npm install passport-local -save
+npm install express-session -save

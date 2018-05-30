@@ -1,5 +1,5 @@
 <!-- Section: Contact -->
-<section id="product-add" class="section section-add">
+<section id="product-add" class="section section-add grey lighten-3">
     <div class="container">
         <div class="row">
             <div class="card-panel grey lighten-3">
@@ -42,27 +42,36 @@
                 </div>
 
                 <div class="input-field file-field image-input">
-                    <input type="file" multiple>
+                    <input id="file" type="file" name="sortpic" required="" accept="image/*" multiple>
                     <div class="file-path-wrapper">
-                        <input class="file-path" name="file" id="fileUploader" type="text" placeholder="Chọn hình ảnh cho sản phẩm">
+                        <input class="file-path" type="text" placeholder="Chọn hình ảnh cho sản phẩm">
                     </div>
                 </div>
 
-                <div>
+                <div class="input-field">
                     <div id="product-video" class="chips chips-placeholder"></div>
                 </div>
 
-                <div class="file-field input-field">
+                <div class="file-field margin-top-20">
+                    <p class="grey-text">Mo ta chi tiet</p>
                     <textarea id="editor" name="editor"></textarea>
                 </div>
 
-                <input type="submit" value="Thêm" class="btn" id="btn-add">
+                <div class="margin-top-20">
+                    <input type="submit" value="Thêm" class="btn bottom" id="btn-add">
+                    <div id="progress" class="progress">
+                        <div class="indeterminate"></div>
+                    </div>
+                </div>
 
-        
-                        <form action="http://localhost:3000/upload" method="Post" enctype="multipart/form-data">
-                          <input type="file" name="file"></br>
-                          <input type="submit" name="upload">
-                      
+
+
+                <!-- <input id="file" type="file" name="sortpic" required="" multiple/>
+                <button id="upload" class="btn btn-primary">Upload</button>
+
+                <div class="status alert alert-success"></div> -->
+
+
 
             </div>
         </div>
