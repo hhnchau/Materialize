@@ -384,6 +384,7 @@ app.get("/search/keyword:key", function (req, res) {
 });
 
 app.get("/admin-login", function (req, res) {
+  console.log("BACK");
   res.render("admin/admin-login");
 });
 
@@ -398,10 +399,12 @@ app.post("/admin-login", function (req, res) {
 
     console.log(username + password);
     
-    res.end('OK');
+    res.json({status:'Dang Nhap Thanh Cong'});
+    res.end();
 
   }else{
-    res.end("Login Fail");
+    res.json({status:'Dang Nhap That Bai'});
+    res.end();
   }
 });
 
@@ -415,18 +418,24 @@ var storage = multer.diskStorage({
 });
 var upload = multer({ storage: storage }).any();
 
-app.post('/admin-logins', function (req, res) {
+app.post('/admin-add', function (req, res) {
   upload(req, res, function (err) {
     var secret = req.headers['secret'];
     console.log(secret);
     console.log(req.files);
-    console.log(req.body.mot);
-    console.log(req.body.hai);
-    console.log(req.body.ba);
+    console.log(req.body.productCode);
+    console.log(req.body.productName);
+    console.log(req.body.productCategory);
+    console.log(req.body.productAmount);
+    console.log(req.body.productBuy);
+    console.log(req.body.productSell);
+    console.log(req.body.productPromotion);
+    console.log(req.body.productVideo);
+    console.log(req.body.productEditor);
     if (err) {
-      return res.end("Error uploading file.");
+      return res.end("Thêm sản phẩm thất bại");
     }
-    res.end("File is uploaded");
+    res.end("Thêm sản phẩm thành công");
   });
 });
 

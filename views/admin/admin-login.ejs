@@ -18,61 +18,61 @@
 
             <div class="card-panel grey lighten-3">
 
-                <h5 class="center flow-text">DANG NHAP</h5>
+                <h5 class="center flow-text">ĐĂNG NHẬP HỆ THỐNG</h5>
 
-                <form>
-                    <div class="input-field">
-                        <input id="username" type="text" name="username">
-                        <label for="username">Ten Dang Nhap</label>
-                    </div>
+                <div class="input-field">
+                    <input id="username" type="text" name="username">
+                    <label for="username">Tên Đăng Nhập</label>
+                </div>
 
-                    <div class="input-field">
-                        <input id="password" type="text" name="password">
-                        <label for="password">Password</label>
-                    </div>
+                <div class="input-field">
+                    <input id="password" type="password" name="password">
+                    <label for="password">Mật Khẩu</label>
+                </div>
 
-                    <div style="margin-top: 20px">
-                        <input type="submit" class="btn bottom" value="DANG NHAP" id="login">
-                        <br>
-                        <span id="statuss"></span>
-                        <div id="progress" class="progress">
-                            <div class="indeterminate"></div>
-                        </div>
+                <div style="margin-top: 20px">
+                    <input type="submit" class="btn bottom" value="Đăng Nhập" id="login">
+                    <br>
+                    <div id="status"></div>
+                    <div id="progress" class="progress">
+                        <div class="indeterminate"></div>
                     </div>
-                </form>
+                </div>
 
             </div>
         </div>
 
     </div>
 
-    <form id="uploadForm" enctype="multipart/form-data" action="/admin-logins" method="post">
-        <input type="file" name="userPhoto" multiple />
-        <input type="submit" value="Upload Image" name="submit">
-        <input type='text' id='random' name='mot'>
-        <input type='text' id='random' name='hai'>
-        <input type='text' id='random' name='ba'>
-        <br>
-        <span id="status"></span>
-    </form>
-
     <%include admin-js.ejs%>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
 
 
         <script>
 
+            var progress = $("#progress");
+
+
             $(document).ready(function () {
+
+                if (progress.is(':visible')) {
+                    progress.hide();
+                }
+
+
 
                 $('#login').click(function () {
                     var u = $('#username').val();
                     var p = $('#password').val();
                     login(u, p);
+
+                    progress.show();
                 });
             });
 
 
             function login(_username, _password) {
+                $("#status").empty().text('Đang xử lý');
                 $.ajax({
                     method: "POST",
                     dataType: "json",
@@ -85,36 +85,38 @@
                         password: _password
                     },
                     success: function success(data) {
+                        progress.hide();
 
-                        $("#statuss").empty().text(response);
+                        $("#status").empty().text(data.status);
+
+                        window.location.href = 'http://localhost:3000/admin-home';
                         
-
                     }
                 });
             }
 
         </script>
 
-<script>
-        $(document).ready(function () {
-            $('#uploadForm').submit(function () {
-                $("#status").empty().text("File is uploading...");
-                $(this).ajaxSubmit({
-                    beforeSend: function (request) {
-                        request.setRequestHeader("secret", "12345");
-                    },
-                    error: function (xhr) {
-                        status('Error: ' + xhr.status);
-                    },
-                    success: function (response) {
-                        console.log(response)
-                        $("#status").empty().text(response);
-                    }
+        <!-- <script>
+            $(document).ready(function () {
+                $('#uploadForm').submit(function () {
+                    $("#status").empty().text("File is uploading...");
+                    $(this).ajaxSubmit({
+                        beforeSend: function (request) {
+                            request.setRequestHeader("secret", "12345");
+                        },
+                        error: function (xhr) {
+                            status('Error: ' + xhr.status);
+                        },
+                        success: function (response) {
+                            console.log(response)
+                            $("#status").empty().text(response);
+                        }
+                    });
+                    return false;
                 });
-                return false;
             });
-        });
-    </script>
+        </script> -->
 
 </body>
 

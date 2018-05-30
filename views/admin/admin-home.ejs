@@ -17,7 +17,7 @@
     </header>
 
     <main>
-        <%include add/admin-add.ejs%>
+        <%include edit/admin-edit.ejs%>
     </main>
 
     <footer>
@@ -27,6 +27,63 @@
     <%include admin-js.ejs%>
 
         <%include add/add-js.ejs%>
+
+            <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
+
+            <script>
+
+                var progress = $("#progress");
+
+                $(document).ready(function () {
+
+                    if (progress.is(':visible')) {
+                        progress.hide();
+                    }
+
+                    $('#addForm').submit(function () {
+
+                        progress.show();
+
+                        $(this).ajaxSubmit({
+                            beforeSend: function (request) {
+                                request.setRequestHeader("secret", "12345");
+                            },
+                            data: {
+                                productVideo: getContentChips(),
+                                productEditor: getContentEditor()
+                            },
+                            error: function (xhr) {
+                                status('Error: ' + xhr.status);
+
+                                progress.hide();
+
+                            },
+                            success: function (data) {
+
+                                progress.hide();
+
+                                $("#status").empty().text(data);
+
+                            }
+                        });
+                        return false;
+
+                    });
+                });
+
+                function getContentChips() {
+                    var chip = M.Chips.getInstance($(".chips"));
+                    var result = "";
+                    $.each(chip.chipsData, function (i, content) {
+                        result += content.tag + "~";
+                    });
+                    return result.substr(0, result.length - 1);
+                }
+
+                function getContentEditor() {
+                    return CKEDITOR.instances['editor'].getData();
+                }
+            </script>
 
 </body>
 
