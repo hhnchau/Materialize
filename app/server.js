@@ -18,16 +18,84 @@ app.listen(settings.listenPort, function () {
   console.log("Connect successfull!");
 });
 
-// var upload = require('./routes/upload');
-// app.use('/', upload);
-
-
 var url = "abcdefgh";
 var encoded = new Buffer(url).toString('base64');
 var decoded = new Buffer(encoded, 'base64').toString('ascii')
 
 console.log(encoded);
 console.log(decoded);
+
+var admin = require('./routes/admin');
+app.use('/admin', admin);
+
+
+//Voucher
+app.get('/admin/find-all-voucher.html', (req, res) =>{
+  console.log('okkkk');  
+});
+
+app.post('/admin/add-voucher.html', (req, res) =>{
+  console.log('okkkk');  
+});
+
+app.put('/admin/update-voucher.html', (req, res) =>{
+  console.log('okkkk');  
+});
+
+app.delete('/admin/delete-voucher.html', (req, res) =>{
+  console.log('okkkk');  
+});
+
+//Promotion
+app.get('/admin/find-all-promotion.html', (req, res) =>{
+  console.log('okkkk');  
+});
+
+app.post('/admin/add-promotion.html', (req, res) =>{
+  console.log('okkkk');  
+});
+
+app.put('/admin/update-promotion.html', (req, res) =>{
+  console.log('okkkk');  
+});
+
+app.delete('/admin/delete-promotion.html', (req, res) =>{
+  console.log('okkkk');  
+});
+
+//Event
+app.get('/admin/find-all-event.html', (req, res) =>{
+  console.log('okkkk');  
+});
+
+app.post('/admin/add-event.html', (req, res) =>{
+  console.log('okkkk');  
+});
+
+app.put('/admin/update-event.html', (req, res) =>{
+  console.log('okkkk');  
+});
+
+app.delete('/admin/delete-event.html', (req, res) =>{
+  console.log('okkkk');  
+});
+
+//Blog
+app.get('/admin/find-all-blog.html', (req, res) =>{
+  console.log('okkkk');  
+});
+
+app.post('/admin/add-blog.html', (req, res) =>{
+  console.log('okkkk');  
+});
+
+app.put('/admin/update-blog.html', (req, res) =>{
+  console.log('okkkk');  
+});
+
+app.delete('/admin/delete-blog.html', (req, res) =>{
+  console.log('okkkk');  
+});
 
 
 /*
@@ -470,6 +538,7 @@ app.get('/getResource:id', function (req, res) {
 app.get('/getImage:id', function (req, res) {
   file.sendImage(req, res);
 });
+
 
 
 

@@ -278,4 +278,47 @@ exports.sqlDeleteVoucher = function (id, query) {
 }
 
 
+/*
+* ADMIN
+*/
+exports.sqlCheckProductSn = function (sn, query) {
+    var sql = "";
+    sql += "SELECT 1 FROM product";
+    sql += " WHERE";
+    sql += " productSn = '" + sn + "'";
+
+    query(sql);
+}
+
+exports.sqlInsertProduct = function (params, query) {
+    var sql = "";
+    sql += " INSERT INTO product";
+    sql += " (voucherName, voucherDescription, code, value, start, end)";
+    sql += " VALUES";
+    sql += " ('" + params.voucherName + "', '" + params.voucherDescription + "', '" + params.code + "', '" + params.value + "', '" + params.start + "', '" + params.end + "')";
+
+    query(sql);
+}
+
+exports.sqlInsertImage = function (params, query) {
+    var sql = "";
+    sql += " INSERT INTO image";
+    sql += " (image1, image2, image3, image4, image5)";
+    sql += " VALUES";
+    sql += " ('" + params.image1 + "', '" + params.image2 + "', '" + params.image3 + "', '" + params.image4 + "', '" + params.image5 + "')";
+
+    query(sql);
+}
+
+exports.sqlInsertYoutube = function (params, query) {
+    var sql = "";
+    sql += " INSERT INTO youtube";
+    sql += " (yt1, yt2, yt3)";
+    sql += " VALUES";
+    sql += " ('" + params.yt1 + "', '" + params.yt2 + "', '" + params.yt3 + "')";
+
+    query(sql);
+}
+
+
 

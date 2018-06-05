@@ -10,15 +10,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({
     secret: 'kingpes',
     cookie:{
-        maxAge: 1000*60*3
+        maxAge: 1000*60*3 //3phut
     },
     resave: true,
     key: 'user',
     saveUninitialized: true
-  
   }));
 app.use(passPort.initialize());
-app.use(passPort.session);
+app.use(passPort.session());
 
 app.set('views', './views');
 app.set('view engine', 'ejs');
@@ -35,37 +34,44 @@ app.get('/', (req, res) => res.render('index'));
 
 app.get('/loginok', (req, res) => res.send("Login Thanh Cong"));
 
-app.route('/login')
-    .get((req, res) => res.render('login'))
-    .post(passPort.authenticate('local',{failureRedirect: '/login', suscessRedirect: '/loginok'}))
+
+    app.get('/login',(req, res) => res.render('login'));
+    app.post('/login',passPort.authenticate('local',{failureRedirect: '/login', successRedirect: '/loginok'}));
 
 
 passPort.use(new localStategy(
-    (username, password, done) => {
+    (username, password, cb) => {
         fs.readFile('./userDB.json', (err, data) => {
             const db = JSON.parse(data);
+            console.log('localStategy');
+            
+            console.log(db);
             const userRecord = db.find(user =>user.usr === username)
             if(userRecord && userRecord.pwd === password){
-                return done(null, userRecord)
+                return cb(null, userRecord)
             }else{
-                return done(null, false)
+                return cb(null, false)
             }
         })
     }
 ));
 
-passPort.serializeUser((user, done) => {
-    done(null, user.usr)
+//Login thanh cong, luu vao session
+passPort.serializeUser((user, cb) => {
+    cb(null, user.usr)
 });
 
-passPort.deserializeUser((name, done) => {
+//Kiem tra chung thuc, name = session(user.usr) da luu
+passPort.deserializeUser((name, cb) => {
     fs.readFile('./userDB.json', (err, data) =>{
-        const db = JSON.parse(data)
+        const db = JSON.parse(data);
+        console.log('deserialize');
+        console.log(db);
         const userRecord = db.find(user => user.usr == name)
         if(userRecord){
-            return done(null, userRecord)
+            return cb(null, userRecord)
         }else{
-            return done(null, false)
+            return cb(null, false)
         }
     })
 });

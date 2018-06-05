@@ -2,9 +2,9 @@
 <html lang="en">
 
 <head>
-    <%include admin-meta.ejs%>
+    <%include ../base/meta.ejs%>
 
-        <%include admin-css.ejs%>
+        <%include ../base/css.ejs%>
 
             <title>KINGPES-ADMIN-LOGIN</title>
 </head>
@@ -44,8 +44,8 @@
 
     </div>
 
-    <%include admin-js.ejs%>
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
+    <%include ../base/js.ejs%>
+        <script src="js/jquery.form.min.js"></script>
 
 
         <script>
@@ -79,18 +79,21 @@
                     beforeSend: function (request) {
                         request.setRequestHeader("secret", "12345");
                     },
-                    url: "http://localhost:3000/admin-login",
+                    url: "http://localhost:3000/admin/login.html",
                     data: {
                         username: _username,
                         password: _password
                     },
                     success: function success(data) {
-                        progress.hide();
+                        if (data === 404) {
+                            alert('Mã chứng thực không đúng!');
+                        } else {
+                            progress.hide();
 
-                        $("#status").empty().text(data.status);
+                            $("#status").empty().text(data.status);
 
-                        window.location.href = 'http://localhost:3000/admin-home';
-                        
+                            //window.location.href = 'http://localhost:3000/admin-home';
+                        }
                     }
                 });
             }

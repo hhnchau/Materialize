@@ -1,0 +1,169 @@
+<script src="js/jquery.form.min.js"></script>
+<script src="ckeditor/ckeditor.js"></script>
+
+<script>CKEDITOR.replace('editor')</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('.chips');
+        var instances = M.Chips.init(elems, {
+            placeholder: 'Nhập ID Video',
+            secondaryPlaceholder: '+ ID Video',
+            limit: 5
+        });
+    });
+</script>
+
+<script>
+    const sideNav = document.querySelector('.sidenav');
+    M.Sidenav.init(sideNav, {});
+</script>
+
+<script>
+
+    //Side Menu
+    $("#drop-baiviet").addClass("active");
+    //Side Menu
+    $('.redss').css("background-color", "#FF0000");
+
+
+    //Hide btn Check
+    $('#btn-check').hide();
+
+    //Hide Form
+    $(".gone").hide();
+
+    //Var isCheck
+    var isCheck = false;
+
+    //btn-chek click
+    $('#btn-check').on('click', function () {
+        var productCode = $('#product-code').val();
+        if (productCode !== "") {
+            $('#btn-check').hide();
+            isCheck = true;
+            checkProduct(productCode);
+        }
+        return false;
+    });
+
+    //Check Input Change
+    $('#product-code').on('input', function (e) {
+        var productCode = $('#product-code').val();
+        if (productCode !== "") {
+            $('#btn-check').show();
+        }else{
+            $('#btn-check').hide();
+        }
+
+        if (isCheck) {
+            isCheck = false;
+            $(".gone").hide();
+
+            //Clear text
+        }
+    });
+
+    function checkProduct(sn) {
+        $.ajax({
+            method: "POST",
+            dataType: "json",
+            beforeSend: function (request) {
+                request.setRequestHeader("secret", "12345");
+            },
+            url: "http://localhost:3000/admin/product/check-product",
+            data: {
+                productSn: sn,
+            },
+            success: function success(data) {
+                var result = "";
+                $.each(data, function (i, value) {
+                    result = value.productSn;
+                });
+
+                if (result === 0) {
+                    //OK
+                    //$(".gone").show();
+                    $('#modal-alert').modal('open'); //Open Modal
+                    //$('#progress').hide(); //Hide Progress
+                    //$('#msg').empty().text('Da ton tai san pham'); //Message
+                } else if (result > 0) {
+                    //Exist
+                    $('#progress').hide(); //Hide Progress
+                    $('#msg').empty().text('Da ton tai san pham'); //Message
+                    $('#modal-alert').modal('open'); //Open Modal
+                } else {
+                    //Error
+                }
+            }
+        });
+    }
+
+    //Upload Image
+    $(document).ready(function () {
+
+        $('#addForm').submit(function () {
+
+            $('#modal-alert').modal('open'); //Open Modal
+
+            $(this).ajaxSubmit({
+                beforeSend: function (request) {
+                    request.setRequestHeader("secret", "12345");
+                },
+                data: {
+                    productVideo: getContentChips(),
+                    productEditor: getContentEditor(),
+                },
+                error: function (xhr) {
+                    status('Error: ' + xhr.status);
+
+                    progress.hide();
+
+                },
+                success: function (data) {
+
+                    $('#progress').hide(); //Hide Progress
+                    //$('#msg').empty().text('Đã xử lý xong.'); //Message
+                    $('#btn-left').hide();
+                    $('#btn-right').hide();
+
+                }
+            });
+            return false;
+
+        });
+    });
+
+    function uploadData(sn) {
+        $.ajax({
+            method: "POST",
+            dataType: "json",
+            beforeSend: function (request) {
+                request.setRequestHeader("secret", "12345");
+            },
+            url: "http://localhost:3000/admin/product/check-product",
+            data: {
+                productSn: sn,
+            },
+            success: function success(data) {
+                var result = "";
+                $.each(data, function (i, value) {
+                    result = value.productSn;
+                });
+            }
+        });
+    }
+
+    function getContentChips() {
+        var chip = M.Chips.getInstance($(".chips"));
+        var result = "";
+        $.each(chip.chipsData, function (i, content) {
+            result += content.tag + "~";
+        });
+        return result.substr(0, result.length - 1);
+    }
+
+    function getContentEditor() {
+        return CKEDITOR.instances['editor'].getData();
+    }
+</script>

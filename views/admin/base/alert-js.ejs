@@ -1,0 +1,45 @@
+<script>
+    var contentModal = '<div class="modal-content">';
+
+    contentModal += '<p id="msg" class="center">Đang xử lý...</p>';
+
+    contentModal += '<div id="progress" class="progress">';
+    contentModal += '<div class="indeterminate"></div>';
+    contentModal += '</div>';
+
+    contentModal += '</div>';
+
+    var footerModal = '<div class="modal-footer">';
+
+    footerModal += '<div class="row">';
+    footerModal += '<div class="input-field col s6">';
+    footerModal += '<a id="btn-left" class="waves-effect waves-green btn right"></a>';
+    footerModal += '</div>';
+    footerModal += '<div class="input-field col s6">';
+    footerModal += '<a id="btn-right" class="waves-effect waves-green btn left"></a>';
+    footerModal += '</div>';
+    footerModal += '</div>';
+    footerModal += '</div>';
+
+    $('#modal-alert').append(progress);
+    $('#modal-alert').append(contentModal);
+    $('#modal-alert').append(footerModal);
+    $('#modal-alert').modal();
+
+    $('#btn-left').hide();
+    $('#btn-right').hide();
+
+
+    // $('#modal-alert').modal('open'); //Open Modal
+
+    // $('#btn-left').on('click', function () {
+    //     $('#progress').hide();
+    //     $('#msg').empty().text('Da xu ly xong'); //Message
+    //     $('#modal-alert').modal('close'); //Close Modal
+    // });
+
+    // $('#btn-right').on('click', function () {
+    //     $('#modal-alert').modal('close'); //Close Modal
+    //     window.location.href = 'admin/product/list-product.html';
+    // });
+</script>

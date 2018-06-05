@@ -10,80 +10,118 @@
             <title>KINGPES-ADMIN-PAGE</title>
 </head>
 
-<body>
+<body class="grey lighten-3">
 
     <header>
         <%include admin-header.ejs%>
     </header>
 
     <main>
-        <%include edit/admin-edit.ejs%>
+        <%include add/admin-add.ejs%>
     </main>
 
     <footer>
         <%include admin-footer.ejs%>
     </footer>
 
-    <%include admin-js.ejs%>
+    <div id="modal1" class="modal"></div>
 
-        <%include add/add-js.ejs%>
+    <%include modal-alert.ejs%>
 
-            <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
+        <%include admin-js.ejs%>
 
-            <script>
+            <%include add/add-js.ejs%>
 
-                var progress = $("#progress");
+                <script src="js/jquery.form.min.js"></script>
 
-                $(document).ready(function () {
+                <script>
 
-                    if (progress.is(':visible')) {
-                        progress.hide();
+
+                    var contentModal = '<div class="modal-content"><p class="center">chau</p></div>';
+                    var footerModal = '<div class="modal-footer">';
+                    footerModal += '<div class="row">';
+                    footerModal += '<div class="input-field col s6">';
+                    footerModal += '<a href="#!" class="waves-effect waves-green btn right">Thoat</a>';
+                    footerModal += '</div>';
+                    footerModal += '<div class="input-field col s6">';
+                    footerModal += '<a href="#!" class="modal-action modal-close waves-effect waves-green btn left">Thoat</a>';
+                    footerModal += '</div>';
+                    footerModal += '</div>';
+                    footerModal += '</div>';
+                    $('#modal1').append(contentModal);
+                    $('#modal1').append(footerModal);
+                    $('#modal1').modal();
+                    $('#modal1').modal('open');
+
+
+                    $("#drop-baiviet").addClass("active");
+                   
+
+
+                    $('.redss').css("background-color", "#FF0000");
+
+
+
+
+                    var progress = $("#progress");
+
+                    $(".gone").hide();
+
+                    $('#btn-check').on('click', function () {
+                        $(".gone").show();
+                        return false;
+                    });
+
+                    $(document).ready(function () {
+
+                        if (progress.is(':visible')) {
+                            progress.hide();
+                        }
+
+                        $('#addForm').submit(function () {
+
+                            progress.show();
+
+                            $(this).ajaxSubmit({
+                                beforeSend: function (request) {
+                                    request.setRequestHeader("secret", "12345");
+                                },
+                                data: {
+                                    productVideo: getContentChips(),
+                                    productEditor: getContentEditor()
+                                },
+                                error: function (xhr) {
+                                    status('Error: ' + xhr.status);
+
+                                    progress.hide();
+
+                                },
+                                success: function (data) {
+
+                                    progress.hide();
+
+                                    $("#status").empty().text(data);
+
+                                }
+                            });
+                            return false;
+
+                        });
+                    });
+
+                    function getContentChips() {
+                        var chip = M.Chips.getInstance($(".chips"));
+                        var result = "";
+                        $.each(chip.chipsData, function (i, content) {
+                            result += content.tag + "~";
+                        });
+                        return result.substr(0, result.length - 1);
                     }
 
-                    $('#addForm').submit(function () {
-
-                        progress.show();
-
-                        $(this).ajaxSubmit({
-                            beforeSend: function (request) {
-                                request.setRequestHeader("secret", "12345");
-                            },
-                            data: {
-                                productVideo: getContentChips(),
-                                productEditor: getContentEditor()
-                            },
-                            error: function (xhr) {
-                                status('Error: ' + xhr.status);
-
-                                progress.hide();
-
-                            },
-                            success: function (data) {
-
-                                progress.hide();
-
-                                $("#status").empty().text(data);
-
-                            }
-                        });
-                        return false;
-
-                    });
-                });
-
-                function getContentChips() {
-                    var chip = M.Chips.getInstance($(".chips"));
-                    var result = "";
-                    $.each(chip.chipsData, function (i, content) {
-                        result += content.tag + "~";
-                    });
-                    return result.substr(0, result.length - 1);
-                }
-
-                function getContentEditor() {
-                    return CKEDITOR.instances['editor'].getData();
-                }
-            </script>
+                    function getContentEditor() {
+                        return CKEDITOR.instances['editor'].getData();
+                    }
+                </script>
 
 </body>
 

@@ -58,7 +58,7 @@ exports.findProduct = function (productId, callback) {
   }
 }
 
-exports.findComment = function(productId, offset, limit, callback){
+exports.findComment = function (productId, offset, limit, callback) {
   try {
     string.sqlFindComment(productId, offset, limit, function (stringQuery) {
       db.execute(stringQuery, function (data, err) {
@@ -76,16 +76,16 @@ exports.findComment = function(productId, offset, limit, callback){
   }
 }
 
-exports.insertComment = function(params, callback){
+exports.insertComment = function (params, callback) {
   try {
     string.sqlInsertComment(params.commentId, params.userId, params.question, function (stringQuery) {
       db.execute(stringQuery, function (data, err) {
         if (err) {
           log.error("insertComment", err);
-          models.ProductForm({insert: 0});
+          models.ProductForm({ insert: 0 });
           callback(models.data);
         } else {
-          models.ProductForm({insert: 1});
+          models.ProductForm({ insert: 1 });
           log.write("insertComment", JSON.stringify(models.data));
           callback(models.data);
         }
@@ -96,16 +96,16 @@ exports.insertComment = function(params, callback){
   }
 }
 
-exports.updateComment = function(params, callback){
+exports.updateComment = function (params, callback) {
   try {
     string.sqlUpdateComment(params.id, params.answer, function (stringQuery) {
       db.execute(stringQuery, function (data, err) {
         if (err) {
           log.error("updateComment", err);
-          models.ProductForm({update: 0});
+          models.ProductForm({ update: 0 });
           callback(models.data);
         } else {
-          models.ProductForm({update: 1});
+          models.ProductForm({ update: 1 });
           log.write("updateComment", JSON.stringify(models.data));
           callback(models.data);
         }
@@ -116,7 +116,7 @@ exports.updateComment = function(params, callback){
   }
 }
 
-exports.findRaiting = function(productId, offset, limit, callback){
+exports.findRaiting = function (productId, offset, limit, callback) {
   try {
     string.sqlFindRaiting(productId, offset, limit, function (stringQuery) {
       db.execute(stringQuery, function (data, err) {
@@ -134,16 +134,16 @@ exports.findRaiting = function(productId, offset, limit, callback){
   }
 }
 
-exports.insertRaiting = function(params, callback){
+exports.insertRaiting = function (params, callback) {
   try {
     string.sqlInsertRaiting(params.rateId, params.userId, params.question, params.rate, function (stringQuery) {
       db.execute(stringQuery, function (data, err) {
         if (err) {
           log.error("insertRaiting", err);
-          models.ProductForm({insert: 0});
+          models.ProductForm({ insert: 0 });
           callback(models.data);
         } else {
-          models.ProductForm({insert: 1});
+          models.ProductForm({ insert: 1 });
           log.write("insertRaiting", JSON.stringify(models.data));
           callback(models.data);
         }
@@ -154,16 +154,16 @@ exports.insertRaiting = function(params, callback){
   }
 }
 
-exports.updateRaiting = function(params, callback){
+exports.updateRaiting = function (params, callback) {
   try {
     string.sqlUpdateRaiting(params.id, params.answer, function (stringQuery) {
       db.execute(stringQuery, function (data, err) {
         if (err) {
           log.error("updateRaiting", err);
-          models.ProductForm({update: 0});
+          models.ProductForm({ update: 0 });
           callback(models.data);
         } else {
-          models.ProductForm({update: 1});
+          models.ProductForm({ update: 1 });
           log.write("updateRaiting", JSON.stringify(models.data));
           callback(models.data);
         }
@@ -174,7 +174,7 @@ exports.updateRaiting = function(params, callback){
   }
 }
 
-exports.findLikes = function(productId, offset, limit, callback){
+exports.findLikes = function (productId, offset, limit, callback) {
   try {
     string.sqlFindLikes(productId, offset, limit, function (stringQuery) {
       db.execute(stringQuery, function (data, err) {
@@ -192,16 +192,16 @@ exports.findLikes = function(productId, offset, limit, callback){
   }
 }
 
-exports.insertLikes = function(params, callback){
+exports.insertLikes = function (params, callback) {
   try {
     string.sqlInsertLikes(params.likesId, params.userId, function (stringQuery) {
       db.execute(stringQuery, function (data, err) {
         if (err) {
           log.error("insertLikes", err);
-          models.ProductForm({insert: 0});
+          models.ProductForm({ insert: 0 });
           callback(models.data);
         } else {
-          models.ProductForm({insert: 1});
+          models.ProductForm({ insert: 1 });
           log.write("insertLikes", JSON.stringify(models.data));
           callback(models.data);
         }
@@ -212,16 +212,16 @@ exports.insertLikes = function(params, callback){
   }
 }
 
-exports.deleteLikes = function(params, callback){
+exports.deleteLikes = function (params, callback) {
   try {
     string.sqlDeleteLikes(params.id, function (stringQuery) {
       db.execute(stringQuery, function (data, err) {
         if (err) {
           log.error("deleteLikes", err);
-          models.ProductForm({delete: 0});
+          models.ProductForm({ delete: 0 });
           callback(models.data);
         } else {
-          models.ProductForm({delete: 1});
+          models.ProductForm({ delete: 1 });
           log.write("deleteLikes", JSON.stringify(models.data));
           callback(models.data);
         }
@@ -238,7 +238,7 @@ exports.insertOrders = function (params, callback) {
       db.execute(stringQuery, function (data, err) {
         if (err) {
           log.error("insertOrders", err);
-          models.ProductForm({insert: 0});
+          models.ProductForm({ insert: 0 });
           callback(models.data);
         } else {
           var transactionId = data.insertId;
@@ -246,10 +246,10 @@ exports.insertOrders = function (params, callback) {
             db.execute(stringQuery, function (data, err) {
               if (err) {
                 log.error("insertOrders", err);
-                models.ProductForm({insert: 0});
+                models.ProductForm({ insert: 0 });
                 callback(models.data);
               } else {
-                models.ProductForm({insert: 1});
+                models.ProductForm({ insert: 1 });
                 log.write("insertOrders", JSON.stringify(models.data));
                 callback(models.data);
               }
@@ -269,10 +269,10 @@ exports.insertUser = function (params, callback) {
       db.execute(stringQuery, function (data, err) {
         if (err) {
           log.error("insertUser", err);
-          models.ProductForm({insert: 0});
+          models.ProductForm({ insert: 0 });
           callback(models.data);
         } else {
-          models.ProductForm({insert: 1});
+          models.ProductForm({ insert: 1 });
           log.write("insertUser", JSON.stringify(models.data));
           callback(models.data);
         }
@@ -289,10 +289,10 @@ exports.updateUser = function (params, callback) {
       db.execute(stringQuery, function (data, err) {
         if (err) {
           log.error("updatetUser", err);
-          models.ProductForm({update: 0});
+          models.ProductForm({ update: 0 });
           callback(models.data);
         } else {
-          models.ProductForm({update: 1});
+          models.ProductForm({ update: 1 });
           log.write("updatetUser", JSON.stringify(models.data));
           callback(models.data);
         }
@@ -303,17 +303,17 @@ exports.updateUser = function (params, callback) {
   }
 }
 
-exports.findVoucher = function(code, callback){
+exports.findVoucher = function (code, callback) {
   try {
     string.sqlFindVoucher(code, function (stringQuery) {
       db.execute(stringQuery, function (data, err) {
         if (err) {
           log.error("findVoucher", err);
         } else {
-          if(data.length > 0){
+          if (data.length > 0) {
             models.ProductForm(data[0]);
-          }else{
-            models.ProductForm({value: 0});
+          } else {
+            models.ProductForm({ value: 0 });
           }
           log.write("findVoucher", JSON.stringify(models.data));
           callback(models.data);
@@ -331,10 +331,10 @@ exports.insertVoucher = function (params, callback) {
       db.execute(stringQuery, function (data, err) {
         if (err) {
           log.error("insertVoucher", err);
-          models.ProductForm({insert: 0});
+          models.ProductForm({ insert: 0 });
           callback(models.data);
         } else {
-          models.ProductForm({insert: 1});
+          models.ProductForm({ insert: 1 });
           log.write("insertVoucher", JSON.stringify(models.data));
           callback(models.data);
         }
@@ -351,11 +351,105 @@ exports.updateVoucher = function (params, callback) {
       db.execute(stringQuery, function (data, err) {
         if (err) {
           log.error("updateVoucher", err);
-          models.ProductForm({update: 0});
+          models.ProductForm({ update: 0 });
           callback(models.data);
         } else {
-          models.ProductForm({update: 1});
+          models.ProductForm({ update: 1 });
           log.write("updateVoucher", JSON.stringify(models.data));
+          callback(models.data);
+        }
+      });
+    });
+  } catch (ex) {
+    log.write("Execute Sql Query", "---------->Exception<---------- " + ex);
+  }
+}
+
+
+/*
+* ADMIN
+*/
+
+exports.checkProductSn = function (sn, callback) {
+  try {
+    string.sqlCheckProductSn(sn, function (stringQuery) {
+      db.execute(stringQuery, function (data, err) {
+        if (err) {
+          //Error
+          log.write("checkProductSn", err);
+          models.ProductForm({ productSn: -1 });
+          callback(models.data);
+        } else {
+          if (data[0]) {
+            //Exist
+            log.write("checkProductSn: ", data.length);
+            models.ProductForm({ productSn: data.length});
+            callback(models.data);
+          } else {
+            //Not Exist
+            log.write("checkProductSn: ", '0');
+            models.ProductForm({ productSn: 0 });
+            callback(models.data);
+          }
+        }
+      });
+    });
+  } catch (ex) {
+    log.write("Execute Sql Query", "---------->Exception<---------- " + ex);
+  }
+}
+
+exports.insertProduct = function (params, callback) {
+  try {
+    string.sqlinsertProduct(params, function (stringQuery) {
+      db.execute(stringQuery, function (data, err) {
+        if (err) {
+          log.error("insertProduct", err);
+          models.ProductForm({ update: 0 });
+          callback(models.data);
+        } else {
+          models.ProductForm({ update: 1 });
+          log.write("insertProduct", JSON.stringify(models.data));
+          callback(models.data);
+        }
+      });
+    });
+  } catch (ex) {
+    log.write("Execute Sql Query", "---------->Exception<---------- " + ex);
+  }
+}
+
+exports.insertImage = function (params, callback) {
+  try {
+    string.sqlinsertImage(params, function (stringQuery) {
+      db.execute(stringQuery, function (data, err) {
+        if (err) {
+          log.error("insertImage", err);
+          models.ProductForm({ update: 0 });
+          callback(models.data);
+        } else {
+          models.ProductForm({ update: 1 });
+          log.write("insertImage", JSON.stringify(models.data));
+          callback(models.data);
+        }
+      });
+    });
+  } catch (ex) {
+    log.write("Execute Sql Query", "---------->Exception<---------- " + ex);
+  }
+}
+
+exports.insertYoutube= function (params, callback) {
+  try {
+    string.sqlinsertYoutube(params, function (stringQuery) {
+      db.execute(stringQuery, function (data, err) {
+        if (err) {
+          log.error("insertYoutube", err);
+          models.ProductForm({ update: 0 });
+          callback(models.data);
+        } else {
+          models.ProductForm({ update: 1 });
+          log.write("insertYoutube", JSON.stringify(models.data));
           callback(models.data);
         }
       });
