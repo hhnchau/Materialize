@@ -35,29 +35,8 @@ router.get('/login.html', (req, res) => {
     res.render('admin/login/login-layout');
 });
 
-router.post('/login.html', (req, res) => {
-    var secret = req.headers[settings.secret_key];
-    if (secret === settings.secret_encrypt) {
-
-        helper.findUser(req.body, function (exist) {
-            if (exist == 1) {
-                //Successfull
-                console.log('OK');
-
-            } else {
-                //Fail
-                console.log('fail');
-
-            }
-        });
-
-    } else {
-        //Response 404
-        res.write(settings.secret_fail);
-        res.end();
-    }
-
-});
+router.post('/login.html',
+    passPort.authenticate('local',{failureRedirect: '/admin/login.html', successRedirect: '/admin/product/add-product.html'}));
 
 /*
 * PRODUCT
@@ -96,7 +75,7 @@ router.post('/product/check-product', (req, res) => {
 
 });
 
-router.get('/product/add-product.html', (req, res) => {
+router.get('/product/add-product.html', isLogin, (req, res) => {
     res.render('admin/product/add-product');
 });
 
@@ -155,37 +134,41 @@ router.delete('/admin/product/delete-product.html', (req, res) => {
 */
 passPort.use(new localStategy(
     (username, password, cb) => {
-        fs.readFile('./userDB.json', (err, data) => {
-            const db = JSON.parse(data);
-            console.log('localStategy');
-
-            console.log(db);
-            const userRecord = db.find(user => user.usr === username)
-            if (userRecord && userRecord.pwd === password) {
-                return cb(null, userRecord)
+        helper.findUser(username, password, function (user) {
+            if (user) {
+                //Successfull
+                return cb(null, user); // Call back user for serializeUser
             } else {
-                return cb(null, false)
+                //Fail
+                return cb(null, false);
             }
-        })
+        });
     }
 ));
 
 passPort.serializeUser((user, cb) => {
-    cb(null, user.usr)
+    cb(null, user.userId); //Store id user for deserializeUser
 });
 
-passPort.deserializeUser((name, cb) => {
-    fs.readFile('./userDB.json', (err, data) => {
-        const db = JSON.parse(data);
-        console.log('deserialize');
-        console.log(db);
-        const userRecord = db.find(user => user.usr == name)
-        if (userRecord) {
-            return cb(null, userRecord)
+passPort.deserializeUser((id, cb) => {
+    helper.findUserById(id, function (user) {
+        if (user) {
+            //Successfull
+            return cb(null, user);
         } else {
-            return cb(null, false)
+            //Fail
+            return cb(null, false);
         }
-    })
+    });
 });
+
+function isLogin(req, res, next){
+   
+    if(req.isAuthenticated()){
+      next();
+    }else{
+      res.redirect('/admin/login.html');
+    }
+}
 
 module.exports = router;

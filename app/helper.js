@@ -1,26 +1,52 @@
 var db = require('./db');
 var log = require('./log');
-exports.findUser = function (params, callback) {
+exports.findUser = function (username, password, callback) {
     try {
-        var sql = "SELECT 1 FROM user WHERE nickname = '" + params.username + "' AND password = '" + params.password + "'";
-        db.execute(sql, function (data, err) {
+        var sql = "SELECT * FROM user WHERE nickname = '" + username + "' AND password = '" + password + "'";
+        db.execute(sql, function (user, err) {
             if (err) {
                 log.error("findUser", err);
-                callback(0);
+                callback(null);
             } else {
-                if (data[0]) {
+                if (user[0]) {
                     //Exist
-                    log.write("findUser: ", data.length);
-                    callback(1);
+                    log.write("findUser: ", JSON.stringify(user[0]));
+                    callback(user[0]);
                 } else {
                     //Not Exist
                     log.write("findUser: ", '0');
-                    callback(0);
+                    callback(null);
                 }
             }
         });
     } catch (ex) {
         log.write("Execute Sql Query", "---------->Exception<---------- " + ex);
-        callback(0);
+        callback(null);
     }
 }
+
+exports.findUserById = function (id, callback) {
+    try {
+        var sql = "SELECT * FROM user WHERE userId = '" + id  + "'";
+        db.execute(sql, function (user, err) {
+            if (err) {
+                log.error("findUserById", err);
+                callback(null);
+            } else {
+                if (user[0]) {
+                    //Exist
+                    log.write("findUserById: ", JSON.stringify(user[0]));
+                    callback(user[0]);
+                } else {
+                    //Not Exist
+                    log.write("findUserById: ", '0');
+                    callback(null);
+                }
+            }
+        });
+    } catch (ex) {
+        log.write("Execute Sql Query", "---------->Exception<---------- " + ex);
+        callback(null);
+    }
+}
+

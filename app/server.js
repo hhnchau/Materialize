@@ -28,6 +28,12 @@ console.log(decoded);
 var admin = require('./routes/admin');
 app.use('/admin', admin);
 
+var site = require('./routes/site');
+app.use('/', site);
+
+var api = require('./routes/api');
+app.use('/api', api);
+
 
 //Voucher
 app.get('/admin/find-all-voucher.html', (req, res) =>{
