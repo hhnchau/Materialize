@@ -1,0 +1,15 @@
+<script>
+    
+    var itemCart = getItemCart();
+    if(itemCart.lenght > 0){
+        $('#bage-cart').empty().text(itemCart.lenght);
+    }else{
+        $('#bage-cart').empty();
+    }
+    
+    function getItemCart() {
+        if (sessionStorage["shopping-cart-item"] != null) {
+            return JSON.parse(sessionStorage["shopping-cart-item"].toString());
+        }
+    }
+</script>

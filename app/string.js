@@ -293,29 +293,39 @@ exports.sqlCheckProductSn = function (sn, query) {
 exports.sqlInsertProduct = function (params, query) {
     var sql = "";
     sql += " INSERT INTO product";
-    sql += " (voucherName, voucherDescription, code, value, start, end)";
+    sql += " (productSn, productName, description, amount, promotionId, categoryId)";
     sql += " VALUES";
-    sql += " ('" + params.voucherName + "', '" + params.voucherDescription + "', '" + params.code + "', '" + params.value + "', '" + params.start + "', '" + params.end + "')";
+    sql += " ('" + params.productSn + "', '" + params.productName + "', '" + params.productEditor + "', '" + params.productAmount + "', '" + params.productPromotion + "', '" + params.productCategory + "')";
 
     query(sql);
 }
 
-exports.sqlInsertImage = function (params, query) {
+exports.sqlInsertPrice = function (productId, buy, sell, query) {
+    var sql = "";
+    sql += " INSERT INTO price";
+    sql += " (priceId, buy, sell)";
+    sql += " VALUES";
+    sql += " ('" + productId + "', '" + buy + "', '" + sell + "')";
+
+    query(sql);
+}
+
+exports.sqlInsertImage = function (productId, image1, image2, image3, image4, image5, query) {
     var sql = "";
     sql += " INSERT INTO image";
-    sql += " (image1, image2, image3, image4, image5)";
+    sql += " (imageId, image1, image2, image3, image4, image5)";
     sql += " VALUES";
-    sql += " ('" + params.image1 + "', '" + params.image2 + "', '" + params.image3 + "', '" + params.image4 + "', '" + params.image5 + "')";
+    sql += " ('" + productId + "', '" + image1 + "', '" + image2 + "', '" + image3 + "', '" + image4 + "', '" + image5 + "')";
 
     query(sql);
 }
 
-exports.sqlInsertYoutube = function (params, query) {
+exports.sqlInsertYoutube = function (productId, yt1, yt2, yt3, query) {
     var sql = "";
     sql += " INSERT INTO youtube";
-    sql += " (yt1, yt2, yt3)";
+    sql += " (ytId, yt1, yt2, yt3)";
     sql += " VALUES";
-    sql += " ('" + params.yt1 + "', '" + params.yt2 + "', '" + params.yt3 + "')";
+    sql += " ('" + productId + "', '" + yt1 + "', '" + yt2 + "', '" + yt3 + "')";
 
     query(sql);
 }

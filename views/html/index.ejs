@@ -478,7 +478,6 @@
         }
       });
 
-
       function loadData(offset, limit) {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
@@ -500,7 +499,7 @@
                 var rateValue = entry.rateValue;
                 var commentTotal = entry.commentTotal;
 
-                var id = productId + "-" + sell + "-" + discount + "-" + likeTotal + "-" + rateTotal + "-" + rateValue + "-" + commentTotal;
+                var id = productId + "~" + sell + "~" + discount + "~" + likeTotal + "~" + rateTotal + "~" + rateValue + "~" + commentTotal;
 
                 output = '<div class="col s12 m6 l4">';
                 output += '<a class="modal-trigger" href="<%=url%>details/sn:' + id + '">';

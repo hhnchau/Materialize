@@ -1,6 +1,6 @@
 <!-- Navbar -->
 <div class="navbar">
-    <nav class="cyan">
+    <nav class="teal">
         <div class="container">
             <div class="nav-wrapper">
                 <a href="#" class="brand-logo">Kingpes</a>
@@ -27,36 +27,121 @@
             <div class="background">
                 <img src="img/resort3.jpg">
             </div>
-            <a href="#user">
+            <a>
                 <img class="circle" src="img/resort1.jpg">
             </a>
-            <a href="#name">
+            <a>
                 <span class="white-text name">Kingpes</span>
             </a>
-            <a href="#email">
+            <!-- <a href="#">
                 <span class="white-text email">kingpesvn@gmail.com</span>
-            </a>
+            </a> -->
         </div>
     </li>
-    <li>
-        <a href="#home">Thống Kê</a>
-    </li>
-    <li>
-        <a href="#search">Danh sách sản phẩm</a>
-    </li>
-    <li>
-        <a href="#search">Thêm sản phẩm</a>
-    </li>
-    <li>
-        <a href="#popular">Cập nhật sản phẩm</a>
-    </li>
-    <li>
-        <a href="#gallery">Xoá sản phẩm</a>
-    </li>
-    <li>
-        <a href="#contact">Liên Hệ</a>
+
+    <!-- Statistic -->
+    <li class="no-padding">
+        <ul class="collapsible collapsible-accordion">
+            <li>
+                <a class="collapsible-header">Thống Kê
+                    <i class="material-icons right">arrow_drop_down</i>
+                </a>
+                <div class="collapsible-body">
+                    <ul>
+                        <li>
+                            <a href="/admin/category/list-category.html">Tổng quan</a>
+                        </li>
+                        <li>
+                            <a href="/admin/category/add-category.html">Đã đặt</a>
+                        </li>
+                        <li>
+                            <a href="/admin/category/update-category.html">Đang xử lý</a>
+                        </li>
+                        <li>
+                            <a href="/admin/category/delete-category.html">Hoàn tất</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
     </li>
 
+    <!-- Comment - Ratting -->
+    <li class="no-padding">
+        <ul class="collapsible collapsible-accordion">
+            <li>
+                <a class="collapsible-header">Đánh giá - Bình luận
+                    <i class="material-icons right">arrow_drop_down</i>
+                </a>
+                <div class="collapsible-body">
+                    <ul>
+                        <li>
+                            <a href="/admin/category/list-category.html">Đánh giá</a>
+                        </li>
+                        <li>
+                            <a href="/admin/category/add-category.html">Bình luận</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </li>
+
+    <!-- Category -->
+    <li class="no-padding">
+        <ul class="collapsible collapsible-accordion">
+            <li>
+                <a class="collapsible-header">Danh mục
+                    <i class="material-icons right">arrow_drop_down</i>
+                </a>
+                <div class="collapsible-body">
+                    <ul>
+                        <li>
+                            <a href="/admin/category/list-category.html">Danh sách danh mục</a>
+                        </li>
+                        <li>
+                            <a href="/admin/category/add-category.html">Thêm danh mục</a>
+                        </li>
+                        <li>
+                            <a href="/admin/category/update-category.html">Cập nhật danh mục</a>
+                        </li>
+                        <li>
+                            <a href="/admin/category/delete-category.html">Xoá danh mục</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </li>
+
+    <!-- Product -->
+    <li class="no-padding">
+        <ul class="collapsible collapsible-accordion">
+            <li>
+                <a id="drop-product" class="collapsible-header">Sản phẩm
+                    <i class="material-icons right">arrow_drop_down</i>
+                </a>
+                <div class="collapsible-body">
+                    <ul>
+                        <li class="list-product">
+                            <a href="/admin/product/list-product.html">Danh sách sản phẩm</a>
+                        </li>
+                        <li class="add-product">
+                            <a href="/admin/product/add-product.html">Thêm sản phẩm</a>
+                        </li>
+                        <li class="update-product">
+                            <a href="/admin/product/update-product.html">Cập nhật sản phẩm</a>
+                        </li>
+                        <li class="delete-product">
+                            <a href="/admin/product/delete-product.html">Xoá sản phẩm</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </li>
+
+    <!-- Voucher -->
     <li class="no-padding">
         <ul class="collapsible collapsible-accordion">
             <li>
@@ -66,16 +151,16 @@
                 <div class="collapsible-body">
                     <ul>
                         <li class="redss">
-                            <a href="#">Danh sách sản phẩm</a>
+                            <a href="/admin/voucher/list-voucher.html">Danh sách mã giảm giá</a>
                         </li>
                         <li class="active">
-                            <a href="#">Thêm sản phẩm</a>
+                            <a href="/admin/voucher/add-voucher.html">Thêm mã giảm giá</a>
                         </li>
                         <li>
-                            <a href="#">Cập nhật sản phẩm</a>
+                            <a href="/admin/voucher/update-voucher.html">Cập nhật mã giảm giá</a>
                         </li>
                         <li>
-                            <a href="#">Xoá sản phẩm</a>
+                            <a href="/admin/voucher/delete-voucher.html">Xoá mã giảm giá</a>
                         </li>
                     </ul>
                 </div>
@@ -83,6 +168,7 @@
         </ul>
     </li>
 
+    <!-- Promotion -->
     <li class="no-padding">
         <ul class="collapsible collapsible-accordion">
             <li>
@@ -92,16 +178,16 @@
                 <div class="collapsible-body">
                     <ul>
                         <li>
-                            <a href="#">link1</a>
+                            <a href="admin/promotion/list-promotion.html">Danh sách khuyến mãi</a>
                         </li>
                         <li>
-                            <a href="#">link1</a>
+                            <a href="admin/promotion/add-promotion.html">Thêm khuyến mãi</a>
                         </li>
                         <li>
-                            <a href="#">link1</a>
+                            <a href="admin/promotion/update-promotion.html">Cập nhật khuyến mãi</a>
                         </li>
                         <li>
-                            <a href="#">link1</a>
+                            <a href="admin/promotion/delete-promotion.html">Xoá khuyến mãi</a>
                         </li>
                     </ul>
                 </div>
@@ -109,32 +195,7 @@
         </ul>
     </li>
 
-    <li class="no-padding">
-        <ul class="collapsible collapsible-accordion">
-            <li>
-                <a class="collapsible-header">Sản phẩm
-                    <i class="material-icons right">arrow_drop_down</i>
-                </a>
-                <div class="collapsible-body">
-                    <ul>
-                        <li>
-                            <a href="#">link1</a>
-                        </li>
-                        <li>
-                            <a href="#">link1</a>
-                        </li>
-                        <li>
-                            <a href="#">link1</a>
-                        </li>
-                        <li>
-                            <a href="#">link1</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-        </ul>
-    </li>
-
+    <!-- Event -->
     <li class="no-padding">
         <ul class="collapsible collapsible-accordion">
             <li>
@@ -144,16 +205,16 @@
                 <div class="collapsible-body">
                     <ul>
                         <li>
-                            <a href="#">link1</a>
+                            <a href="admin/event/list-event.html">Danh sách sự kiện</a>
                         </li>
                         <li>
-                            <a href="#">link1</a>
+                            <a href="admin/event/add-event.html">Thêm sự kiện</a>
                         </li>
                         <li>
-                            <a href="#">link1</a>
+                            <a href="admin/event/update-event.html">Cập nhật sự kiện</a>
                         </li>
                         <li>
-                            <a href="#">link1</a>
+                            <a href="admin/event/delete-event.html">Xoá sự kiện</a>
                         </li>
                     </ul>
                 </div>
@@ -161,6 +222,7 @@
         </ul>
     </li>
 
+    <!-- Blog -->
     <li class="no-padding">
         <ul class="collapsible collapsible-accordion">
             <li>
@@ -170,16 +232,37 @@
                 <div class="collapsible-body">
                     <ul>
                         <li>
-                            <a href="#">link1</a>
+                            <a href="admin/blog/list-blog.html">Danh sách bài viết</a>
                         </li>
                         <li>
-                            <a href="#">link1</a>
+                            <a href="admin/blog/add-blog.html">Thêm bài viết</a>
                         </li>
                         <li>
-                            <a href="#">link1</a>
+                            <a href="admin/blog/update-blog.html">Cập nhật bài viết</a>
                         </li>
-                        <li class="active">
-                            <a href="#">link1</a>
+                        <li>
+                            <a href="admin/blog/delete-blog.html">Xoá bài viết</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </li>
+
+    <!-- Profile -->
+    <li class="no-padding">
+        <ul class="collapsible collapsible-accordion">
+            <li>
+                <a class="collapsible-header" id="drop-baiviet">Tài khoản
+                    <i class="material-icons right">arrow_drop_down</i>
+                </a>
+                <div class="collapsible-body">
+                    <ul>
+                        <li>
+                            <a href="admin/blog/list-blog.html">Thông tin</a>
+                        </li>
+                        <li>
+                            <a href="admin/blog/add-blog.html">Đăng xuất</a>
                         </li>
                     </ul>
                 </div>

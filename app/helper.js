@@ -27,7 +27,7 @@ exports.findUser = function (username, password, callback) {
 
 exports.findUserById = function (id, callback) {
     try {
-        var sql = "SELECT * FROM user WHERE userId = '" + id  + "'";
+        var sql = "SELECT * FROM user WHERE userId = '" + id + "'";
         db.execute(sql, function (user, err) {
             if (err) {
                 log.error("findUserById", err);
@@ -49,4 +49,5 @@ exports.findUserById = function (id, callback) {
         callback(null);
     }
 }
+
 

@@ -2,22 +2,31 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <%include ../base/meta.ejs%>
+
+        <%include ../base/css.ejs%>
+            <link rel="stylesheet" href="css/my-css.css">
+
+            <title>KINGPES-THONG KE</title>
 </head>
 
-<body>
+<body class="grey lighten-3">
 
+    <header>
+        <%include ../base/header.ejs%>
+    </header>
 
+    <main>
+        <%include list-layout/list-layout.ejs%>
+    </main>
 
-        <% product.ProductForm.forEach(function(item, index) {%>
-            <p><%=item.productName%></p>
-        <%});%>
+    <footer>
+        <%include ../base/footer.ejs%>
+    </footer>
 
-        <!-- <p><%=JSON.stringify(product.ProductForm.productName)%></p> -->
+    <%include ../base/js.ejs%>
 
+    <%include list-layout/list-js.ejs%>
 
 </body>
 

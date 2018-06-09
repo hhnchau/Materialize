@@ -25,17 +25,83 @@ router.use(passPort.session());
 * LOGIN
 */
 router.get('/login.html', (req, res) => {
-    res.render('site/login/login-layout');
+    res.render('site/login/login');
 });
 
 router.post('/login.html',
     passPort.authenticate('local', { failureRedirect: '/login.html', successRedirect: '/' }));
 
+
 /*
-* LOGIN
+* PROFILE
 */
-router.get('/', isLogin, (req, res) => {
-    res.render('site/home/home-layout');
+router.get('/site/profile.html', isLogin, (req, res) => {
+    res.render('site/profile/profile', { user: req.user });
+});
+
+/*
+* LOGOUT
+*/
+router.get('/logout.html', isLogin, function (req, res) {
+    req.logout();
+    req.session.destroy();
+    res.redirect('/login.html');
+});
+
+/*
+* REGISTER
+*/
+router.get('/logout.html', isLogin, function (req, res) {
+    res.render('site/register/register');
+});
+
+/*
+* FORGET
+*/
+router.get('/forget.html', isLogin, function (req, res) {
+    res.render('site/forget/forget');
+});
+
+/*
+* INDEX
+*/
+router.get('/', (req, res) => {
+    res.render('site/home/index', { user: req.user });
+});
+
+/*
+* DETAIL
+*/
+router.get('/site/detail/sn:id.html', (req, res) => {
+    res.render('site/detail/detail', { user: req.user });
+});
+
+/*
+* CART
+*/
+router.get('/site/cart.html', (req, res) => {
+    res.render('site/cart/cart',{ user: req.user });
+});
+
+/*
+* BLOG
+*/
+router.get('/site/blog.html', (req, res) => {
+    res.render('site/blog/blog',{ user: req.user });
+});
+
+/*
+* EVENT
+*/
+router.get('/site/event.html', (req, res) => {
+    res.render('site/event/event',{ user: req.user });
+});
+
+/*
+* CONTACT
+*/
+router.get('/site/contact.html', (req, res) => {
+    res.render('site/contact/contact',{ user: req.user });
 });
 
 /*
@@ -72,7 +138,6 @@ passPort.deserializeUser((id, cb) => {
 });
 
 function isLogin(req, res, next) {
-
     if (req.isAuthenticated()) {
         next();
     } else {

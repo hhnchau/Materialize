@@ -442,11 +442,11 @@ app.put(settings.updateVoucher, function (req, res) {
 * WEB
 */
 app.get("/index", function (req, res) {
-  res.render("index", { host: settings.url });
+  res.render("html/index", { host: settings.url });
 });
 
 app.get("/details/sn:id", function (req, res) {
-  res.render("details", { host: settings.url, id: req.params.id });
+  res.render("html/details", { host: settings.url, id: req.params.id });
 });
 
 app.get("/cart", function (req, res) {

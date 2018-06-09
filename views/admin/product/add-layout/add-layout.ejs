@@ -6,13 +6,13 @@
 
                 <h5 class="center flow-text">THÊM MỚI SẢN PHẨM</h5>
 
-                <form id="addForm" enctype="multipart/form-data" action="admin/product/add-product.html" method="post">
+                <form id="addForm" enctype="multipart/form-data" action="admin/product/add-image-product.html" method="post">
 
                     <div class="row">
                         <div class="input-field col s10">
                             <input id="product-code" type="text" name="productCode" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Vui lòng nhập mã sản phẩm')"
                                 required>
-                            <label for="product-code">Mã Sản Phẩm</label>
+                            <label for="product-code">Mã sản phẩm</label>
                         </div>
                         <div class="input-field col s2">
                             <a class="btn" id="btn-check">Check</a>
@@ -22,7 +22,7 @@
                     <div class="input-field gone">
                         <input id="product-name" type="text" name="productName" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Vui lòng nhập ten sản phẩm')"
                             required>
-                        <label for="product-name">Tên Sản Phẩm</label>
+                        <label for="product-name">Tên sản phẩm</label>
                     </div>
 
                     <div class="input-field gone">
@@ -31,22 +31,31 @@
                         <label for="product-category">Danh Mục-Chon tu combox</label>
                     </div>
 
+                    <div class="input-field">
+                        <select id="select-category">
+                            <option value="0" class="grey-text">Chon mot</option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                            <option value="3">Option 3</option>
+                        </select>
+                    </div>
+
                     <div class="input-field gone">
                         <input id="product-amount" type="text" name="productAmount" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Vui lòng nhập mã sản phẩm')"
                             required>
-                        <label for="product-amount">Số Lượng</label>
+                        <label for="product-amount">Số lượng</label>
                     </div>
 
                     <div class="input-field gone">
                         <input id="product-buy" type="text" name="productBuy" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Vui lòng nhập mã sản phẩm')"
                             required>
-                        <label for="product-buy">Mua Vào</label>
+                        <label for="product-buy">Mua vào</label>
                     </div>
 
                     <div class="input-field gone">
                         <input id="product-sell" type="text" name="productSell" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Vui lòng nhập mã sản phẩm')"
                             required>
-                        <label for="product-sell">Bán Ra</label>
+                        <label for="product-sell">Bán ra</label>
                     </div>
 
                     <div class="input-field gone">
@@ -66,7 +75,7 @@
                     </div>
 
                     <div class="file-field margin-top-20 gone">
-                        <p class="grey-text">Mo ta chi tiet</p>
+                        <p class="grey-text">Thông tin sản phẩm</p>
                         <textarea id="editor" name="editor"></textarea>
                     </div>
 
@@ -76,6 +85,9 @@
 
                 </form>
 
+                <div id="progress" class="progress">'
+                    <div class="indeterminate"></div>'
+                </div>
             </div>
         </div>
     </div>

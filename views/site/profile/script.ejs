@@ -1,0 +1,10 @@
+<script type="text/javascript">
+    $('#btn-logout').on('click', function () {
+        $.ajax({
+            method: "GET",
+            dataType: "json",
+            url: "/logout.html"
+        });
+    });
+
+</script>

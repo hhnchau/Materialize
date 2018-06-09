@@ -1,0 +1,72 @@
+<script type="text/javascript">
+
+  // Sidenav
+  const sideNav = document.querySelector('.sidenav');
+  M.Sidenav.init(sideNav, {});
+
+  // Slider
+  const slider = document.querySelector('.slider');
+  M.Slider.init(slider, {
+    indicators: false,
+    height: 550,
+    transition: 500,
+    interval: 6000
+  });
+
+  // ScrollSpy
+  const ss = document.querySelectorAll('.scrollspy');
+  M.ScrollSpy.init(ss, {});
+
+  //Dropdown
+  $(".dropdown-trigger").dropdown();
+
+</script>
+
+<script type="text/javascript">
+  var offset = 0;
+  var limit = 1;
+  $('#load-more').on('click', function () {
+    loadData(offset, limit);
+  });
+
+
+  function loadData(_offset, _limit) {
+    $('#load-more').hide();
+    $.ajax({
+      method: "GET",
+      dataType: "json",
+      beforeSend: function (request) {
+        request.setRequestHeader("secret", "12345");
+      },
+      url: "/findAllProduct?offset=" + _offset + "&limit=" + _limit,
+      success: function success(data) {
+        var count = 0;
+      
+        $.each(data, function (i, value) {
+          value.forEach(function (entry) {
+            count++;
+
+            var productId = entry.productId;
+            var productName = entry.productName;
+            var sell = entry.sell;
+            var discount = entry.discount;
+            var image1 = entry.image1;
+            var likeTotal = entry.likeTotal;
+            var rateTotal = entry.rateTotal;
+            var rateValue = entry.rateValue;
+            var commentTotal = entry.commentTotal;
+          });
+        });
+
+        //Check exist product
+        if(count === limit){
+          $('#load-more').show();
+        }
+        //Set Offset
+        offset += count;
+        
+      }
+    });
+  }
+
+</script>

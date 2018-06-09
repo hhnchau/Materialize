@@ -1,0 +1,38 @@
+<script>
+    $('.carousel.carousel-slider').carousel({
+        dist: 1, fullWidth: true, indicators: false
+    });
+    var flag = true;
+    $(document).on('touchstart click', '.prev', function () {
+        if (flag) {
+            flag = false;
+            setTimeout(function () {
+                $('.carousel').carousel('prev');
+                flag = true;
+            }, 300);
+        }
+    });
+
+    $(document).on('touchstart click', '.next', function () {
+        if (flag) {
+            flag = false;
+            setTimeout(function () {
+                $('.carousel').carousel('next');
+                flag = true;
+            }, 300);
+        }
+    });
+</script>
+
+<!-- Shoping cart -->
+<script>
+    var itemCart = {
+        productSn: '',
+        productName: '',
+        productImage: '',
+        productSell: '',
+        productDiscount: '',
+        
+        productAmount: ''
+    }
+</script>

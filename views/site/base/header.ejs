@@ -1,27 +1,59 @@
 <!-- Navbar -->
-<div class="navbar">
-    <nav class="cyan">
-        <div class="container">
-            <div class="nav-wrapper">
-                <a href="#" class="brand-logo">Kingpes</a>
-                <a href="#" data-target="mobile-nav" class="sidenav-trigger">
-                    <i class="material-icons">menu</i>
-                </a>
-                <ul class="right hide-on-med-and-down">
-                    <li>
-                        <a href="#home">Xin Chao: Admin</a>
-                    </li>
-                    <!-- <li>
-                        <a href="#search">Tìm Kiếm</a>
-                    </li> -->
-                </ul>
-            </div>
+<div class="navbar navbar-fixed">
+    <nav class="teal">
+
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo margin-left-10">Kingpes</a>
+            <a href="#" data-target="mobile-nav" class="sidenav-trigger">
+                <i class="material-icons">menu</i>
+            </a>
+            <ul class="right hide-on-med-and-down margin-right-10">
+                <li>
+                    <a href="#product.html">Sản phẩm</a>
+                </li>
+                <li>
+                    <a href="#search.html">Tìm kiếm</a>
+                </li>
+                <li>
+                    <a href="#flash-sale.html">Giảm sốc</a>
+                </li>
+                <li>
+                    <a href="/site/event.html">Sự kiện</a>
+                </li>
+                <li>
+                    <a href="/site/blog.html">Bài viết</a>
+                </li>
+                <li>
+                    <a href="/site/contact.html">Liên hệ</a>
+                </li>
+                <li>
+                    <a href="/site/cart.html">Giỏ hàng
+                        <span class="red-text" id="bage-cart"></span>
+                    </a>
+                </li>
+                <li>
+                    <%if (user == undefined){%>
+                        <a class="btn" href="/login.html">
+                            Đăng nhập
+                        </a>
+                        <%}else{%>
+
+                            <a href="/site/profile.html">
+                                <%=user.nickname%>
+                                    <i class="material-icons right">account_circle</i>
+                            </a>
+                            <%}%>
+                </li>
+
+            </ul>
         </div>
+
     </nav>
+
 </div>
 
 
-<ul class="sidenav sidenav-fixed" id="mobile-nav">
+<ul class="sidenav" id="mobile-nav">
     <li>
         <div class="user-view">
             <div class="background">

@@ -17,15 +17,19 @@
 <script>
     const sideNav = document.querySelector('.sidenav');
     M.Sidenav.init(sideNav, {});
+
+    //Side Menu
+    $("#drop-product").addClass("active");
+    //Side Menu
+    $('.add-product').css("background-color", "#80cbc4");
 </script>
 
 <script>
+    $('select').formSelect();
 
-    //Side Menu
-    $("#drop-baiviet").addClass("active");
-    //Side Menu
-    $('.redss').css("background-color", "#FF0000");
+    $('#modal-exist').modal();
 
+    $('#progress').hide();
 
     //Hide btn Check
     $('#btn-check').hide();
@@ -38,11 +42,12 @@
 
     //btn-chek click
     $('#btn-check').on('click', function () {
-        var productCode = $('#product-code').val();
-        if (productCode !== "") {
+        var productSn = $('#product-code').val();
+        if (productSn !== "") {
             $('#btn-check').hide();
             isCheck = true;
-            checkProduct(productCode);
+            checkProduct(productSn);
+            $('#progress').show();
         }
         return false;
     });
@@ -52,7 +57,7 @@
         var productCode = $('#product-code').val();
         if (productCode !== "") {
             $('#btn-check').show();
-        }else{
+        } else {
             $('#btn-check').hide();
         }
 
@@ -71,11 +76,12 @@
             beforeSend: function (request) {
                 request.setRequestHeader("secret", "12345");
             },
-            url: "http://localhost:3000/admin/product/check-product",
+            url: "/admin/product/check-product",
             data: {
                 productSn: sn,
             },
             success: function success(data) {
+                $('#progress').hide();
                 var result = "";
                 $.each(data, function (i, value) {
                     result = value.productSn;
@@ -83,17 +89,14 @@
 
                 if (result === 0) {
                     //OK
-                    //$(".gone").show();
-                    $('#modal-alert').modal('open'); //Open Modal
-                    //$('#progress').hide(); //Hide Progress
-                    //$('#msg').empty().text('Da ton tai san pham'); //Message
+                    $(".gone").show();
+
                 } else if (result > 0) {
                     //Exist
-                    $('#progress').hide(); //Hide Progress
-                    $('#msg').empty().text('Da ton tai san pham'); //Message
-                    $('#modal-alert').modal('open'); //Open Modal
+                    $('#modal-exist').modal('open');
                 } else {
                     //Error
+                    alert('Đã xảy ra lỗi!');
                 }
             }
         });
@@ -103,53 +106,64 @@
     $(document).ready(function () {
 
         $('#addForm').submit(function () {
-
-            $('#modal-alert').modal('open'); //Open Modal
+            $('#progress').show();
+            $('#btn-add').hide();
 
             $(this).ajaxSubmit({
-                beforeSend: function (request) {
-                    request.setRequestHeader("secret", "12345");
-                },
-                data: {
-                    productVideo: getContentChips(),
-                    productEditor: getContentEditor(),
-                },
-                error: function (xhr) {
-                    status('Error: ' + xhr.status);
-
-                    progress.hide();
-
-                },
                 success: function (data) {
-
-                    $('#progress').hide(); //Hide Progress
-                    //$('#msg').empty().text('Đã xử lý xong.'); //Message
-                    $('#btn-left').hide();
-                    $('#btn-right').hide();
-
+                    if (data.length > 0) {
+                        var filename = "";
+                        $.each(data, function (i, value) {
+                            filename += value.filename + "~";
+                        });
+                        filename = filename.substr(0, filename.length - 1);;
+                        uploadData(filename);
+                    } else {
+                        alert('Đã xảy ra lỗi!');
+                        $('#progress').hide();
+                        $('#btn-add').show();
+                    }
                 }
             });
             return false;
-
         });
     });
 
-    function uploadData(sn) {
+    //Upload Image
+    function uploadData(filename) {
         $.ajax({
             method: "POST",
             dataType: "json",
             beforeSend: function (request) {
                 request.setRequestHeader("secret", "12345");
             },
-            url: "http://localhost:3000/admin/product/check-product",
+            url: "/admin/product/add-data-product.html",
             data: {
-                productSn: sn,
+                productSn: $('#product-code').val(),
+                productName: $('#product-name').val(),
+                productCategory: $('#product-category').val(),
+                productAmount: $('#product-amount').val(),
+                productBuy: $('#product-buy').val(),
+                productSell: $('#product-sell').val(),
+                productPromotion: $('#product-promotion').val(),
+                productImage: filename,
+                productVideo: getContentChips(),
+                productEditor: getContentEditor()
             },
             success: function success(data) {
+                $('#progress').hide();
                 var result = "";
                 $.each(data, function (i, value) {
-                    result = value.productSn;
+                    result = value.insert;
                 });
+                if (result === 1) {
+                    //Successfull
+                    $('#modal-successful').modal('open');
+                } else {
+                    //Fail
+                    alert('Đã xảy ra lỗi!');
+                    $('#btn-add').show();
+                }
             }
         });
     }

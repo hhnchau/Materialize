@@ -1,6 +1,7 @@
 var db = require('./db');
 var string = require('./string');
 var log = require('./log');
+var utils = require('./utils');
 Models = require('./models');
 var models = new Models({});
 
@@ -390,6 +391,7 @@ exports.checkProductSn = function (sn, callback) {
             log.write("checkProductSn: ", '0');
             models.ProductForm({ productSn: 0 });
             callback(models.data);
+            //Find Catelogy + Promotion
           }
         }
       });
@@ -399,18 +401,53 @@ exports.checkProductSn = function (sn, callback) {
   }
 }
 
-exports.insertProduct = function (params, callback) {
+exports.addProduct = function (params, callback) {
   try {
-    string.sqlinsertProduct(params, function (stringQuery) {
+    string.sqlInsertProduct(params, function (stringQuery) {
       db.execute(stringQuery, function (data, err) {
         if (err) {
           log.error("insertProduct", err);
-          models.ProductForm({ update: 0 });
+          models.ProductForm({ insert: 0 });
           callback(models.data);
         } else {
-          models.ProductForm({ update: 1 });
-          log.write("insertProduct", JSON.stringify(models.data));
-          callback(models.data);
+          var productId = data.insertId;
+          string.sqlInsertPrice(productId, params.productBuy, params.productSell, function (stringQuery) {
+            db.execute(stringQuery, function (data, err) {
+              if (err) {
+                log.error("sqlInsertPrice", err);
+                models.ProductForm({ insert: 0 });
+                callback(models.data);
+              } else {
+                var image = utils.splitString(params.productImage, "~");
+
+                string.sqlInsertImage(productId, image[0], image[1], image[2], image[3], image[4], function (stringQuery) {
+                  db.execute(stringQuery, function (data, err) {
+                    if (err) {
+                      log.error("sqlInsertImage", err);
+                      models.ProductForm({ insert: 0 });
+                      callback(models.data);
+                    } else {
+                      var yt = utils.splitString(params.productVideo);
+
+                      string.sqlInsertYoutube(productId, yt[0], yt[1], yt[2], function (stringQuery) {
+                        db.execute(stringQuery, function (data, err) {
+                          if (err) {
+                            log.error("sqlInsertYoutube", err);
+                            models.ProductForm({ insert: 0 });
+                            callback(models.data);
+                          } else {
+                            models.ProductForm({ insert: 1 });
+                            log.write("sqlInsertYoutube", JSON.stringify(models.data));
+                            callback(models.data);
+                          }
+                        });
+                      });
+                    }
+                  });
+                });
+              }
+            });
+          });
         }
       });
     });
@@ -419,7 +456,7 @@ exports.insertProduct = function (params, callback) {
   }
 }
 
-exports.insertImage = function (params, callback) {
+exports.updateProduct = function (params, callback) {
   try {
     string.sqlinsertImage(params, function (stringQuery) {
       db.execute(stringQuery, function (data, err) {
@@ -439,7 +476,7 @@ exports.insertImage = function (params, callback) {
   }
 }
 
-exports.insertYoutube= function (params, callback) {
+exports.deleteProduct= function (params, callback) {
   try {
     string.sqlinsertYoutube(params, function (stringQuery) {
       db.execute(stringQuery, function (data, err) {

@@ -36,26 +36,21 @@ router.get('/login.html', (req, res) => {
 });
 
 router.post('/login.html',
-    passPort.authenticate('local',{failureRedirect: '/admin/login.html', successRedirect: '/admin/product/add-product.html'}));
+    passPort.authenticate('local', { failureRedirect: '/admin/login.html', successRedirect: '/admin/product/add-product.html' }));
+
+
+/*
+* STATISTIC
+*/
+router.get('/statistic/statistic.html', (req, res) => {
+    res.render('admin/statistic/statistic');
+});
 
 /*
 * PRODUCT
 */
-router.get('/product/list-product.html', (req, res) => {
 
-    var offset = 0;//req.query.offset;
-    var limit = 10;//req.query.limit;
-    var filter = req.query.filter;
-
-    console.log("TEST");
-
-
-    query.findAllProduct(filter, offset, limit, function (ProductForm) {
-        res.render('admin/product/list-product', { product: ProductForm });
-    });
-
-});
-
+//Check
 router.post('/product/check-product', (req, res) => {
     var secret = req.headers[settings.secret_key];
     if (secret === settings.secret_encrypt) {
@@ -75,39 +70,67 @@ router.post('/product/check-product', (req, res) => {
 
 });
 
-router.get('/product/add-product.html', isLogin, (req, res) => {
+//List
+router.get('/product/list-product.html', (req, res) => {
+
+    var offset = 0;//req.query.offset;
+    var limit = 10;//req.query.limit;
+    var filter = req.query.filter;
+
+    console.log("TEST");
+
+
+    query.findAllProduct(filter, offset, limit, function (ProductForm) {
+        res.render('admin/product/list-product', { product: ProductForm });
+    });
+
+});
+
+//Add
+router.get('/product/add-product.html', (req, res) => {
     res.render('admin/product/add-product');
 });
-
-router.post('/product/add-product.html', (req, res) => {
-    console.log(req.body.productVideo);
-    console.log(req.body.productEditor);
+router.post('/product/add-image-product.html', (req, res) => {
     upload(req, res, function (err) {
-        var secret = req.headers['secret'];
-        console.log(secret);
         console.log(req.files);
-        console.log(req.body.productCode);
-        console.log(req.body.productName);
-        console.log(req.body.productCategory);
-        console.log(req.body.productAmount);
-        console.log(req.body.productBuy);
-        console.log(req.body.productSell);
-        console.log(req.body.productPromotion);
-        console.log(req.body.productVideo);
-        console.log(req.body.productEditor);
         if (err) {
-            return res.end("Thêm sản phẩm thất bại");
+            return res.end("");
+            //Delete Image
         }
-        res.end("Thêm sản phẩm thành công");
+        res.json(req.files);
     });
 });
+router.post('/product/add-data-product.html', (req, res) => {
+    var secret = req.headers[settings.secret_key];
+    if (secret === settings.secret_encrypt) {
+        var params = req.body;
 
-router.put('/admin/product/update-product.html', (req, res) => {
-    render('admin/product/update-product');
+        query.addProduct(params, function (ProductForm) {
+            res.json(ProductForm);
+            res.end();
+          });
+
+    } else {
+        //Response 404
+        res.write(settings.secret_fail);
+        res.end();
+    }
 });
 
-router.delete('/admin/product/delete-product.html', (req, res) => {
-    render('admin/product/delete-product');
+//Update
+router.get('/product/update-product.html', (req, res) => {
+    res.render('admin/product/update-product');
+});
+router.put('/product/update-product.html', (req, res) => {
+
+});
+
+//Delete
+router.get('/product/delete-product.html', (req, res) => {
+    res.render('admin/product/delete-product');
+});
+router.delete('/product/delete-product.html', (req, res) => {
+
 });
 
 /*
@@ -162,12 +185,12 @@ passPort.deserializeUser((id, cb) => {
     });
 });
 
-function isLogin(req, res, next){
-   
-    if(req.isAuthenticated()){
-      next();
-    }else{
-      res.redirect('/admin/login.html');
+function isLogin(req, res, next) {
+
+    if (req.isAuthenticated()) {
+        next();
+    } else {
+        res.redirect('/admin/login.html');
     }
 }
 
