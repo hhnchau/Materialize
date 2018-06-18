@@ -3,36 +3,53 @@ exports.sqlFindAllProduct = function (search, offset, limit, query) {
     var sql = "";
     sql += "SELECT allProduct.*, raiting.likeTotal, raiting.rateTotal, raiting.rateValue, raiting.commentTotal";
     sql += " FROM";
-    sql += " (SELECT p.productId, p.productName, pri.sell, pro.discount, img.image1";
+    sql += " (SELECT p.productId, p.productName, pri.sell, pro.promotionDiscount, img.image1, shi.shipValue, poin.pointValue, flash.flashsaleDiscount";
     sql += " FROM product AS p";
     sql += " LEFT JOIN price AS pri ON p.productId = pri.priceId";
     sql += " LEFT JOIN image AS img ON p.productId = img.imageId";
+    sql += " LEFT JOIN promotion AS pro ON p.promotionId = pro.promotionId";
+    sql += " LEFT JOIN ship as shi ON p.shipId = shi.shipId";
+    sql += " LEFT JOIN point as poin ON p.pointId = poin.pointId";
+    sql += " LEFT JOIN flashsale as flash ON p.flashsaleId = flash.flashsaleId";
 
     if (search == null || search == "") {
-        sql += " LEFT JOIN promotion AS pro ON p.promotionId = pro.promotionId) AS allProduct";
+        sql += ") AS allProduct";
     } else {
-        sql += " LEFT JOIN promotion AS pro ON p.promotionId = pro.promotionId";
         sql += " WHERE p.productName like '%" + search + "%') AS allProduct";
     }
 
     sql += " LEFT JOIN";
-    sql += " (SELECT countLikes.productId, countLikes.likeTotal, countRate.rateValue, countRate.rateTotal, countComment.commentTotal";
+    sql += " (SELECT id.productId, countLikes.likeTotal, countRate.rateValue, countRate.rateTotal, countComment.commentTotal";
     sql += " FROM";
+    //Select productId
+    sql += " (SELECT p.productId";
+    sql += " FROM product AS p";
+    sql += ") AS id";
+    //
+    sql += " LEFT JOIN";
+    //Select likes
     sql += " (SELECT p.productId, count(*) AS likeTotal";
     sql += " FROM product AS p, likes AS l";
     sql += " WHERE p.productId = l.likesId";
-    sql += " GROUP BY p.productId) AS countLikes";
+    sql += " GROUP BY p.productId) AS countLikes ON id.productId = countLikes.productId";
+    //
     sql += " LEFT JOIN";
-    sql += " (SELECT p.productId, sum(r.rate) AS rateValue, count(*) AS rateTotal"
-    sql += " FROM product AS p, rate AS r"
+    //Select rate
+    sql += " (SELECT p.productId, sum(r.rate) AS rateValue, count(*) AS rateTotal";
+    sql += " FROM product AS p, rate AS r";
     sql += " WHERE p.productId = r.rateId";
-    sql += " GROUP BY p.productId) AS countRate ON countLikes.productId = countRate.productId";
+    sql += " GROUP BY p.productId) AS countRate ON id.productId = countRate.productId";
+    //
     sql += " LEFT JOIN";
+    //Select comment
     sql += " (SELECT p.productId, count(*) AS commentTotal";
     sql += " FROM product AS p, comment AS c";
     sql += " WHERE p.productId = c.commentId"
-    sql += " GROUP BY p.productId) AS countComment ON countLikes.productId = countComment.productId) AS raiting";
+    sql += " GROUP BY p.productId) AS countComment ON id.productId = countComment.productId";
+    //
+    sql += ") AS raiting";
     sql += " ON allProduct.productId = raiting.productId";
+
     sql += " LIMIT " + offset + ", " + limit;
 
     query(sql);
@@ -40,11 +57,19 @@ exports.sqlFindAllProduct = function (search, offset, limit, query) {
 
 exports.sqlFindProduct = function (productId, query) {
     var sql = "";
-    sql += "SELECT p.*, ca.*, img.*, yt.*";
+    sql += "SELECT p.*, ca.*, img.*, yt.*, pri.*, pro.*, vou.*, shi.*, sum(r.rate) as rateValue, count(r.rateId) as rateTotal, c.commentTotal, l.likesTotal, amoun.*";
     sql += " FROM product AS p";
     sql += " LEFT JOIN image as img ON p.productId = img.imageId";
     sql += " LEFT JOIN youtube as yt ON p.productId = yt.ytId";
-    sql += " LEFT JOIN category as ca ON p.productId = ca.categoryId";
+    sql += " LEFT JOIN category as ca ON p.categoryId = ca.categoryId";
+    sql += " LEFT JOIN price as pri ON p.productId = pri.priceId";
+    sql += " LEFT JOIN promotion as pro ON p.promotionId = pro.promotionId";
+    sql += " LEFT JOIN voucher as vou ON p.voucherId = vou.voucherId";
+    sql += " LEFT JOIN amount as amoun ON p.productId = amoun.amountId";
+    sql += " LEFT JOIN ship as shi ON p.shipId = shi.shipId";
+    sql += " LEFT JOIN rate as r ON p.productId = r.rateId";
+    sql += " LEFT JOIN (SELECT count(*) as commentTotal, commentId FROM comment WHERE commentId = '" + productId + "') as c ON p.productId = c.commentId";
+    sql += " LEFT JOIN (SELECT count(*) as likesTotal, likesId FROM likes WHERE likesId = '" + productId + "') as l ON p.productId = l.likesId";
     sql += " WHERE p.productId = '" + productId + "'";
 
     query(sql);
@@ -153,50 +178,58 @@ exports.sqlUpdateComment = function (id, answer, query) {
     query(sql);
 }
 
-exports.sqlInsertTransactions = function (params, query) {
-    //status = 0 : new, 1: waiting for confirm, 2:
-    //userId = 0: Guest mode, >0: Member mode
+exports.sqlInsertTransactions = function (transactionId, receiverId, params, query) {
+    //status = 0 : new, 1: waiting for confirm, 2:finish
+    //userId = 1: Guest mode, >1: Member mode
     var sql = "";
     sql += " INSERT INTO transactions";
     sql += " ("
-    if (params.userId > 0)
-        sql += "userId, ";
-    if (params.productId > 0)
-        sql += "productId, ";
+    sql += "transactionId, ";
+    sql += "receiverId, ";
+    sql += "productId, ";
     if (params.promotionId > 0)
         sql += "promotionId, ";
+    if (params.flashsaleId > 0)
+        sql += "flashsaleId, ";
     if (params.voucherId > 0)
         sql += "voucherId, ";
-    if (params.point > 0)
-        sql += "point, ";
+    if (params.pointId > 0)
+        sql += "pointId, ";
+    if (params.pointUse > 0)
+        sql += "pointUse, ";
     sql += "totalFee, ";
+    sql += "amount, ";
     sql += "status ";
     sql += ")";
 
     sql += " VALUES (";
-    if (params.userId > 0)
-        sql += "'" + params.userId + "',";
-    if (params.productId > 0)
-        sql += "'" + params.productId + "',";
+    sql += "'" + transactionId + "',";
+    sql += "'" + receiverId + "',";
+    sql += "'" + params.productId + "',";
     if (params.promotionId > 0)
         sql += "'" + params.promotionId + "',";
+    if (params.flashsaleId > 0)
+        sql += "'" + params.flashsaleId + "',";
     if (params.voucherId > 0)
         sql += "'" + params.voucherId + "',";
-    if (params.point > 0)
-        sql += "'" + params.point + "',";
-    sql += " '" + params.totalFee + "',";
+    if (params.pointId > 0)
+        sql += "'" + params.pointId + "',";
+    if (params.pointUse > 0)
+        sql += "'" + params.pointUse + "',";
+    sql += " '" + params.productTotalFee + "',";
+    sql += " '" + params.productAmount + "',";
     sql += " '" + params.status + "'";
     sql += ");";
 
     query(sql);
 }
 
-exports.sqlInsertDelivery = function (transactionId, receiverName, receiverAddress, receiverPhone, query) {
+exports.sqlInsertReceiver = function (receiver, query) {
     var sql = "";
-    sql += "INSERT INTO delivery";
-    sql += " (deliveryId, receiverName, receiverAddress, receiverPhone)";
+    sql += "INSERT INTO receiver";
+    sql += " (receiverName, receiverAddress, receiverPhone, receiverNote, latitude, longitude, userId)";
     sql += " VALUES";
-    sql += " ('" + transactionId + "', '" + receiverName + "', '" + receiverAddress + "', '" + receiverPhone + "')";
+    sql += " ('" + receiver.receiverName + "', '" + receiver.receiverAddress + "', '" + receiver.receiverPhone + "', '" + receiver.receiverNote + "', '" + receiver.receiverLatitude + "', '" + receiver.receiverLongitude + "', '" + receiver.receiverUserId + "')";
 
     query(sql);
 }
@@ -277,6 +310,14 @@ exports.sqlDeleteVoucher = function (id, query) {
     query(sql);
 }
 
+exports.sqlFindReceiver = function (userId, query) {
+    var sql = "";
+    sql += "SELECT * FROM receiver";
+    sql += " WHERE";
+    sql += " userId = '" + userId + "'";
+
+    query(sql);
+}
 
 /*
 * ADMIN

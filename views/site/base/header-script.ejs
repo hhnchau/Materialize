@@ -1,15 +1,14 @@
 <script>
-    
-    var itemCart = getItemCart();
-    if(itemCart.lenght > 0){
-        $('#bage-cart').empty().text(itemCart.lenght);
+    var shoppingCartItem = [];
+    if (sessionStorage["shopping-cart-items"] != null) {
+        shoppingCartItem = JSON.parse(sessionStorage["shopping-cart-items"].toString());
+        var cart = shoppingCartItem.length;
+        if (cart > 0) {
+            $('#bage-cart').empty().text('('+cart+')');
+        } else {
+            $('#bage-cart').empty();
+        }
     }else{
         $('#bage-cart').empty();
-    }
-    
-    function getItemCart() {
-        if (sessionStorage["shopping-cart-item"] != null) {
-            return JSON.parse(sessionStorage["shopping-cart-item"].toString());
-        }
     }
 </script>

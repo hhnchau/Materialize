@@ -5,3 +5,30 @@ git stash -u
 s: < 600
 m: > 600 < 992
 l: > 993
+
+table voucher: type: 0:-> no limit, 1:->user = voucherValue, 2:->totalFee > limited
+
+-find danh muc hien thi danh muc filter
+next verion
+-label new tinh theo thoi gian tao san pham so voi thoi gian hien tai(5ngay)
+-label supersale ke ben label promotion
+-icon tich luy diem ben phai
+-dang ky thanh cong tang diem cho user
+-xac nhan giao dich thanh cong tich luy diem cho user
+-profile the hien diem tich luy duoc
+-supersale chi the hien so san pham con lai duoc ban
+-update search: them filter 
+    san pham be trai
+    san pham be gia
+    khuyen mai
+    supersale
+    gia thap nhat
+    san pham moi
+    san pham ban nhieu nhat
+-suggest search
+-phan quyen cho cac shop dang san pham
+-phan quyen user theo group: ADMIN->ad1, ad2, ad3. SHOPADMIN->shopadmin1, shopadmin2
+-Tao them muc quan ly thanh vien tuong ung cho tung admin group
+-Tao trang phan quyen nhan vien
+-Diem cua user trong profile
+-Lich su mua hang cua user

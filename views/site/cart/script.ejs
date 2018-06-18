@@ -1,0 +1,215 @@
+<script>
+    //Get Session
+    var shoppingCartItem = [];
+    $(document).ready(function () {
+        displayShoppingCartItem();
+        //insertOders();
+        //saveShoppingCartItem();
+    });
+
+    function updateUpShoppingCartItem(index) {
+        shoppingCartItem[index].productAmount++;
+        if (shoppingCartItem[index].productAmount > shoppingCartItem[index].productMaxAmount)
+            shoppingCartItem[index].productAmount--;
+        sessionStorage["shopping-cart-items"] = JSON.stringify(shoppingCartItem);
+        displayShoppingCartItem();
+    }
+
+    function updateDownShoppingCartItem(index) {
+        shoppingCartItem[index].productAmount--;
+        if (shoppingCartItem[index].productAmount < 0)
+            shoppingCartItem[index].productAmount = 0;
+        sessionStorage["shopping-cart-items"] = JSON.stringify(shoppingCartItem);
+        displayShoppingCartItem();
+    }
+
+    function removeShoppingCartItem(index) {
+        shoppingCartItem.splice(index, 1);
+        sessionStorage["shopping-cart-items"] = JSON.stringify(shoppingCartItem);
+        displayShoppingCartItem();
+    }
+
+    function saveShoppingCartItem() {
+        var item = {
+            productId: '3204',
+            productName: 'Demo Test',
+            productImage: 'resort2.jpg',
+            productTotalFee: 10,
+            productAmount: 1,
+            productMaxAmount: 2
+
+            //userId, promotionId, voucherId, point
+        }
+
+        var exists = false;
+        if (shoppingCartItem.lenght > 0) {
+            $.each(shoppingCartItem, function (index, value) {
+                if (value.productId == item.productId) {
+                    value.productAmount++;
+                    if (value.productAmount > value.productMaxAmount)
+                        value.productAmount--;
+                    exists = true;
+                    return false;
+                }
+            });
+        }
+
+        if (!exists) {
+            shoppingCartItem.push(item);
+            shoppingCartItem.push(item);
+        }
+
+        sessionStorage["shopping-cart-items"] = JSON.stringify(shoppingCartItem);
+        displayShoppingCartItem();
+    }
+
+    function displayShoppingCartItem() {
+        if (sessionStorage["shopping-cart-items"] != null) {
+            shoppingCartItem = JSON.parse(sessionStorage["shopping-cart-items"].toString());
+
+            $("#table-product > tbody").html("");
+
+            $.each(shoppingCartItem, function (index, item) {
+                var output = "";
+                output += '<tr>';
+                output += '<td><img src="img/' + item.productImage + '"height="40px"></td>';
+                output += '<td>' + item.productName + '</td>';
+                var priceTotalFee = item.productTotalFee;
+                priceTotalFee = priceTotalFee.toLocaleString('it-IT', { style: 'currency', currency: 'VND' });
+                output += '<td>' + priceTotalFee + '</td>';
+                output += '<td>';
+                output += '<div class="row">';
+                output += '<div class="col s12 m5">';
+                output += '<a class="btn-small btn-down" data-href="' + index + '"> - </a>';
+                output += '</div>';
+                output += '<div class="col s12 m2">';
+                output += '<a>' + item.productAmount + '</a>';
+                output += '</div>';
+                output += '<div class="col s12 m5">';
+                output += '<a class="btn-small btn-up" data-href="' + index + '"> + </a>';
+                output += '</div>';
+                output += '</div>';
+                output += '</td>';
+                output += '<td><i class="material-icons hoverable red-text btn-clear" data-href="' + index + '" style="cursor: pointer;">cancel</i></td>';
+                output += '</tr>';
+
+                $('#table-product > tbody:last').append(output);
+            });
+
+            //Calculate Fee
+            var totalFee = 0;
+            $.each(shoppingCartItem, function (index, item) {
+                totalFee += item.productTotalFee * item.productAmount
+            });
+            totalFee = totalFee.toLocaleString('it-IT', { style: 'currency', currency: 'VND' });
+            var out = "";
+            out += '<tr>';
+            out += '<td></td>';
+            out += '<td class="teal-text">Tổng Cộng:</td>';
+            out += '<td class="red-text">' + totalFee + '</td>';
+            out += '<td></td>';
+            out += '<td></td>';
+            out += '</tr>';
+
+            $('#table-product > tbody:last').append(out);
+            //Set Bage
+            $('#bage-cart').empty().text('(' + shoppingCartItem.length + ')');
+            if (shoppingCartItem.length <= 0)
+                $('#bage-cart').empty();
+        } else {
+            //Cart Emty
+            $('#table-product').hide();
+            $('#cart-title').text('Bạn chưa mua sản phẩm nào.');
+            //Set Bage
+            $('#bage-cart').empty();
+        }
+
+        //Clear
+        $('.btn-clear').on('click', function () {
+            var index = $(this).data("href");
+            removeShoppingCartItem(index);
+        });
+
+        //Down
+        $('.btn-down').on('click', function () {
+            var index = $(this).data("href");
+            updateDownShoppingCartItem(index);
+        });
+
+        //Up
+        $('.btn-up').on('click', function () {
+            var index = $(this).data("href");
+            updateUpShoppingCartItem(index);
+        });
+    }
+
+</script>
+
+<script>
+    $('#btn-finish').on('click', function () {
+        var receiver = {
+            receiverName: $('#receiver-name').val(),
+            receiverAddress: $('#receiver-adrress').val(),
+            receiverPhone: $('#receiver-phone').val(),
+            receiverNote : $('#receiver-note').val(),
+            receiverLatitude: 0,
+            receiverLongitude: 0,
+            receiverUserId: '<%-userId%>'
+        }
+
+        shoppingCartItem.push(receiver);
+
+        insertOders();
+
+    });
+    function insertOders() {
+        $.ajax({
+            method: "POST",
+            dataType: "json",
+            beforeSend: function (request) {
+                request.setRequestHeader("secret", "12345");
+            },
+            url: "api/insertOrders",
+            data: {
+                order: JSON.stringify(shoppingCartItem)
+            },
+            success: function success(data) {
+                var result = "";
+                $.each(data, function (i, value) {
+                    result = value.insert;
+                });
+                alert(result);
+            }
+        });
+    }
+</script>
+
+<!-- Find Receiver Info -->
+<script>
+    var uId = '<%-userId%>';
+    if (uId > 1) {
+        findReceiver(uId);
+    }
+
+    function findReceiver(userId) {
+        $.ajax({
+            method: "GET",
+            dataType: "json",
+            beforeSend: function (request) {
+                request.setRequestHeader("secret", "12345");
+            },
+            url: "api/findReceiver?userId=" + userId,
+            success: function success(data) {
+                var output = "";
+                $.each(data, function (i, entry) {
+
+                    $('#receiver-name').val(entry.receiverName);
+                    $('#receiver-adrress').val(entry.receiverAddress);
+                    $('#receiver-phone').val(entry.receiverPhone);
+                    $('#receiver-note').val(entry.receiverNote);
+
+                });
+            }
+        });
+    }
+</script>

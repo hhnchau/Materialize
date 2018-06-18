@@ -1,3 +1,4 @@
+<% var userId = 1%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +6,9 @@
     <%include ../base/meta.ejs%>
 
         <%include ../base/css.ejs%>
-        <link rel="stylesheet" href="css/detail-style.css">
+            <link rel="stylesheet" href="css/home-style.css">
+            <link rel="stylesheet" href="css/detail-style.css">
+            <link rel="stylesheet" href="css/rating-style.css">
 
             <title>Kingpes</title>
 </head>
@@ -17,16 +20,20 @@
     </header>
 
     <main>
-            <%include layout.ejs%>
+        <%include layout.ejs%>
     </main>
 
     <footer>
         <%include ../base/footer.ejs%>
     </footer>
 
-    <%include ../base/js.ejs%>
-   
-    <%include script.ejs%>
+    <%include modal.ejs%>
+
+        <%include ../base/js.ejs%>
+
+            <%include ../base/header-script.ejs%>
+
+                <%include script.ejs%>
 
 </body>
 

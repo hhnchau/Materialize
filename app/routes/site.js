@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
-var settings = require('../settings');
-var query = require('../query');
+
 var helper = require('../helper');
+var query = require('../query');
 
 const passPort = require('passport');
 const localStategy = require('passport-local').Strategy;
@@ -73,35 +73,39 @@ router.get('/', (req, res) => {
 * DETAIL
 */
 router.get('/site/detail/sn:id.html', (req, res) => {
-    res.render('site/detail/detail', { user: req.user });
+    var productId = req.params.id;
+    productId = productId.substring(1, productId.length);
+    query.findProduct(productId, function (ProductForm) {
+        res.render('site/detail/detail', { user: req.user, product: ProductForm });
+    });
 });
 
 /*
 * CART
 */
-router.get('/site/cart.html', (req, res) => {
-    res.render('site/cart/cart',{ user: req.user });
+router.get('/site/cart.html', (req, res) => {    
+    res.render('site/cart/cart', { user: req.user });
 });
 
 /*
 * BLOG
 */
 router.get('/site/blog.html', (req, res) => {
-    res.render('site/blog/blog',{ user: req.user });
+    res.render('site/blog/blog', { user: req.user });
 });
 
 /*
 * EVENT
 */
 router.get('/site/event.html', (req, res) => {
-    res.render('site/event/event',{ user: req.user });
+    res.render('site/event/event', { user: req.user });
 });
 
 /*
 * CONTACT
 */
 router.get('/site/contact.html', (req, res) => {
-    res.render('site/contact/contact',{ user: req.user });
+    res.render('site/contact/contact', { user: req.user });
 });
 
 /*

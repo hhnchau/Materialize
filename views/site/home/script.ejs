@@ -17,20 +17,53 @@
   const ss = document.querySelectorAll('.scrollspy');
   M.ScrollSpy.init(ss, {});
 
-  //Dropdown
-  $(".dropdown-trigger").dropdown();
-
 </script>
 
 <script type="text/javascript">
+  var limit = 10;
   var offset = 0;
-  var limit = 1;
+  var search = "";
+  loadData(offset, limit, search);
+
   $('#load-more').on('click', function () {
-    loadData(offset, limit);
+    loadData(offset, limit, search);
   });
 
+  $('#nav-product').on('click', function () {
+    offset = 0;
+    search = "";
+    $('#all-product').empty();
+    loadData(offset, limit, search);
+  });
 
-  function loadData(_offset, _limit) {
+  $('#nav-side-product').on('click', function () {
+    offset = 0;
+    search = "";
+    $('#all-product').empty();
+    loadData(offset, limit, search);
+  });
+
+  $('#search-input').keydown(function (e) {
+    if (e.keyCode == 13) {
+      search = $('#search-input').val();
+      if (search != "") {
+        $("#search-input").val('');
+        $('#all-product').empty();
+        offset = 0;
+        loadData(offset, limit, search);
+        //Scroll
+        var position = $("section:last").offset().top;
+        $(window).scrollTop(position);
+      }
+    }
+  })
+
+  function loadData(_offset, _limit, _filter) {
+    if (_filter == "") {
+      $('#title-product').empty().text('Tất cả sản phẩm');
+    } else {
+      $('#title-product').empty().text('Kết quả tìm kiếm');
+    }
     $('#load-more').hide();
     $.ajax({
       method: "GET",
@@ -38,33 +71,122 @@
       beforeSend: function (request) {
         request.setRequestHeader("secret", "12345");
       },
-      url: "/findAllProduct?offset=" + _offset + "&limit=" + _limit,
+      url: "api/findAllProduct?filter=" + _filter + "&offset=" + _offset + "&limit=" + _limit,
       success: function success(data) {
         var count = 0;
-      
+
         $.each(data, function (i, value) {
+
+          if (_offset == 0) {
+            if (value == "") {
+              var output = "";
+              output += '<h5 class="center flow-text" style="margin-top:10%;">';
+              output += ' <span class="grey-text">Không tìm thấy kết quả phù hợp.</span>';
+              output += ' <p class="grey-text">Vui lòng thử lại.</p>';
+              output += '</h5>';
+              $('#all-product').append(output);
+            }
+          }
           value.forEach(function (entry) {
             count++;
+            var output = "";
 
             var productId = entry.productId;
             var productName = entry.productName;
             var sell = entry.sell;
-            var discount = entry.discount;
+            var discount = entry.promotionDiscount;
             var image1 = entry.image1;
             var likeTotal = entry.likeTotal;
             var rateTotal = entry.rateTotal;
             var rateValue = entry.rateValue;
             var commentTotal = entry.commentTotal;
+            var superSale = 0;
+            var newProduct = 0;
+
+
+            output += '<div class="col s12 m4">';
+            output += '<a href="/site/detail/sn:' + productId + '.html">';
+            output += '<div class="card hoverable">';
+
+            output += '<div class="card-image">'; //Start card Image
+            // Image
+            output += '<img src="img/resort1.jpg">';
+            //Label promotion
+            if (discount != null || discount > 0) {
+              output += '<span class="label-discount-bottom-left"> -' + discount + '% </span>';
+            }
+            //Label flash sale
+            if (superSale > 0) {
+              output += '<span class="label-discount-bottom-right">' + superSale + '</span>';
+            }
+
+            //New product
+            if (newProduct > 0) {
+              output += '<span class="label-discount-top-left">';
+              output += '<img src="img/label_new.png">';
+              output += '</span>';
+            }
+            output += '</div>'; //End card Image
+
+            output += '<div class="card-content">'; //Start card content
+            // Title
+            output += '<h6 class="teal-text ellipsis">' + productName + '</h6>';
+
+            // Price
+            output += '<div class="red-text">';
+            //Price Old
+            if (discount != null || discount > 0) {
+              var priceOld = sell;
+              priceOld = priceOld.toLocaleString('it-IT', { style: 'currency', currency: 'VND' });
+              output += '<span class="teal-text line-through" style="font-size: 70%">' + priceOld + '</span>';
+            }
+            //Price New
+            var priceNew = sell - ((sell * discount) / 100);
+            priceNew = priceNew.toLocaleString('it-IT', { style: 'currency', currency: 'VND' });
+            output += priceNew;
+            output += '</div>';
+
+            // rating
+            output += '<div class="">';
+
+            var rate = rateValue / rateTotal;
+            if (rateTotal == null || rateTotal == 0) {
+              rate = 0;
+              rateTotal = 0;
+            }
+            for (i = 0; i < rate; i++) {
+
+              output += '<i class="material-icons yellow-text text-darken-2 icon-small">star</i>';
+
+            }
+
+            for (i = 0; i < 5 - rate; i++) {
+
+              output += '<i class="material-icons grey-text text-darken-2 icon-small">star</i>';
+
+            }
+
+
+            //Comment
+            output += '<a class="text-small" style="margin-top: 3px">(' + rateTotal + 'nhận xét)</a>';
+            output += '</div>';
+            output += '</div>';
+            output += '</div>';
+            output += '</a>';
+            output += '</div>';
+
+            $('#all-product').append(output);
+
           });
         });
 
         //Check exist product
-        if(count === limit){
+        if (count === limit) {
           $('#load-more').show();
         }
         //Set Offset
         offset += count;
-        
+
       }
     });
   }

@@ -235,26 +235,45 @@ exports.deleteLikes = function (params, callback) {
 
 exports.insertOrders = function (params, callback) {
   try {
-    string.sqlInsertTransactions(params, function (stringQuery) {
+    //
+    var receiver = params[params.length - 1];
+    //Insert Receiver
+    string.sqlInsertReceiver(receiver, function (stringQuery) {
       db.execute(stringQuery, function (data, err) {
         if (err) {
-          log.error("insertOrders", err);
+          log.error("insertReceiver", err);
           models.ProductForm({ insert: 0 });
           callback(models.data);
         } else {
-          var transactionId = data.insertId;
-          string.sqlInsertDelivery(transactionId, params.receiverName, params.receiverAddress, params.receiverPhone, function (stringQuery) {
-            db.execute(stringQuery, function (data, err) {
-              if (err) {
-                log.error("insertOrders", err);
-                models.ProductForm({ insert: 0 });
-                callback(models.data);
-              } else {
-                models.ProductForm({ insert: 1 });
-                log.write("insertOrders", JSON.stringify(models.data));
-                callback(models.data);
+          //Count Insert
+          var count = 0;
+          //Get InsertId
+          var receiverId = data.insertId;
+          //Get Max transactionId
+          db.execute('SELECT max(transactionId) as maxTransactionId FROM transactions', function (data, err) {
+            if (!err) {
+              var transactionId = data[0].maxTransactionId;
+              transactionId++;
+              for (var i = 0; i < params.length - 1; i++) {
+                //Insert Transaction
+                string.sqlInsertTransactions(transactionId, receiverId, params[i], function (stringQuery) {
+                  db.execute(stringQuery, function (data, err) {
+                    count++;
+                    if (count == params.length - 1)
+                      if (err) {
+                        log.error("insertOrders", err);
+                        models.ProductForm({ insert: 0 });
+                        callback(models.data);
+                      } else {
+                        models.ProductForm({ insert: 1 });
+                        log.write("insertOrders", JSON.stringify(models.data));
+                        callback(models.data);
+                      }
+                  });
+                });
               }
-            });
+            }
+
           });
         }
       });
@@ -366,6 +385,28 @@ exports.updateVoucher = function (params, callback) {
   }
 }
 
+exports.findReceiver = function (userId, callback) {
+  try {
+    string.sqlFindReceiver(userId, function (stringQuery) {
+      db.execute(stringQuery, function (data, err) {
+        if (err) {
+          log.error("findReceiver", err);
+        } else {
+          if (data.length > 0) {
+            models.ProductForm(data[0]);
+          } else {
+            models.ProductForm({ value: 0 });
+          }
+          log.write("findReceiver", JSON.stringify(models.data));
+          callback(models.data);
+        }
+      });
+    });
+  } catch (ex) {
+    log.write("Execute Sql Query", "---------->Exception<---------- " + ex);
+  }
+}
+
 
 /*
 * ADMIN
@@ -384,7 +425,7 @@ exports.checkProductSn = function (sn, callback) {
           if (data[0]) {
             //Exist
             log.write("checkProductSn: ", data.length);
-            models.ProductForm({ productSn: data.length});
+            models.ProductForm({ productSn: data.length });
             callback(models.data);
           } else {
             //Not Exist
@@ -476,7 +517,7 @@ exports.updateProduct = function (params, callback) {
   }
 }
 
-exports.deleteProduct= function (params, callback) {
+exports.deleteProduct = function (params, callback) {
   try {
     string.sqlinsertYoutube(params, function (stringQuery) {
       db.execute(stringQuery, function (data, err) {

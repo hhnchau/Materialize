@@ -9,19 +9,22 @@
             </a>
             <ul class="right hide-on-med-and-down margin-right-10">
                 <li>
-                    <a href="#product.html">Sản phẩm</a>
-                </li>
-                <li>
-                    <a href="#search.html">Tìm kiếm</a>
+                    <a href="#product.html" id="nav-product">Sản phẩm</a>
                 </li>
                 <li>
                     <a href="#flash-sale.html">Giảm sốc</a>
+                </li>
+                <li>
+                    <a href="#search.html">Tìm kiếm</a>
                 </li>
                 <li>
                     <a href="/site/event.html">Sự kiện</a>
                 </li>
                 <li>
                     <a href="/site/blog.html">Bài viết</a>
+                </li>
+                <li>
+                    <a href="/site/blog.html">Dịch vụ</a>
                 </li>
                 <li>
                     <a href="/site/contact.html">Liên hệ</a>
@@ -37,10 +40,10 @@
                             Đăng nhập
                         </a>
                         <%}else{%>
-
                             <a href="/site/profile.html">
-                                <%=user.nickname%>
-                                    <i class="material-icons right">account_circle</i>
+                                <%userId = user.userId%>
+                                    <%=user.nickname%>
+                                        <i class="material-icons right">account_circle</i>
                             </a>
                             <%}%>
                 </li>
@@ -59,164 +62,50 @@
             <div class="background">
                 <img src="img/resort3.jpg">
             </div>
-            <a href="#user">
-                <img class="circle" src="img/resort1.jpg">
-            </a>
-            <a href="#name">
-                <span class="white-text name">Kingpes</span>
-            </a>
-            <a href="#email">
-                <span class="white-text email">kingpesvn@gmail.com</span>
-            </a>
+
+            <%if (user == undefined){%>
+                <a class="btn" href="/login.html" style="margin-bottom: 12%; margin-top: 5%;">
+                   Đăng nhập
+                </a>
+                <%}else{%>
+
+                    <a href="/site/profile.html">
+                        <img class="circle" width="60" height="60" avatar="<%=user.nickname%>">
+                    </a>
+
+                    <a href="/site/profile.html">
+                        <%userId = user.userId%>
+                        <%=user.nickname%>
+                    </a>
+                    <%}%>
         </div>
     </li>
-    <li>
-        <a href="#home">Thống Kê</a>
-    </li>
-    <li>
-        <a href="#search">Danh sách sản phẩm</a>
-    </li>
-    <li>
-        <a href="#search">Thêm sản phẩm</a>
-    </li>
-    <li>
-        <a href="#popular">Cập nhật sản phẩm</a>
-    </li>
-    <li>
-        <a href="#gallery">Xoá sản phẩm</a>
-    </li>
-    <li>
-        <a href="#contact">Liên Hệ</a>
-    </li>
 
-    <li class="no-padding">
-        <ul class="collapsible collapsible-accordion">
-            <li>
-                <a class="collapsible-header" id="vvv">Mã giảm giá
-                    <i class="material-icons right">arrow_drop_down</i>
-                </a>
-                <div class="collapsible-body">
-                    <ul>
-                        <li class="redss">
-                            <a href="#">Danh sách sản phẩm</a>
-                        </li>
-                        <li class="active">
-                            <a href="#">Thêm sản phẩm</a>
-                        </li>
-                        <li>
-                            <a href="#">Cập nhật sản phẩm</a>
-                        </li>
-                        <li>
-                            <a href="#">Xoá sản phẩm</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-        </ul>
+    <li>
+        <a href="#product.html" id="nav-side-product">Sản phẩm</a>
     </li>
-
-    <li class="no-padding">
-        <ul class="collapsible collapsible-accordion">
-            <li>
-                <a class="collapsible-header">Khuyến mãi
-                    <i class="material-icons right">arrow_drop_down</i>
-                </a>
-                <div class="collapsible-body">
-                    <ul>
-                        <li>
-                            <a href="#">link1</a>
-                        </li>
-                        <li>
-                            <a href="#">link1</a>
-                        </li>
-                        <li>
-                            <a href="#">link1</a>
-                        </li>
-                        <li>
-                            <a href="#">link1</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-        </ul>
+    <li>
+        <a href="#flash-sale.html">Giảm sốc</a>
     </li>
-
-    <li class="no-padding">
-        <ul class="collapsible collapsible-accordion">
-            <li>
-                <a class="collapsible-header">Sản phẩm
-                    <i class="material-icons right">arrow_drop_down</i>
-                </a>
-                <div class="collapsible-body">
-                    <ul>
-                        <li>
-                            <a href="#">link1</a>
-                        </li>
-                        <li>
-                            <a href="#">link1</a>
-                        </li>
-                        <li>
-                            <a href="#">link1</a>
-                        </li>
-                        <li>
-                            <a href="#">link1</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-        </ul>
+    <li>
+        <a href="#search.html">Tìm kiếm</a>
     </li>
-
-    <li class="no-padding">
-        <ul class="collapsible collapsible-accordion">
-            <li>
-                <a class="collapsible-header">Sự kiện
-                    <i class="material-icons right">arrow_drop_down</i>
-                </a>
-                <div class="collapsible-body">
-                    <ul>
-                        <li>
-                            <a href="#">link1</a>
-                        </li>
-                        <li>
-                            <a href="#">link1</a>
-                        </li>
-                        <li>
-                            <a href="#">link1</a>
-                        </li>
-                        <li>
-                            <a href="#">link1</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-        </ul>
+    <li>
+        <a href="/site/event.html">Sự kiện</a>
     </li>
-
-    <li class="no-padding">
-        <ul class="collapsible collapsible-accordion">
-            <li>
-                <a class="collapsible-header" id="drop-baiviet">Bài viết
-                    <i class="material-icons right">arrow_drop_down</i>
-                </a>
-                <div class="collapsible-body">
-                    <ul>
-                        <li>
-                            <a href="#">link1</a>
-                        </li>
-                        <li>
-                            <a href="#">link1</a>
-                        </li>
-                        <li>
-                            <a href="#">link1</a>
-                        </li>
-                        <li class="active">
-                            <a href="#">link1</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-        </ul>
+    <li>
+        <a href="/site/blog.html">Bài viết</a>
+    </li>
+    <li>
+        <a href="/site/blog.html">Dịch vụ</a>
+    </li>
+    <li>
+        <a href="/site/contact.html">Liên hệ</a>
+    </li>
+    <li>
+        <a href="/site/cart.html">Giỏ hàng
+            <span class="red-text" id="bage-cart"></span>
+        </a>
     </li>
 
 </ul>
